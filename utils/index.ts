@@ -12,11 +12,7 @@ export const getFilePaths = (
       if (parentComponentTree.children) {
         for (let j = 0; j < parentComponentTree.children.length; j++) {
           filePaths.push(
-            path.join(
-              'explore',
-              componentParent,
-              parentComponentTree.children[j].name
-            )
+            path.join(componentParent, parentComponentTree.children[j].name)
           );
         }
       }

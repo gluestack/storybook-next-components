@@ -13,7 +13,7 @@ export * from './FormControl';
 export * from './GluestackUIProvider';
 export * from './Heading';
 export * from './Hstack';
-export * from './Icons';
+// export * from './Icons';
 export * from './Image';
 export * from './Input';
 export * from './Link';
