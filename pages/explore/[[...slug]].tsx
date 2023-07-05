@@ -59,29 +59,34 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   generateCombinations(combinations, options, 0, {});
 
-  const convertedObject: any = combinations.reduce(
-    (acc: any, combination: any) => {
-      const { size, action, variant } = combination;
+  // const convertedObject: any = combinations.reduce(
+  //   (acc: any, combination: any) => {
+  //     const { size, action, variant } = combination;
 
-      if (!acc[size]) {
-        acc[size] = {};
-      }
+  //     if (!acc[size]) {
+  //       acc[size] = {};
+  //     }
 
-      if (!acc[size][action]) {
-        acc[size][action] = [];
-      }
+  //     if (!acc[size][action]) {
+  //       acc[size][action] = [];
+  //     }
 
-      acc[size][action].push(variant);
+  //     acc[size][action].push(variant);
 
-      return acc;
-    },
-    {}
-  );
+  //     return acc;
+  //   },
+  //   {}
+  // );
+
+  console.log(combinations);
 
   return (
     <Center p='$4'>
-      <VStack p='$4' space='lg'>
-        {Object.keys(convertedObject).map((size) => (
+      <VStack p='$4' space='xl'>
+        {combinations.map((props) => {
+          return <Story {...props} />;
+        })}
+        {/* {Object.keys(convertedObject).map((size) => (
           <HStack
             justifyContent='flex-start'
             alignItems='flex-start'
@@ -102,7 +107,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
               </VStack>
             ))}
           </HStack>
-        ))}
+        ))} */}
       </VStack>
     </Center>
   );
