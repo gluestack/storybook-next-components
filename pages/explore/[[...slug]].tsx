@@ -51,7 +51,13 @@ interface ExplorePageProps {
 }
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
+  if (slug === '') {
+    return <div>Hello</div>;
+  }
   const [_type, component] = slug.split('/');
+  if (!StoryData[component]) {
+    return <div>Hello</div>;
+  }
   const Story = StoryData[component]['story'];
   const StoryArgs = StoryData[component]['meta'];
   const options: Options = StoryArgs.argTypes;
@@ -137,7 +143,7 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   const { slug } = context.params as { slug: string[] };
   return {
     props: {
-      slug: slug.join('/'),
+      slug: slug ? slug.join('/') : '',
     },
   };
 };
