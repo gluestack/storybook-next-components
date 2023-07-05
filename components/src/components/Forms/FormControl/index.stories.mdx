@@ -1,0 +1,929 @@
+---
+title: FormControl | gluestack-ui | Installation, Usage, and API
+
+description: By using FormControl, developers can provide important context to form elements. This context can include whether the element is invalid, disabled, or required.
+
+pageTitle: FormControl
+
+pageDescription: By using FormControl, developers can provide important context to form elements. This context can include whether the element is invalid, disabled, or required.
+
+showHeader: true
+---
+
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="components/Forms/FormControl" />
+
+import { Icon, AlertCircleIcon, CircleIcon, CheckIcon } from './FormControl';
+import { ChevronDownIcon, FormControl, Input, Box } from './FormControl';
+import { Center, Text as FormControlText, Heading } from './FormControl';
+import { Button, Radio, Checkbox } from './FormControl';
+import { Textarea, Select, Switch } from './FormControl';
+import { Slider, Modal, HStack, VStack } from './FormControl';
+import { transformedCode } from '../../../utils';
+import {
+  AppProvider,
+  CodePreview,
+  Table,
+  TableContainer,
+  Text,
+  InlineCode,
+} from '@gluestack/design-system';
+
+import { useState } from 'react';
+
+import Wrapper from '../../Wrapper';
+
+## Basic
+
+Following is the default implementation of the **FormControl** component without any additional customization. This serves as a starting point for users who are new to this library and want to learn about the basic functionality and appearance of the component.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={true}
+    metaData={{
+      code: `
+        <Box h="$32" w="$72">
+          <FormControl {...props}>
+            <FormControl.Label mb='$1'>
+              <FormControl.Label.Text>Password</FormControl.Label.Text>
+            </FormControl.Label>
+            <Input>
+              <Input.Input
+                type="password"
+                defaultValue="12345"
+                placeholder="password"
+              />
+            </Input>
+            <FormControl.Helper>
+              <FormControl.Helper.Text>
+                Must be atleast 6 characters.
+              </FormControl.Helper.Text>
+            </FormControl.Helper>
+            <FormControl.Error>
+              <FormControl.Error.Icon
+                as={AlertCircleIcon}
+              />
+              <FormControl.Error.Text>
+                Atleast 6 characters are required.
+              </FormControl.Error.Text>
+            </FormControl.Error>
+          </FormControl>
+        </Box>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Input,
+        AlertCircleIcon,
+        Box,
+      },
+      argsType: {
+        size: {
+          control: 'select',
+          options: ['sm', 'md', 'lg'],
+          default: 'md',
+        },
+        isDisabled: {
+          control: 'boolean',
+          default: false,
+        },
+        isInvalid: {
+          control: 'boolean',
+          default: false,
+        },
+        isReadOnly: {
+          control: 'boolean',
+          default: false,
+        },
+        isRequired: {
+          control: 'boolean',
+          default: false,
+        },
+      },
+    }}
+  />
+</AppProvider>
+
+## Installation
+
+To install the component, run the following command in your terminal. This will add the component to your project's dependencies and allow you to use it in your project.
+
+```bash
+npx gluestack-ui@latest add form-control
+```
+
+### Import
+
+To use the component in your project, run the command below into your import statement. This will import the component from your components folder.
+
+```bash
+import { FormControl } from './components';
+```
+
+### Anatomy
+
+The structure provided below can help you identify and understand a FormControl component's various parts.
+
+```jsx
+export default () => (
+  <FormControl>
+    <FormControl.Label>
+      <FormControl.Label.Text />
+    </FormControl.Label>
+    <FormControl.Helper>
+      <FormControl.Helper.Text />
+    </FormControl.Helper>
+    <FormControl.Error>
+      <FormControl.Error.Icon />
+      <FormControl.Error.Text />
+    </FormControl.Error>
+  </FormControl>
+);
+```
+
+### API Reference
+
+The following section contains a comprehensive list of the component's references, including descriptions, properties, types, and default behavior. This information is readily available for you to access, helping you effectively utilize the component library in your projects.
+
+#### FormControl
+
+It inherits all the properties of React Native's [View](https://reactnative.dev/docs/view) component.
+
+<AppProvider>
+  <TableContainer>
+    <Table>
+      <Table.THead>
+        <Table.TR>
+          <Table.TH>
+            <Table.TText>Prop</Table.TText>
+          </Table.TH>
+          <Table.TH>
+            <Table.TText>Type</Table.TText>
+          </Table.TH>
+          <Table.TH>
+            <Table.TText>Default</Table.TText>
+          </Table.TH>
+          <Table.TH>
+            <Table.TText>Description</Table.TText>
+          </Table.TH>
+        </Table.TR>
+      </Table.THead>
+      <Table.TBody>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>size</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>'sm' | 'md' | 'lg'</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>'sm'</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`Sets the size of the FormControl children.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>isInvalid</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>bool</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>false</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`When true, invalid state.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>isRequired</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>bool</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>false</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`If true, astrick gets activated.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>isDisabled</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>bool</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>false</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`Disabled state true.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>isReadOnly</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>bool</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>false</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`To manually set read-only state.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD>
+            <Table.TText>
+              <InlineCode>isDisabled</InlineCode>
+            </Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>bool</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>false</Table.TText>
+          </Table.TD>
+          <Table.TD>
+            <Table.TText>{`To manually set disable to the FormControl.`}</Table.TText>
+          </Table.TD>
+        </Table.TR>
+      </Table.TBody>
+    </Table>
+  </TableContainer>
+</AppProvider>
+
+#### FormControl.Label
+
+It inherits all the properties of React Native's [View](https://reactnative.dev/docs/view) component.
+
+#### FormControl.Label.Text
+
+It inherits all the properties of React Native's [Text](https://reactnative.dev/docs/text) component.
+
+#### FormControl.Helper
+
+It inherits all the properties of React Native's [View](https://reactnative.dev/docs/view) component.
+
+#### FormControl.Helper.Text
+
+It inherits all the properties of React Native's [Text](https://reactnative.dev/docs/text) component.
+
+#### FormControl.Error
+
+It inherits all the properties of React Native's [View](https://reactnative.dev/docs/view) component.
+
+#### FormControl.Error.Icon
+
+It inherits all the properties of Gluestack Style's [AsForwarder](https://style.gluestack.io/docs/api/as-forwarder) component.
+
+#### FormControl.Error.Text
+
+It inherits all the properties of React Native's [Text](https://reactnative.dev/docs/text) component.
+
+### Features
+
+- Keyboard support for actions.
+- Support for hover, focus and active states.
+- Option to add your styles or use the default styles.
+
+### Dependencies
+
+The following are the lists of all the libraries and packages the component relies on. This information will help you ensure that your project has all the necessary dependencies installed to use the component.
+
+- `@gluestack-ui/utils`
+- `@react-native-aria/focus`
+
+### Examples
+
+The Examples section provides visual representations of the different variants of the component, allowing you to quickly and easily determine which one best fits your needs. Simply copy the code and integrate it into your project.
+
+#### Form Control with Input
+
+The Input Component can be incorporated within the FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <FormControl minWidth='$80'>
+          <FormControl.Label>
+            <FormControl.Label.Text>
+              Name
+            </FormControl.Label.Text>
+          </FormControl.Label>
+          <Input>
+            <Input.Input />
+          </Input>
+          <FormControl.Helper>
+            <FormControl.Helper.Text>
+              What would you like people to call you?
+            </FormControl.Helper.Text>
+          </FormControl.Helper>
+        </FormControl>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Input,
+        AlertCircleIcon,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Radio
+
+The Radio Component can be incorporated within the FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <FormControl>
+          <FormControl.Label>
+            <FormControl.Label.Text>
+              Favourite fruit
+            </FormControl.Label.Text>
+          </FormControl.Label>
+          <Radio.Group my='$2'>
+            <VStack space="sm">
+              <Radio size="sm" value="Mango">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Mango
+                </Radio.Label>
+              </Radio>
+              <Radio size="sm" value="Apple">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Apple
+                </Radio.Label>
+              </Radio>
+              <Radio size="sm" value="Orange">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Orange
+                </Radio.Label>
+              </Radio>
+            </VStack>
+          </Radio.Group>
+          <FormControl.Helper>
+            <FormControl.Helper.Text>
+              Choose the fruit you like the most
+            </FormControl.Helper.Text>
+          </FormControl.Helper>
+        </FormControl>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Radio,
+        AlertCircleIcon,
+        VStack,
+        CircleIcon,
+        Heading,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Checkbox
+
+The Checkbox Component can be incorporated within the FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <FormControl>
+          <FormControl.Label>
+            <FormControl.Label.Text>
+              Sign up for newsletters
+            </FormControl.Label.Text>
+          </FormControl.Label>
+          <Checkbox.Group my='$2'>
+            <VStack space="sm">
+              <Checkbox size="sm" value="Mango">
+                <Checkbox.Indicator mr="$2">
+                  <Checkbox.Icon>
+                    <CheckIcon />
+                  </Checkbox.Icon>
+                </Checkbox.Indicator>
+                <Checkbox.Label>
+                  Daily Bits
+                </Checkbox.Label>
+              </Checkbox>
+              <Checkbox size="sm" value="Apple">
+                <Checkbox.Indicator mr="$2">
+                  <Checkbox.Icon>
+                    <CheckIcon />
+                  </Checkbox.Icon>
+                </Checkbox.Indicator>
+                <Checkbox.Label>
+                  Event Updates
+                </Checkbox.Label>
+              </Checkbox>
+              <Checkbox size="sm" value="Orange">
+                <Checkbox.Indicator mr="$2">
+                  <Checkbox.Icon>
+                    <CheckIcon />
+                  </Checkbox.Icon>
+                </Checkbox.Indicator>
+                <Checkbox.Label>
+                  Sponsorship
+                </Checkbox.Label>
+              </Checkbox>
+            </VStack>
+          </Checkbox.Group>
+          <FormControl.Helper>
+            <FormControl.Helper.Text>
+              Subscribe to newsletters for updates.
+            </FormControl.Helper.Text>
+          </FormControl.Helper>
+        </FormControl>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Checkbox,
+        AlertCircleIcon,
+        VStack,
+        CheckIcon,
+        Heading,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Textarea
+
+The Textarea Component can be incorporated within the FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <FormControl>
+          <FormControl.Label>
+            <FormControl.Label.Text>
+              Comment
+            </FormControl.Label.Text>
+          </FormControl.Label>
+          <Textarea>
+            <Textarea.Input />
+          </Textarea>
+          <FormControl.Helper >
+            <FormControl.Helper.Text>
+              Type your comment above
+            </FormControl.Helper.Text>
+          </FormControl.Helper>
+        </FormControl>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Textarea,
+        AlertCircleIcon,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Inline Form
+
+Inline forms can utilize FormControl for seamless integration and enhanced functionality.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <HStack space='md'>
+          <FormControl>
+            <Input>
+              <Input.Input
+                placeholder="Username"
+              />
+            </Input>
+          </FormControl>
+          <FormControl>
+            <Select placeholder="Country">
+              <Select.Trigger>
+                <Select.Input/>
+                <Select.Icon mr="$3">
+                  <Icon as={ChevronDownIcon} />
+                </Select.Icon>
+              </Select.Trigger>
+              <Select.Portal>
+                <Select.Backdrop />
+                <Select.Content>
+                  <Select.DragIndicatorWrapper>
+                    <Select.DragIndicator />
+                  </Select.DragIndicatorWrapper>
+                  <Select.Item label="India" value="India" />
+                  <Select.Item label="Sri Lanka" value="Sri Lanka" />
+                  <Select.Item label="Uganda" value="Uganda" />
+                  <Select.Item label="Japan" value="Japan" />
+                </Select.Content>
+              </Select.Portal>
+            </Select>
+          </FormControl>
+          <FormControl>
+            <Button bg='$darkBlue600'>
+              <Button.Text fontSize='$sm' fontWeight='$medium'>
+                Next
+              </Button.Text>
+            </Button>
+          </FormControl>
+        </HStack>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        HStack,
+        ChevronDownIcon,
+        Input,
+        Select,
+        Button,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Form in Modal
+
+Modal or other Overlay components can utilize FormControl for state management and error control.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+      function App() {
+        const [showModal, setShowModal] = useState(false);
+        return(
+          <Center h={500}>
+            <Button
+              py='$2.5'
+              px='$3'
+              bg='$darkBlue600'
+              onPress={()=>{
+                setShowModal(true);
+              }}
+            >
+              <Button.Text>
+                Change Settings
+              </Button.Text>
+            </Button>
+            <Modal
+              isOpen={showModal}
+              onClose={() => {
+                setShowModal(false)
+              }}
+            >
+              <Modal.Backdrop/>
+              <Modal.Content maxWidth='$96'>
+                <Modal.Body p='$5'>
+                  <VStack space='xs' mb='$4'>
+                    <Heading>
+                      Change Settings
+                    </Heading>
+                    <Text size='sm'>
+                      Make modifications to the settings with ease.
+                    </Text>
+                  </VStack>
+                  <VStack py='$2' space='xl'>
+                    <FormControl>
+                      <FormControl.Label>
+                        <FormControl.Label.Text>
+                          Name
+                        </FormControl.Label.Text>
+                      </FormControl.Label>
+                      <Input>
+                        <Input.Input
+                          value='Wade Warren'
+                        />
+                      </Input>
+                    </FormControl>
+                    <FormControl>
+                      <FormControl.Label>
+                        <FormControl.Label.Text>
+                          Email
+                        </FormControl.Label.Text>
+                      </FormControl.Label>
+                      <Input>
+                        <Input.Input
+                          value='wadewarren@sample.com'
+                        />
+                      </Input>
+                    </FormControl>
+                    <FormControl>
+                      <FormControl.Label>
+                        <FormControl.Label.Text>
+                          Volume
+                        </FormControl.Label.Text>
+                      </FormControl.Label>
+                      <Slider defaultValue={40}>
+                        <Slider.Track>
+                          <Slider.FilledTrack/>
+                        </Slider.Track>
+                        <Slider.Thumb/>
+                      </Slider>
+                    </FormControl>
+                    <FormControl>
+                      <HStack space='sm'>
+                        <Switch size='sm'/>
+                        <FormControl.Label.Text>
+                          Dark Mode
+                        </FormControl.Label.Text>
+                      </HStack>
+                    </FormControl>
+                  </VStack>
+                  <Button
+                    mt='$4'
+                    onPress={()=>{
+                      setShowModal(false);
+                    }}
+                  >
+                    <Button.Text>
+                      Save Changes
+                    </Button.Text>
+                  </Button>
+                </Modal.Body>
+              </Modal.Content>
+            </Modal>
+          </Center>
+        );
+      }
+      `,
+      transformCode: (code) => {
+        return transformedCode(code, 'function', 'App');
+      },
+      scope: {
+        Wrapper,
+        useState,
+        Box,
+        Center,
+        FormControl,
+        Input,
+        Button,
+        Slider,
+        Switch,
+        Modal,
+        Text: FormControlText,
+        Heading,
+        VStack,
+        HStack,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Error
+
+Error messages can be displayed using FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <FormControl isInvalid>
+          <FormControl.Label>
+            <FormControl.Label.Text>
+              Which time slot works best for you?
+            </FormControl.Label.Text>
+          </FormControl.Label>
+          <Radio.Group my='$2'>
+            <VStack space="sm">
+              <Radio size="sm" value="Mango">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Monday
+                </Radio.Label>
+              </Radio>
+              <Radio size="sm" value="Apple">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Tuesday
+                </Radio.Label>
+              </Radio>
+              <Radio size="sm" value="Orange">
+                <Radio.Indicator mr="$2">
+                  <Radio.Icon>
+                    <CircleIcon/>
+                  </Radio.Icon>
+                </Radio.Indicator>
+                <Radio.Label>
+                  Wednesday
+                </Radio.Label>
+              </Radio>
+            </VStack>
+          </Radio.Group>
+          <FormControl.Error>
+            <FormControl.Error.Icon as={AlertCircleIcon}/>
+            <FormControl.Error.Text>
+              Choose one time slot for the meeting
+            </FormControl.Error.Text>
+          </FormControl.Error>
+        </FormControl>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        Icon,
+        Radio,
+        AlertCircleIcon,
+        VStack,
+        CircleIcon,
+        Heading,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+#### Form Control with Form Actions
+
+Form Action Buttons can also be utilized in conjunction with FormControl.
+
+<AppProvider>
+  <CodePreview
+    showComponentRenderer={true}
+    showArgsController={false}
+    metaData={{
+      code: `
+        <HStack>
+          <FormControl>
+            <Button action='negative' mr='$4'>
+              <Button.Text>
+                Delete
+              </Button.Text>
+            </Button>
+          </FormControl>
+          <FormControl>
+            <Button variant='outline' action='secondary'>
+              <Button.Text>
+                Cancel
+              </Button.Text>
+            </Button>
+          </FormControl>
+        </HStack>
+      `,
+      transformCode: (code) => {
+        return transformedCode(code);
+      },
+      scope: {
+        Wrapper,
+        FormControl,
+        HStack,
+        Button,
+      },
+      argsType: {},
+    }}
+  />
+</AppProvider>
+
+## Advanced
+
+We provide in-depth information on how to customize and extend the component's functionality to meet your needs. Below, we describe how to modify the component to suit your requirements.
+
+### Customizing the FormControl
+
+We have a function called `createFormControl` which can be used to create a custom FormControl component. This function takes in a configuration object which contains the styled components that you want to use for the FormControl. You can refer [style.gluestack.io](https://style.gluestack.io/) for more information on how to use styled components.
+
+#### Usage
+
+Default styling of all these components can be found in the `components/form-control` file. For reference, you can view the [source code](https://github.com/gluestack/gluestack-ui/tree/main/example/storybook/src/ui-components/FormControl) of the styled `FormControl` components.
+
+```jsx
+// import the styles
+import {
+  Root,
+  Error,
+  ErrorText,
+  ErrorIcon,
+  Label,
+  LabelText,
+  LabelAstrick,
+  Helper,
+  HelperText,
+} from '../components/core/form-control/styled-components';
+
+// import the createFormControl function
+import { createFormControl } from '@gluestack-ui/form-control';
+
+// Understanding the API
+const FormControl = createFormControl({
+  Root,
+  Error,
+  ErrorText,
+  ErrorIcon,
+  Label,
+  LabelText,
+  LabelAstrick,
+  Helper,
+  HelperText,
+});
+
+// Using the FormControl component
+export default () => (
+  <FormControl>
+    <FormControl.Label>
+      <FormControl.Label.Text></FormControl.Label.Text>
+    </FormControl.Label>
+    <Input />
+    <FormControl.Helper>
+      <FormControl.Helper.Text></FormControl.Helper.Text>
+    </FormControl.Helper>
+    <FormControl.Error>
+      <FormControl.Error.Icon as={AlertCircleIcon} />
+      <FormControl.Error.Text></FormControl.Error.Text>
+    </FormControl.Error>
+  </FormControl>
+);
+```
