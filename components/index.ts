@@ -1,1 +1,1 @@
-export * from './src/ui-components';
+export * from './ui-components';

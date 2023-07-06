@@ -3,6 +3,7 @@ const path = require('path');
 const simpleGit = require('simple-git');
 
 const storybookClonePath = path.join(__dirname, '..', 'gluestack-ui');
+const componentsFolderPath = path.join(__dirname, '..', 'components');
 
 main();
 
@@ -19,12 +20,13 @@ function main() {
 
         copyFolder(
           path.join(storybookClonePath, 'example/storybook/src/components'),
-          path.join(__dirname, '..', 'components')
+          path.join(__dirname, '..', 'components/stories')
         );
         copyFolder(
           path.join(storybookClonePath, 'example/storybook/src/ui-components'),
-          path.join(__dirname, '..', 'components')
+          path.join(__dirname, '..', 'components/ui-components')
         );
+        createIndexFile();
         deleteFolderRecursive(storybookClonePath);
       }
     }
@@ -33,7 +35,7 @@ function main() {
 
 function copyFolder(source, destination) {
   if (!fs.existsSync(destination)) {
-    fs.mkdirSync(destination);
+    fs.mkdirSync(destination, { recursive: true }); // Create the destination folder recursively
   }
 
   const files = fs.readdirSync(source);
@@ -60,4 +62,10 @@ function deleteFolderRecursive(folderPath) {
     });
     fs.rmdirSync(folderPath);
   }
+}
+
+function createIndexFile() {
+  const indexPath = path.join(componentsFolderPath, 'index.ts');
+  const content = `export * from './ui-components';`;
+  fs.writeFileSync(indexPath, content);
 }
