@@ -1,4 +1,3 @@
-require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const simpleGit = require('simple-git');
@@ -17,24 +16,37 @@ function main() {
         console.error('Failed to clone repository:', error);
       } else {
         console.log('Repository cloned successfully:', result);
-        writeWrapperFile();
+
+        copyFolder(
+          path.join(storybookClonePath, 'example/storybook/src/components'),
+          path.join(__dirname, '..', 'components')
+        );
+        copyFolder(
+          path.join(storybookClonePath, 'example/storybook/src/ui-components'),
+          path.join(__dirname, '..', 'components')
+        );
+        deleteFolderRecursive(storybookClonePath);
       }
     }
   );
 }
 
-// function writeWrapperFile() {
-//   copyAssetsImages();
-// }
+function copyFolder(source, destination) {
+  if (!fs.existsSync(destination)) {
+    fs.mkdirSync(destination);
+  }
 
-// function copyAssetsImages() {
-//   let storybookAssetsImagesPath = path.join(
-//     storybookClonePath,
-//     'example/storybook/assets/images'
-//   );
-//   let nextImagesPath = path.join(__dirname, '..', 'public/images');
-//   mergeFolders(storybookAssetsImagesPath, nextImagesPath);
-// }
+  const files = fs.readdirSync(source);
+  for (const file of files) {
+    const sourcePath = path.join(source, file);
+    const destinationPath = path.join(destination, file);
+    if (fs.lstatSync(sourcePath).isDirectory()) {
+      copyFolder(sourcePath, destinationPath);
+    } else {
+      fs.copyFileSync(sourcePath, destinationPath);
+    }
+  }
+}
 
 function deleteFolderRecursive(folderPath) {
   if (fs.existsSync(folderPath)) {
@@ -49,30 +61,3 @@ function deleteFolderRecursive(folderPath) {
     fs.rmdirSync(folderPath);
   }
 }
-
-// function mergeFolders(sourceFolderPath, destinationFolderPath) {
-//   if (!fs.existsSync(sourceFolderPath)) {
-//     console.log('Source Folder does not exist!', sourceFolderPath);
-//     return;
-//   }
-//   if (!fs.existsSync(destinationFolderPath)) {
-//     fs.mkdirSync(destinationFolderPath);
-//   }
-
-//   const files = fs.readdirSync(sourceFolderPath);
-//   files.forEach((file) => {
-//     const sourceFilePath = path.join(sourceFolderPath, file);
-//     const destinationFilePath = path.join(destinationFolderPath, file);
-
-//     const stats = fs.statSync(sourceFilePath);
-//     if (stats.isDirectory()) {
-//       mergeFolders(sourceFilePath, destinationFilePath);
-//     } else {
-//       fs.copyFileSync(sourceFilePath, destinationFilePath);
-//     }
-//   });
-
-//   console.log(
-//     `Merged folders: ${sourceFolderPath} and ${destinationFolderPath}`
-//   );
-// }
