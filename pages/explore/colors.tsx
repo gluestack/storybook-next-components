@@ -1,65 +1,79 @@
-import React, { Children } from 'react';
-import { HStack, Box, VStack, Text, Heading } from '../../components';
-import { config } from '@/gluestack-ui.config';
+import React from 'react';
+import { HStack, Box, VStack, Text, Heading } from '@/components';
+import { config } from '@/components/gluestack-ui.config';
+
+function splitStringAtNumberStart(str: string) {
+  const regex = /(\D+)(\d+)/;
+  const match = str.match(regex);
+  if (match) {
+    const [, stringPart, numberPart] = match;
+    return [stringPart, numberPart];
+  }
+  return [str];
+}
+
+function convertColors(colors: any) {
+  const convertedColors: any = {};
+
+  Object.entries(colors).map(([key, value]) => {
+    const [color, hue] = splitStringAtNumberStart(key);
+
+    if (convertedColors[color]) {
+      convertedColors[color][key] = value;
+    } else {
+      if (hue) {
+        convertedColors[color] = {};
+      } else {
+        convertedColors[color] = value;
+      }
+    }
+  });
+
+  return convertedColors;
+}
 
 const Colors = ({ ...props }: any) => {
-  const colors = config.theme.tokens.colors;
+  let colors = config.theme.tokens.colors;
+
+  const colorMap = convertColors(colors);
+
+  console.log(colorMap);
+
   return (
-    <Box
+    <VStack
       width='$full'
       alignItems={'center'}
       justifyContent={'center'}
       p={3}
-      mb={28}
+      my={28}
+      space='xl'
     >
       <Heading>Theme Colors</Heading>
-      {/* <div
+      <div
         data-component-props={JSON.stringify({
           name: 'Colors',
           colors: colors,
         })}
       >
         <VStack space='lg'>
-          {colors.map((color: any, key: number) => {
-            let colorValues;
-            if (typeof theme.colors[color] == 'string') {
-              colorValues = theme.colors[color];
-
+          {Object.keys(colorMap).map((colorFamily: any) => {
+            if (typeof colorMap[colorFamily] === 'string') {
+              const colorToken = '$' + colorFamily;
               return (
-                <VStack
-                  key={key}
-                  h={24}
-                  w={'100%'}
-                  justifyContent='center'
-                  alignItems='center'
-                >
-                  <Box bg={colorValues}></Box>
-                  <Text fontSize={'$xs'}>{color}</Text>
-                  <Text fontSize={'$xs'} color='gray.600'>
-                    {colorValues}
-                  </Text>
+                <VStack>
+                  <Box h={50} w={100} bg={colorToken} />
+                  {/* <Text size='xs'>{colorToken}</Text> */}
                 </VStack>
               );
             } else {
-              colorValues = Object.keys(theme.colors[color]);
               return (
-                <HStack key={key}>
-                  {colorValues.map((value: any, index: number) => {
+                <HStack>
+                  {Object.keys(colorMap[colorFamily]).map((color: any) => {
+                    const colorToken = '$' + color;
                     return (
-                      <VStack
-                        key={index}
-                        h={24}
-                        w={24}
-                        justifyContent='center'
-                        alignItems='center'
-                      >
-                        <Box bg={theme.colors[color][value]}></Box>
-                        <Text fontSize={'$xs'}>
-                          {color}.{value}
-                        </Text>
-                        <Text fontSize={'$xs'} color='gray.600'>
-                          {theme.colors[color][value]}
-                        </Text>
+                      <VStack>
+                        <Box h={50} w={100} bg={colorToken} />
+                        {/* <Text size='xs'>{colorToken}</Text> */}
                       </VStack>
                     );
                   })}
@@ -68,8 +82,8 @@ const Colors = ({ ...props }: any) => {
             }
           })}
         </VStack>
-      </div> */}
-    </Box>
+      </div>
+    </VStack>
   );
 };
 
