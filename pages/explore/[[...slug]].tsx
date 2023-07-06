@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 
 import StoryData from '../../storybook-to-next.config';
-import { Center, HStack, VStack } from '@/components';
+import { Center, VStack } from '@/components';
 
 interface Option {
   control: string;
@@ -39,10 +39,12 @@ function generateCombinations(
   const optionKey = Object.keys(options)[index];
   const optionValues = options[optionKey].options;
 
-  for (let i = 0; i < optionValues.length; i++) {
-    const newCombination: Combination = { ...combination };
-    newCombination[optionKey] = optionValues[i];
-    generateCombinations(combinations, options, index + 1, newCombination);
+  if (optionValues && optionValues.length > 0) {
+    for (let i = 0; i < optionValues.length; i++) {
+      const newCombination: Combination = { ...combination };
+      newCombination[optionKey] = optionValues[i];
+      generateCombinations(combinations, options, index + 1, newCombination);
+    }
   }
 }
 
@@ -63,58 +65,20 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   const options: Options = StoryArgs.argTypes;
   const combinations: Combination[] = [];
 
-  generateCombinations(combinations, options, 0, {});
-
-  // const convertedObject: any = combinations.reduce(
-  //   (acc: any, combination: any) => {
-  //     const { size, action, variant } = combination;
-
-  //     if (!acc[size]) {
-  //       acc[size] = {};
-  //     }
-
-  //     if (!acc[size][action]) {
-  //       acc[size][action] = [];
-  //     }
-
-  //     acc[size][action].push(variant);
-
-  //     return acc;
-  //   },
-  //   {}
-  // );
-
-  console.log(combinations);
+  if (options) {
+    generateCombinations(combinations, options, 0, {});
+  }
 
   return (
     <Center p='$4'>
-      <VStack p='$4' space='xl'>
-        {combinations.map((props) => {
-          return <Story {...props} />;
-        })}
-        {/* {Object.keys(convertedObject).map((size) => (
-          <HStack
-            justifyContent='flex-start'
-            alignItems='flex-start'
-            p='$4'
-            space='lg'
-            key={size}
-          >
-            {Object.keys(convertedObject[size]).map((action) => (
-              <VStack p='$4' space='lg' key={action}>
-                {convertedObject[size][action].map((variant: string) => (
-                  <Story
-                    action={action}
-                    variant={variant}
-                    size={size}
-                    key={`${size}-${action}-${variant}`}
-                  />
-                ))}
-              </VStack>
-            ))}
-          </HStack>
-        ))} */}
-      </VStack>
+      {combinations.length === 0 && <Story />}
+      {combinations.length > 0 && (
+        <VStack p='$4' space='xl'>
+          {combinations.map((props) => {
+            return <Story {...props} />;
+          })}
+        </VStack>
+      )}
     </Center>
   );
 };
