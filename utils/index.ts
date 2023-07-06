@@ -8,12 +8,10 @@ export const getFilePaths = (
   if (tree.children) {
     for (let i = 0; i < tree.children.length; i++) {
       const parentComponentTree = tree.children[i];
-      const componentParent = tree.children[i].name;
+
       if (parentComponentTree.children) {
         for (let j = 0; j < parentComponentTree.children.length; j++) {
-          filePaths.push(
-            path.join(componentParent, parentComponentTree.children[j].name)
-          );
+          filePaths.push(parentComponentTree.children[j].name);
         }
       }
     }

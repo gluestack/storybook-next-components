@@ -26,6 +26,13 @@ function main() {
           path.join(storybookClonePath, 'example/storybook/src/ui-components'),
           path.join(__dirname, '..', 'components/ui-components')
         );
+        copyFile(
+          path.join(
+            storybookClonePath,
+            'example/storybook/src/gluestack-ui.config.ts'
+          ),
+          componentsFolderPath
+        );
         createIndexFile();
         deleteFolderRecursive(storybookClonePath);
       }
@@ -68,4 +75,10 @@ function createIndexFile() {
   const indexPath = path.join(componentsFolderPath, 'index.ts');
   const content = `export * from './ui-components';`;
   fs.writeFileSync(indexPath, content);
+}
+
+function copyFile(source, destination) {
+  const fileName = path.basename(source);
+  const destinationPath = path.join(destination, fileName);
+  fs.copyFileSync(source, destinationPath);
 }

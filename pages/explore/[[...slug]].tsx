@@ -54,7 +54,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   if (slug === '') {
     return <div>Hello</div>;
   }
-  const [_type, component] = slug.split('/');
+  const component = slug;
   if (!StoryData[component]) {
     return <div>Hello</div>;
   }
@@ -121,16 +121,14 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const baseDirPath = process.cwd();
-  const tree = DirectoryTree(
-    path.join(baseDirPath, 'components/src/components')
-  );
+  const tree = DirectoryTree(path.join(baseDirPath, 'components/stories'));
   const filePaths = getFilePaths(tree);
   const paths: { params: { slug: string[] } }[] = [];
   filePaths?.map((filename) => {
-    let slug = filename.split('/');
+    let slug = filename;
     paths.push({
       params: {
-        slug: slug,
+        slug: [slug],
       },
     });
   });
@@ -140,10 +138,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   context
 ) => {
-  const { slug } = context.params as { slug: string[] };
+  const { slug } = context.params as { slug: string };
   return {
     props: {
-      slug: slug ? slug.join('/') : '',
+      slug: slug ? slug : '',
     },
   };
 };
