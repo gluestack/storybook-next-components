@@ -10,7 +10,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-storybook": "node scripts/update-storybook",
+    "generate-storybook-config": "node scripts/generate-storybook-to-next-config"
   },
   "dependencies": {
     "@babel/runtime": "7.0.0",

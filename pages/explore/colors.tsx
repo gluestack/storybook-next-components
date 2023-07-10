@@ -16,6 +16,10 @@ function convertColors(colors: any) {
   const convertedColors: any = {};
 
   Object.entries(colors).map(([key, value]) => {
+    if (key.includes('alpha')) {
+      return;
+    }
+
     const [color, hue] = splitStringAtNumberStart(key);
 
     if (convertedColors[color]) {
@@ -37,18 +41,11 @@ const Colors = ({ ...props }: any) => {
 
   const colorMap = convertColors(colors);
 
-  console.log(colorMap);
-
   return (
-    <VStack
-      width='$full'
-      alignItems={'center'}
-      justifyContent={'center'}
-      p={3}
-      my={28}
-      space='xl'
-    >
-      <Heading>Theme Colors</Heading>
+    <VStack width='$full' justifyContent={'center'} p='$16' my={28} space='xl'>
+      <Heading size='5xl' py='$16'>
+        Theme Colors
+      </Heading>
       <div
         data-component-props={JSON.stringify({
           name: 'Colors',
@@ -57,23 +54,40 @@ const Colors = ({ ...props }: any) => {
       >
         <VStack space='lg'>
           {Object.keys(colorMap).map((colorFamily: any) => {
+            const [colorName, _hue] = splitStringAtNumberStart(colorFamily);
+
             if (typeof colorMap[colorFamily] === 'string') {
               const colorToken = '$' + colorFamily;
               return (
                 <VStack>
                   <Box h={50} w={100} bg={colorToken} />
-                  {/* <Text size='xs'>{colorToken}</Text> */}
+                  <Text size='xs' fontWeight='$bold'>
+                    {colorFamily}
+                  </Text>
                 </VStack>
               );
             } else {
               return (
                 <HStack>
+                  <Text
+                    size='xs'
+                    h={50}
+                    w={150}
+                    alignSelf='center'
+                    fontWeight='$bold'
+                  >
+                    {colorName}
+                  </Text>
                   {Object.keys(colorMap[colorFamily]).map((color: any) => {
+                    const [_colorName, hue] = splitStringAtNumberStart(color);
+
                     const colorToken = '$' + color;
                     return (
-                      <VStack>
+                      <VStack alignItems='center'>
                         <Box h={50} w={100} bg={colorToken} />
-                        {/* <Text size='xs'>{colorToken}</Text> */}
+                        <Text size='xs' fontWeight='$bold'>
+                          {hue}
+                        </Text>
                       </VStack>
                     );
                   })}
