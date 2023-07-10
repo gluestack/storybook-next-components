@@ -3,7 +3,7 @@ import path from 'path';
 import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 
-import StoryData from '../../storybook-to-next.config';
+import StoryData from '../../storybook-components-to-next.config';
 import { Center, VStack } from '@/components';
 
 interface Option {

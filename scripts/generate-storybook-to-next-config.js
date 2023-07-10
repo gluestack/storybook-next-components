@@ -5,7 +5,7 @@ const componentsFolderPath = path.join(__dirname, '..', 'components/stories');
 const outputFilePath = path.join(
   __dirname,
   '..',
-  'storybook-to-next.config.ts'
+  'storybook-components-to-next.config.ts'
 );
 
 generateConfigFile(componentsFolderPath, outputFilePath);
@@ -47,7 +47,7 @@ function generateConfigText(config) {
       const componentStoryPath = `./components/stories/${componentType}/${componentName}/${componentName}`;
 
       configText += `import ${componentName}Meta from '${componentMetaPath}';
-import { ${componentName}Story } from '${componentStoryPath}';
+import ${componentName}Story from '${componentStoryPath}';
 
 `;
     });
