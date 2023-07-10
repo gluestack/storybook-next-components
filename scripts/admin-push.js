@@ -1,65 +1,15 @@
-/* eslint-disable no-console */
-const readline = require('readline');
-const { edit } = require('external-editor');
-const { spawnSync, execSync } = require('child_process');
-const fs = require('fs');
+const { execSync } = require('child_process');
 const path = require('path');
 const simpleGit = require('simple-git');
 
 require('dotenv').config();
-var pjson = require('../package.json');
 
-const { Octokit } = require('@octokit/rest');
-const octokit = new Octokit({ auth: process.env.GITHUB_PERSONAL_TOKEN });
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-let response;
-let releaseBranchName;
-
-const OWNER = 'gluestack';
-const REPO = 'ui-website';
-const BASE = 'main';
-
-function createBranch(branchName) {
-  console.log(`Creating Branch ${branchName}`);
-  execSync(`git checkout -b ${branchName}`);
-  console.log(`Created branch ${branchName}`);
-}
-
-function pushToGithub(version) {
+function pushToGithub() {
   console.log('Pushing Branch');
-  const prTitle = `release: version ${version}`;
-  execSync(`git push origin ${releaseBranchName}`);
-  console.log('Creating PR');
-  createPRforGithub(prTitle);
+  execSync(`git push`);
 }
 
-function createPRforGithub(title) {
-  octokit.rest.pulls.create({
-    owner: OWNER,
-    repo: REPO,
-    title: title,
-    base: BASE,
-    head: releaseBranchName,
-  });
-  console.log('Created PR!');
-}
-
-function runVersionUpCommand(version) {
-  spawnSync('yarn', ['version', `--new-version=${version}`], {
-    stdio: 'inherit',
-  });
-
-  // read package json
-  // write package json
-  // update package.json file lastStorybookUpdatedTimestamp to current timestamp
-  const fileName = path.join(__dirname, '../package.json');
-  delete require.cache[require.resolve(fileName)];
-  const file = require(fileName);
-  file.lastStorybookUpdatedTimestamp = Date.now();
-  fs.writeFileSync(fileName, JSON.stringify(file, null, 2));
+function commit() {
   // Set the author information for the commit
   const author = {
     name: 'gluestackadmin',
@@ -67,7 +17,7 @@ function runVersionUpCommand(version) {
   };
 
   // Set the commit message
-  const commitMessage = 'chore: version updated to ' + version;
+  const commitMessage = 'fix: storybook update';
 
   // Set the authorization key
   const authKey = process.env.GITHUB_PERSONAL_TOKEN;
@@ -75,7 +25,7 @@ function runVersionUpCommand(version) {
   // Create a simple-git instance and set the remote URL
   const git = simpleGit({
     baseDir: path.join(__dirname, '..'),
-    remote: `https://${authKey}@github.com/gluestack/ui-website.git`,
+    remote: `https://${authKey}@github.com/gluestack/storybook-next-components.git`,
   });
 
   // Stage the changes
@@ -89,9 +39,11 @@ function runVersionUpCommand(version) {
     })
     .then(() => {
       console.log('Changes committed successfully.');
-      pushToGithub(version);
+      pushToGithub();
     })
     .catch((error) => {
       console.error('Error committing changes:', error);
     });
 }
+
+commit();
