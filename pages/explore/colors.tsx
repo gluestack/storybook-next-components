@@ -43,7 +43,7 @@ const Colors = ({ ...props }: any) => {
 
   return (
     <VStack width='$full' justifyContent={'center'} p='$16' my={28} space='xl'>
-      <Heading size='5xl' py='$16'>
+      <Heading size='5xl' py='$24'>
         Theme Colors
       </Heading>
       <div
