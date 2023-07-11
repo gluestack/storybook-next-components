@@ -85,6 +85,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
       {combinations.length > 0 && (
         <VStack p='$4' space='xl'>
           {combinations.map((props, index) => {
+            return <Story key={index} {...props} />;
+          })}
+        </VStack>
+      )}
+    </Center>
+  );
+
+  return (
+    <Center p='$4'>
+      {combinations.length === 0 && <Story />}
+      {combinations.length > 0 && (
+        <VStack p='$4' space='xl'>
+          {combinations.map((props, index) => {
             if (component[0] === 'Button') {
               return (
                 <div
