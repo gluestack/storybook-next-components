@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import path from 'path';
 import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
-
+import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
 import { Center, VStack } from '@/components';
 
@@ -85,23 +85,23 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
       {combinations.length > 0 && (
         <VStack p='$4' space='xl'>
           {combinations.map((props, index) => {
-            const x = {
-              'data-component-props': JSON.stringify({
-                'component-name': 'Button',
-                action: props.action,
-                variant: props.variant,
-                size: props.size,
-              }),
-            };
-            return (
-              <Story
-                key={index}
-                {...props}
-                sx={{
-                  _web: component[0] === 'Button' ? x : {},
-                }}
-              />
-            );
+            if (component[0] === 'Button') {
+              return (
+                <div
+                  key={index}
+                  data-component-props={JSON.stringify({
+                    'component-name': 'Button',
+                    action: props.action,
+                    variant: props.variant,
+                    size: props.size,
+                  })}
+                >
+                  <Story {...props} />
+                </div>
+              );
+            } else {
+              return <Story key={index} {...props} />;
+            }
           })}
         </VStack>
       )}
