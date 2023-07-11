@@ -69,13 +69,39 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     generateCombinations(combinations, options, 0, {});
   }
 
+  // const dataProp = [
+  // 'state',
+  // 'action',
+  // 'size',
+  // 'type',
+  // 'component-name',
+  // 'instance',
+  // 'instance-name',
+  // ];
+
   return (
     <Center p='$4'>
       {combinations.length === 0 && <Story />}
       {combinations.length > 0 && (
         <VStack p='$4' space='xl'>
-          {combinations.map((props) => {
-            return <Story {...props} />;
+          {combinations.map((props, index) => {
+            const x = {
+              'data-component-props': JSON.stringify({
+                'component-name': 'Button',
+                action: props.action,
+                variant: props.variant,
+                size: props.size,
+              }),
+            };
+            return (
+              <Story
+                key={index}
+                {...props}
+                sx={{
+                  _web: component[0] === 'Button' ? x : {},
+                }}
+              />
+            );
           })}
         </VStack>
       )}
