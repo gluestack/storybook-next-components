@@ -1,16 +1,16 @@
 // @ts-nocheck
-import { styled } from '../../styled';
 import { Pressable } from 'react-native';
+import { styled } from '../../styled';
 
 export default styled(
   Pressable,
   {
-    'borderWidth': 1,
-    'borderColor': '$backgroundLight300',
-    'borderRadius': '$sm',
-    'flexDirection': 'row',
-    'overflow': 'hidden',
-    'alignItems': 'center',
+    borderWidth: 1,
+    borderColor: '$backgroundLight300',
+    borderRadius: '$sm',
+    flexDirection: 'row',
+    overflow: 'hidden',
+    alignItems: 'center',
 
     ':hover': {
       borderColor: '$borderLight400',
@@ -21,23 +21,23 @@ export default styled(
     },
 
     ':disabled': {
-      'opacity': 0.4,
+      opacity: 0.4,
       ':hover': {
         borderColor: '$backgroundLight300',
       },
     },
 
-    '_input': {
+    _input: {
       py: 'auto',
       px: '$3',
     },
 
-    '_icon': {
+    _icon: {
       color: '$textLight400',
     },
 
-    '_dark': {
-      'borderColor': '$borderDark700',
+    _dark: {
+      borderColor: '$borderDark700',
       ':hover': {
         borderColor: '$borderDark400',
       },
@@ -51,7 +51,7 @@ export default styled(
       },
     },
 
-    'variants': {
+    variants: {
       size: {
         xl: {
           h: '$12',
@@ -96,19 +96,19 @@ export default styled(
       },
       variant: {
         underlined: {
-          '_input': {
+          _input: {
             _web: {
               outlineWidth: 0,
               outline: 'none',
             },
             px: '$0',
           },
-          'borderWidth': 0,
-          'borderRadius': 0,
-          'borderBottomWidth': '$1',
+          borderWidth: 0,
+          borderRadius: 0,
+          borderBottomWidth: '$1',
           ':focus': {
-            'borderColor': '$primary700',
-            '_web': {
+            borderColor: '$primary700',
+            _web: {
               boxShadow: 'inset 0 -1px 0 0 $primary700',
             },
             ':hover': {
@@ -119,9 +119,9 @@ export default styled(
             },
           },
           ':invalid': {
-            'borderBottomWidth': 2,
-            'borderBottomColor': '$error600',
-            '_web': {
+            borderBottomWidth: 2,
+            borderBottomColor: '$error600',
+            _web: {
               boxShadow: 'inset 0 -1px 0 0 $error600',
             },
             ':hover': {
@@ -144,7 +144,7 @@ export default styled(
               },
             },
           },
-          '_dark': {
+          _dark: {
             ':focus': {
               borderColor: '$primary400',
               _web: {
@@ -152,8 +152,8 @@ export default styled(
               },
             },
             ':invalid': {
-              'borderColor': '$error400',
-              '_web': {
+              borderColor: '$error400',
+              _web: {
                 boxShadow: 'inset 0 -1px 0 0 $error400',
               },
               ':hover': {
@@ -180,15 +180,15 @@ export default styled(
           },
         },
         outline: {
-          '_input': {
+          _input: {
             _web: {
               outlineWidth: 0,
               outline: 'none',
             },
           },
           ':focus': {
-            'borderColor': '$primary700',
-            '_web': {
+            borderColor: '$primary700',
+            _web: {
               boxShadow: 'inset 0 0 0 1px $primary700',
             },
             ':hover': {
@@ -199,8 +199,8 @@ export default styled(
             },
           },
           ':invalid': {
-            'borderColor': '$error600',
-            '_web': {
+            borderColor: '$error600',
+            _web: {
               boxShadow: 'inset 0 0 0 1px $error600',
             },
             ':hover': {
@@ -223,7 +223,7 @@ export default styled(
               },
             },
           },
-          '_dark': {
+          _dark: {
             ':focus': {
               borderColor: '$primary400',
               _web: {
@@ -231,8 +231,8 @@ export default styled(
               },
             },
             ':invalid': {
-              'borderColor': '$error400',
-              '_web': {
+              borderColor: '$error400',
+              _web: {
                 boxShadow: 'inset 0 0 0 1px $error400',
               },
               ':hover': {
@@ -258,8 +258,8 @@ export default styled(
           },
         },
         rounded: {
-          'borderRadius': 999,
-          '_input': {
+          borderRadius: 999,
+          _input: {
             px: '$4',
             _web: {
               outlineWidth: 0,
@@ -267,8 +267,8 @@ export default styled(
             },
           },
           ':focus': {
-            'borderColor': '$primary700',
-            '_web': {
+            borderColor: '$primary700',
+            _web: {
               boxShadow: 'inset 0 0 0 1px $primary700',
             },
             ':hover': {
@@ -279,8 +279,8 @@ export default styled(
             },
           },
           ':invalid': {
-            'borderColor': '$error600',
-            '_web': {
+            borderColor: '$error600',
+            _web: {
               boxShadow: 'inset 0 0 0 1px $error600',
             },
             ':hover': {
@@ -304,7 +304,7 @@ export default styled(
             },
           },
 
-          '_dark': {
+          _dark: {
             ':focus': {
               borderColor: '$primary400',
               _web: {
@@ -312,8 +312,8 @@ export default styled(
               },
             },
             ':invalid': {
-              'borderColor': '$error400',
-              '_web': {
+              borderColor: '$error400',
+              _web: {
                 boxShadow: 'inset 0 0 0 1px $error400',
               },
               ':hover': {
@@ -341,7 +341,7 @@ export default styled(
       },
     },
 
-    'defaultProps': {
+    defaultProps: {
       size: 'md',
       variant: 'outline',
     },

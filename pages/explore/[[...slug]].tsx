@@ -34,6 +34,7 @@ const STATE_PROPERTIES = [
   'isDisabled',
   'isInvalid',
   'isReadonly',
+  'isRequired',
 ];
 
 function generateCombinations(
@@ -97,6 +98,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   });
 
   let isStateComponent = false;
+
   return (
     <Center p='$4'>
       {newCombinations.length === 0 && (

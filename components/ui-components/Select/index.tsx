@@ -1,4 +1,4 @@
-import { createSelect } from '@gluestack-ui/select';
+import { createSelect } from './select/src';
 import { createActionsheet } from '@gluestack-ui/actionsheet';
 import { styled } from '../styled';
 

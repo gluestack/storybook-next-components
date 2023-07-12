@@ -4,7 +4,7 @@ import { Center, ChevronDownIcon, Select, Icon } from '../../../ui-components';
 
 const SelectStory = ({ size = 'md', variant = 'outline', ...props }: any) => {
   return (
-    <Select {...props} placeholder="Select option">
+    <Select {...props} placeholder='Select option'>
       <Select.Trigger size={size} variant={variant}>
         <Select.Input />
         <Select.Icon
@@ -19,20 +19,20 @@ const SelectStory = ({ size = 'md', variant = 'outline', ...props }: any) => {
           <Select.DragIndicatorWrapper>
             <Select.DragIndicator />
           </Select.DragIndicatorWrapper>
-          <Select.Item label="UX Research" value="UX Research" />
-          <Select.Item label="Web Development" value="Web Development" />
+          <Select.Item label='UX Research' value='UX Research' />
+          <Select.Item label='Web Development' value='Web Development' />
           <Select.Item
-            label="Cross Platform Development Process"
-            value="Cross Platform Development Process"
+            label='Cross Platform Development Process'
+            value='Cross Platform Development Process'
           />
           <Select.Item
-            label="UI Designing"
-            value="UI Designing"
+            label='UI Designing'
+            value='UI Designing'
             isDisabled={true}
           />
           <Select.Item
-            label="Backend Development"
-            value="Backend Development"
+            label='Backend Development'
+            value='Backend Development'
           />
         </Select.Content>
       </Select.Portal>
