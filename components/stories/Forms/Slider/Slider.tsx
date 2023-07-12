@@ -20,7 +20,7 @@ const SliderStory = ({
   value: number;
   props: any;
 }) => {
-  const [sliderValue, setSliderValue] = React.useState(0);
+  const [sliderValue, setSliderValue] = React.useState(60);
   const handleChange = (value: any) => {
     setSliderValue(value);
   };
