@@ -116,7 +116,11 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
               //   // @ts-ignore
               //   dataSet={{ 'component-props': JSON.stringify(props) }}
               // >
-              <Story key={index} {...props} />
+              <Story
+                key={index}
+                {...props}
+                dataSet={{ 'component-props': JSON.stringify(props) }}
+              />
               // </Center>
             );
           })}
