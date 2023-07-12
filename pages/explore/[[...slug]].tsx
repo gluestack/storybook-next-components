@@ -92,7 +92,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     });
     newCombinations.push({ ...i });
   });
-
+  let isStateComponent = false;
   return (
     <Center p='$4'>
       {newCombinations.length === 0 && <Story />}
@@ -107,18 +107,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
             STATE_PROPERTIES.map((state) => {
               if (props[state]) {
+                isStateComponent = true;
                 dataProp['state'] = state;
               }
             });
 
-            if (!dataProp['state']) {
+            if (!dataProp['state'] && isStateComponent) {
               dataProp['state'] = 'default';
             }
 
             return (
-              // <div data-component-props={JSON.stringify(dataProp)}>
-              <Story key={index} {...props} />
-              // </div>
+              <div key={index} data-component-props={JSON.stringify(dataProp)}>
+                <Story {...props} />
+              </div>
             );
           })}
         </VStack>
