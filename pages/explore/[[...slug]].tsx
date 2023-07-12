@@ -120,16 +120,16 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             };
 
             return (
-              <div
-                key={index}
-                style={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                }}
-              >
-                <Story {...props} />
-              </div>
+              // <div
+
+              //   style={{
+              //     alignItems: 'center',
+              //     justifyContent: 'center',
+              //     display: 'flex',
+              //   }}
+              // >
+              <Story key={index} {...props} />
+              // </div>
             );
           })}
         </VStack>

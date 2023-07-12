@@ -17,7 +17,6 @@ const DividerStory = ({ ...props }) => {
       h={props.orientation === 'vertical' ? 30 : 'auto'}
       alignItems='center'
       justifyContent='center'
-      // w={props.orientation === 'vertical' ? 30 : 'auto'}
     >
       <Heading size='sm'>Firefox</Heading>
       <Divider {...props} m='$3' />
