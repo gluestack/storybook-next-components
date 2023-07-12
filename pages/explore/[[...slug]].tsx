@@ -116,9 +116,9 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             }
 
             return (
-              <div data-component-props={JSON.stringify(dataProp)}>
-                <Story {...props} />
-              </div>
+              // <div data-component-props={JSON.stringify(dataProp)}>
+              <Story key={index} {...props} />
+              // </div>
             );
           })}
         </VStack>
