@@ -90,7 +90,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     STATE_PROPERTIES.map((state) => {
       if (Object.keys(options).includes(state)) {
         const x: any = { ...i };
-        x[state] = true;
         newCombinations.push(x);
       }
     });
@@ -128,6 +127,12 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
             if (!dataProp['state'] && isStateComponent) {
               dataProp['state'] = 'default';
+            }
+
+            if (dataProp.uri && dataProp.uri === 'https://broken.link') {
+              dataProp.uri = 'BrokenLink';
+            } else {
+              dataProp.uri = 'ImageLink';
             }
 
             props.dataSet = {
