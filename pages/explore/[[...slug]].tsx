@@ -5,6 +5,7 @@ import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
 import { Center, VStack } from '@/components';
+import { getVariantProps } from '@gluestack-style/react/lib/typescript/styled';
 
 interface Option {
   control: string;
@@ -98,17 +99,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
       {newCombinations.length === 0 && <Story />}
       {newCombinations.length > 0 && (
         <VStack p='$4' space='4xl'>
-          {newCombinations.map((props, index) => {
-            const dataProp: any = {};
+          {newCombinations.map((props: any, index) => {
+            const dataProp: any = { ...props };
             dataProp['component-name'] = component[0];
-            dataProp['action'] = props.action ?? 'primary';
-            dataProp['size'] = props.size ?? 'md';
-            dataProp['variant'] = props.variant ?? 'solid';
 
             STATE_PROPERTIES.map((state) => {
               if (props[state]) {
                 isStateComponent = true;
                 dataProp['state'] = state;
+                delete dataProp[state];
               }
             });
 
@@ -116,8 +115,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
               dataProp['state'] = 'default';
             }
 
+            props.dataSet = {
+              'component-props': JSON.stringify(dataProp),
+            };
+
             return (
-              <div key={index} data-component-props={JSON.stringify(dataProp)}>
+              <div
+                key={index}
+                style={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  display: 'flex',
+                }}
+              >
                 <Story {...props} />
               </div>
             );
