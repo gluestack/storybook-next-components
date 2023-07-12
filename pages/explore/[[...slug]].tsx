@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack, HStack, Text } from '@/components';
+import { Center, VStack } from '@/components';
 
 interface Option {
   control: string;
@@ -111,17 +111,9 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             dataProp['variant'] = props.variant ?? 'solid';
 
             return (
-              // <Center
-              //   key={index}
-              //   // @ts-ignore
-              //   dataSet={{ 'component-props': JSON.stringify(props) }}
-              // >
-              <Story
-                key={index}
-                {...props}
-                dataSet={{ 'component-props': JSON.stringify(props) }}
-              />
-              // </Center>
+              <div data-component-props={JSON.stringify(dataProp)}>
+                <Story {...props} />
+              </div>
             );
           })}
         </VStack>
