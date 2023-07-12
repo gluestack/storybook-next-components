@@ -25,6 +25,8 @@ const SwitchMeta: ComponentMeta<typeof Switch> = {
   args: {
     isDisabled: false,
     isEnabled: false,
+    isInvalid: false,
+    size: 'md',
   },
 };
 
