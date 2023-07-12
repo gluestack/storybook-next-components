@@ -31,9 +31,7 @@ const SliderStory = ({
 
   return (
     <Slider
-      w="50%"
-      h="50%"
-      mt="$4"
+      w={700}
       value={sliderValue}
       onChange={(value: any) => {
         handleChange(value);

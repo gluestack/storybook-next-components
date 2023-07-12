@@ -5,21 +5,34 @@ const SliderMeta: ComponentMeta<typeof Slider> = {
   title: 'stories/FORMS/Slider',
   component: Slider,
   argTypes: {
-    value: {
-      control: { type: 'number', min: 1, max: 100 },
-    },
-    //@ts-ignore
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'The size of the button.',
-      table: {
-        defaultValue: { summary: 'md' },
-      },
+    },
+    isHovered: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isPressed: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isFocused: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isFocusVisible: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isDisabled: {
+      control: 'boolean',
+      options: [true, false],
     },
   },
-  //@ts-ignore
-  args: { value: 30, size: 'md' },
+  args: {
+    size: 'md',
+  },
 };
 
 export default SliderMeta;

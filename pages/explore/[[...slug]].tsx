@@ -83,6 +83,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     STATE_PROPERTIES.map((state) => {
       delete updatedOptions[state];
     });
+    console.log(updatedOptions);
     generateCombinations(combinations, updatedOptions, 0, {});
   }
 
