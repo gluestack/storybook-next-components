@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack } from '@/components';
+import { Center, VStack, HStack, Text } from '@/components';
 
 interface Option {
   control: string;
@@ -42,6 +42,7 @@ function generateCombinations(
   if (optionValues && optionValues.length > 0) {
     for (let i = 0; i < optionValues.length; i++) {
       const newCombination: Combination = { ...combination };
+
       newCombination[optionKey] = optionValues[i];
       generateCombinations(combinations, options, index + 1, newCombination);
     }
@@ -69,52 +70,57 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     generateCombinations(combinations, options, 0, {});
   }
 
-  // const dataProp = [
-  // 'state',
-  // 'action',
-  // 'size',
-  // 'type',
-  // 'component-name',
-  // 'instance',
-  // 'instance-name',
-  // ];
+  // return (
+  //   <Center p='$4'>
+  //     {combinations.length === 0 && <Story />}
+  //     {combinations.length > 0 && (
+  //       <VStack p='$4' space='xl'>
+  //         {combinations.map((props, index) => {
+  //           return <Story key={index} {...props} />;
+  //         })}
+  //       </VStack>
+  //     )}
+  //   </Center>
+  // );
 
   return (
     <Center p='$4'>
       {combinations.length === 0 && <Story />}
       {combinations.length > 0 && (
-        <VStack p='$4' space='xl'>
+        <VStack p='$4' space='4xl'>
           {combinations.map((props, index) => {
-            return <Story key={index} {...props} />;
-          })}
-        </VStack>
-      )}
-    </Center>
-  );
-
-  return (
-    <Center p='$4'>
-      {combinations.length === 0 && <Story />}
-      {combinations.length > 0 && (
-        <VStack p='$4' space='xl'>
-          {combinations.map((props, index) => {
-            if (component[0] === 'Button') {
-              return (
-                <div
-                  key={index}
-                  data-component-props={JSON.stringify({
-                    'component-name': 'Button',
-                    action: props.action,
-                    variant: props.variant,
-                    size: props.size,
-                  })}
-                >
-                  <Story {...props} />
-                </div>
-              );
-            } else {
-              return <Story key={index} {...props} />;
+            const dataProp: any = {};
+            dataProp['component-name'] = component[0];
+            const stateProperties = [
+              'isHovered',
+              'isPressed',
+              'isFocused',
+              'isFocusVisible',
+              'isDisabled',
+            ];
+            let state = 'default';
+            for (const key in props) {
+              // @ts-ignore
+              if (stateProperties.includes(key) && props[key] === true) {
+                state = key;
+              }
             }
+            dataProp['state'] = state;
+            dataProp['action'] = props.action ?? 'primary';
+            dataProp['size'] = props.size ?? 'md';
+            dataProp['variant'] = props.variant ?? 'solid';
+
+            console.log(dataProp);
+
+            return (
+              <Center
+                key={index}
+                // @ts-ignore
+                dataSet={{ 'component-props': JSON.stringify(props) }}
+              >
+                <Story {...props} />
+              </Center>
+            );
           })}
         </VStack>
       )}

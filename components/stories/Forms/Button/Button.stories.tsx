@@ -27,7 +27,7 @@ const ButtonMeta: ComponentMeta<any> = {
     },
     variant: {
       control: 'select',
-      options: ['link', 'outline', 'solid'],
+      options: ['solid', 'outline', 'link'],
       description: 'The style of button.',
       table: {
         defaultValue: { summary: 'primary' },
@@ -41,22 +41,26 @@ const ButtonMeta: ComponentMeta<any> = {
         defaultValue: { summary: 'md' },
       },
     },
-    // isHovered: {
-    //   control: 'boolean',
-    //   option: [true, false],
-    // },
-    // isPressed: {
-    //   control: 'boolean',
-    //   option: [true, false],
-    // },
-    // isFocused: {
-    //   control: 'boolean',
-    //   option: [true, false],
-    // },
-    // isDisabled: {
-    //   control: 'boolean',
-    //   option: [true, false],
-    // },
+    isHovered: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isPressed: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isFocused: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isFocusVisible: {
+      control: 'boolean',
+      options: [true, false],
+    },
+    isDisabled: {
+      control: 'boolean',
+      options: [true, false],
+    },
   },
   parameters: {
     docs: {
