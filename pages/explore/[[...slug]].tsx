@@ -25,6 +25,14 @@ interface Combination {
   [key: string]: string;
 }
 
+const STATE_PROPERTIES = [
+  'isHovered',
+  'isPressed',
+  'isFocused',
+  'isFocusVisible',
+  'isDisabled',
+];
+
 function generateCombinations(
   combinations: Combination[],
   options: Options,
@@ -38,7 +46,6 @@ function generateCombinations(
 
   const optionKey = Object.keys(options)[index];
   const optionValues = options[optionKey].options;
-
   if (optionValues && optionValues.length > 0) {
     for (let i = 0; i < optionValues.length; i++) {
       const newCombination: Combination = { ...combination };
@@ -65,50 +72,48 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   const StoryArgs = StoryData[component]['meta'];
   const options: Options = StoryArgs.argTypes;
   const combinations: Combination[] = [];
+  const newCombinations: Combination[] = [];
 
   if (options) {
-    generateCombinations(combinations, options, 0, {});
+    const updatedOptions = { ...options };
+    STATE_PROPERTIES.map((state) => {
+      delete updatedOptions[state];
+    });
+    generateCombinations(combinations, updatedOptions, 0, {});
   }
 
-  // return (
-  //   <Center p='$4'>
-  //     {combinations.length === 0 && <Story />}
-  //     {combinations.length > 0 && (
-  //       <VStack p='$4' space='xl'>
-  //         {combinations.map((props, index) => {
-  //           return <Story key={index} {...props} />;
-  //         })}
-  //       </VStack>
-  //     )}
-  //   </Center>
-  // );
+  combinations.map((i) => {
+    STATE_PROPERTIES.map((state) => {
+      if (Object.keys(options).includes(state)) {
+        const x: any = { ...i };
+        x[state] = true;
+        newCombinations.push(x);
+      }
+    });
+    newCombinations.push({ ...i });
+  });
 
   return (
     <Center p='$4'>
-      {combinations.length === 0 && <Story />}
-      {combinations.length > 0 && (
+      {newCombinations.length === 0 && <Story />}
+      {newCombinations.length > 0 && (
         <VStack p='$4' space='4xl'>
-          {combinations.map((props, index) => {
+          {newCombinations.map((props, index) => {
             const dataProp: any = {};
             dataProp['component-name'] = component[0];
-            const stateProperties = [
-              'isHovered',
-              'isPressed',
-              'isFocused',
-              'isFocusVisible',
-              'isDisabled',
-            ];
-            let state = 'default';
-            for (const key in props) {
-              // @ts-ignore
-              if (stateProperties.includes(key) && props[key] === true) {
-                state = key;
-              }
-            }
-            dataProp['state'] = state;
             dataProp['action'] = props.action ?? 'primary';
             dataProp['size'] = props.size ?? 'md';
             dataProp['variant'] = props.variant ?? 'solid';
+
+            STATE_PROPERTIES.map((state) => {
+              if (props[state]) {
+                dataProp['state'] = state;
+              }
+            });
+
+            if (!dataProp['state']) {
+              dataProp['state'] = 'default';
+            }
 
             return (
               <div data-component-props={JSON.stringify(dataProp)}>
