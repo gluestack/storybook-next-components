@@ -13,17 +13,17 @@ const SelectMeta: ComponentMeta<typeof Select> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['xl', 'lg', 'md', 'sm'],
+      options: ['sm', 'md', 'lg', 'xl'],
     },
     variant: {
       control: 'select',
-      options: ['underlined', 'outline', 'rounded'],
+      options: ['outline', 'underlined', 'rounded'],
     },
     isInvalid: {
       control: 'boolean',
       options: [true, false],
     },
-    isReadOnly: {
+    isReadonly: {
       control: 'boolean',
       options: [true, false],
     },
@@ -47,18 +47,13 @@ const SelectMeta: ComponentMeta<typeof Select> = {
       control: 'boolean',
       options: [true, false],
     },
-    isRequired: {
-      control: 'boolean',
-      options: [true, false],
-    },
   },
   args: {
     size: 'md',
+    variant: 'outline',
     isDisabled: false,
     isInvalid: false,
     isReadOnly: false,
-    isRequired: true,
-    variant: 'outline',
   },
 };
 
