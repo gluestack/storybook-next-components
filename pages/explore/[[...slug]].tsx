@@ -95,10 +95,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     });
     newCombinations.push({ ...i });
   });
+
   let isStateComponent = false;
   return (
     <Center p='$4'>
-      {newCombinations.length === 0 && <Story />}
+      {newCombinations.length === 0 && (
+        <Story
+          dataSet={{
+            'component-props': JSON.stringify({
+              'component-name': component[0],
+            }),
+          }}
+        />
+      )}
       {newCombinations.length > 0 && (
         <VStack p='$4' space='4xl'>
           {newCombinations.map((props: any, index) => {
