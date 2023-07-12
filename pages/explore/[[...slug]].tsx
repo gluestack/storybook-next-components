@@ -32,6 +32,8 @@ const STATE_PROPERTIES = [
   'isFocused',
   'isFocusVisible',
   'isDisabled',
+  'isInvalid',
+  'isReadonly',
 ];
 
 function generateCombinations(
