@@ -132,7 +132,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
             if (dataProp.uri && dataProp.uri === 'https://broken.link') {
               dataProp.uri = 'BrokenLink';
-            } else {
+            } else if (dataProp.uri) {
               dataProp.uri = 'ImageLink';
             }
 
