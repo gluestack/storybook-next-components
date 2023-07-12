@@ -120,8 +120,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             };
 
             return (
-              <Center>
-                <Story key={index} {...props} />
+              <Center key={index}>
+                <Story {...props} />
               </Center>
             );
           })}
