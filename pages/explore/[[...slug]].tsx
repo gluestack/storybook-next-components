@@ -110,16 +110,14 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             dataProp['size'] = props.size ?? 'md';
             dataProp['variant'] = props.variant ?? 'solid';
 
-            console.log(dataProp);
-
             return (
-              <Center
-                key={index}
-                // @ts-ignore
-                dataSet={{ 'component-props': JSON.stringify(props) }}
-              >
-                <Story {...props} />
-              </Center>
+              // <Center
+              //   key={index}
+              //   // @ts-ignore
+              //   dataSet={{ 'component-props': JSON.stringify(props) }}
+              // >
+              <Story key={index} {...props} />
+              // </Center>
             );
           })}
         </VStack>
