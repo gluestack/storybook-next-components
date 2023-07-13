@@ -16,12 +16,12 @@ function AlertStory({ ...props }: any) {
     <Alert {...props}>
       <Box
         dataSet={{
-          'component-props': {
+          'component-props': JSON.stringify({
             instance: true,
             'instance-name': 'Icon',
             name: 'InfoIcon',
             size: 'md',
-          },
+          }),
         }}
       >
         <Alert.Icon as={InfoIcon} mr='$3' />
