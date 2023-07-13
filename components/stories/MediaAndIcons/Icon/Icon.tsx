@@ -57,12 +57,17 @@ import {
   ThreeDotsIcon,
   TrashIcon,
   UnlockIcon,
+  Box,
 } from '../../../ui-components';
 
 import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
-  return <Icon as={name} size={size} {...props} />;
+  return (
+    <Box {...props}>
+      <Icon as={name} size={size} />
+    </Box>
+  );
 };
 
 export default IconStory;
