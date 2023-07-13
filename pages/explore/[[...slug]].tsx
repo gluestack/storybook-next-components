@@ -78,7 +78,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   const StoryArgs = StoryData[component]['meta'];
   const options: Options = StoryArgs.argTypes;
   const combinations: Combination[] = [];
-  const allCombinations: Combination[] = [];
+  let allCombinations: Combination[] = [];
 
   if (options) {
     const filteredOptions = { ...options };
@@ -101,7 +101,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   });
 
   let isStateComponent = false;
-
+  allCombinations = [];
   return (
     <Center p='$4'>
       {allCombinations.length === 0 && (
