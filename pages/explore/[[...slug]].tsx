@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack } from '@/components';
+import { Center, VStack, Text } from '@/components';
 
 interface Option {
   control: string;
@@ -78,7 +78,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   const StoryArgs = StoryData[component]['meta'];
   const options: Options = StoryArgs.argTypes;
   const combinations: Combination[] = [];
-  let allCombinations: Combination[] = [];
+  const allCombinations: Combination[] = [];
 
   if (options) {
     const filteredOptions = { ...options };
@@ -101,7 +101,22 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   });
 
   let isStateComponent = false;
-  allCombinations = [];
+
+  return (
+    <Center p='$4'>
+      <Center
+        w={300}
+        h={300}
+        bg='$red500'
+        borderStyle='solid'
+        borderWidth='$2'
+        borderColor='$green500'
+      >
+        <Text>Hello</Text>
+      </Center>
+    </Center>
+  );
+
   return (
     <Center p='$4'>
       {allCombinations.length === 0 && (
