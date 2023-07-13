@@ -103,7 +103,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   let isStateComponent = false;
 
   return (
-    <Center p='$4'>
+    <Center
+      p='$4'
+      dataSet={{
+        'component-name': JSON.stringify({
+          'component-name': 'Box',
+          variant: 'solid',
+        }),
+      }}
+    >
       <Center
         w={300}
         h={300}
