@@ -9,11 +9,11 @@ const ChevronUpIcon = createIcon({
   path: (
     <>
       <Path
-        d="M18 15L12 9L6 15"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M18 15L12 9L6 15'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -25,11 +25,11 @@ const ChevronDownIcon = createIcon({
   path: (
     <>
       <Path
-        d="M6 9L12 15L18 9"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M6 9L12 15L18 9'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -41,11 +41,11 @@ const ChevronLeftIcon = createIcon({
   path: (
     <>
       <Path
-        d="M15 18L9 12L15 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M15 18L9 12L15 6'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -58,11 +58,11 @@ const ChevronRightIcon = createIcon({
   path: (
     <>
       <Path
-        d="M9 18L15 12L9 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M9 18L15 12L9 6'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -75,18 +75,18 @@ const ChevronsLeftIcon = createIcon({
   path: (
     <>
       <Path
-        d="M11 17L6 12L11 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M11 17L6 12L11 7'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <Path
-        d="M18 17L13 12L18 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M18 17L13 12L18 7'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -99,18 +99,18 @@ const ChevronsRightIcon = createIcon({
   path: (
     <>
       <Path
-        d="M13 17L18 12L13 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M13 17L18 12L13 7'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <Path
-        d="M6 17L11 12L6 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M6 17L11 12L6 7'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -123,18 +123,18 @@ const ChevronsUpDownIcon = createIcon({
   path: (
     <>
       <Path
-        d="M7 15L12 20L17 15"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M7 15L12 20L17 15'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <Path
-        d="M7 9L12 4L17 9"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M7 9L12 4L17 9'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </>
   ),
@@ -144,6 +144,9 @@ ChevronUpIcon.displayName = 'ChevronUpIcon';
 ChevronDownIcon.displayName = 'ChevronDownIcon';
 ChevronLeftIcon.displayName = 'ChevronLeftIcon';
 ChevronRightIcon.displayName = 'ChevronRightIcon';
+ChevronsLeftIcon.displayName = 'ChevronsLeftIcon';
+ChevronsRightIcon.displayName = 'ChevronsRightIcon';
+ChevronsUpDownIcon.displayName = 'ChevronsUpDownIcon';
 
 export {
   ChevronUpIcon,

@@ -136,6 +136,10 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
               dataProp.uri = 'ImageLink';
             }
 
+            if (dataProp.name) {
+              dataProp.name = dataProp.name.displayName;
+            }
+
             props.dataSet = {
               'component-props': JSON.stringify(dataProp),
             };
