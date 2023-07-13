@@ -64,9 +64,9 @@ import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
   return (
-    <Box {...props}>
-      <Icon as={name} size={size} />
-    </Box>
+    // <Box >
+    <Icon as={name} size={size} {...props} />
+    // </Box>
   );
 };
 
