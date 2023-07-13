@@ -90,6 +90,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     STATE_PROPERTIES.map((state) => {
       if (Object.keys(options).includes(state)) {
         const x: any = { ...i };
+        x[state] = true;
         newCombinations.push(x);
       }
     });
