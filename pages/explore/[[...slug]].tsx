@@ -102,35 +102,35 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   let isStateComponent = false;
 
-  return (
-    <Center
-      p='$4'
-      dataSet={{
-        'component-name': JSON.stringify({
-          'component-name': 'Box',
-          variant: 'solid',
-        }),
-      }}
-    >
-      <Center
-        w={300}
-        h={300}
-        bg='$red500'
-        borderStyle='solid'
-        borderWidth='$4'
-        borderColor='$green500'
-        sx={{
-          _web: {
-            outlineStyle: 'solid',
-            outlineWidth: '$2',
-            outlineColor: '$blue600',
-          },
-        }}
-      >
-        <Text>Hello</Text>
-      </Center>
-    </Center>
-  );
+  // return (
+  //   <Center
+  //     p='$4'
+  //     dataSet={{
+  //       'component-name': JSON.stringify({
+  //         'component-name': 'Box',
+  //         variant: 'solid',
+  //       }),
+  //     }}
+  //   >
+  //     <Center
+  //       w={300}
+  //       h={300}
+  //       bg='$red500'
+  //       borderStyle='solid'
+  //       borderWidth='$4'
+  //       borderColor='$green500'
+  //       sx={{
+  //         _web: {
+  //           outlineStyle: 'solid',
+  //           outlineWidth: '$2',
+  //           outlineColor: '$blue600',
+  //         },
+  //       }}
+  //     >
+  //       <Text>Hello</Text>
+  //     </Center>
+  //   </Center>
+  // );
 
   return (
     <Center p='$4'>
