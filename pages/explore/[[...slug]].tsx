@@ -109,8 +109,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
         h={300}
         bg='$red500'
         borderStyle='solid'
-        borderWidth='$2'
+        borderWidth='$4'
         borderColor='$green500'
+        sx={{
+          _web: {
+            outlineStyle: 'solid',
+            outlineWidth: '$2',
+            outlineColor: '$blue600',
+          },
+        }}
       >
         <Text>Hello</Text>
       </Center>
