@@ -83,7 +83,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     STATE_PROPERTIES.map((state) => {
       delete updatedOptions[state];
     });
-    console.log(updatedOptions);
+
     generateCombinations(combinations, updatedOptions, 0, {});
   }
 
@@ -98,8 +98,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   });
 
   let isStateComponent = false;
-  console.log(newCombinations);
-  console.log(newCombinations.length);
 
   return (
     <Center p='$4'>
