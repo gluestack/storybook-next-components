@@ -9,13 +9,23 @@ import {
   VStack,
   Icon,
   Box,
-  Button,
 } from '../../../ui-components';
 
 function AlertStory({ ...props }: any) {
   return (
     <Alert {...props}>
-      <Alert.Icon as={InfoIcon} mr='$3' />
+      <Box
+        dataSet={{
+          'component-props': {
+            instance: true,
+            'instance-name': 'Icon',
+            name: 'InfoIcon',
+            size: 'md',
+          },
+        }}
+      >
+        <Alert.Icon as={InfoIcon} mr='$3' />
+      </Box>
       <Alert.Text>Selection successfully moved!</Alert.Text>
     </Alert>
   );
