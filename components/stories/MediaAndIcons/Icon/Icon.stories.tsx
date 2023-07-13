@@ -63,8 +63,7 @@ const IconMeta: ComponentMeta<any> = {
   argTypes: {
     size: {
       control: 'select',
-      // options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      options: ['md'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
     name: {
       control: 'select',

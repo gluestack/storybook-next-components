@@ -34,6 +34,6 @@ const InfoIcon = createIcon({
   ),
 });
 
-InfoIcon.displayName = 'HelpCircleIcon';
+InfoIcon.displayName = 'InfoIcon';
 
 export { InfoIcon };

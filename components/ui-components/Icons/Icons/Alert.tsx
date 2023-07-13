@@ -34,6 +34,6 @@ const AlertCircleIcon = createIcon({
   ),
 });
 
-AlertCircleIcon.displayName = 'AddIcon';
+AlertCircleIcon.displayName = 'AlertCircleIcon';
 
 export { AlertCircleIcon };
