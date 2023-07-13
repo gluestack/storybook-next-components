@@ -26,6 +26,7 @@ function AlertStory({ ...props }: any) {
             variant: 'solid',
             size: 'md',
             action: 'primary',
+            state: 'default',
           }),
         }}
       >
