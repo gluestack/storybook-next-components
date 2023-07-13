@@ -8,14 +8,13 @@ import {
   AlertCircleIcon,
   VStack,
   Icon,
+  Box,
 } from '../../../ui-components';
 
 function AlertStory({ ...props }: any) {
   return (
     <Alert {...props}>
-      <Alert.Icon
-        as={InfoIcon}
-        mr='$3'
+      <Box
         dataSet={{
           'component-props': JSON.stringify({
             instance: true,
@@ -24,7 +23,9 @@ function AlertStory({ ...props }: any) {
             size: 'md',
           }),
         }}
-      />
+      >
+        <Alert.Icon as={InfoIcon} mr='$3' />
+      </Box>
       <Alert.Text>Selection successfully moved!</Alert.Text>
     </Alert>
   );
