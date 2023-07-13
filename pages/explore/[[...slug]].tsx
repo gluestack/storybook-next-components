@@ -67,41 +67,44 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   if (slug === '') {
     return <div>Hello</div>;
   }
+
   const component = slug;
+
   if (!StoryData[component]) {
     return <div>Hello</div>;
   }
+
   const Story = StoryData[component]['story'];
   const StoryArgs = StoryData[component]['meta'];
   const options: Options = StoryArgs.argTypes;
   const combinations: Combination[] = [];
-  const newCombinations: Combination[] = [];
+  const allCombinations: Combination[] = [];
 
   if (options) {
-    const updatedOptions = { ...options };
-    STATE_PROPERTIES.map((state) => {
-      delete updatedOptions[state];
+    const filteredOptions = { ...options };
+    STATE_PROPERTIES.forEach((state) => {
+      delete filteredOptions[state];
     });
 
-    generateCombinations(combinations, updatedOptions, 0, {});
+    generateCombinations(combinations, filteredOptions, 0, {});
   }
 
-  combinations.map((i) => {
-    STATE_PROPERTIES.map((state) => {
+  combinations.forEach((combination) => {
+    STATE_PROPERTIES.forEach((state) => {
       if (Object.keys(options).includes(state)) {
-        const x: any = { ...i };
-        x[state] = true;
-        newCombinations.push(x);
+        const newStateCombination: any = { ...combination };
+        newStateCombination[state] = true;
+        allCombinations.push(newStateCombination);
       }
     });
-    newCombinations.push({ ...i });
+    allCombinations.push({ ...combination });
   });
 
   let isStateComponent = false;
 
   return (
     <Center p='$4'>
-      {newCombinations.length === 0 && (
+      {allCombinations.length === 0 && (
         <Story
           dataSet={{
             'component-props': JSON.stringify({
@@ -110,36 +113,36 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
           }}
         />
       )}
-      {newCombinations.length > 0 && (
+      {allCombinations.length > 0 && (
         <VStack p='$4' space='4xl'>
-          {newCombinations.map((props: any, index) => {
-            const dataProp: any = { ...props };
-            dataProp['component-name'] = component[0];
+          {allCombinations.map((props: any, index) => {
+            const dataProps: any = { ...props };
+            dataProps['component-name'] = component[0];
 
-            STATE_PROPERTIES.map((state) => {
+            STATE_PROPERTIES.forEach((state) => {
               if (props[state]) {
                 isStateComponent = true;
-                dataProp['state'] = state;
-                delete dataProp[state];
+                dataProps['state'] = state;
+                delete dataProps[state];
               }
             });
 
-            if (!dataProp['state'] && isStateComponent) {
-              dataProp['state'] = 'default';
+            if (!dataProps['state'] && isStateComponent) {
+              dataProps['state'] = 'default';
             }
 
-            if (dataProp.uri && dataProp.uri === 'https://broken.link') {
-              dataProp.uri = 'BrokenLink';
-            } else if (dataProp.uri) {
-              dataProp.uri = 'ImageLink';
+            if (dataProps.uri && dataProps.uri === 'https://broken.link') {
+              dataProps.uri = 'BrokenLink';
+            } else if (dataProps.uri) {
+              dataProps.uri = 'ImageLink';
             }
 
-            if (dataProp.name) {
-              dataProp.name = dataProp.name.displayName;
+            if (dataProps.name) {
+              dataProps.name = dataProps.name.displayName;
             }
 
             props.dataSet = {
-              'component-props': JSON.stringify(dataProp),
+              'component-props': JSON.stringify(dataProps),
             };
 
             return (
@@ -159,14 +162,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const tree = DirectoryTree(path.join(baseDirPath, 'components/stories'));
   const filePaths = getFilePaths(tree);
   const paths: { params: { slug: string[] } }[] = [];
-  filePaths?.map((filename) => {
-    let slug = filename;
+
+  filePaths?.forEach((filename) => {
+    const slug = filename;
     paths.push({
       params: {
         slug: [slug],
       },
     });
   });
+
   return { paths, fallback: false };
 };
 
@@ -176,7 +181,7 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   const { slug } = context.params as { slug: string };
   return {
     props: {
-      slug: slug ? slug : '',
+      slug: slug || '',
     },
   };
 };
