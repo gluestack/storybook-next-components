@@ -144,7 +144,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             props.dataSet = {
               'component-props': JSON.stringify(dataProps),
             };
-
             return (
               <Center key={index}>
                 <Story {...props} />
