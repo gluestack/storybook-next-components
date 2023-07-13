@@ -5,7 +5,6 @@ import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
 import { Center, VStack } from '@/components';
-import { getVariantProps } from '@gluestack-style/react/lib/typescript/styled';
 
 interface Option {
   control: string;
