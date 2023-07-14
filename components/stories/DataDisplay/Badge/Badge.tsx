@@ -27,6 +27,20 @@ import {
 } from 'lucide-react-native';
 
 const BadgeStory = ({ text = 'New feature', ...props }: any) => {
+  let BadgeSize = '';
+  switch (props.size) {
+    case 'sm':
+      BadgeSize = 'xs';
+      break;
+    case 'md':
+      BadgeSize = 'sm';
+      break;
+    case 'lg':
+      BadgeSize = 'md';
+      break;
+  }
+  console.log(BadgeSize);
+
   return (
     <Badge {...props}>
       <Badge.Text>{text}</Badge.Text>
@@ -38,7 +52,7 @@ const BadgeStory = ({ text = 'New feature', ...props }: any) => {
             instance: true,
             'instance-name': 'Icon',
             name: 'GlobeIcon',
-            size: props.size,
+            size: BadgeSize,
           }),
         }}
       />
