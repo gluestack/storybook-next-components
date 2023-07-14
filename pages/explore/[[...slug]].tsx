@@ -103,12 +103,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   let isStateComponent = false;
 
   return (
-    <Button states={{ active: true }}>
-      <Button.Text>Button</Button.Text>
-    </Button>
-  );
-
-  return (
     <Center p='$4'>
       {allCombinations.length === 0 && (
         <Story
