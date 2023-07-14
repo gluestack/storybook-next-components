@@ -38,7 +38,7 @@ const BadgeStory = ({ text = 'New feature', ...props }: any) => {
             instance: true,
             'instance-name': 'Icon',
             name: 'GlobeIcon',
-            size: 'md',
+            size: 'sm',
           }),
         }}
       />
