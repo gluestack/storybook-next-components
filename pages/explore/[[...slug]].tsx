@@ -103,7 +103,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   let isStateComponent = false;
 
   return (
-    <Button isPressed>
+    <Button states={{ active: true }}>
       <Button.Text>Button</Button.Text>
     </Button>
   );
