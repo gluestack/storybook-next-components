@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack, Text } from '@/components';
+import { Center, VStack, Button } from '@/components';
 
 interface Option {
   control: string;
@@ -102,35 +102,11 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   let isStateComponent = false;
 
-  // return (
-  //   <Center
-  //     p='$4'
-  //     dataSet={{
-  //       'component-name': JSON.stringify({
-  //         'component-name': 'Box',
-  //         variant: 'solid',
-  //       }),
-  //     }}
-  //   >
-  //     <Center
-  //       w={300}
-  //       h={300}
-  //       bg='$red500'
-  //       borderStyle='solid'
-  //       borderWidth='$4'
-  //       borderColor='$green500'
-  //       sx={{
-  //         _web: {
-  //           outlineStyle: 'solid',
-  //           outlineWidth: '$2',
-  //           outlineColor: '$blue600',
-  //         },
-  //       }}
-  //     >
-  //       <Text>Hello</Text>
-  //     </Center>
-  //   </Center>
-  // );
+  return (
+    <Button isPressed>
+      <Button.Text>Button</Button.Text>
+    </Button>
+  );
 
   return (
     <Center p='$4'>
