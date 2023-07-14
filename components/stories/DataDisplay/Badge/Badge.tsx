@@ -47,14 +47,14 @@ const BadgeStory = ({ text = 'New feature', ...props }: any) => {
       <Badge.Icon
         ml='$1'
         as={GlobeIcon}
-        dataSet={{
-          'component-props': JSON.stringify({
-            instance: true,
-            'instance-name': 'Icon',
-            name: 'GlobeIcon',
-            size: BadgeSize,
-          }),
-        }}
+        // dataSet={{
+        //   'component-props': JSON.stringify({
+        //     instance: true,
+        //     'instance-name': 'Icon',
+        //     name: 'GlobeIcon',
+        //     size: BadgeSize,
+        //   }),
+        // }}
       />
     </Badge>
   );
