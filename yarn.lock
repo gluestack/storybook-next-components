@@ -1031,10 +1031,10 @@
   dependencies:
     "@legendapp/motion" "^2.2.0"
 
-"@gluestack-style/react@latest":
-  version "0.1.30"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.1.30.tgz#ed0af9251c758ea5653166448be1038f6dd2c834"
-  integrity sha512-ZjCn0sCg0OnqFC5dtDCh+LkLybNYlBx3o1JfkTBeGXn7/v5uMvCzutJsme+1G8AV+jA+YJ4DmKrPty4VMsevDw==
+"@gluestack-style/react@0.1.34-alpha.2":
+  version "0.1.34-alpha.2"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.1.34-alpha.2.tgz#b1598e8c6442a13911b4770c4316a5fd76f8e567"
+  integrity sha512-lKMuphKzDL8IIU5YdxBcM7G2muLsF15Vd0HzbkMMJXbbXf7ogh2FhUtm2/gQHEb61Se+Y9nmeaSRQQKMXOJUYA==
   dependencies:
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
