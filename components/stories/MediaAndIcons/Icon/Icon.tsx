@@ -60,7 +60,12 @@ import {
   Box,
 } from '../../../ui-components';
 
-import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';
+import {
+  ChromeIcon,
+  InstagramIcon,
+  FacebookIcon,
+  AirVent,
+} from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
   return (
