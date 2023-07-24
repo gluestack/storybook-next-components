@@ -102,7 +102,7 @@ const IconMeta: ComponentMeta<any> = {
         // GlobeIcon,
         // GripVerticalIcon,
         // HelpCircleIcon,
-        // InfoIcon,
+        InfoIcon,
         // LinkIcon,
         // ExternalLinkIcon,
         // LoaderIcon,
