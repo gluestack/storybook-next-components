@@ -58,29 +58,15 @@ import {
   TrashIcon,
   UnlockIcon,
   Box,
-  VStack,
 } from '../../../ui-components';
 
-import {
-  ChromeIcon,
-  InstagramIcon,
-  FacebookIcon,
-  AirVent,
-} from 'lucide-react-native';
+import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
-  // return (
-  //   <Box {...props}>
-  //     <Icon as={name} size={size} />
-  //   </Box>
-  // );
   return (
-    <VStack space='lg'>
-      <Icon as={AirVent} />
-      <Icon as={AirVent} size='xl' />
-      <Icon as={AtSignIcon} />
-      <Icon as={AtSignIcon} size='xl' />
-    </VStack>
+    <Box {...props}>
+      <Icon as={name} size={size} />
+    </Box>
   );
 };
 
