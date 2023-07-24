@@ -58,15 +58,43 @@ import {
   TrashIcon,
   UnlockIcon,
   Box,
+  VStack,
 } from '../../../ui-components';
 
 import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
+  // return (
+  //   <Box {...props}>
+  //     <Icon as={name} size={size} />
+  //   </Box>
+  // );
+
   return (
-    <Box {...props}>
-      <Icon as={name} size={size} />
-    </Box>
+    <VStack space='lg'>
+      <Icon
+        as={MoonIcon}
+        size='xl'
+        dataSet={{
+          'component-props': JSON.stringify({
+            'component-name': 'Icon',
+            name: 'MoonIcon',
+            size: 'xl',
+          }),
+        }}
+      />
+      <Box
+        dataSet={{
+          'component-props': JSON.stringify({
+            'component-name': 'Icon',
+            name: 'UnlockIcon',
+            size: 'xl',
+          }),
+        }}
+      >
+        <Icon as={UnlockIcon} size='xl' />
+      </Box>
+    </VStack>
   );
 };
 
