@@ -58,6 +58,7 @@ import {
   TrashIcon,
   UnlockIcon,
   Box,
+  VStack,
 } from '../../../ui-components';
 
 import {
@@ -68,10 +69,18 @@ import {
 } from 'lucide-react-native';
 
 const IconStory = ({ size, name, ...props }: any) => {
+  // return (
+  //   <Box {...props}>
+  //     <Icon as={name} size={size} />
+  //   </Box>
+  // );
   return (
-    <Box {...props}>
-      <Icon as={name} size={size} />
-    </Box>
+    <VStack space='lg'>
+      <Icon as={AirVent} />
+      <Icon as={AirVent} size='md' />
+      <Icon as={AtSignIcon} />
+      <Icon as={AtSignIcon} size='md' />
+    </VStack>
   );
 };
 
