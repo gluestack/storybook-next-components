@@ -77,9 +77,9 @@ const IconStory = ({ size, name, ...props }: any) => {
   return (
     <VStack space='lg'>
       <Icon as={AirVent} />
-      <Icon as={AirVent} size='md' />
+      <Icon as={AirVent} size='xl' />
       <Icon as={AtSignIcon} />
-      <Icon as={AtSignIcon} size='md' />
+      <Icon as={AtSignIcon} size='xl' />
     </VStack>
   );
 };
