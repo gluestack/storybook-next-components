@@ -63,10 +63,11 @@ const IconMeta: ComponentMeta<any> = {
   title: 'stories/MEDIA AND ICONS/Icons',
   component: IconStory,
   argTypes: {
-    // size: {
-    //   control: 'select',
-    //   options: ['xs', 'sm', 'md', 'lg', 'xl'],
-    // },
+    size: {
+      control: 'select',
+      // options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['md'],
+    },
     name: {
       control: 'select',
       options: [
