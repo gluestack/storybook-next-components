@@ -12,7 +12,7 @@ const GluestackUIStyledProvider = createProvider({ StyledProvider });
 const GluestackUIProvider = ({ children, ...props }: any) => {
   return (
     <GluestackUIStyledProvider {...props}>
-      <OverlayProvider>
+      <OverlayProvider isSSR>
         <ToastProvider>{children}</ToastProvider>
       </OverlayProvider>
     </GluestackUIStyledProvider>
