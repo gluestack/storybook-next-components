@@ -1181,10 +1181,10 @@
     "@react-stately/utils" "^3.6.0"
     react-stately "^3.21.0"
 
-"@gluestack-ui/modal@latest":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/modal/-/modal-0.1.16.tgz#c3fd928bc541534b3335bf238cb4ebf121d387fc"
-  integrity sha512-V09+cMfz6vOKKRKP6fTtiw3RmenG5WB5VYxwHoiQHyTx4BYH4+LxWzOdicfGVYk1D7wEYqDUfXUhrQccdYhgsg==
+"@gluestack-ui/modal@0.1.17-alpha.1":
+  version "0.1.17-alpha.1"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/modal/-/modal-0.1.17-alpha.1.tgz#5a07bdf76dcf7373eab257e4cb041a017e0c46c0"
+  integrity sha512-Xs969iKJI4lIJVv2LLOLpJN7MV07smXiBS0SoJx3GqBrSIev3DVF8RbF0dx5GpXEIKlw4IboNtT2sPPUiDnKIA==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.2"
     "@gluestack-ui/overlay" "^0.1.7"

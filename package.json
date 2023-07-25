@@ -36,7 +36,7 @@
     "@gluestack-ui/input": "latest",
     "@gluestack-ui/link": "latest",
     "@gluestack-ui/menu": "latest",
-    "@gluestack-ui/modal": "latest",
+    "@gluestack-ui/modal": "0.1.17-alpha.1",
     "@gluestack-ui/popover": "latest",
     "@gluestack-ui/pressable": "latest",
     "@gluestack-ui/progress": "latest",

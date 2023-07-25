@@ -90,7 +90,7 @@ const ModalStoryFigma = ({
   const [showModal, setShowModal] = React.useState(false);
   const ref = React.useRef(null);
   return (
-    <Modal isOpen={true} {...props} my='$16'>
+    <Modal isOpen={true} {...props} my='$16' _experimentalOverlay={false}>
       {/* <Modal.Backdrop /> */}
       <Modal.Content>
         <Modal.Header>

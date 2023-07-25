@@ -1,4 +1,6 @@
-import { createModal } from '../../../packages/modal/src';
+// import { createModal } from '../../../packages/modal/src';
+import { createModal } from '@gluestack-ui/modal';
+
 import {
   Root,
   Content,
