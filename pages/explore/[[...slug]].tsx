@@ -102,7 +102,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   let isStateComponent = false;
 
-  console.log(allCombinations);
   return (
     <Center p='$4'>
       {allCombinations.length === 0 && (
