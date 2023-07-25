@@ -90,8 +90,8 @@ const ModalStoryFigma = ({
   const [showModal, setShowModal] = React.useState(false);
   const ref = React.useRef(null);
   return (
-    <Modal isOpen={true} {...props}>
-      <Modal.Backdrop />
+    <Modal isOpen={true} {...props} my='$16'>
+      {/* <Modal.Backdrop /> */}
       <Modal.Content>
         <Modal.Header>
           <Heading maxWidth='80%'>Engage with Modals</Heading>

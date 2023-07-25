@@ -8,16 +8,12 @@ const ModalMeta: ComponentMeta<typeof Modal> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['md'],
-      description: 'The width of modal.',
-      table: {
-        defaultValue: { summary: 'md' },
-      },
+      options: ['xs', 'sm', 'md', 'lg', 'full'],
     },
-    showModal: {
-      control: 'boolean',
-      option: [true, false],
-    },
+    // showModal: {
+    //   control: 'boolean',
+    //   option: [true, false],
+    // },
   },
   args: { size: 'md' },
 };
