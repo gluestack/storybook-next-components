@@ -23,11 +23,13 @@ const AlertDialogStory = ({
   const handleClose = () => setShowAlertDialog(!showAlertDialog);
   return (
     <AlertDialog
-      isOpen={showAlertDialog || showAlertDialogProp}
+      isOpen={true}
       onClose={handleClose}
       {...props}
+      my='$16'
+      _experimentalOverlay={false}
     >
-      <AlertDialog.Backdrop />
+      {/* <AlertDialog.Backdrop /> */}
       <AlertDialog.Content>
         <AlertDialog.Header>
           <Heading>Return Policy</Heading>
@@ -44,14 +46,14 @@ const AlertDialogStory = ({
         </AlertDialog.Body>
         <AlertDialog.Footer>
           <Button
-            variant="outline"
-            action="secondary"
+            variant='outline'
+            action='secondary'
             onPress={handleClose}
-            mr="$3"
+            mr='$3'
           >
             <Button.Text>Cancel</Button.Text>
           </Button>
-          <Button action="negative" onPress={handleClose}>
+          <Button action='negative' onPress={handleClose}>
             <Button.Text>Delete</Button.Text>
           </Button>
         </AlertDialog.Footer>

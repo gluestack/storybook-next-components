@@ -27,7 +27,7 @@ function ActionsheetStory({
       onClose={handleClose}
       {...props}
     >
-      <Actionsheet.Backdrop />
+      {/* <Actionsheet.Backdrop /> */}
       <Actionsheet.Content>
         <Actionsheet.DragIndicatorWrapper>
           <Actionsheet.DragIndicator />

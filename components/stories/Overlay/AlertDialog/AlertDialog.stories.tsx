@@ -13,10 +13,10 @@ const AlertDialogMeta: ComponentMeta<typeof AlertDialog> = {
         defaultValue: { summary: 'md' },
       },
     },
-    showAlertDialog: {
-      control: 'boolean',
-      options: [true, false],
-    },
+    // showAlertDialog: {
+    //   control: 'boolean',
+    //   options: [true, false],
+    // },
   },
   args: {
     size: 'md',

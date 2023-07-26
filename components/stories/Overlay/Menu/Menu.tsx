@@ -10,6 +10,7 @@ import {
   Text,
   SettingsIcon,
   AddIcon,
+  Box,
 } from '../../../ui-components';
 import { PaintBucket, PuzzleIcon } from 'lucide-react-native';
 
@@ -19,54 +20,57 @@ const MenuStory = ({
 }: any) => {
   return (
     <Menu
+      _experimentalOverlay={false}
       offset={10}
       isOpen={showMenuProp}
       placement={placement}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={({ ...triggerProps }) => {
         return (
-          <Button {...triggerProps}>
-            <Button.Text>Menu</Button.Text>
-          </Button>
+          <Box w={1200} pt={300} pb={100} alignItems='center'>
+            <Button {...triggerProps}>
+              <Button.Text>Menu</Button.Text>
+            </Button>
+          </Box>
         );
       }}
     >
-      <Menu.Item key="Item1" textValue="Item1">
-        <HStack space="sm" px="$3" alignItems="center" py="$2">
-          <Icon as={GlobeIcon} size="sm" />
-          <Text fontSize="$sm" lineHeight="$md">
+      <Menu.Item key='Item1' textValue='Item1'>
+        <HStack space='sm' px='$3' alignItems='center' py='$2'>
+          <Icon as={GlobeIcon} size='sm' />
+          <Text fontSize='$sm' lineHeight='$md'>
             Community
           </Text>
         </HStack>
       </Menu.Item>
-      <Menu.Item key="Roboto" textValue="Roboto">
-        <HStack space="sm" px="$3" alignItems="center" py="$2">
-          <Icon as={PuzzleIcon} size="sm" />
-          <Text fontSize="$sm" lineHeight="$md">
+      <Menu.Item key='Roboto' textValue='Roboto'>
+        <HStack space='sm' px='$3' alignItems='center' py='$2'>
+          <Icon as={PuzzleIcon} size='sm' />
+          <Text fontSize='$sm' lineHeight='$md'>
             Plugins
           </Text>
         </HStack>
       </Menu.Item>
-      <Menu.Item key="Poppins" textValue="Poppins">
-        <HStack space="sm" px="$3" alignItems="center" py="$2">
-          <Icon as={PaintBucket} size="sm" />
-          <Text fontSize="$sm" lineHeight="$md">
+      <Menu.Item key='Poppins' textValue='Poppins'>
+        <HStack space='sm' px='$3' alignItems='center' py='$2'>
+          <Icon as={PaintBucket} size='sm' />
+          <Text fontSize='$sm' lineHeight='$md'>
             Theme
           </Text>
         </HStack>
       </Menu.Item>
-      <Menu.Item key="Poppins" textValue="Poppins">
-        <HStack space="sm" px="$3" alignItems="center" py="$2">
-          <Icon as={SettingsIcon} size="sm" />
-          <Text fontSize="$sm" lineHeight="$md">
+      <Menu.Item key='Poppins' textValue='Poppins'>
+        <HStack space='sm' px='$3' alignItems='center' py='$2'>
+          <Icon as={SettingsIcon} size='sm' />
+          <Text fontSize='$sm' lineHeight='$md'>
             Settings
           </Text>
         </HStack>
       </Menu.Item>
-      <Menu.Item key="Poppins" textValue="Poppins">
-        <HStack space="sm" px="$3" alignItems="center" py="$2">
-          <Icon as={AddIcon} size="sm" />
-          <Text fontSize="$sm" lineHeight="$md">
+      <Menu.Item key='Poppins' textValue='Poppins'>
+        <HStack space='sm' px='$3' alignItems='center' py='$2'>
+          <Icon as={AddIcon} size='sm' />
+          <Text fontSize='$sm' lineHeight='$md'>
             Add account
           </Text>
         </HStack>

@@ -20,15 +20,18 @@ const TooltipStory = ({
 }: any) => {
   return (
     <Tooltip
+      _experimentalOverlay={false}
       offset={10}
       placement={placement}
       isOpen={showTooltipProp}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={(triggerProps: any) => {
         return (
-          <Button {...triggerProps}>
-            <Button.Text>More</Button.Text>
-          </Button>
+          <Box w={900} h={300} py='$20' alignItems='center'>
+            <Button {...triggerProps}>
+              <Button.Text>More</Button.Text>
+            </Button>
+          </Box>
         );
       }}
     >
