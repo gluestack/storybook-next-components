@@ -8,7 +8,7 @@ const TooltipMeta: ComponentMeta<typeof Tooltip> = {
     placement: {
       control: 'select',
       options: [
-        'bottom',
+        'top',
         // 'bottom left',
         // 'bottom right',
         // 'top',

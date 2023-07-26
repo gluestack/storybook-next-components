@@ -22,12 +22,7 @@ function ActionsheetStory({
   const handleClose = () => setShowActionsheet(false);
 
   return (
-    <Actionsheet
-      isOpen={showActionsheet || showActionsheetProp}
-      onClose={handleClose}
-      {...props}
-    >
-      {/* <Actionsheet.Backdrop /> */}
+    <Box w={900} h={400} bg='$backgroundLight800'>
       <Actionsheet.Content>
         <Actionsheet.DragIndicatorWrapper>
           <Actionsheet.DragIndicator />
@@ -48,7 +43,7 @@ function ActionsheetStory({
           <Actionsheet.ItemText>Cancel</Actionsheet.ItemText>
         </Actionsheet.Item>
       </Actionsheet.Content>
-    </Actionsheet>
+    </Box>
   );
 }
 
