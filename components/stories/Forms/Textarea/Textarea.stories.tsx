@@ -13,23 +13,11 @@ const TextareaMeta: ComponentMeta<typeof TextareaStory> = {
       control: 'boolean',
       options: [true, false],
     },
-    isReadonly: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isHovered: {
       control: 'boolean',
       options: [true, false],
     },
-    isPressed: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isFocused: {
-      control: 'boolean',
-      options: [true, false],
-    },
-    isFocusVisible: {
       control: 'boolean',
       options: [true, false],
     },
@@ -38,7 +26,13 @@ const TextareaMeta: ComponentMeta<typeof TextareaStory> = {
       options: [true, false],
     },
   },
-  args: { size: 'md', isInvalid: false, isDisabled: false },
+  args: {
+    size: 'md',
+    isInvalid: false,
+    isHovered: false,
+    isFocused: false,
+    isDisabled: false,
+  },
   parameters: {
     docs: {
       description: {

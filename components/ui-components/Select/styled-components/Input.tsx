@@ -8,15 +8,15 @@ export default styled(
       w: '$full',
     },
     flex: 1,
-    h: '$full',
+    h: '100%',
     color: '$textLight900',
     props: {
-      placeholderTextColor: '$textLight400',
+      placeholderTextColor: '$textLight500',
     },
     _dark: {
       color: '$textDark50',
       props: {
-        placeholderTextColor: '$textDark600',
+        placeholderTextColor: '$textDark400',
       },
     },
   },

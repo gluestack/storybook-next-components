@@ -9,18 +9,13 @@ import {
   Heading,
   Tooltip,
   Button,
+  Center,
 } from '../../../ui-components';
 
 import { Volume, Volume2Icon, LightbulbIcon } from 'lucide-react-native';
 
-const SliderStory = ({
-  value: valueProp = 60,
-  ...props
-}: {
-  value: number;
-  props: any;
-}) => {
-  const [sliderValue, setSliderValue] = React.useState(60);
+const SliderStory = ({ value: valueProp = 60, ...props }: any) => {
+  const [sliderValue, setSliderValue] = React.useState(0);
   const handleChange = (value: any) => {
     setSliderValue(value);
   };
@@ -31,12 +26,14 @@ const SliderStory = ({
 
   return (
     <Slider
-      w={700}
+      {...props}
+      w={300}
+      h={300}
+      mt="$4"
       value={sliderValue}
       onChange={(value: any) => {
         handleChange(value);
       }}
-      {...props}
     >
       <Slider.Track>
         <Slider.FilledTrack />
@@ -61,4 +58,5 @@ export {
   Heading,
   Tooltip,
   Button,
+  Center,
 };

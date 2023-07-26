@@ -104,178 +104,178 @@ import TextMeta from './components/stories/Typography/Text/Text.stories';
 import TextStory from './components/stories/Typography/Text/Text';
 
 export default {
-  Badge: {
-    meta: BadgeMeta,
-    story: BadgeStory,
-  },
-
-  Divider: {
-    meta: DividerMeta,
-    story: DividerStory,
-  },
-
-  Actionsheet: {
-    meta: ActionsheetMeta,
-    story: ActionsheetStory,
-  },
-
-  Alert: {
-    meta: AlertMeta,
-    story: AlertStory,
-  },
-
-  Progress: {
-    meta: ProgressMeta,
-    story: ProgressStory,
-  },
-
-  Spinner: {
-    meta: SpinnerMeta,
-    story: SpinnerStory,
-  },
-
-  Toast: {
-    meta: ToastMeta,
-    story: ToastStory,
-  },
-
-  Button: {
-    meta: ButtonMeta,
-    story: ButtonStory,
-  },
-
-  Checkbox: {
-    meta: CheckboxMeta,
-    story: CheckboxStory,
-  },
-
-  FormControl: {
-    meta: FormControlMeta,
-    story: FormControlStory,
-  },
-
-  Input: {
-    meta: InputMeta,
-    story: InputStory,
-  },
-
-  Link: {
-    meta: LinkMeta,
-    story: LinkStory,
-  },
-
-  Pressable: {
-    meta: PressableMeta,
-    story: PressableStory,
-  },
-
-  Radio: {
-    meta: RadioMeta,
-    story: RadioStory,
-  },
-
-  Select: {
-    meta: SelectMeta,
-    story: SelectStory,
-  },
-
-  Slider: {
-    meta: SliderMeta,
-    story: SliderStory,
-  },
-
-  Switch: {
-    meta: SwitchMeta,
-    story: SwitchStory,
-  },
-
-  Tabs: {
-    meta: TabsMeta,
-    story: TabsStory,
-  },
-
-  Textarea: {
-    meta: TextareaMeta,
-    story: TextareaStory,
-  },
-
-  Box: {
-    meta: BoxMeta,
-    story: BoxStory,
-  },
-
-  Center: {
-    meta: CenterMeta,
-    story: CenterStory,
-  },
-
-  HStack: {
-    meta: HStackMeta,
-    story: HStackStory,
-  },
-
-  VStack: {
-    meta: VStackMeta,
-    story: VStackStory,
-  },
-
-  Avatar: {
-    meta: AvatarMeta,
-    story: AvatarStory,
-  },
-
-  Icon: {
-    meta: IconMeta,
-    story: IconStory,
-  },
-
-  Image: {
-    meta: ImageMeta,
-    story: ImageStory,
-  },
-
-  Fab: {
-    meta: FabMeta,
-    story: FabStory,
-  },
-
-  AlertDialog: {
-    meta: AlertDialogMeta,
-    story: AlertDialogStory,
-  },
-
-  Menu: {
-    meta: MenuMeta,
-    story: MenuStory,
-  },
-
-  Modal: {
-    meta: ModalMeta,
-    story: ModalStory,
-  },
-
-  Popover: {
-    meta: PopoverMeta,
-    story: PopoverStory,
-  },
-
-  Tooltip: {
-    meta: TooltipMeta,
-    story: TooltipStory,
-  },
-
-  Provider: {
-    meta: ProviderMeta,
-    story: ProviderStory,
-  },
-
-  Heading: {
-    meta: HeadingMeta,
-    story: HeadingStory,
-  },
-
-  Text: {
-    meta: TextMeta,
-    story: TextStory,
-  },
-} as any;
+    Badge: {
+        meta: BadgeMeta,
+        story: BadgeStory
+    },
+  
+    Divider: {
+        meta: DividerMeta,
+        story: DividerStory
+    },
+  
+    Actionsheet: {
+        meta: ActionsheetMeta,
+        story: ActionsheetStory
+    },
+  
+    Alert: {
+        meta: AlertMeta,
+        story: AlertStory
+    },
+  
+    Progress: {
+        meta: ProgressMeta,
+        story: ProgressStory
+    },
+  
+    Spinner: {
+        meta: SpinnerMeta,
+        story: SpinnerStory
+    },
+  
+    Toast: {
+        meta: ToastMeta,
+        story: ToastStory
+    },
+  
+    Button: {
+        meta: ButtonMeta,
+        story: ButtonStory
+    },
+  
+    Checkbox: {
+        meta: CheckboxMeta,
+        story: CheckboxStory
+    },
+  
+    FormControl: {
+        meta: FormControlMeta,
+        story: FormControlStory
+    },
+  
+    Input: {
+        meta: InputMeta,
+        story: InputStory
+    },
+  
+    Link: {
+        meta: LinkMeta,
+        story: LinkStory
+    },
+  
+    Pressable: {
+        meta: PressableMeta,
+        story: PressableStory
+    },
+  
+    Radio: {
+        meta: RadioMeta,
+        story: RadioStory
+    },
+  
+    Select: {
+        meta: SelectMeta,
+        story: SelectStory
+    },
+  
+    Slider: {
+        meta: SliderMeta,
+        story: SliderStory
+    },
+  
+    Switch: {
+        meta: SwitchMeta,
+        story: SwitchStory
+    },
+  
+    Tabs: {
+        meta: TabsMeta,
+        story: TabsStory
+    },
+  
+    Textarea: {
+        meta: TextareaMeta,
+        story: TextareaStory
+    },
+  
+    Box: {
+        meta: BoxMeta,
+        story: BoxStory
+    },
+  
+    Center: {
+        meta: CenterMeta,
+        story: CenterStory
+    },
+  
+    HStack: {
+        meta: HStackMeta,
+        story: HStackStory
+    },
+  
+    VStack: {
+        meta: VStackMeta,
+        story: VStackStory
+    },
+  
+    Avatar: {
+        meta: AvatarMeta,
+        story: AvatarStory
+    },
+  
+    Icon: {
+        meta: IconMeta,
+        story: IconStory
+    },
+  
+    Image: {
+        meta: ImageMeta,
+        story: ImageStory
+    },
+  
+    Fab: {
+        meta: FabMeta,
+        story: FabStory
+    },
+  
+    AlertDialog: {
+        meta: AlertDialogMeta,
+        story: AlertDialogStory
+    },
+  
+    Menu: {
+        meta: MenuMeta,
+        story: MenuStory
+    },
+  
+    Modal: {
+        meta: ModalMeta,
+        story: ModalStory
+    },
+  
+    Popover: {
+        meta: PopoverMeta,
+        story: PopoverStory
+    },
+  
+    Tooltip: {
+        meta: TooltipMeta,
+        story: TooltipStory
+    },
+  
+    Provider: {
+        meta: ProviderMeta,
+        story: ProviderStory
+    },
+  
+    Heading: {
+        meta: HeadingMeta,
+        story: HeadingStory
+    },
+  
+    Text: {
+        meta: TextMeta,
+        story: TextStory
+    },
+  } as any

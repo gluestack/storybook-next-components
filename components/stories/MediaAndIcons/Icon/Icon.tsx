@@ -57,8 +57,6 @@ import {
   ThreeDotsIcon,
   TrashIcon,
   UnlockIcon,
-  Box,
-  VStack,
 } from '../../../ui-components';
 
 import { ChromeIcon, InstagramIcon, FacebookIcon } from 'lucide-react-native';

@@ -15,6 +15,10 @@ const ButtonMeta: ComponentMeta<any> = {
     variant: 'solid',
     text: 'Button',
     size: 'md',
+    isHovered: false,
+    isPressed: false,
+    isFocusVisible: false,
+    isDisabled: false,
   },
   argTypes: {
     action: {
@@ -46,10 +50,6 @@ const ButtonMeta: ComponentMeta<any> = {
       options: [true, false],
     },
     isPressed: {
-      control: 'boolean',
-      options: [true, false],
-    },
-    isFocused: {
       control: 'boolean',
       options: [true, false],
     },

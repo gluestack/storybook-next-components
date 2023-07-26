@@ -10,7 +10,6 @@ import {
   Input,
   AddIcon,
   Image,
-  Center,
   Text,
 } from '../../../ui-components';
 
@@ -23,12 +22,17 @@ function ActionsheetStory({
   const handleClose = () => setShowActionsheet(false);
 
   return (
-    <Center w={900} h={400}>
+    <Actionsheet
+      isOpen={showActionsheet || showActionsheetProp}
+      onClose={handleClose}
+      {...props}
+    >
+      <Actionsheet.Backdrop />
       <Actionsheet.Content>
         <Actionsheet.DragIndicatorWrapper>
           <Actionsheet.DragIndicator />
         </Actionsheet.DragIndicatorWrapper>
-        <Actionsheet.Item onPress={handleClose}>
+        <Actionsheet.Item onPress={handleClose} isDisabled>
           <Actionsheet.ItemText>Delete</Actionsheet.ItemText>
         </Actionsheet.Item>
         <Actionsheet.Item onPress={handleClose}>
@@ -44,7 +48,7 @@ function ActionsheetStory({
           <Actionsheet.ItemText>Cancel</Actionsheet.ItemText>
         </Actionsheet.Item>
       </Actionsheet.Content>
-    </Center>
+    </Actionsheet>
   );
 }
 

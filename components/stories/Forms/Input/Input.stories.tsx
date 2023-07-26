@@ -18,23 +18,11 @@ const InputMeta: ComponentMeta<typeof Input> = {
       control: 'boolean',
       options: [true, false],
     },
-    isReadonly: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isHovered: {
       control: 'boolean',
       options: [true, false],
     },
-    isPressed: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isFocused: {
-      control: 'boolean',
-      options: [true, false],
-    },
-    isFocusVisible: {
       control: 'boolean',
       options: [true, false],
     },
@@ -48,7 +36,8 @@ const InputMeta: ComponentMeta<typeof Input> = {
     variant: 'outline',
     isInvalid: false,
     isDisabled: false,
-    isReadonly: false,
+    isHovered: false,
+    isFocused: false,
   },
 };
 

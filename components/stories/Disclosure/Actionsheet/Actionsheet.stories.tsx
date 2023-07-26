@@ -11,10 +11,10 @@ const ActionsheetMeta: ComponentMeta<typeof Actionsheet> = {
   title: 'stories/DISCLOSURE/Actionsheet',
   component: Actionsheet,
   argTypes: {
-    // showActionsheet: {
-    //   control: 'boolean',
-    //   options: [true, false],
-    // },
+    showActionsheet: {
+      control: 'boolean',
+      options: [true, false],
+    },
   },
   args: {
     showActionsheet: true,

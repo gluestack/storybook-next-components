@@ -21,31 +21,24 @@ import { PhoneIcon, Clock3Icon, MailIcon } from 'lucide-react-native';
 const PopoverStory = ({
   showPopover: showPopoverProp = true,
   placement = 'bottom',
-  size,
-  ...props
 }: any) => {
-  console.log(size);
   return (
-    <Center w='$full' h='$full'>
+    <Center w={1200} h={800}>
       <Popover
-        _experimentalOverlay={false}
-        offset={20}
-        isOpen={true}
-        placement='top'
-        size={size}
+        offset={10}
+        isOpen={showPopoverProp}
+        placement={placement}
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
           return (
-            <Box w={1200} pt={300} pb={100} alignItems='center'>
-              <Button {...triggerProps}>
-                <Button.Text>Popover</Button.Text>
-              </Button>
-            </Box>
+            <Button {...triggerProps}>
+              <Button.Text>Popover</Button.Text>
+            </Button>
           );
         }}
       >
-        {/* <Popover.Backdrop /> */}
-        <Popover.Content>
+        <Popover.Backdrop />
+        <Popover.Content maxWidth="$96">
           <Popover.Header>
             <Heading>Welcome!</Heading>
             <Popover.CloseButton>
@@ -59,12 +52,12 @@ const PopoverStory = ({
             </Text>
           </Popover.Body>
           <Popover.Footer>
-            <Text size='xs' flex={1}>
+            <Text size="xs" flex={1}>
               Step 2 of 3
             </Text>
             {/* @ts-ignore */}
-            <Button.Group space='md'>
-              <Button variant='outline' action='secondary'>
+            <Button.Group space="md">
+              <Button variant="outline" action="secondary">
                 <Button.Text>Back</Button.Text>
               </Button>
               <Button>

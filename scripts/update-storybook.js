@@ -7,37 +7,69 @@ const componentsFolderPath = path.join(__dirname, '..', 'components');
 
 main();
 
-function main() {
+async function main() {
+  const targetBranch = 'feat/storybook-figma-refactor'; // Set the target branch you want to switch to
+
   deleteFolderRecursive(storybookClonePath);
+
+  // Clone the repository
   simpleGit().clone(
     'git@github.com:gluestack/gluestack-ui.git',
     storybookClonePath,
-    (error, result) => {
+    async (error, result) => {
       if (error) {
         console.error('Failed to clone repository:', error);
       } else {
         console.log('Repository cloned successfully:', result);
 
-        copyFolder(
-          path.join(storybookClonePath, 'example/storybook/src/components'),
-          path.join(__dirname, '..', 'components/stories')
-        );
-        copyFolder(
-          path.join(storybookClonePath, 'example/storybook/src/ui-components'),
-          path.join(__dirname, '..', 'components/ui-components')
-        );
-        copyFile(
-          path.join(
-            storybookClonePath,
-            'example/storybook/src/gluestack-ui.config.ts'
-          ),
-          componentsFolderPath
-        );
-        createIndexFile();
-        deleteFolderRecursive(storybookClonePath);
+        // Switch to the target branch
+        try {
+          await switchBranch(storybookClonePath, targetBranch);
+
+          // Proceed with copying the folders
+          copyFolder(
+            path.join(storybookClonePath, 'example/storybook/src/components'),
+            path.join(__dirname, '..', 'components/stories')
+          );
+          copyFolder(
+            path.join(
+              storybookClonePath,
+              'example/storybook/src/ui-components'
+            ),
+            path.join(__dirname, '..', 'components/ui-components')
+          );
+          copyFile(
+            path.join(
+              storybookClonePath,
+              'example/storybook/src/gluestack-ui.config.ts'
+            ),
+            componentsFolderPath
+          );
+          createIndexFile();
+        } catch (switchError) {
+          console.error('Failed to switch to the target branch:', switchError);
+        } finally {
+          // Clean up by deleting the cloned repository
+          deleteFolderRecursive(storybookClonePath);
+        }
       }
     }
   );
+}
+
+// Function to switch to the target git branch
+async function switchBranch(repoPath, targetBranch) {
+  return new Promise((resolve, reject) => {
+    const repo = simpleGit(repoPath);
+    repo.checkout(targetBranch, (error, result) => {
+      if (error) {
+        reject(error);
+      } else {
+        console.log('Switched to branch:', targetBranch);
+        resolve(result);
+      }
+    });
+  });
 }
 
 function copyFolder(source, destination) {

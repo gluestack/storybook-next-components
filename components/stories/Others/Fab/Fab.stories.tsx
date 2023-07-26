@@ -22,11 +22,9 @@ const FabMeta: ComponentMeta<typeof Fab> = {
     },
     showLabel: {
       control: 'boolean',
-      options: [true, false],
     },
     showIcon: {
       control: 'boolean',
-      options: [true, false],
     },
   },
   args: {

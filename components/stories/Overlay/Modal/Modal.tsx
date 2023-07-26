@@ -26,13 +26,13 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
       <Modal.Backdrop />
       <Modal.Content>
         <Modal.Header>
-          <Heading maxWidth='80%'>Engage with Modals</Heading>
+          <Heading maxWidth="80%">Engage with Modals</Heading>
           <Modal.CloseButton>
             <Icon as={CloseIcon} />
           </Modal.CloseButton>
         </Modal.Header>
         <Modal.Body>
-          <Text fontSize='$sm'>
+          <Text fontSize="$sm">
             Elevate user interactions with our versatile modals. Seamlessly
             integrate notifications, forms, and media displays. Make an impact
             effortlessly.
@@ -40,10 +40,10 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
-            mr='$3'
+            variant="outline"
+            size="sm"
+            action="secondary"
+            mr="$3"
             onPress={() => {
               setShowModal(false);
             }}
@@ -51,21 +51,21 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
             <Button.Text>Cancel</Button.Text>
           </Button>
           <Button
-            size='sm'
-            action='positive'
+            size="sm"
+            action="positive"
             onPress={() => {
               setShowModal(false);
             }}
             sx={{
-              bg: '$success700',
+              'bg': '$success700',
               ':hover': {
                 bg: '$success800',
               },
               ':active': {
                 bg: '$success900',
               },
-              _dark: {
-                bg: '$success600',
+              '_dark': {
+                'bg': '$success600',
                 ':hover': {
                   bg: '$success700',
                 },
@@ -83,78 +83,9 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
   );
 };
 
-const ModalStoryFigma = ({
-  showModal: showModalProp = true,
-  ...props
-}: any) => {
-  const [showModal, setShowModal] = React.useState(false);
-  const ref = React.useRef(null);
-  return (
-    <Modal isOpen={true} {...props} my='$16' _experimentalOverlay={false}>
-      {/* <Modal.Backdrop /> */}
-      <Modal.Content>
-        <Modal.Header>
-          <Heading maxWidth='80%'>Engage with Modals</Heading>
-          <Modal.CloseButton>
-            <Icon as={CloseIcon} />
-          </Modal.CloseButton>
-        </Modal.Header>
-        <Modal.Body>
-          <Text fontSize='$sm'>
-            Elevate user interactions with our versatile modals. Seamlessly
-            integrate notifications, forms, and media displays. Make an impact
-            effortlessly.
-          </Text>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
-            mr='$3'
-            onPress={() => {
-              setShowModal(false);
-            }}
-          >
-            <Button.Text>Cancel</Button.Text>
-          </Button>
-          <Button
-            size='sm'
-            action='positive'
-            onPress={() => {
-              setShowModal(false);
-            }}
-            sx={{
-              bg: '$success700',
-              ':hover': {
-                bg: '$success800',
-              },
-              ':active': {
-                bg: '$success900',
-              },
-              _dark: {
-                bg: '$success600',
-                ':hover': {
-                  bg: '$success700',
-                },
-                ':active': {
-                  bg: '$success800',
-                },
-              },
-            }}
-          >
-            <Button.Text>Explore</Button.Text>
-          </Button>
-        </Modal.Footer>
-      </Modal.Content>
-    </Modal>
-  );
-};
-
-export default ModalStoryFigma;
+export default ModalStory;
 
 export {
-  ModalStory,
   Modal,
   CloseIcon,
   Button,

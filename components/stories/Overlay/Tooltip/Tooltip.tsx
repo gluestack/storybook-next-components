@@ -18,25 +18,23 @@ const TooltipStory = ({
   placement = 'bottom',
   text = 'Hello world',
 }: any) => {
+  2;
   return (
     <Tooltip
-      _experimentalOverlay={false}
       offset={10}
       placement={placement}
       isOpen={showTooltipProp}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={(triggerProps: any) => {
         return (
-          <Box w={200} h={100} py='$20' alignItems='center'>
-            <Button {...triggerProps}>
-              <Button.Text>More</Button.Text>
-            </Button>
-          </Box>
+          <Button {...triggerProps}>
+            <Button.Text>More</Button.Text>
+          </Button>
         );
       }}
     >
       <Tooltip.Content>
-        <Text>{text}</Text>
+        <Tooltip.Text>{text}</Tooltip.Text>
       </Tooltip.Content>
     </Tooltip>
   );

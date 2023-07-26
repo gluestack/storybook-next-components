@@ -56,6 +56,8 @@ function generateCombinations(
       newCombination[optionKey] = optionValues[i];
       generateCombinations(combinations, options, index + 1, newCombination);
     }
+  } else {
+    generateCombinations(combinations, options, index + 1, combination);
   }
 }
 

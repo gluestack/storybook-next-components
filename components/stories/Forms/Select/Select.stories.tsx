@@ -23,23 +23,11 @@ const SelectMeta: ComponentMeta<typeof Select> = {
       control: 'boolean',
       options: [true, false],
     },
-    isReadonly: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isHovered: {
       control: 'boolean',
       options: [true, false],
     },
-    isPressed: {
-      control: 'boolean',
-      options: [true, false],
-    },
     isFocused: {
-      control: 'boolean',
-      options: [true, false],
-    },
-    isFocusVisible: {
       control: 'boolean',
       options: [true, false],
     },
@@ -51,9 +39,10 @@ const SelectMeta: ComponentMeta<typeof Select> = {
   args: {
     size: 'md',
     variant: 'outline',
-    isDisabled: false,
     isInvalid: false,
-    isReadOnly: false,
+    isHovered: false,
+    isFocused: false,
+    isDisabled: false,
   },
 };
 
