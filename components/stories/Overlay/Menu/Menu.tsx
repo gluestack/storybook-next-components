@@ -21,13 +21,13 @@ const MenuStory = ({
   return (
     <Menu
       _experimentalOverlay={false}
-      offset={10}
-      isOpen={showMenuProp}
+      // offset={10}
+      isOpen={true}
       placement={placement}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={({ ...triggerProps }) => {
         return (
-          <Box w={1200} pt={300} pb={100} alignItems='center'>
+          <Box w={1200} pt={300} pb={20} alignItems='center'>
             <Button {...triggerProps}>
               <Button.Text>Menu</Button.Text>
             </Button>
