@@ -1,5 +1,5 @@
 import { Root, Content, Text } from './styled-components';
-import { createTooltip } from '@gluestack-ui/tooltip';
+import { createTooltip } from '../../../packages/tooltip/src';
 import { styled } from '../styled';
 
 export const Tooltip = createTooltip({

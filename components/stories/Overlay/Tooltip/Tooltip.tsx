@@ -57,7 +57,7 @@ const FigmaTooltipStory = ({
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={(triggerProps: any) => {
         return (
-          <Center w={300} h={300} bg='$red500'>
+          <Center pb={10}>
             <Button {...triggerProps}>
               <Button.Text>More</Button.Text>
             </Button>
