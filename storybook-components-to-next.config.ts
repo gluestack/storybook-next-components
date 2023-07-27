@@ -4,6 +4,9 @@ import BadgeStory from './components/stories/DataDisplay/Badge/Badge';
 import DividerMeta from './components/stories/DataDisplay/Divider/Divider.stories';
 import DividerStory from './components/stories/DataDisplay/Divider/Divider';
 
+import AccordionMeta from './components/stories/Disclosure/Accordion/Accordion.stories';
+import AccordionStory from './components/stories/Disclosure/Accordion/Accordion';
+
 import ActionsheetMeta from './components/stories/Disclosure/Actionsheet/Actionsheet.stories';
 import ActionsheetStory from './components/stories/Disclosure/Actionsheet/Actionsheet';
 
@@ -112,6 +115,11 @@ export default {
     Divider: {
         meta: DividerMeta,
         story: DividerStory
+    },
+  
+    Accordion: {
+        meta: AccordionMeta,
+        story: AccordionStory
     },
   
     Actionsheet: {

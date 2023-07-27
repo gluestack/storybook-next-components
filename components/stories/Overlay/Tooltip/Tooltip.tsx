@@ -46,22 +46,20 @@ const FigmaTooltipStory = ({
   ...props
 }: any) => {
   2;
-
   return (
     <Tooltip
       {...props}
       offset={10}
-      placement='top'
+      placement="bottom"
       isOpen={true}
-      _experimentalOverlay={false}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={(triggerProps: any) => {
         return (
-          <Center pb={10}>
+          <Box w={200} h={100} py="$20" alignItems="center">
             <Button {...triggerProps}>
               <Button.Text>More</Button.Text>
             </Button>
-          </Center>
+          </Box>
         );
       }}
     >
