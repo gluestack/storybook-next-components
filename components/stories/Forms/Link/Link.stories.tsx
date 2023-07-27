@@ -5,7 +5,6 @@ import Link from './Link';
 const LinkStory = ({ ...props }: any) => {
   return <Link {...props} />;
 };
-
 const LinkMeta: ComponentMeta<typeof LinkStory> = {
   title: 'stories/FORMS/Link',
   component: LinkStory,

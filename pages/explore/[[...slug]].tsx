@@ -146,6 +146,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             }
 
             if (dataProps.name) {
+              console.log(dataProps.name.displayName);
               dataProps.name = dataProps.name.displayName;
             }
 
