@@ -9,6 +9,7 @@ import { Center, VStack, Button } from '@/components';
 interface Option {
   control: string;
   options: string[];
+  figmaIgnore: boolean;
   description: string;
   table: {
     defaultValue: {
@@ -49,7 +50,12 @@ function generateCombinations(
 
   const optionKey = Object.keys(options)[index];
   const optionValues = options[optionKey].options;
-  if (optionValues && optionValues.length > 0) {
+
+  if (
+    optionValues &&
+    optionValues.length > 0 &&
+    !options[optionKey].figmaIgnore
+  ) {
     for (let i = 0; i < optionValues.length; i++) {
       const newCombination: Combination = { ...combination };
 
