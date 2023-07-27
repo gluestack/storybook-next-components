@@ -31,25 +31,25 @@ const MenuStory = ({ placement = 'bottom' }: any) => {
           );
         }}
       >
-        <Menu.Item key="Community" textValue="Community">
-          <Icon as={GlobeIcon} size="sm" mr="$2" />
-          <Menu.ItemLabel size="sm">Community</Menu.ItemLabel>
+        <Menu.Item key='Community' textValue='Community'>
+          <Icon as={GlobeIcon} size='sm' mr='$2' />
+          <Menu.ItemLabel size='sm'>Community</Menu.ItemLabel>
         </Menu.Item>
-        <Menu.Item key="Plugins" textValue="Plugins">
-          <Icon as={PuzzleIcon} size={16} mr="$2" />
-          <Menu.ItemLabel size="sm">Plugins</Menu.ItemLabel>
+        <Menu.Item key='Plugins' textValue='Plugins'>
+          <Icon as={PuzzleIcon} size={16} mr='$2' />
+          <Menu.ItemLabel size='sm'>Plugins</Menu.ItemLabel>
         </Menu.Item>
-        <Menu.Item key="Theme" textValue="Theme">
-          <Icon as={PaintBucket} size={16} mr="$2" />
-          <Menu.ItemLabel size="sm">Theme</Menu.ItemLabel>
+        <Menu.Item key='Theme' textValue='Theme'>
+          <Icon as={PaintBucket} size={16} mr='$2' />
+          <Menu.ItemLabel size='sm'>Theme</Menu.ItemLabel>
         </Menu.Item>
-        <Menu.Item key="Settings" textValue="Settings">
-          <Icon as={SettingsIcon} size="sm" mr="$2" />
-          <Menu.ItemLabel size="sm">Settings</Menu.ItemLabel>
+        <Menu.Item key='Settings' textValue='Settings'>
+          <Icon as={SettingsIcon} size='sm' mr='$2' />
+          <Menu.ItemLabel size='sm'>Settings</Menu.ItemLabel>
         </Menu.Item>
-        <Menu.Item key="Add account" textValue="Add account">
-          <Icon as={AddIcon} size="sm" mr="$2" />
-          <Menu.ItemLabel size="sm">Add account</Menu.ItemLabel>
+        <Menu.Item key='Add account' textValue='Add account'>
+          <Icon as={AddIcon} size='sm' mr='$2' />
+          <Menu.ItemLabel size='sm'>Add account</Menu.ItemLabel>
         </Menu.Item>
       </Menu>
     </Center>
@@ -63,12 +63,12 @@ const FigmaMenuStory = ({ ...props }) => {
       // @ts-ignore
       _experimentalOverlay={false}
       isOpen={true}
-      placement="bottom"
-      offset={30}
+      placement='bottom'
+      offset={10}
       // eslint-disable-next-line react/no-unstable-nested-components
       trigger={({ ...triggerProps }) => {
         return (
-          <Box w={1200} pt={300} pb={20} alignItems="center">
+          <Box w={1200} pt={300} pb={20} alignItems='center'>
             <Button {...triggerProps}>
               <Button.Text>Menu</Button.Text>
             </Button>
@@ -76,85 +76,85 @@ const FigmaMenuStory = ({ ...props }) => {
         );
       }}
     >
-      <Menu.Item key="Community" textValue="Community">
+      <Menu.Item key='Community' textValue='Community'>
         <Icon
           as={GlobeIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'GlobeIcon',
-              'size': 'sm',
+              name: 'GlobeIcon',
+              size: 'sm',
             }),
           }}
-          size="sm"
-          mr="$2"
+          size='sm'
+          mr='$2'
         />
-        <Menu.ItemLabel size="sm">Community</Menu.ItemLabel>
+        <Menu.ItemLabel size='sm'>Community</Menu.ItemLabel>
       </Menu.Item>
-      <Menu.Item key="Plugins" textValue="Plugins">
+      <Menu.Item key='Plugins' textValue='Plugins'>
         <Icon
           as={PuzzleIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'PuzzleIcon',
-              'size': 'sm',
+              name: 'PuzzleIcon',
+              size: 'sm',
             }),
           }}
-          size="sm"
-          mr="$2"
+          size='sm'
+          mr='$2'
         />
-        <Menu.ItemLabel size="sm">Plugins</Menu.ItemLabel>
+        <Menu.ItemLabel size='sm'>Plugins</Menu.ItemLabel>
       </Menu.Item>
-      <Menu.Item key="Theme" textValue="Theme">
+      <Menu.Item key='Theme' textValue='Theme'>
         <Icon
           as={PaintBucket}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'PaintBucket',
-              'size': 'sm',
+              name: 'PaintBucket',
+              size: 'sm',
             }),
           }}
-          size="sm"
-          mr="$2"
+          size='sm'
+          mr='$2'
         />
-        <Menu.ItemLabel size="sm">Theme</Menu.ItemLabel>
+        <Menu.ItemLabel size='sm'>Theme</Menu.ItemLabel>
       </Menu.Item>
-      <Menu.Item key="Settings" textValue="Settings">
+      <Menu.Item key='Settings' textValue='Settings'>
         <Icon
           as={SettingsIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'SettingsIcon',
-              'size': 'sm',
+              name: 'SettingsIcon',
+              size: 'sm',
             }),
           }}
-          size="sm"
-          mr="$2"
+          size='sm'
+          mr='$2'
         />
-        <Menu.ItemLabel size="sm">Settings</Menu.ItemLabel>
+        <Menu.ItemLabel size='sm'>Settings</Menu.ItemLabel>
       </Menu.Item>
-      <Menu.Item key="Add account" textValue="Add account">
+      <Menu.Item key='Add account' textValue='Add account'>
         <Icon
           as={AddIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'AddIcon',
-              'size': 'sm',
+              name: 'AddIcon',
+              size: 'sm',
             }),
           }}
-          size="sm"
-          mr="$2"
+          size='sm'
+          mr='$2'
         />
-        <Menu.ItemLabel size="sm">Add account</Menu.ItemLabel>
+        <Menu.ItemLabel size='sm'>Add account</Menu.ItemLabel>
       </Menu.Item>
     </Menu>
   );
