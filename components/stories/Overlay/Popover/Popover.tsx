@@ -87,11 +87,11 @@ const FigmaPopoverStory = ({
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
           return (
-            <Box w={1200} pt={500} pb={300} alignItems='center'>
+            <Center w={1200} h={300} justifyContent='flex-end'>
               <Button {...triggerProps}>
                 <Button.Text>Popover</Button.Text>
               </Button>
-            </Box>
+            </Center>
           );
         }}
       >
