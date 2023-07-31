@@ -24,14 +24,18 @@ const ButtonMeta: ComponentMeta<any> = {
     action: {
       control: 'select',
       description: 'The action of button.',
-      options: ['primary', 'secondary', 'positive', 'negative'],
+      // options: ['primary', 'secondary', 'positive', 'negative'],
+      options: ['primary'],
+
       table: {
         defaultValue: { summary: 'primary' },
       },
     },
     variant: {
       control: 'select',
-      options: ['solid', 'outline', 'link'],
+      // options: ['solid', 'outline', 'link'],
+      options: ['solid'],
+
       description: 'The style of button.',
       table: {
         defaultValue: { summary: 'primary' },
@@ -39,7 +43,9 @@ const ButtonMeta: ComponentMeta<any> = {
     },
     size: {
       control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      // options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['md'],
+
       description: 'The size of the button.',
       table: {
         defaultValue: { summary: 'md' },
