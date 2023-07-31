@@ -24,7 +24,17 @@ type MyButtonStory = ComponentStory<typeof Button>;
 const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
   return (
     <Button {...props}>
-      <Button.Text>{text}</Button.Text>
+      <Button.Text
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            size: props.size,
+          }),
+        }}
+      >
+        {text}
+      </Button.Text>
     </Button>
   );
 };
