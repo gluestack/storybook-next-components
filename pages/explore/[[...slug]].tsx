@@ -120,7 +120,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
         py={16}
         px={32}
         rounded='$md'
-        textAlign='center'
         letterSpacing='$xl'
         color='$textLight800'
       >

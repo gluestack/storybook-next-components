@@ -5,28 +5,28 @@ const SwitchMeta: ComponentMeta<typeof Switch> = {
   title: 'stories/FORMS/Switch',
   component: Switch,
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    isDisabled: {
-      control: 'boolean',
-      options: [true, false],
-    },
+    // size: {
+    //   control: 'select',
+    //   options: ['sm', 'md', 'lg'],
+    // },
+    // isDisabled: {
+    //   control: 'boolean',
+    //   options: [true, false],
+    // },
     isEnabled: {
       control: 'boolean',
       options: [true, false],
     },
-    isInvalid: {
-      control: 'boolean',
-      options: [true, false],
-    },
+    // isInvalid: {
+    //   control: 'boolean',
+    //   options: [true, false],
+    // },
   },
   args: {
-    size: 'md',
-    isDisabled: false,
+    // size: 'md',
+    // isDisabled: false,
     isEnabled: false,
-    isInvalid: false,
+    // isInvalid: false,
   },
 };
 
