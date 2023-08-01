@@ -13,63 +13,31 @@ import {
   FormControl,
 } from '../../../ui-components';
 
-const RadioStory = ({
-  size,
-  isDisabled,
-  isInvalid,
-  isReadOnly,
-  ...props
-}: any) => {
-  const [values, setValues] = React.useState();
-
+const RadioStory = ({ ...props }: any) => {
+  const [values, setValues]: any = React.useState(
+    props.isActive ? 'Default' : ''
+  );
   return (
-    <Radio.Group
-      isDisabled={isDisabled}
-      isReadOnly={isReadOnly}
-      value={values}
-      onChange={setValues}
-    >
+    <Radio.Group value={values} onChange={setValues}>
       <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        size={size}
-        value="Label 1"
-        accessibilityLabel="Radio"
+        value='Default'
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
       >
         <Radio.Indicator>
-          <Radio.Icon as={CircleIcon} />
+          <Radio.Icon
+            as={CircleIcon}
+            dataSet={{
+              'component-props': JSON.stringify({
+                instance: true,
+                'instance-name': 'Icon',
+                name: 'CircleIcon',
+                size: props.size,
+              }),
+            }}
+          />
         </Radio.Indicator>
-        <Radio.Label>Label 1</Radio.Label>
-      </Radio>
-      <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        size={size}
-        value="Label 2"
-        accessibilityLabel="Radio"
-        onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-      >
-        <Radio.Indicator>
-          <Radio.Icon as={CircleIcon} />
-        </Radio.Indicator>
-        <Radio.Label>Label 2</Radio.Label>
-      </Radio>
-      <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        size={size}
-        value="Label 3"
-        accessibilityLabel="Radio"
-        onChange={(isSelected: boolean) =>
-          console.log(isSelected, 'isSelected')
-        }
-      >
-        <Radio.Indicator>
-          <Radio.Icon as={CircleIcon} />
-        </Radio.Indicator>
-        <Radio.Label>Label 3</Radio.Label>
+        <Radio.Label ml='$2'>Default</Radio.Label>
       </Radio>
     </Radio.Group>
   );

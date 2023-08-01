@@ -6,19 +6,24 @@ const RadioMeta: ComponentMeta<typeof RadioStory> = {
   component: RadioStory,
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg'],
-      },
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
     },
     isInvalid: {
       type: 'boolean',
+      options: [false, true],
     },
     isDisabled: {
       type: 'boolean',
+      options: [false, true],
     },
     isReadOnly: {
       type: 'boolean',
+      options: [false, true],
+    },
+    isActive: {
+      type: 'boolean',
+      options: [false, true],
     },
   },
   args: {

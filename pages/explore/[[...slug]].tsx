@@ -4,7 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack, Button } from '@/components';
+import { Center, VStack, Heading } from '@/components';
 
 interface Option {
   control: string;
@@ -112,6 +112,20 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   return (
     <Center p='$4'>
+      <Heading
+        size='2xl'
+        my={50}
+        w='60%'
+        bg='$yellow300'
+        py={16}
+        px={32}
+        rounded='$md'
+        textAlign='center'
+        letterSpacing='$xl'
+        color='$textLight800'
+      >
+        {component[0].toUpperCase()}
+      </Heading>
       {allCombinations.length === 0 && (
         <Story
           dataSet={{
