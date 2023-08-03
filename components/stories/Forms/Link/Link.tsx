@@ -5,8 +5,18 @@ import { ArrowUpRightIcon } from 'lucide-react-native';
 
 const LinkStory = ({ ...props }: any) => {
   return (
-    <Link href="https://google.com" isExternal {...props}>
-      <Link.Text>GLUESTACK</Link.Text>
+    <Link href='https://google.com' isExternal {...props}>
+      <Link.Text
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            size: 'md',
+          }),
+        }}
+      >
+        GLUESTACK
+      </Link.Text>
     </Link>
   );
 };
