@@ -1,5 +1,11 @@
 import React from 'react';
-import { Button, Toast, useToast } from '../../../ui-components';
+import {
+  Button,
+  ButtonText,
+  Toast,
+  ToastTitle,
+  useToast,
+} from '../../../ui-components';
 
 const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
   const toast = useToast();
@@ -15,7 +21,17 @@ const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
             render: ({ id }) => {
               return (
                 <Toast>
-                  <Toast.Title>Hello World Toast {id}</Toast.Title>
+                  <ToastTitle
+                    dataSet={{
+                      'component-props': JSON.stringify({
+                        'is-text-style': true,
+                        'component-name': 'Text',
+                        'size': 'md',
+                      }),
+                    }}
+                  >
+                    Hello World Toast {id}
+                  </ToastTitle>
                 </Toast>
               );
             },
@@ -23,7 +39,17 @@ const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
         }
       }}
     >
-      <Button.Text>Press Me</Button.Text>
+      <ButtonText
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': 'md',
+          }),
+        }}
+      >
+        Press Me
+      </ButtonText>
     </Button>
   );
 };

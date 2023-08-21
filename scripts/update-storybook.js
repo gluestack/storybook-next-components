@@ -8,7 +8,7 @@ const componentsFolderPath = path.join(__dirname, '..', 'components');
 main();
 
 async function main() {
-  const targetBranch = 'feat/storybook-figma-refactor'; // Set the target branch you want to switch to
+  const targetBranch = 'fix/text-icons-imports'; // Set the target branch you want to switch to
 
   deleteFolderRecursive(storybookClonePath);
 

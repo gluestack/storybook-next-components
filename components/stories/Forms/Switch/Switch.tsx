@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Switch, VStack, Text, HStack } from '../../../ui-components';
 
 const SwitchStory = ({ ...props }: any) => {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(true);
   return (
     <Switch
+      defaultValue={true}
       value={isEnabled || props.isEnabled}
       onValueChange={(val: any) => setIsEnabled(val)}
       {...props}

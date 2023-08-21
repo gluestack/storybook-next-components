@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import {
   Text,
   Button,
+  ButtonText,
+  ButtonGroup,
   Popover,
+  PopoverBackdrop,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverCloseButton,
   CloseIcon,
   Icon,
   Box,
@@ -12,6 +20,7 @@ import {
   HStack,
   VStack,
   Avatar,
+  AvatarFallbackText,
   CircleIcon,
   AddIcon,
 } from '../../../ui-components';
@@ -32,40 +41,40 @@ const PopoverStory = ({
         trigger={(triggerProps) => {
           return (
             <Button {...triggerProps}>
-              <Button.Text>Popover</Button.Text>
+              <ButtonText>Popover</ButtonText>
             </Button>
           );
         }}
       >
-        <Popover.Backdrop />
-        <Popover.Content maxWidth='$96'>
-          <Popover.Header>
+        <PopoverBackdrop />
+        <PopoverContent maxWidth="$96">
+          <PopoverHeader>
             <Heading>Welcome!</Heading>
-            <Popover.CloseButton>
+            <PopoverCloseButton>
               <Icon as={CloseIcon} />
-            </Popover.CloseButton>
-          </Popover.Header>
-          <Popover.Body>
+            </PopoverCloseButton>
+          </PopoverHeader>
+          <PopoverBody>
             <Text>
               Join the product tour and start creating your own checklist. Are
               you ready to jump in?
             </Text>
-          </Popover.Body>
-          <Popover.Footer>
-            <Text size='xs' flex={1}>
+          </PopoverBody>
+          <PopoverFooter>
+            <Text size="xs" flex={1}>
               Step 2 of 3
             </Text>
             {/* @ts-ignore */}
-            <Button.Group space='md'>
-              <Button variant='outline' action='secondary'>
-                <Button.Text>Back</Button.Text>
+            <ButtonGroup space="md">
+              <Button variant="outline" action="secondary">
+                <ButtonText>Back</ButtonText>
               </Button>
               <Button>
-                <Button.Text>Next</Button.Text>
+                <ButtonText>Next</ButtonText>
               </Button>
-            </Button.Group>
-          </Popover.Footer>
-        </Popover.Content>
+            </ButtonGroup>
+          </PopoverFooter>
+        </PopoverContent>
       </Popover>
     </Center>
   );
@@ -77,17 +86,17 @@ const FigmaPopoverStory = ({
   ...props
 }: any) => {
   return (
-    <Center w='$full' h='$full'>
+    <Center w="$full" h="$full">
       <Popover
         {...props}
         _experimentalOverlay={false}
         offset={30}
         isOpen={true}
-        placement='top'
+        placement="top"
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
           return (
-            <Box w={1200} pt={300} pb={100} alignItems='center'>
+            <Box w={1200} pt={300} pb={100} alignItems="center">
               <Button {...triggerProps}>
                 <Button.Text>Popover</Button.Text>
               </Button>
@@ -103,10 +112,10 @@ const FigmaPopoverStory = ({
                 as={CloseIcon}
                 dataSet={{
                   'component-props': JSON.stringify({
-                    instance: true,
+                    'instance': true,
                     'instance-name': 'Icon',
-                    name: 'CloseIcon',
-                    size: 'md',
+                    'name': 'CloseIcon',
+                    'size': 'md',
                   }),
                 }}
               />
@@ -119,21 +128,21 @@ const FigmaPopoverStory = ({
             </Text>
           </Popover.Body>
           <Popover.Footer>
-            <Text size='xs' flex={1}>
+            <Text size="xs" flex={1}>
               Step 2 of 3
             </Text>
             {/* @ts-ignore */}
-            <HStack space='md'>
+            <Button.Group space="md">
               <Button
-                variant='outline'
-                action='secondary'
+                variant="outline"
+                action="secondary"
                 dataSet={{
                   'component-props': JSON.stringify({
-                    instance: true,
+                    'instance': true,
                     'instance-name': 'Button-outline',
-                    size: 'sm',
-                    action: 'secondary',
-                    state: 'default',
+                    'size': 'md',
+                    'action': 'secondary',
+                    'state': 'default',
                   }),
                 }}
               >
@@ -142,17 +151,17 @@ const FigmaPopoverStory = ({
               <Button
                 dataSet={{
                   'component-props': JSON.stringify({
-                    instance: true,
+                    'instance': true,
                     'instance-name': 'Button-solid',
-                    size: 'sm',
-                    action: 'primary',
-                    state: 'default',
+                    'size': 'sm',
+                    'action': 'primary',
+                    'state': 'default',
                   }),
                 }}
               >
                 <Button.Text>Next</Button.Text>
               </Button>
-            </HStack>
+            </Button.Group>
           </Popover.Footer>
         </Popover.Content>
       </Popover>
@@ -166,7 +175,15 @@ export {
   PopoverStory,
   Text,
   Popover,
+  PopoverBackdrop,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverCloseButton,
   Button,
+  ButtonGroup,
+  ButtonText,
   CloseIcon,
   Box,
   Heading,
@@ -175,6 +192,7 @@ export {
   HStack,
   VStack,
   Avatar,
+  AvatarFallbackText,
   CircleIcon,
   AddIcon,
   Center,

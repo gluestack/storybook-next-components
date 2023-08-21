@@ -1,13 +1,15 @@
 import type { ComponentStory } from '@storybook/react-native';
 import { Box, Center } from '../../../ui-components';
 import React from 'react';
-
 import {
   Button,
+  ButtonText,
+  ButtonIcon,
+  ButtonGroup,
   Icon,
   AddIcon,
   InfoIcon,
-  Spinner,
+  ButtonSpinner,
   ArrowUpIcon,
   Heading,
   Text,
@@ -15,26 +17,26 @@ import {
   VStack,
   ThreeDotsIcon,
   Input,
+  InputInput,
 } from '../../../ui-components';
-
 import { EditIcon, ArrowLeftIcon } from 'lucide-react-native';
 
-type MyButtonStory = ComponentStory<typeof Button>;
+type ButtonStoryType = ComponentStory<typeof Button>;
 
-const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
+const ButtonStory: ButtonStoryType = ({ text = 'Button', ...props }: any) => {
   return (
     <Button {...props}>
-      <Button.Text
+      <ButtonText
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            size: props.size,
+            'size': props.size,
           }),
         }}
       >
         {text}
-      </Button.Text>
+      </ButtonText>
     </Button>
   );
 };
@@ -43,10 +45,13 @@ export default ButtonStory;
 
 export {
   Button,
+  ButtonText,
+  ButtonIcon,
+  ButtonGroup,
   Icon,
   AddIcon,
   InfoIcon,
-  Spinner,
+  ButtonSpinner,
   EditIcon,
   ArrowUpIcon,
   Heading,
@@ -56,6 +61,7 @@ export {
   VStack,
   ThreeDotsIcon,
   Input,
+  InputInput,
   ArrowLeftIcon,
   Center,
 };

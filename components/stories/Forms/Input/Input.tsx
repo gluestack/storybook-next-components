@@ -1,8 +1,11 @@
 import React from 'react';
 import {
   Input,
+  InputInput,
+  InputIcon,
   Center,
   Button,
+  ButtonText,
   Box,
   VStack,
   Text,
@@ -35,14 +38,21 @@ const InputStory = ({ ...props }: any) => {
 
   return (
     <Input {...props}>
-      <Input.Input
+      <InputInput
         onChange={(e: any) => {
           setValue(e.nativeEvent.text);
         }}
         value={value}
         placeholder="Enter Text here"
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': props.size,
+          }),
+        }}
       />
-      <Input.Icon pr="$4">
+      <InputIcon pr="$4">
         <Icon
           as={SearchIcon}
           dataSet={{
@@ -54,7 +64,7 @@ const InputStory = ({ ...props }: any) => {
             }),
           }}
         />
-      </Input.Icon>
+      </InputIcon>
     </Input>
   );
 };
@@ -63,8 +73,11 @@ export default InputStory;
 
 export {
   Input,
+  InputInput,
+  InputIcon,
   Center,
   Button,
+  ButtonText,
   Box,
   VStack,
   Text,

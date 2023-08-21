@@ -21,7 +21,6 @@ const ButtonMeta: ComponentMeta<any> = {
   argTypes: {
     action: {
       control: 'select',
-      description: 'The action of button.',
       options: ['primary', 'secondary', 'positive', 'negative'],
     },
     variant: {
