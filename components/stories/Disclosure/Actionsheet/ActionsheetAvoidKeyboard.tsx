@@ -24,8 +24,7 @@ import {
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import { createIcon } from '@gluestack-ui/icon';
 import { Svg, Path } from 'react-native-svg';
-import { styled } from '@gluestack-ui/themed';
-import { AsForwarder } from '@gluestack-style/react';
+import { styled, AsForwarder } from '@gluestack-style/react';
 
 const IconRoot: any = styled(
   AsForwarder,
@@ -63,10 +62,10 @@ const LeadingIcon = createIcon({
   ),
 });
 
-function ActionsheetExample({
+const ActionsheetWithKeyboardAvoidingView = ({
   showActionsheet: showActionsheetProp = true,
   ...props
-}) {
+}) => {
   const [showActionsheet, setShowActionsheet] = React.useState(
     props.showActionsheet
   );
@@ -172,9 +171,9 @@ function ActionsheetExample({
       </Actionsheet>
     </KeyboardAvoidingView>
   );
-}
+};
 
-export default ActionsheetExample;
+export default ActionsheetWithKeyboardAvoidingView;
 
 export {
   Actionsheet,

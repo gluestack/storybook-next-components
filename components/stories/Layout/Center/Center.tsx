@@ -1,10 +1,7 @@
-import type { ComponentStory } from '@storybook/react-native';
 import { Text, Center } from '@gluestack-ui/themed';
 import React from 'react';
 
-type MyCenterStory = ComponentStory<typeof Center>;
-
-const CenterStory: MyCenterStory = () => {
+const CenterBasic = () => {
   return (
     <Center bg="$primary500" h={200} w={300}>
       <Text
@@ -24,6 +21,6 @@ const CenterStory: MyCenterStory = () => {
   );
 };
 
-export default CenterStory;
+export default CenterBasic;
 
 export { Text, Center };

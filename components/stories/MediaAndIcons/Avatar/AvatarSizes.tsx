@@ -1,5 +1,3 @@
-// @ts-nocheck
-import type { ComponentStory } from '@storybook/react-native';
 import {
   VStack,
   Avatar,
@@ -8,8 +6,6 @@ import {
   AvatarImage,
 } from '@gluestack-ui/themed';
 import React from 'react';
-
-type CustomAvatarStory = ComponentStory<typeof Avatar>;
 
 const TextSizeMap = new Map([
   ['xs', '2xs'],
@@ -20,7 +16,7 @@ const TextSizeMap = new Map([
   ['2xl', '5xl'],
 ]);
 
-const AvatarSizeExample: CustomAvatarStory = () => {
+const AvatarSizes = () => {
   return (
     <VStack space="md" alignItems="center" h="100%" justifyContent="center">
       {['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map((size, index) => (
@@ -48,4 +44,4 @@ const AvatarSizeExample: CustomAvatarStory = () => {
   );
 };
 
-export default AvatarSizeExample;
+export default AvatarSizes;

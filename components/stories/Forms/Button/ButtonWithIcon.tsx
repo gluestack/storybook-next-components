@@ -1,11 +1,8 @@
 import React from 'react';
-import type { ComponentStory } from '@storybook/react-native';
 import { AddIcon, InfoIcon, HStack } from '@gluestack-ui/themed';
 import { Button, ButtonIcon, ButtonText } from '@gluestack-ui/themed';
 
-type MyButtonStory = ComponentStory<typeof Button>;
-
-const ButtonWithIconsTemp: MyButtonStory = ({}) => {
+const ButtonWithIcons = ({}) => {
   return (
     <HStack space="md">
       <Button>
@@ -20,4 +17,4 @@ const ButtonWithIconsTemp: MyButtonStory = ({}) => {
   );
 };
 
-export default ButtonWithIconsTemp;
+export default ButtonWithIcons;

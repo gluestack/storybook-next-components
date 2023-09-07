@@ -1,5 +1,3 @@
-import type { ComponentStory } from '@storybook/react-native';
-
 import {
   HStack,
   Avatar,
@@ -10,8 +8,6 @@ import {
 } from '@gluestack-ui/themed';
 import React from 'react';
 
-type CustomAvatarStory = ComponentStory<typeof Avatar>;
-
 const TextSizeMap = new Map([
   ['xs', '2xs'],
   ['sm', 'xs'],
@@ -21,11 +17,7 @@ const TextSizeMap = new Map([
   ['2xl', '5xl'],
 ]);
 
-const AvatarGroupExample: CustomAvatarStory = ({
-  size = 'md',
-  badge,
-  ...props
-}: any) => {
+const AvatarGroupBasic = ({ size = 'md', badge, ...props }: any) => {
   return (
     <HStack space="md" h="100%" justifyContent="center" alignItems="center">
       <AvatarGroup>
@@ -110,4 +102,4 @@ const AvatarGroupExample: CustomAvatarStory = ({
   );
 };
 
-export default AvatarGroupExample;
+export default AvatarGroupBasic;

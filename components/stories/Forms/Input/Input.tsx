@@ -17,7 +17,7 @@ import {
 import { EyeIcon, EyeOffIcon } from 'lucide-react-native';
 import { useState } from 'react';
 
-const InputStory = ({ ...props }: any) => {
+const InputBasic = ({ ...props }: any) => {
   const [value, setValue] = React.useState('');
 
   let inputIconSize = '';
@@ -69,7 +69,7 @@ const InputStory = ({ ...props }: any) => {
   );
 };
 
-export default InputStory;
+export default InputBasic;
 
 export {
   Input,

@@ -14,7 +14,7 @@
     "@expo/html-elements": "^0.5.1",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/animation-plugin": "latest",
-    "@gluestack-style/react": "^0.2.27",
+    "@gluestack-style/react": "^0.2.31",
     "@gluestack-ui/actionsheet": "latest",
     "@gluestack-ui/alert": "latest",
     "@gluestack-ui/alert-dialog": "latest",

@@ -17,7 +17,7 @@ import {
   FormControl,
 } from '@gluestack-ui/themed';
 
-const RadioStory = ({
+const RadioBasic = ({
   size,
   isDisabled,
   isInvalid,
@@ -82,7 +82,7 @@ const RadioStory = ({
   );
 };
 
-export default RadioStory;
+export default RadioBasic;
 
 export {
   Radio,

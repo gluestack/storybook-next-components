@@ -24,7 +24,7 @@ import {
   Link,
 } from '@gluestack-ui/themed';
 
-const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
+const ModalBasic = ({ showModal: showModalProp = true, ...props }) => {
   const [showModal, setShowModal] = React.useState(false);
   const ref = React.useRef(null);
   return (
@@ -39,13 +39,13 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
       <ModalBackdrop />
       <ModalContent>
         <ModalHeader>
-          <Heading maxWidth="80%">Engage with Modals</Heading>
+          <Heading maxWidth='80%'>Engage with Modals</Heading>
           <ModalCloseButton>
             <Icon as={CloseIcon} />
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
-          <Text fontSize="$sm">
+          <Text fontSize='$sm'>
             Elevate user interactions with our versatile modals. Seamlessly
             integrate notifications, forms, and media displays. Make an impact
             effortlessly.
@@ -53,10 +53,10 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
         </ModalBody>
         <ModalFooter>
           <Button
-            variant="outline"
-            size="sm"
-            action="secondary"
-            mr="$3"
+            variant='outline'
+            size='sm'
+            action='secondary'
+            mr='$3'
             onPress={() => {
               setShowModal(false);
             }}
@@ -64,21 +64,21 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
             <ButtonText>Cancel</ButtonText>
           </Button>
           <Button
-            size="sm"
-            action="positive"
+            size='sm'
+            action='positive'
             onPress={() => {
               setShowModal(false);
             }}
             sx={{
-              'bg': '$success700',
+              bg: '$success700',
               ':hover': {
                 bg: '$success800',
               },
               ':active': {
                 bg: '$success900',
               },
-              '_dark': {
-                'bg': '$success600',
+              _dark: {
+                bg: '$success600',
                 ':hover': {
                   bg: '$success700',
                 },
@@ -101,19 +101,19 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
     <Modal
       isOpen={true}
       {...props}
-      py="$16"
-      bg="#00000080"
+      p='$16'
+      bg='#00000080'
       _experimentalOverlay={false}
     >
       <Modal.Content>
         <Modal.Header>
           <Heading
-            maxWidth="80%"
+            maxWidth='80%'
             dataSet={{
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Heading',
-                'size': 'lg',
+                size: 'lg',
               }),
             }}
           >
@@ -124,10 +124,10 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
               as={CloseIcon}
               dataSet={{
                 'component-props': JSON.stringify({
-                  'instance': true,
+                  instance: true,
                   'instance-name': 'Icon',
-                  'name': 'CloseIcon',
-                  'size': 'md',
+                  name: 'CloseIcon',
+                  size: 'md',
                 }),
               }}
             />
@@ -135,12 +135,12 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
         </Modal.Header>
         <Modal.Body>
           <Text
-            size="sm"
+            size='sm'
             dataSet={{
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'sm',
+                size: 'sm',
               }),
             }}
           >
@@ -151,32 +151,32 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant="outline"
-            size="sm"
-            action="secondary"
-            mr="$3"
+            variant='outline'
+            size='sm'
+            action='secondary'
+            mr='$3'
             dataSet={{
               'component-props': JSON.stringify({
-                'instance': true,
+                instance: true,
                 'instance-name': 'Button-outline',
-                'size': 'sm',
-                'action': 'secondary',
-                'state': 'default',
+                size: 'sm',
+                action: 'secondary',
+                state: 'default',
               }),
             }}
           >
             <Button.Text>Cancel</Button.Text>
           </Button>
           <Button
-            size="sm"
-            action="positive"
+            size='sm'
+            action='positive'
             dataSet={{
               'component-props': JSON.stringify({
-                'instance': true,
+                instance: true,
                 'instance-name': 'Button-solid',
-                'size': 'sm',
-                'action': 'positive',
-                'state': 'default',
+                size: 'sm',
+                action: 'positive',
+                state: 'default',
               }),
             }}
           >
@@ -188,10 +188,10 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
   );
 };
 
-export default FigmaModalStory;
+export default ModalBasic;
 
 export {
-  ModalStory,
+  FigmaModalStory,
   Modal,
   ModalBackdrop,
   ModalContent,

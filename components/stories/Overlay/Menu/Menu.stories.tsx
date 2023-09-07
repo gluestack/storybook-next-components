@@ -1,5 +1,5 @@
 import type { ComponentMeta } from '@storybook/react-native';
-import { MenuStory as Menu } from './Menu';
+import Menu from './Menu';
 
 const MenuMeta: ComponentMeta<typeof Menu> = {
   title: 'stories/OVERLAY/Menu',
@@ -7,6 +7,7 @@ const MenuMeta: ComponentMeta<typeof Menu> = {
   argTypes: {
     placement: {
       control: 'select',
+      figmaIgnore: true,
       options: [
         'bottom',
         'bottom end',
@@ -24,6 +25,7 @@ const MenuMeta: ComponentMeta<typeof Menu> = {
     },
     showMenu: {
       control: 'boolean',
+      figmaIgnore: true,
       options: [true, false],
     },
   },

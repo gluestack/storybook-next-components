@@ -18,7 +18,7 @@ import {
 } from '@gluestack-ui/themed';
 import { PaintBucket, PuzzleIcon } from 'lucide-react-native';
 
-const MenuStory = ({ placement = 'bottom' }: any) => {
+const MenuBasic = ({ placement = 'bottom' }: any) => {
   return (
     <Center>
       <Menu
@@ -161,10 +161,10 @@ const FigmaMenuStory = ({ ...props }) => {
   );
 };
 
-export default FigmaMenuStory;
+export default MenuBasic;
 
 export {
-  MenuStory,
+  FigmaMenuStory,
   Button,
   ButtonText,
   GlobeIcon,

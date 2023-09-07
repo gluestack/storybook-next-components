@@ -5,7 +5,7 @@ import DividerMeta from './components/stories/DataDisplay/Divider/Divider.storie
 import DividerStory from './components/stories/DataDisplay/Divider/Divider';
 
 import ActionsheetMeta from './components/stories/Disclosure/Actionsheet/Actionsheet.stories';
-import ActionsheetStory from './components/stories/Disclosure/Actionsheet/Actionsheet';
+import { FigmaActionsheetStory } from './components/stories/Disclosure/Actionsheet/Actionsheet';
 
 import AlertMeta from './components/stories/Feedback/Alert/Alert.stories';
 import AlertStory from './components/stories/Feedback/Alert/Alert';
@@ -17,7 +17,7 @@ import SpinnerMeta from './components/stories/Feedback/Spinner/Spinner.stories';
 import SpinnerStory from './components/stories/Feedback/Spinner/Spinner';
 
 import ToastMeta from './components/stories/Feedback/Toast/Toast.stories';
-import ToastStory from './components/stories/Feedback/Toast/Toast';
+import { ToastFigmaStory } from './components/stories/Feedback/Toast/Toast';
 
 import ButtonMeta from './components/stories/Forms/Button/Button.stories';
 import ButtonStory from './components/stories/Forms/Button/Button';
@@ -80,22 +80,22 @@ import ImageMeta from './components/stories/MediaAndIcons/Image/Image.stories';
 import ImageStory from './components/stories/MediaAndIcons/Image/Image';
 
 import FabMeta from './components/stories/Others/Fab/Fab.stories';
-import FabStory from './components/stories/Others/Fab/Fab';
+import { FigmaFabStory } from './components/stories/Others/Fab/Fab';
 
 import AlertDialogMeta from './components/stories/Overlay/AlertDialog/AlertDialog.stories';
-import AlertDialogStory from './components/stories/Overlay/AlertDialog/AlertDialog';
+import { FigmaAlertDialogStory } from './components/stories/Overlay/AlertDialog/AlertDialog';
 
 import MenuMeta from './components/stories/Overlay/Menu/Menu.stories';
-import MenuStory from './components/stories/Overlay/Menu/Menu';
+import { FigmaMenuStory } from './components/stories/Overlay/Menu/Menu';
 
 import ModalMeta from './components/stories/Overlay/Modal/Modal.stories';
-import ModalStory from './components/stories/Overlay/Modal/Modal';
+import { FigmaModalStory } from './components/stories/Overlay/Modal/Modal';
 
 import PopoverMeta from './components/stories/Overlay/Popover/Popover.stories';
-import PopoverStory from './components/stories/Overlay/Popover/Popover';
+import { FigmaPopoverStory } from './components/stories/Overlay/Popover/Popover';
 
 import TooltipMeta from './components/stories/Overlay/Tooltip/Tooltip.stories';
-import TooltipStory from './components/stories/Overlay/Tooltip/Tooltip';
+import { FigmaTooltipStory } from './components/stories/Overlay/Tooltip/Tooltip';
 
 import HeadingMeta from './components/stories/Typography/Heading/Heading.stories';
 import HeadingStory from './components/stories/Typography/Heading/Heading';
@@ -103,7 +103,15 @@ import HeadingStory from './components/stories/Typography/Heading/Heading';
 import TextMeta from './components/stories/Typography/Text/Text.stories';
 import TextStory from './components/stories/Typography/Text/Text';
 
+import ShadowMeta from './components/stories/Foundation/Shadow/Shadow.stories';
+import ShadowStory from './components/stories/Foundation/Shadow/Shadow';
+
 export default {
+  Shadow: {
+    meta: ShadowMeta,
+    story: ShadowStory,
+  },
+
   Badge: {
     meta: BadgeMeta,
     story: BadgeStory,
@@ -116,7 +124,7 @@ export default {
 
   Actionsheet: {
     meta: ActionsheetMeta,
-    story: ActionsheetStory,
+    story: FigmaActionsheetStory,
   },
 
   Tabs: {
@@ -141,7 +149,7 @@ export default {
 
   Toast: {
     meta: ToastMeta,
-    story: ToastStory,
+    story: ToastFigmaStory,
   },
 
   Button: {
@@ -241,32 +249,32 @@ export default {
 
   Fab: {
     meta: FabMeta,
-    story: FabStory,
+    story: FigmaFabStory,
   },
 
   AlertDialog: {
     meta: AlertDialogMeta,
-    story: AlertDialogStory,
+    story: FigmaAlertDialogStory,
   },
 
   Menu: {
     meta: MenuMeta,
-    story: MenuStory,
+    story: FigmaMenuStory,
   },
 
   Modal: {
     meta: ModalMeta,
-    story: ModalStory,
+    story: FigmaModalStory,
   },
 
   Popover: {
     meta: PopoverMeta,
-    story: PopoverStory,
+    story: FigmaPopoverStory,
   },
 
   Tooltip: {
     meta: TooltipMeta,
-    story: TooltipStory,
+    story: FigmaTooltipStory,
   },
 
   Heading: {

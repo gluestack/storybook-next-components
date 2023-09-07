@@ -12,7 +12,7 @@ import {
   Icon,
 } from '@gluestack-ui/themed';
 
-function AlertStory({ ...props }: any) {
+const AlertBasic = ({ ...props }: any) => {
   return (
     <Alert {...props}>
       <AlertIcon
@@ -40,9 +40,9 @@ function AlertStory({ ...props }: any) {
       </AlertText>
     </Alert>
   );
-}
+};
 
-export default AlertStory;
+export default AlertBasic;
 
 export {
   Alert,

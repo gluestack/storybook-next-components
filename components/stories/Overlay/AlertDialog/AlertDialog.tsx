@@ -23,7 +23,7 @@ import {
 
 import { AlertTriangleIcon } from 'lucide-react-native';
 
-const AlertDialogStory = ({
+const AlertDialogBasic = ({
   showAlertDialog: showAlertDialogProp = true,
   ...props
 }) => {
@@ -227,10 +227,10 @@ const FigmaAlertDialogStory = ({
   );
 };
 
-export default FigmaAlertDialogStory;
+export default AlertDialogBasic;
 
 export {
-  AlertDialogStory,
+  FigmaAlertDialogStory,
   AlertDialog,
   AlertDialogBackdrop,
   AlertDialogContent,

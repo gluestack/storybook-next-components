@@ -59,7 +59,7 @@ import {
   ChevronDownIcon,
 } from '@gluestack-ui/themed';
 
-const FormControlStory = ({ ...props }) => {
+const FormControlBasic = ({ ...props }) => {
   return (
     <FormControl {...props}>
       <FormControlLabel>
@@ -67,9 +67,9 @@ const FormControlStory = ({ ...props }) => {
       </FormControlLabel>
       <Input>
         <InputField
-          type="password"
-          defaultValue="12345"
-          placeholder="password"
+          type='password'
+          defaultValue='12345'
+          placeholder='password'
         />
       </Input>
 
@@ -89,7 +89,7 @@ const FormControlStory = ({ ...props }) => {
   );
 };
 
-export default FormControlStory;
+export default FormControlBasic;
 
 export {
   FormControl,

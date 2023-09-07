@@ -1,11 +1,6 @@
-import type { ComponentStory } from '@storybook/react-native';
 import { Button, ButtonGroup, ButtonText } from '@gluestack-ui/themed';
-
 import React from 'react';
-
-type MyButtonStory = ComponentStory<typeof Button>;
-
-const ButtonGroupStory: MyButtonStory = ({ ...props }) => {
+const ButtonGroupBasic = ({ ...props }) => {
   return (
     // @ts-ignore
     <ButtonGroup {...props}>
@@ -22,4 +17,4 @@ const ButtonGroupStory: MyButtonStory = ({ ...props }) => {
   );
 };
 
-export default ButtonGroupStory;
+export default ButtonGroupBasic;

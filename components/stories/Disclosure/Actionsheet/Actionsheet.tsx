@@ -27,12 +27,11 @@ import {
   InputIcon,
   AddIcon,
   Image,
-  config,
   Text,
   Center,
 } from '@gluestack-ui/themed';
 
-function ActionsheetStory({ showActionsheetProp, ...props }: any) {
+function ActionsheetBasic({ showActionsheetProp, ...props }: any) {
   const [showActionsheet, setShowActionsheet] = React.useState(false);
 
   const handleClose = () => setShowActionsheet(false);
@@ -76,7 +75,7 @@ function ActionsheetStory({ showActionsheetProp, ...props }: any) {
 function FigmaActionsheetStory({ ...props }: any) {
   return (
     <Box w={900}>
-      <ActionsheetContent {...props} w="$full" _experimentalContent={true}>
+      <ActionsheetContent {...props} w='$full' _experimentalContent={true}>
         <ActionsheetDragIndicatorWrapper>
           <ActionsheetDragIndicator />
         </ActionsheetDragIndicatorWrapper>
@@ -86,7 +85,7 @@ function FigmaActionsheetStory({ ...props }: any) {
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -99,7 +98,7 @@ function FigmaActionsheetStory({ ...props }: any) {
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -112,7 +111,7 @@ function FigmaActionsheetStory({ ...props }: any) {
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -125,7 +124,7 @@ function FigmaActionsheetStory({ ...props }: any) {
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -138,7 +137,7 @@ function FigmaActionsheetStory({ ...props }: any) {
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -150,10 +149,10 @@ function FigmaActionsheetStory({ ...props }: any) {
   );
 }
 
-export default FigmaActionsheetStory;
+export default ActionsheetBasic;
 
 export {
-  ActionsheetStory,
+  FigmaActionsheetStory,
   Actionsheet,
   ActionsheetIcon,
   ActionsheetBackdrop,
@@ -183,5 +182,4 @@ export {
   Image,
   Text,
   useState,
-  config,
 };

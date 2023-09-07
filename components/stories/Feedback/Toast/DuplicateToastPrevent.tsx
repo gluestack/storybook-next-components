@@ -7,7 +7,7 @@ import {
   useToast,
 } from '@gluestack-ui/themed';
 
-const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
+const ToastDuplicatePrevent = ({ placement = 'top', ...props }: any) => {
   const toast = useToast();
   const idTest = 'test-id';
   return (
@@ -54,4 +54,4 @@ const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
   );
 };
 
-export default DuplicateToastPrevent;
+export default ToastDuplicatePrevent;
