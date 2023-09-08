@@ -191,15 +191,18 @@ const GluestackLogo = () => {
     </svg>
   );
 };
-const groupAllSortedCombinations = (
-  allCombinations: Array<any>,
-  key: string
-) => {
+const groupAllSortedCombinations = (allCombinations: Array<any>, key: any) => {
   let allAvailableSize = {} as any;
   if (allCombinations.length) {
     allCombinations.map((item) => {
-      if (item[key]) {
-        allAvailableSize[item[key]] = 1;
+      if (Array.isArray(key)) {
+        if (item[key[0]][key[1]]) {
+          allAvailableSize[item[key[0]][key[1]]] = 1;
+        }
+      } else {
+        if (item[key]) {
+          allAvailableSize[item[key]] = 1;
+        }
       }
     });
   }
@@ -208,7 +211,11 @@ const groupAllSortedCombinations = (
   Object.keys(allAvailableSize).map((combinationKey) => {
     CombinationsSortedByKeys[combinationKey] = allCombinations.filter(
       (item) => {
-        return item[key] === combinationKey;
+        if (Array.isArray(key)) {
+          return item[key[0]][key[1]] === combinationKey;
+        } else {
+          return item[key] === combinationKey;
+        }
       }
     );
   });
@@ -356,7 +363,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                     {clusterFirstOrder === "default" ? (
                       <></>
                     ) : (
-                      <Heading>{clusterFirstOrder}</Heading>
+                      <Heading size="sm">{clusterFirstOrder}</Heading>
                     )}
                     {Object.keys(variantSortedCombination).map(
                       (variantName: any, index) => {
@@ -364,11 +371,11 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                           variantSortedCombination[variantName];
 
                         return (
-                          <VStack space="md">
+                          <VStack space="md" alignItems="center">
                             {variantName === "default" ? (
                               <></>
                             ) : (
-                              <Heading bold>{variantName}</Heading>
+                              <Heading size="sm">{variantName}</Heading>
                             )}
                             {/* <Text bold>{variantName}</Text> */}
                             {variantName === "default" ? (
