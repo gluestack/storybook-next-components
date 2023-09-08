@@ -23,7 +23,7 @@ import ButtonMeta from './components/stories/Forms/Button/Button.stories';
 import ButtonStory from './components/stories/Forms/Button/Button';
 
 import CheckboxMeta from './components/stories/Forms/Checkbox/Checkbox.stories';
-import CheckboxStory from './components/stories/Forms/Checkbox/Checkbox';
+import { FigmaCheckboxStory } from './components/stories/Forms/Checkbox/Checkbox';
 
 import FormControlMeta from './components/stories/Forms/FormControl/FormControl.stories';
 import FormControlStory from './components/stories/Forms/FormControl/FormControl';
@@ -63,9 +63,6 @@ import CenterStory from './components/stories/Layout/Center/Center';
 
 import HStackMeta from './components/stories/Layout/HStack/HStack.stories';
 import HStackStory from './components/stories/Layout/HStack/HStack';
-
-import LinearGradientMeta from './components/stories/Layout/LinearGradient/LinearGradient.stories';
-import LinearGradientStory from './components/stories/Layout/LinearGradient/LinearGradient';
 
 import VStackMeta from './components/stories/Layout/VStack/VStack.stories';
 import VStackStory from './components/stories/Layout/VStack/VStack';
@@ -159,7 +156,7 @@ export default {
 
   Checkbox: {
     meta: CheckboxMeta,
-    story: CheckboxStory,
+    story: FigmaCheckboxStory,
   },
 
   FormControl: {
@@ -220,11 +217,6 @@ export default {
   HStack: {
     meta: HStackMeta,
     story: HStackStory,
-  },
-
-  LinearGradient: {
-    meta: LinearGradientMeta,
-    story: LinearGradientStory,
   },
 
   VStack: {

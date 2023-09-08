@@ -67,9 +67,9 @@ const FormControlBasic = ({ ...props }) => {
       </FormControlLabel>
       <Input>
         <InputField
-          type='password'
-          defaultValue='12345'
-          placeholder='password'
+          type="password"
+          defaultValue="12345"
+          placeholder="password"
         />
       </Input>
 

@@ -59,6 +59,7 @@
     "react-dom": "18.2.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "^0.19.7",
+    "simple-git": "^3.19.1",
     "typescript": "5.1.6"
   },
   "devDependencies": {

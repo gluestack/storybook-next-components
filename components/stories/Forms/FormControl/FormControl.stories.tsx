@@ -5,13 +5,13 @@ const FormControlMeta: ComponentMeta<typeof FormControl> = {
   title: 'stories/FORMS/FormControl',
   component: FormControl,
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
     isInvalid: {
       control: 'boolean',
       options: [true, false],
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl'],
     },
     isDisabled: {
       control: 'boolean',

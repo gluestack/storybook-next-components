@@ -8,7 +8,7 @@ const componentsFolderPath = path.join(__dirname, '..', 'components');
 main();
 
 async function main() {
-  const targetBranch = 'fix/text-icons-imports'; // Set the target branch you want to switch to
+  const targetBranch = 'patch'; // Set the target branch you want to switch to
 
   deleteFolderRecursive(storybookClonePath);
 
@@ -34,17 +34,18 @@ async function main() {
           copyFolder(
             path.join(
               storybookClonePath,
-              'example/storybook/src/ui-components'
+              'packages/themed/src/components'
+              // 'example/storybook/src/ui-components'
             ),
             path.join(__dirname, '..', 'components/ui-components')
           );
-          copyFile(
-            path.join(
-              storybookClonePath,
-              'example/storybook/src/gluestack-ui.config.ts'
-            ),
-            componentsFolderPath
-          );
+          // copyFile(
+          //   path.join(
+          //     storybookClonePath,
+          //     'example/storybook/src/gluestack-ui.config.ts'
+          //   ),
+          //   componentsFolderPath
+          // );
           createIndexFile();
         } catch (switchError) {
           console.error('Failed to switch to the target branch:', switchError);
