@@ -15,7 +15,7 @@
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/animation-plugin": "latest",
     "@gluestack-style/react": "^0.2.31",
-    "@gluestack-ui/actionsheet": "latest",
+    "@gluestack-ui/actionsheet": "0.2.17",
     "@gluestack-ui/alert": "latest",
     "@gluestack-ui/alert-dialog": "latest",
     "@gluestack-ui/avatar": "latest",

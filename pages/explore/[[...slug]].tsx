@@ -1,32 +1,10 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import path from "path";
-import DirectoryTree from "directory-tree";
-import { getFilePaths } from "../../utils";
-import React from "react";
-import StoryData from "../../storybook-components-to-next.config";
-import {
-  Center,
-  VStack,
-  Heading,
-  Box,
-  Text,
-  HStack,
-  Button,
-  Alert,
-  AlertIcon,
-  AlertText,
-  InfoIcon,
-  GluestackUIProvider,
-} from "@gluestack-ui/themed";
-import { View } from "react-native";
-import {
-  Toast,
-  ToastTitle,
-  ToastDescription,
-  Pressable,
-  Icon,
-  CloseIcon,
-} from "@gluestack-ui/themed";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import path from 'path';
+import DirectoryTree from 'directory-tree';
+import { getFilePaths } from '../../utils';
+import React from 'react';
+import StoryData from '../../storybook-components-to-next.config';
+import { Center, VStack, Heading, HStack, Box } from '@gluestack-ui/themed';
 
 interface Option {
   control: string;
@@ -45,19 +23,18 @@ interface Options {
 }
 
 interface Combination {
-  x;
   [key: string]: string;
 }
 
 const STATE_PROPERTIES = [
-  "isHovered",
-  "isPressed",
-  "isFocused",
-  "isFocusVisible",
-  "isDisabled",
-  "isInvalid",
-  "isReadonly",
-  "isRequired",
+  'isHovered',
+  'isPressed',
+  'isFocused',
+  'isFocusVisible',
+  'isDisabled',
+  'isInvalid',
+  'isReadonly',
+  'isRequired',
 ];
 
 function generateCombinations(
@@ -119,7 +96,7 @@ const groupAllSortedCombinations = (
 };
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
-  if (slug === "") {
+  if (slug === '') {
     return <div>Slug is empty</div>;
   }
 
@@ -129,16 +106,16 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
     return <div>Component not found</div>;
   }
 
-  const Story = StoryData[component]["story"];
+  const Story = StoryData[component]['story'];
 
-  const StoryArgs = StoryData[component]["meta"];
+  const StoryArgs = StoryData[component]['meta'];
   // Extract Meta info
   let metaInfo = StoryArgs.metaInfo;
   if (!metaInfo) {
     metaInfo = {};
   }
   if (!metaInfo.clusteringOrder) {
-    metaInfo.clusteringOrder = ["size", "variant"];
+    metaInfo.clusteringOrder = ['size', 'variant'];
   }
   // Extract Meta info
 
@@ -173,16 +150,16 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   );
 
   if (Object.keys(clusterOrderSortedCombinations).length === 0) {
-    clusterOrderSortedCombinations["default"] = allCombinations;
+    clusterOrderSortedCombinations['default'] = allCombinations;
     let varainatSortedCombinations = groupAllSortedCombinations(
-      clusterOrderSortedCombinations["default"],
+      clusterOrderSortedCombinations['default'],
       metaInfo.clusteringOrder[1]
     );
     if (Object.keys(varainatSortedCombinations).length === 0) {
-      clusterOrderSortedCombinations["default"] = {};
-      clusterOrderSortedCombinations["default"]["default"] = allCombinations;
+      clusterOrderSortedCombinations['default'] = {};
+      clusterOrderSortedCombinations['default']['default'] = allCombinations;
     } else {
-      clusterOrderSortedCombinations["default"] = varainatSortedCombinations;
+      clusterOrderSortedCombinations['default'] = varainatSortedCombinations;
     }
   } else {
     Object.keys(clusterOrderSortedCombinations).forEach((sizeKey) => {
@@ -197,7 +174,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
           ? [...clusterOrderSortedCombinations[sizeKey]]
           : { ...clusterOrderSortedCombinations[sizeKey] };
         clusterOrderSortedCombinations[sizeKey] = {};
-        clusterOrderSortedCombinations[sizeKey]["default"] = tempSizeCombs;
+        clusterOrderSortedCombinations[sizeKey]['default'] = tempSizeCombs;
       } else {
         clusterOrderSortedCombinations[sizeKey] = varainatSortedCombinations;
       }
@@ -207,37 +184,37 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   // console.log("MetaInfo", clusterOrderSortedCombinations);
 
   return (
-    <Center p="$4" bg="$white" overflow="scroll" w="100%">
+    <Center p='$4' bg='$white' overflow='scroll' w='100%'>
       <Heading
-        size="2xl"
+        size='2xl'
         my={50}
-        w="60%"
-        bg="$yellow300"
+        w='60%'
+        bg='$yellow300'
         py={16}
         px={32}
-        rounded="$md"
-        letterSpacing="$xl"
-        color="$textLight800"
+        rounded='$md'
+        letterSpacing='$xl'
+        color='$textLight800'
       >
         {component[0].toUpperCase()}
       </Heading>
       {allCombinations.length === 0 && (
         <Story
           dataSet={{
-            "component-props": JSON.stringify({
-              "component-name": component[0],
+            'component-props': JSON.stringify({
+              'component-name': component[0],
             }),
           }}
         />
       )}
       {allCombinations.length > 0 && (
         <VStack
-          p="$4"
-          space="4xl"
-          borderStyle="dashed"
-          borderWidth={"$1"}
-          borderColor="$teal400"
-          borderRadius="$2xl"
+          p='$4'
+          space='4xl'
+          borderStyle='dashed'
+          borderWidth={'$1'}
+          borderColor='$teal400'
+          borderRadius='$2xl'
         >
           {Object.keys(clusterOrderSortedCombinations).map(
             (clusterFirstOrder: any, index) => {
@@ -246,12 +223,12 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
               return (
                 <HStack
-                  space="3xl"
-                  p="$4"
-                  alignItems="flex-start"
+                  space='3xl'
+                  p='$4'
+                  alignItems='flex-start'
                   // justifyContent="center"
                 >
-                  {clusterFirstOrder === "default" ? (
+                  {clusterFirstOrder === 'default' ? (
                     <></>
                   ) : (
                     <Heading>{clusterFirstOrder}</Heading>
@@ -262,19 +239,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                         variantSortedCombination[variantName];
 
                       return (
-                        <VStack space="md">
-                          {variantName === "default" ? (
+                        <VStack space='md'>
+                          {variantName === 'default' ? (
                             <></>
                           ) : (
                             <Heading bold>{variantName}</Heading>
                           )}
                           {/* <Text bold>{variantName}</Text> */}
-                          {variantName === "default" ? (
+                          {variantName === 'default' ? (
                             <HStack
-                              w="$full"
-                              maxWidth="1200px"
-                              flexWrap="wrap"
-                              space="lg"
+                              w='$full'
+                              maxWidth='1200px'
+                              flexWrap='wrap'
+                              space='lg'
                             >
                               {Array.isArray(stateSortedCombination) &&
                                 stateSortedCombination.map((props: any) => {
@@ -286,27 +263,27 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                                   const dataProps: any = {
                                     ...props,
                                   };
-                                  dataProps["component-name"] = component[0];
+                                  dataProps['component-name'] = component[0];
 
                                   STATE_PROPERTIES.forEach((state) => {
                                     if (props[state]) {
                                       isStateComponent = true;
-                                      dataProps["state"] = state;
+                                      dataProps['state'] = state;
                                       delete dataProps[state];
                                     }
                                   });
 
-                                  if (!dataProps["state"] && isStateComponent) {
-                                    dataProps["state"] = "default";
+                                  if (!dataProps['state'] && isStateComponent) {
+                                    dataProps['state'] = 'default';
                                   }
 
                                   if (
                                     dataProps.uri &&
-                                    dataProps.uri === "https://broken.link"
+                                    dataProps.uri === 'https://broken.link'
                                   ) {
-                                    dataProps.uri = "BrokenLink";
+                                    dataProps.uri = 'BrokenLink';
                                   } else if (dataProps.uri) {
-                                    dataProps.uri = "ImageLink";
+                                    dataProps.uri = 'ImageLink';
                                   }
 
                                   if (dataProps.name) {
@@ -314,7 +291,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                                   }
 
                                   props.dataSet = {
-                                    "component-props":
+                                    'component-props':
                                       JSON.stringify(dataProps),
                                   };
 
@@ -326,7 +303,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                                 })}
                             </HStack>
                           ) : (
-                            <VStack space="lg">
+                            <VStack space='lg'>
                               {Array.isArray(stateSortedCombination) &&
                                 stateSortedCombination.map((props: any) => {
                                   props = {
@@ -337,27 +314,27 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                                   const dataProps: any = {
                                     ...props,
                                   };
-                                  dataProps["component-name"] = component[0];
+                                  dataProps['component-name'] = component[0];
 
                                   STATE_PROPERTIES.forEach((state) => {
                                     if (props[state]) {
                                       isStateComponent = true;
-                                      dataProps["state"] = state;
+                                      dataProps['state'] = state;
                                       delete dataProps[state];
                                     }
                                   });
 
-                                  if (!dataProps["state"] && isStateComponent) {
-                                    dataProps["state"] = "default";
+                                  if (!dataProps['state'] && isStateComponent) {
+                                    dataProps['state'] = 'default';
                                   }
 
                                   if (
                                     dataProps.uri &&
-                                    dataProps.uri === "https://broken.link"
+                                    dataProps.uri === 'https://broken.link'
                                   ) {
-                                    dataProps.uri = "BrokenLink";
+                                    dataProps.uri = 'BrokenLink';
                                   } else if (dataProps.uri) {
-                                    dataProps.uri = "ImageLink";
+                                    dataProps.uri = 'ImageLink';
                                   }
 
                                   if (dataProps.name) {
@@ -365,7 +342,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                                   }
 
                                   props.dataSet = {
-                                    "component-props":
+                                    'component-props':
                                       JSON.stringify(dataProps),
                                   };
 
@@ -393,7 +370,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const baseDirPath = process.cwd();
-  const tree = DirectoryTree(path.join(baseDirPath, "components/stories"));
+  const tree = DirectoryTree(path.join(baseDirPath, 'components/stories'));
   const filePaths = getFilePaths(tree);
   const paths: { params: { slug: string[] } }[] = [];
 
@@ -415,7 +392,7 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   const { slug } = context.params as { slug: string };
   return {
     props: {
-      slug: slug || "",
+      slug: slug || '',
     },
   };
 };

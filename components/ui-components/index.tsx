@@ -40,10 +40,11 @@ export * from './Tabs';
 export * from './Tooltip';
 export * from './View';
 export * from './VStack';
+export * from './Icons/Icons';
+export * from './gluestack-ui.config';
 export { styled } from './styled';
 export {
   GluestackUIProvider,
   GluestackUIStyledProvider,
   GluestackUIContextProvider,
 } from './Provider';
-export * from './Icons/Icons';

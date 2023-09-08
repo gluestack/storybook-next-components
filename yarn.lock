@@ -73,10 +73,10 @@
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
 
-"@gluestack-ui/actionsheet@latest":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.16.tgz#052a733966c517450a3cd6f832932ccf77924867"
-  integrity sha512-BogHlHAO8PClTUeZDzizI5sb900xFNUZKNDI4KMyi4xo4/etWJRFAeM7W+OZL5bCcuXHrBHQa2fQNVBKdudqGw==
+"@gluestack-ui/actionsheet@0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.17.tgz#90fe623b388792b141758b26efb469fdd8d8b02a"
+  integrity sha512-drChPSGlf7IBfERPqrEGudryav3HWtUpc2mX2Jzyqy2xpgEjSqGG//z6PKxEZ54a7jZ0laVMRoVx4KjtRB4X2g==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.2"
     "@gluestack-ui/overlay" "^0.1.7"

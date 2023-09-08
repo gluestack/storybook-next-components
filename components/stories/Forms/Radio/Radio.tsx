@@ -29,31 +29,21 @@ const RadioBasic = ({ ...props }: any) => {
     <RadioGroup value={values} onChange={setValues}>
       <Radio
         {...props}
-        value="Label 1"
-        aria-label="Radio"
+        value='Label 1'
+        aria-label='Radio'
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-        mb="$2"
+        mb='$2'
       >
         <RadioIndicator>
-          <RadioIcon
-            as={CircleIcon}
-            dataSet={{
-              'component-props': JSON.stringify({
-                'instance': true,
-                'instance-name': 'Icon',
-                'name': 'CircleIcon',
-                'size': iconSize[props.size],
-              }),
-            }}
-          />
+          <RadioIcon as={CircleIcon} />
         </RadioIndicator>
         <RadioLabel
-          ml="$2"
+          ml='$2'
           dataSet={{
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': props.size,
+              size: props.size,
             }),
           }}
         >
@@ -62,31 +52,21 @@ const RadioBasic = ({ ...props }: any) => {
       </Radio>
       <Radio
         {...props}
-        value="Label 2"
-        aria-label="Radio"
+        value='Label 2'
+        aria-label='Radio'
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-        mb="$2"
+        mb='$2'
       >
         <RadioIndicator>
-          <RadioIcon
-            as={CircleIcon}
-            dataSet={{
-              'component-props': JSON.stringify({
-                'instance': true,
-                'instance-name': 'Icon',
-                'name': 'CircleIcon',
-                'size': iconSize[props.size],
-              }),
-            }}
-          />
+          <RadioIcon as={CircleIcon} />
         </RadioIndicator>
         <RadioLabel
-          ml="$2"
+          ml='$2'
           dataSet={{
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': props.size,
+              size: props.size,
             }),
           }}
         >

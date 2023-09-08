@@ -5,19 +5,21 @@ const Icon = styled(AsForwarder, {}, {});
 export default styled(
   Icon,
   {
-    'borderRadius': '$full',
+    w: '$full',
+    h: '$full',
+    borderRadius: '$full',
     ':checked': {
-      'color': '$primary600',
+      color: '$primary600',
       ':hover': {
-        'color': '$primary700',
+        color: '$primary700',
         ':disabled': {
           color: '$primary600',
         },
       },
     },
-    '_dark': {
+    _dark: {
       ':checked': {
-        'color': '$primary500',
+        color: '$primary500',
         ':disabled': {
           color: '$primary500',
         },
@@ -25,7 +27,7 @@ export default styled(
           ':disabled': {
             color: '$primary500',
           },
-          'color': '$primary400',
+          color: '$primary400',
         },
       },
     },
