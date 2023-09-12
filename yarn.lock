@@ -73,10 +73,10 @@
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
 
-"@gluestack-ui/actionsheet@0.2.17":
-  version "0.2.17"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.17.tgz#90fe623b388792b141758b26efb469fdd8d8b02a"
-  integrity sha512-drChPSGlf7IBfERPqrEGudryav3HWtUpc2mX2Jzyqy2xpgEjSqGG//z6PKxEZ54a7jZ0laVMRoVx4KjtRB4X2g==
+"@gluestack-ui/actionsheet@0.2.18":
+  version "0.2.18"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.18.tgz#c1ad676b01577325c4faac0ac91fb6420a45a3a6"
+  integrity sha512-wEAJrnm+xCmuWWxO//7Pb/u+0S64zCOg2fKvuAkUpgJS+IQnwnSh85J5nE720JA3jUV81Rm7CATUwwRmXHcNfA==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.2"
     "@gluestack-ui/overlay" "^0.1.7"
@@ -368,10 +368,10 @@
     "@gluestack-ui/utils" "^0.1.5"
     "@react-native-aria/focus" "^0.2.7"
 
-"@gluestack-ui/tooltip@latest":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/tooltip/-/tooltip-0.1.15.tgz#cf722b4574cc9ad89c763a60b6ab2ec85e90b9b7"
-  integrity sha512-qD7HOen4aJHIS4CeJOlLcHdYKvlTAARA3hQDjW51u5EXm/dKyekpW10A5Ny1Z95XT3DViNolEFizsiOLYnKF1A==
+"@gluestack-ui/tooltip@0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/tooltip/-/tooltip-0.1.16.tgz#29f28a4fd838d3b8b83a3167f0846af5a47e5f6f"
+  integrity sha512-LTlt6E+eZ6Jj/DyQfGz4cbI8pR47LXrxhF5R0l75+XsOtQy8BNO/J3K2oJ5RhpCyLx7zXYsSzvAu4BChFHBtcA==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.2"
     "@gluestack-ui/overlay" "^0.1.7"

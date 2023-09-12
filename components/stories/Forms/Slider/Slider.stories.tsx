@@ -4,6 +4,9 @@ import Slider from './Slider';
 const SliderMeta: ComponentMeta<typeof Slider> = {
   title: 'stories/FORMS/Slider',
   component: Slider,
+  metaInfo: {
+    clusteringOrder: ['size', 'orientation'],
+  },
   argTypes: {
     value: {
       control: { type: 'number', min: 1, max: 100 },
@@ -22,6 +25,7 @@ const SliderMeta: ComponentMeta<typeof Slider> = {
     },
     isReversed: {
       control: 'boolean',
+      figmaIgnore: true,
       options: [true, false],
     },
     isDisabled: {
