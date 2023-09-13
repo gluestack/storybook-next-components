@@ -4,16 +4,7 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import {
-  Center,
-  VStack,
-  Heading,
-  Text,
-  HStack,
-  Box,
-  Button,
-  ButtonText,
-} from '@gluestack-ui/themed';
+import { Center, VStack, Heading, Text, HStack } from '@gluestack-ui/themed';
 
 interface Option {
   control: string;
@@ -210,97 +201,11 @@ const groupAllSortedCombinations = (allCombinations: Array<any>, key: any) => {
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   if (slug === '') {
+    const Story = StoryData['Link']['story'];
     return (
-      <>
-        <Box bg='$red500' w={600}>
-          <Box bg='$blue500' h={200} />
-        </Box>
-
-        <Box bg='$red500' w='fit-content'>
-          <Box bg='$blue500' h={200} w={600} />
-        </Box>
-      </>
-      // <Box bg='$blue500' alignItems='center' justifyContent='center' h={400}>
-      //   {/* <VStack
-      //     bg='$green500'
-      //     p='$4'
-      //     m='$2'
-      //     borderWidth='$4'
-      //     borderColor='$amber500'
-      //     sx={{
-      //       _web: {
-      //         outlineWidth: '$2',
-      //         outlineColor: '$pink500',
-      //         outlineStyle: 'solid',
-      //       },
-      //     }}
-      //     gap={12}
-      //   >
-      //     <Box
-      //       w={100}
-      //       h={100}
-      //       bg='$red500'
-      //       p='$4'
-      //       m='$2'
-      //       borderWidth='$2'
-      //       borderColor='$pink500'
-      //       sx={{
-      //         _web: {
-      //           outlineWidth: '$2',
-      //           outlineColor: '$pink500',
-      //           outlineStyle: 'solid',
-      //         },
-      //       }}
-      //     />
-      //     <Box
-      //       w={200}
-      //       h={200}
-      //       bg='$red500'
-      //       p='$4'
-      //       m='$2'
-      //       borderWidth='$2'
-      //       borderColor='$pink500'
-      //       sx={{
-      //         _web: {
-      //           outlineWidth: '$2',
-      //           outlineColor: '$pink500',
-      //           outlineStyle: 'solid',
-      //         },
-      //       }}
-      //     />
-      //     <Box
-      //       w={100}
-      //       h={100}
-      //       bg='$red500'
-      //       p='$4'
-      //       m='$2'
-      //       borderWidth='$2'
-      //       borderColor='$pink500'
-      //       sx={{
-      //         _web: {
-      //           outlineWidth: '$2',
-      //           outlineColor: '$pink500',
-      //           outlineStyle: 'solid',
-      //         },
-      //       }}
-      //     />
-      //   </VStack> */}
-      //   <VStack w={500} bg='$white' p='$4' gap='$4'>
-      //     <HStack bg='$blueGray500' p='$4' gap='$4'>
-      //       <Box bg='$blueGray400' h={50} flex={1} />
-      //       <Box bg='$blueGray400' h={50} w={50} />
-      //     </HStack>
-      //     <Text bg='$blueGray100' p='$4'>
-      //       In this code snippet, we're checking the computed pixel values of
-      //       the parent's width and the child's width and height to differentiate
-      //       between the two cases.
-      //     </Text>
-      //     <HStack bg='$blueGray500' p='$4' gap='$4' justifyContent='flex-end'>
-      //       <Box bg='$blueGray400' h={50} w={100} />
-      //       <Box bg='$blueGray400' h={50} w={100} />
-      //     </HStack>
-      //   </VStack>
-      // </Box>
+      <VStack py={100} bg='$black' gap={50} alignItems='center'>
+        <Story isFocused={true} />
+      </VStack>
     );
   }
 
