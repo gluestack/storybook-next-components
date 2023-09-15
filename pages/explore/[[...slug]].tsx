@@ -4,7 +4,15 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack, Heading, Text, HStack } from '@gluestack-ui/themed';
+import {
+  Center,
+  VStack,
+  Heading,
+  Text,
+  HStack,
+  Box,
+  ScrollView,
+} from '@gluestack-ui/themed';
 
 interface Option {
   control: string;
@@ -201,10 +209,19 @@ const groupAllSortedCombinations = (allCombinations: Array<any>, key: any) => {
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   if (slug === '') {
-    const Story = StoryData['Link']['story'];
+    const ModalStory = StoryData['Modal']['story'];
+    const ToastStory = StoryData['Toast']['story'];
+    const BadgeStory = StoryData['Badge']['story'];
+    const MenuStory = StoryData['Menu']['story'];
+    const ActionsheetStory = StoryData['Actionsheet']['story'];
+
     return (
       <VStack py={100} bg='$black' gap={50} alignItems='center'>
-        <Story isFocused={true} />
+        <ModalStory />
+        <ToastStory />
+        <BadgeStory />
+        <MenuStory />
+        <ActionsheetStory />
       </VStack>
     );
   }
@@ -295,8 +312,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
   }
 
   return (
-    <Center p='$8' bg='$white' overflow='scroll' w='100%'>
-      <VStack space='xl' alignSelf='flex-start' mb='$16'>
+    <VStack p='$8' gap='$8'>
+      <VStack space='xl' mb='$16'>
         <GluestackLogo />
         <Heading
           mt='$12'
@@ -310,14 +327,14 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
         <Text>{metaInfo.FigmaDesc}</Text>
       </VStack>
       <Center
-        bg='$white'
-        overflow='scroll'
-        w='100%'
-        py='$5'
-        borderStyle='dashed'
-        borderWidth={'$1'}
-        borderColor='$teal400'
-        borderRadius='$2xl'
+      // bg='$white'
+      // overflow='scroll'
+      // w='100%'
+      // py='$5'
+      // borderStyle='dashed'
+      // borderWidth={'$1'}
+      // borderColor='$teal400'
+      // borderRadius='$2xl'
       >
         {allCombinations.length === 0 && (
           <Story
@@ -331,17 +348,11 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
         {allCombinations.length > 0 && (
           <VStack p='$4' space='4xl'>
             {Object.keys(clusterOrderSortedCombinations).map(
-              (clusterFirstOrder: any, index) => {
+              (clusterFirstOrder: any) => {
                 let variantSortedCombination =
                   clusterOrderSortedCombinations[clusterFirstOrder];
-
                 return (
-                  <HStack
-                    space='3xl'
-                    p='$4'
-                    alignItems='flex-start'
-                    // justifyContent="center"
-                  >
+                  <HStack space='3xl' p='$4'>
                     {clusterFirstOrder === 'default' ? (
                       <></>
                     ) : (
@@ -353,7 +364,10 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                           variantSortedCombination[variantName];
 
                         return (
-                          <VStack space='md' alignItems='center'>
+                          <VStack
+                            space='md'
+                            // alignItems='center'
+                          >
                             {variantName === 'default' ? (
                               <></>
                             ) : (
@@ -362,8 +376,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
                             {/* <Text bold>{variantName}</Text> */}
                             {variantName === 'default' ? (
                               <HStack
-                                w='$full'
-                                maxWidth='1200px'
+                                // w='$full'
+                                // maxWidth='1200px'
                                 flexWrap='wrap'
                                 space='lg'
                               >
@@ -487,7 +501,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
           </VStack>
         )}
       </Center>
-    </Center>
+    </VStack>
   );
 };
 
