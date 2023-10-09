@@ -31,14 +31,14 @@ async function main() {
             path.join(storybookClonePath, 'example/storybook/src/components'),
             path.join(__dirname, '..', 'components/stories')
           );
-          copyFolder(
-            path.join(
-              storybookClonePath,
-              'packages/themed/src/components'
-              // 'example/storybook/src/ui-components'
-            ),
-            path.join(__dirname, '..', 'components/ui-components')
-          );
+          // copyFolder(
+          // path.join(
+          // storybookClonePath,
+          // 'packages/themed/src/components'
+          // 'example/storybook/src/ui-components'
+          // ),
+          // path.join(__dirname, '..', 'components/ui-components')
+          // );
           // copyFile(
           //   path.join(
           //     storybookClonePath,
@@ -46,7 +46,7 @@ async function main() {
           //   ),
           //   componentsFolderPath
           // );
-          createIndexFile();
+          // createIndexFile();
         } catch (switchError) {
           console.error('Failed to switch to the target branch:', switchError);
         } finally {
@@ -104,14 +104,14 @@ function deleteFolderRecursive(folderPath) {
   }
 }
 
-function createIndexFile() {
-  const indexPath = path.join(componentsFolderPath, 'index.ts');
-  const content = `export * from './ui-components';`;
-  fs.writeFileSync(indexPath, content);
-}
+// function createIndexFile() {
+//   const indexPath = path.join(componentsFolderPath, 'index.ts');
+//   const content = `export * from './ui-components';`;
+//   fs.writeFileSync(indexPath, content);
+// }
 
-function copyFile(source, destination) {
-  const fileName = path.basename(source);
-  const destinationPath = path.join(destination, fileName);
-  fs.copyFileSync(source, destinationPath);
-}
+// function copyFile(source, destination) {
+//   const fileName = path.basename(source);
+//   const destinationPath = path.join(destination, fileName);
+//   fs.copyFileSync(source, destinationPath);
+// }

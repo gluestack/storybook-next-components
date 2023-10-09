@@ -15,8 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"],
-      "@gluestack-ui/themed": ["./components"]
+      "@/*": ["./*"]
+      // "@gluestack-ui/themed": ["./components"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

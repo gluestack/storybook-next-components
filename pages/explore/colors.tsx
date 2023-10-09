@@ -1,6 +1,6 @@
 import React from 'react';
 import { HStack, Box, VStack, Text, Heading } from '@gluestack-ui/themed';
-import { config } from '@/components/ui-components/gluestack-ui.config';
+import { config } from '@gluestack-ui/config';
 
 function splitStringAtNumberStart(str: string) {
   const regex = /(\D+)(\d+)/;
@@ -37,7 +37,7 @@ function convertColors(colors: any) {
 }
 
 const Colors = ({ ...props }: any) => {
-  let colors = config.theme.tokens.colors;
+  let colors = config.tokens.colors;
 
   const colorMap = convertColors(colors);
 
@@ -48,6 +48,7 @@ const Colors = ({ ...props }: any) => {
       </Heading>
       <VStack
         space='lg'
+        // @ts-ignore
         dataSet={{
           'component-props': JSON.stringify({
             name: 'Colors',

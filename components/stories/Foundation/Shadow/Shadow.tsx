@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Text } from '../../../ui-components';
+import { Center, Text } from '@gluestack-ui/themed';
 
 function ShadowStory({ ...props }: any) {
   const shadowProps: any = {};
