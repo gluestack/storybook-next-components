@@ -8,11 +8,19 @@ const AlertMeta: ComponentMeta<typeof Alert> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['solid', 'accent', 'outline'],
+      options: [
+        'solid',
+        // 'accent',
+        // 'outline'
+      ],
     },
     action: {
       control: 'select',
-      options: ['info', 'error', 'warning', 'muted', 'success'],
+      options: [
+        // 'info',
+        'error',
+        // 'warning', 'muted', 'success'
+      ],
     },
   },
   args: {

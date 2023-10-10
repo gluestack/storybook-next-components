@@ -6,7 +6,7 @@ import { flush } from '@gluestack-style/react';
 
 function Document() {
   return (
-    <Html className='gs' lang='en'>
+    <Html className='gs gs-light' lang='en'>
       <Head />
       <body>
         <Main />

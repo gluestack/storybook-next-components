@@ -1,5 +1,12 @@
 import React from 'react';
-import { HStack, Box, VStack, Text, Heading } from '@gluestack-ui/themed';
+import {
+  HStack,
+  Box,
+  VStack,
+  Text,
+  Heading,
+  GluestackUIProvider,
+} from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
 
 function splitStringAtNumberStart(str: string) {
@@ -42,64 +49,72 @@ const Colors = ({ ...props }: any) => {
   const colorMap = convertColors(colors);
 
   return (
-    <VStack width='$full' justifyContent={'center'} p='$16' my={28} space='xl'>
-      <Heading size='5xl' py='$24'>
-        Theme Colors
-      </Heading>
+    <GluestackUIProvider config={config}>
       <VStack
-        space='lg'
-        // @ts-ignore
-        dataSet={{
-          'component-props': JSON.stringify({
-            name: 'Colors',
-            colors: colors,
-          }),
-        }}
+        width='$full'
+        justifyContent={'center'}
+        p='$16'
+        my={28}
+        space='xl'
       >
-        {Object.keys(colorMap).map((colorFamily: any) => {
-          const [colorName, _hue] = splitStringAtNumberStart(colorFamily);
+        <Heading size='5xl' py='$24'>
+          Theme Colors
+        </Heading>
+        <VStack
+          space='lg'
+          // @ts-ignore
+          dataSet={{
+            'component-props': JSON.stringify({
+              name: 'Colors',
+              colors: colors,
+            }),
+          }}
+        >
+          {Object.keys(colorMap).map((colorFamily: any) => {
+            const [colorName, _hue] = splitStringAtNumberStart(colorFamily);
 
-          if (typeof colorMap[colorFamily] === 'string') {
-            const colorToken = '$' + colorFamily;
-            return (
-              <VStack>
-                <Box h={50} w={100} bg={colorToken} />
-                <Text size='xs' fontWeight='$bold'>
-                  {colorFamily}
-                </Text>
-              </VStack>
-            );
-          } else {
-            return (
-              <HStack>
-                <Text
-                  size='xs'
-                  h={50}
-                  w={150}
-                  alignSelf='center'
-                  fontWeight='$bold'
-                >
-                  {colorName}
-                </Text>
-                {Object.keys(colorMap[colorFamily]).map((color: any) => {
-                  const [_colorName, hue] = splitStringAtNumberStart(color);
+            if (typeof colorMap[colorFamily] === 'string') {
+              const colorToken = '$' + colorFamily;
+              return (
+                <VStack>
+                  <Box h={50} w={100} bg={colorToken} />
+                  <Text size='xs' fontWeight='$bold'>
+                    {colorFamily}
+                  </Text>
+                </VStack>
+              );
+            } else {
+              return (
+                <HStack>
+                  <Text
+                    size='xs'
+                    h={50}
+                    w={150}
+                    alignSelf='center'
+                    fontWeight='$bold'
+                  >
+                    {colorName}
+                  </Text>
+                  {Object.keys(colorMap[colorFamily]).map((color: any) => {
+                    const [_colorName, hue] = splitStringAtNumberStart(color);
 
-                  const colorToken = '$' + color;
-                  return (
-                    <VStack alignItems='center'>
-                      <Box h={50} w={100} bg={colorToken} />
-                      <Text size='xs' fontWeight='$bold'>
-                        {hue}
-                      </Text>
-                    </VStack>
-                  );
-                })}
-              </HStack>
-            );
-          }
-        })}
+                    const colorToken = '$' + color;
+                    return (
+                      <VStack alignItems='center'>
+                        <Box h={50} w={100} bg={colorToken} />
+                        <Text size='xs' fontWeight='$bold'>
+                          {hue}
+                        </Text>
+                      </VStack>
+                    );
+                  })}
+                </HStack>
+              );
+            }
+          })}
+        </VStack>
       </VStack>
-    </VStack>
+    </GluestackUIProvider>
   );
 };
 

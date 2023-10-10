@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Center,
   Text,
@@ -26,11 +25,10 @@ const CheckboxGroupBasic = ({ ...props }: any) => {
       accessibilityLabel="Checkbox Group"
       value={values}
       onChange={setValues}
-      {...props}
       nativeID="checkbox-group"
+      gap="$2"
     >
       <Checkbox
-        m="$2"
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
@@ -42,14 +40,14 @@ const CheckboxGroupBasic = ({ ...props }: any) => {
           console.log(isSelected, '###')
         }
         nativeID="checkbox-1"
+        gap="$2"
       >
-        <CheckboxIndicator mr="$2">
+        <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
         </CheckboxIndicator>
         <CheckboxLabel>Label 1</CheckboxLabel>
       </Checkbox>
       <Checkbox
-        m="$2"
         isInvalid={props.isInvalid}
         size={props.size}
         aria-label="Label 2"
@@ -60,8 +58,9 @@ const CheckboxGroupBasic = ({ ...props }: any) => {
           console.log(isSelected, '###')
         }
         nativeID="checkbox-2"
+        gap="$2"
       >
-        <CheckboxIndicator mr="$2">
+        <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
         </CheckboxIndicator>
         <CheckboxLabel>Label 2</CheckboxLabel>
@@ -78,10 +77,11 @@ const FigmaCheckboxStory = ({ ...props }: any) => {
   };
 
   return (
-    <Checkbox {...props} nativeID="checkbox-1">
-      <CheckboxIndicator mr="$2">
+    <Checkbox {...props} nativeID="checkbox-1" gap="$2">
+      <CheckboxIndicator>
         <CheckboxIcon
           as={CheckIcon}
+          // @ts-ignore
           dataSet={{
             'component-props': JSON.stringify({
               'instance': true,
@@ -93,6 +93,7 @@ const FigmaCheckboxStory = ({ ...props }: any) => {
         />
       </CheckboxIndicator>
       <CheckboxLabel
+        // @ts-ignore
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,

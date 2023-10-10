@@ -6,20 +6,21 @@ import {
   Button,
   ButtonIcon,
   Icon,
+  EditIcon,
   Pressable,
-  Image,
-  AddIcon,
 } from '@gluestack-ui/themed';
 
-const LinearGradientBasic = () => {
+const LinearGradientStory = ({ ...props }: any) => {
   return (
-    <LinearGradient colors={['$purple400', '$red400']} p="$5">
-      <Text color="white">This is a Box</Text>
+    <LinearGradient {...props} colors={['$purple400', '$red400']}>
+      <Box px={'$12'} py={'$6'}>
+        <Text color="$white">Box</Text>
+      </Box>
     </LinearGradient>
   );
 };
 
-export default LinearGradientBasic;
+export default LinearGradientStory;
 
 export {
   LinearGradient,
@@ -28,7 +29,6 @@ export {
   Button,
   ButtonIcon,
   Icon,
+  EditIcon,
   Pressable,
-  Image,
-  AddIcon,
 };

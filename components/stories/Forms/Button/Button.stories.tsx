@@ -8,9 +8,6 @@ import ButtonWithIconsTemp from './ButtonWithIcon';
 const ButtonMeta: ComponentMeta<typeof Button> = {
   title: 'stories/FORMS/Button',
   component: Button,
-  metaInfo: {
-    clusteringOrder: ['size', 'variant'],
-  },
   args: {
     action: 'primary',
     variant: 'solid',

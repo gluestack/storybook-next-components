@@ -10,6 +10,11 @@ function ShadowStory({ ...props }: any) {
       h={150}
       w={400}
       bg='$white'
+      sx={{
+        _dark: {
+          bg: '$black',
+        },
+      }}
       {...shadowProps}
       dataSet={{
         'component-props': JSON.stringify({

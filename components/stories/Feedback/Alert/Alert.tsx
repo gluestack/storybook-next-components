@@ -14,16 +14,16 @@ import {
 
 const AlertBasic = ({ ...props }: any) => {
   return (
-    <Alert {...props}>
+    <Alert {...props} gap='$3'>
       <AlertIcon
         as={InfoIcon}
-        mr="$3"
         dataSet={{
           'component-props': JSON.stringify({
-            'instance': true,
+            instance: true,
             'instance-name': 'Icon',
-            'name': 'InfoIcon',
-            'size': 'md',
+            name: 'InfoIcon',
+            size: 'md',
+            colorMode: props.colorMode,
           }),
         }}
       />
@@ -32,7 +32,8 @@ const AlertBasic = ({ ...props }: any) => {
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            'size': 'md',
+            size: 'md',
+            colorMode: props.colorMode,
           }),
         }}
       >

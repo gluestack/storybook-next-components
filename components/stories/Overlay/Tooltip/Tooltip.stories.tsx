@@ -25,8 +25,6 @@ const TooltipMeta: ComponentMeta<typeof Tooltip> = {
     },
     showTooltip: {
       control: 'boolean',
-      figmaIgnore: true,
-
       options: [true, false],
     },
   },
