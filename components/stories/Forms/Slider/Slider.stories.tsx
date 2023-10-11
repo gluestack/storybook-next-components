@@ -21,6 +21,10 @@ const SliderMeta: ComponentMeta<typeof Slider> = {
     orientation: {
       control: 'select',
       options: ['vertical', 'horizontal'],
+      description: 'The orientation of the slider.',
+      table: {
+        defaultValue: { summary: 'horizontal' },
+      },
     },
     isReversed: {
       control: 'boolean',

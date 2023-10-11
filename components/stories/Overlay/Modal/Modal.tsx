@@ -39,23 +39,23 @@ const ModalBasic = ({ showModal: showModalProp = true, ...props }) => {
       <ModalBackdrop />
       <ModalContent>
         <ModalHeader>
-          <Heading maxWidth='80%'>Engage with Modals</Heading>
+          <Heading maxWidth="80%">Engage with Modals</Heading>
           <ModalCloseButton>
             <Icon as={CloseIcon} />
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
-          <Text fontSize='$sm'>
+          <Text fontSize="$sm">
             Elevate user interactions with our versatile modals. Seamlessly
             integrate notifications, forms, and media displays. Make an impact
             effortlessly.
           </Text>
         </ModalBody>
-        <ModalFooter gap='$3'>
+        <ModalFooter gap="$3">
           <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
+            variant="outline"
+            size="sm"
+            action="secondary"
             onPress={() => {
               setShowModal(false);
             }}
@@ -63,21 +63,21 @@ const ModalBasic = ({ showModal: showModalProp = true, ...props }) => {
             <ButtonText>Cancel</ButtonText>
           </Button>
           <Button
-            size='sm'
-            action='positive'
+            size="sm"
+            action="positive"
             onPress={() => {
               setShowModal(false);
             }}
             sx={{
-              bg: '$success700',
+              'bg': '$success700',
               ':hover': {
                 bg: '$success800',
               },
               ':active': {
                 bg: '$success900',
               },
-              _dark: {
-                bg: '$success600',
+              '_dark': {
+                'bg': '$success600',
                 ':hover': {
                   bg: '$success700',
                 },
@@ -95,14 +95,14 @@ const ModalBasic = ({ showModal: showModalProp = true, ...props }) => {
   );
 };
 
-const FigmaModalStory = ({ _showModal, ...props }: any) => {
+const FigmaModalStory = ({ _showModal, colorMode, ...props }: any) => {
   return (
     <Modal
       isOpen={true}
       {...props}
-      py='$16'
+      py="$16"
       w={1230}
-      bg='#00000080'
+      bg="#00000080"
       sx={{
         _dark: {
           bg: '#ffffff80',
@@ -113,12 +113,12 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
       <ModalContent>
         <ModalHeader>
           <Heading
-            maxWidth='80%'
+            maxWidth="80%"
             dataSet={{
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Heading',
-                size: 'lg',
+                'size': 'lg',
               }),
             }}
           >
@@ -129,10 +129,11 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
               as={CloseIcon}
               dataSet={{
                 'component-props': JSON.stringify({
-                  instance: true,
+                  'instance': true,
                   'instance-name': 'Icon',
-                  name: 'CloseIcon',
-                  size: 'md',
+                  'as': 'CloseIcon',
+                  'size': 'md',
+                  'colorMode': colorMode,
                 }),
               }}
             />
@@ -140,12 +141,12 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
         </ModalHeader>
         <ModalBody>
           <Text
-            size='sm'
+            size="sm"
             dataSet={{
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                size: 'sm',
+                'size': 'sm',
               }),
             }}
           >
@@ -154,33 +155,35 @@ const FigmaModalStory = ({ _showModal, ...props }: any) => {
             effortlessly.
           </Text>
         </ModalBody>
-        <ModalFooter gap='$3'>
+        <ModalFooter gap="$3">
           <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
+            variant="outline"
+            size="sm"
+            action="secondary"
             dataSet={{
               'component-props': JSON.stringify({
-                instance: true,
+                'instance': true,
                 'instance-name': 'Button-outline',
-                size: 'sm',
-                action: 'secondary',
-                state: 'default',
+                'size': 'sm',
+                'action': 'secondary',
+                'state': 'default',
+                'colorMode': colorMode,
               }),
             }}
           >
             <ButtonText>Cancel</ButtonText>
           </Button>
           <Button
-            size='sm'
-            action='positive'
+            size="sm"
+            action="positive"
             dataSet={{
               'component-props': JSON.stringify({
-                instance: true,
+                'instance': true,
                 'instance-name': 'Button-solid',
-                size: 'sm',
-                action: 'positive',
-                state: 'default',
+                'size': 'sm',
+                'action': 'positive',
+                'state': 'default',
+                'colorMode': colorMode,
               }),
             }}
           >

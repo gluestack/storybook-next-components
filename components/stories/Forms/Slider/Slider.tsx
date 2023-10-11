@@ -29,7 +29,7 @@ const SliderBasic = ({ value: valueProp = 60, ...props }: any) => {
       {...props}
       w={300}
       h={300}
-      mt='$4'
+      mt="$4"
       value={sliderValue}
       onChange={(value: any) => {
         handleChange(value);

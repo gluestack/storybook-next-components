@@ -39,6 +39,7 @@ const ComponentFrame = ({
                 'component-name': component[0],
               }),
             }}
+            colorMode={colorMode}
           />
         )}
         {allCombinations.length > 0 && (
@@ -128,7 +129,7 @@ const ComponentFrame = ({
                                       <Center key={index}>
                                         <Story
                                           {...props}
-                                          colorMode={dataProps.colorMode}
+                                          colorMode={colorMode}
                                         />
                                       </Center>
                                     );
@@ -187,7 +188,7 @@ const ComponentFrame = ({
                                       <Center key={index}>
                                         <Story
                                           {...props}
-                                          colorMode={dataProps.colorMode}
+                                          colorMode={colorMode}
                                         />
                                       </Center>
                                     );
