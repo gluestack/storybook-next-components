@@ -8,6 +8,8 @@ import {
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
+import { View, Text as RNText } from 'react-native';
+import { GluestackUILogo } from '@/components/logo/GluestackLogo';
 
 function splitStringAtNumberStart(str: string) {
   const regex = /(\D+)(\d+)/;
@@ -50,17 +52,48 @@ const Colors = ({ ...props }: any) => {
 
   return (
     <GluestackUIProvider config={config}>
-      <VStack
-        width='$full'
-        justifyContent={'center'}
-        p='$16'
-        my={28}
-        space='xl'
-      >
-        <Heading size='5xl' py='$24'>
-          Theme Colors
-        </Heading>
+      <VStack width='$full' justifyContent={'center'} space='xl'>
+        <View style={{ backgroundColor: '#000' }}>
+          <View style={{ padding: 48, gap: 22 }}>
+            {/* @ts-ignore */}
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              {/* @ts-ignore */}
+              <RNText
+                style={{
+                  fontSize: 48,
+                  fontWeight: 700,
+                  lineHeight: 90,
+                  color: '#F5F5F5',
+                }}
+              >
+                COLORS
+              </RNText>
+              {/* @ts-ignore */}
+              <GluestackUILogo />
+            </View>
+            {/* @ts-ignore */}
+            <RNText
+              style={{
+                fontSize: 18,
+                fontWeight: 400,
+                lineHeight: 32,
+                color: '#DBDBDB',
+                width: 800,
+              }}
+            >
+              Color palette consists of a large choice of colors, including
+              their extended palettes, each addressing a specific context.
+            </RNText>
+          </View>
+        </View>
         <VStack
+          p={48}
           space='lg'
           // @ts-ignore
           dataSet={{
@@ -76,23 +109,17 @@ const Colors = ({ ...props }: any) => {
             if (typeof colorMap[colorFamily] === 'string') {
               const colorToken = '$' + colorFamily;
               return (
-                <VStack>
-                  <Box h={50} w={100} bg={colorToken} />
-                  <Text size='xs' fontWeight='$bold'>
+                <HStack alignItems='center'>
+                  <Text size='xs' w={180} fontWeight='$bold'>
                     {colorFamily}
                   </Text>
-                </VStack>
+                  <Box h={50} w={100} bg={colorToken} />
+                </HStack>
               );
             } else {
               return (
-                <HStack>
-                  <Text
-                    size='xs'
-                    h={50}
-                    w={150}
-                    alignSelf='center'
-                    fontWeight='$bold'
-                  >
+                <HStack alignItems='center'>
+                  <Text size='xs' w={180} fontWeight='$bold' pb='$5'>
                     {colorName}
                   </Text>
                   {Object.keys(colorMap[colorFamily]).map((color: any) => {

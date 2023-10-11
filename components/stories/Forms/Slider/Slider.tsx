@@ -29,7 +29,7 @@ const SliderBasic = ({ value: valueProp = 60, ...props }: any) => {
       {...props}
       w={300}
       h={300}
-      mt="$4"
+      mt='$4'
       value={sliderValue}
       onChange={(value: any) => {
         handleChange(value);
@@ -42,6 +42,9 @@ const SliderBasic = ({ value: valueProp = 60, ...props }: any) => {
     </Slider>
   );
 };
+
+SliderBasic.description =
+  'This is a basic Slider component example. Sliders are used to select a value from a range of values.';
 
 export default SliderBasic;
 

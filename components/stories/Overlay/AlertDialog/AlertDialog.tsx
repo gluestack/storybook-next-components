@@ -43,7 +43,7 @@ const AlertDialogBasic = ({
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Heading',
-                'size': 'lg',
+                size: 'lg',
               }),
             }}
           >
@@ -54,10 +54,10 @@ const AlertDialogBasic = ({
               as={CloseIcon}
               dataSet={{
                 'component-props': JSON.stringify({
-                  'instance': true,
+                  instance: true,
                   'instance-name': 'Icon',
-                  'name': 'CloseIcon',
-                  'size': 'md',
+                  name: 'CloseIcon',
+                  size: 'md',
                 }),
               }}
             />
@@ -69,7 +69,7 @@ const AlertDialogBasic = ({
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -78,27 +78,27 @@ const AlertDialogBasic = ({
             deleting this folder the right choice?
           </Text>
         </AlertDialogBody>
-        <AlertDialogFooter gap="$3">
-          <Button variant="outline" action="secondary" onPress={handleClose}>
+        <AlertDialogFooter gap='$3'>
+          <Button variant='outline' action='secondary' onPress={handleClose}>
             <ButtonText
               dataSet={{
                 'component-props': JSON.stringify({
                   'is-text-style': true,
                   'component-name': 'Text',
-                  'size': 'md',
+                  size: 'md',
                 }),
               }}
             >
               Cancel
             </ButtonText>
           </Button>
-          <Button action="negative" onPress={handleClose}>
+          <Button action='negative' onPress={handleClose}>
             <ButtonText
               dataSet={{
                 'component-props': JSON.stringify({
                   'is-text-style': true,
                   'component-name': 'Text',
-                  'size': 'md',
+                  size: 'md',
                 }),
               }}
             >
@@ -118,9 +118,14 @@ const FigmaAlertDialogStory = ({
   return (
     <AlertDialog
       isOpen={true}
-      py="$16"
+      py='$16'
       w={1230}
-      bg="#00000080"
+      bg='#00000080'
+      sx={{
+        _dark: {
+          bg: '#ffffff80',
+        },
+      }}
       _experimentalOverlay={true}
       {...props}
     >
@@ -131,7 +136,7 @@ const FigmaAlertDialogStory = ({
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Heading',
-                'size': 'lg',
+                size: 'lg',
               }),
             }}
           >
@@ -142,10 +147,10 @@ const FigmaAlertDialogStory = ({
               as={CloseIcon}
               dataSet={{
                 'component-props': JSON.stringify({
-                  'instance': true,
+                  instance: true,
                   'instance-name': 'Icon',
-                  'name': 'CloseIcon',
-                  'size': 'md',
+                  name: 'CloseIcon',
+                  size: 'md',
                 }),
               }}
             />
@@ -157,7 +162,7 @@ const FigmaAlertDialogStory = ({
               'component-props': JSON.stringify({
                 'is-text-style': true,
                 'component-name': 'Text',
-                'size': 'md',
+                size: 'md',
               }),
             }}
           >
@@ -166,17 +171,17 @@ const FigmaAlertDialogStory = ({
             deleting this folder the right choice?
           </Text>
         </AlertDialogBody>
-        <AlertDialogFooter gap="$3">
+        <AlertDialogFooter gap='$3'>
           <Button
-            variant="outline"
-            action="secondary"
+            variant='outline'
+            action='secondary'
             dataSet={{
               'component-props': JSON.stringify({
-                'instance': true,
+                instance: true,
                 'instance-name': 'Button-outline',
-                'size': 'md',
-                'action': 'secondary',
-                'state': 'default',
+                size: 'md',
+                action: 'secondary',
+                state: 'default',
               }),
             }}
           >
@@ -185,7 +190,7 @@ const FigmaAlertDialogStory = ({
                 'component-props': JSON.stringify({
                   'is-text-style': true,
                   'component-name': 'Text',
-                  'size': 'md',
+                  size: 'md',
                 }),
               }}
             >
@@ -193,14 +198,14 @@ const FigmaAlertDialogStory = ({
             </ButtonText>
           </Button>
           <Button
-            action="negative"
+            action='negative'
             dataSet={{
               'component-props': JSON.stringify({
-                'instance': true,
+                instance: true,
                 'instance-name': 'Button-solid',
-                'size': 'md',
-                'action': 'negative',
-                'state': 'default',
+                size: 'md',
+                action: 'negative',
+                state: 'default',
               }),
             }}
           >
@@ -209,7 +214,7 @@ const FigmaAlertDialogStory = ({
                 'component-props': JSON.stringify({
                   'is-text-style': true,
                   'component-name': 'Text',
-                  'size': 'md',
+                  size: 'md',
                 }),
               }}
             >
@@ -221,6 +226,9 @@ const FigmaAlertDialogStory = ({
     </AlertDialog>
   );
 };
+
+AlertDialogBasic.description =
+  'This is a basic AlertDialog component example. Alerts are used to communicate a state that affects a system, feature or page';
 
 export default AlertDialogBasic;
 

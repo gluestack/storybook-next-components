@@ -14,16 +14,15 @@ import {
 
 const AlertBasic = ({ ...props }: any) => {
   return (
-    <Alert {...props} gap='$3'>
+    <Alert {...props} gap="$3">
       <AlertIcon
         as={InfoIcon}
         dataSet={{
           'component-props': JSON.stringify({
-            instance: true,
+            'instance': true,
             'instance-name': 'Icon',
-            name: 'InfoIcon',
-            size: 'md',
-            colorMode: props.colorMode,
+            'name': 'InfoIcon',
+            'size': 'md',
           }),
         }}
       />
@@ -32,8 +31,7 @@ const AlertBasic = ({ ...props }: any) => {
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            size: 'md',
-            colorMode: props.colorMode,
+            'size': 'md',
           }),
         }}
       >
@@ -42,6 +40,9 @@ const AlertBasic = ({ ...props }: any) => {
     </Alert>
   );
 };
+
+AlertBasic.description =
+  'This is a basic Alert component example. Alerts are used to communicate a state that affects a system, feature or page';
 
 export default AlertBasic;
 

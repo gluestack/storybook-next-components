@@ -99,8 +99,9 @@ export const getAllComponents = (StoryArgs: any) => {
   if (!metaInfo.clusteringOrder) {
     metaInfo.clusteringOrder = ['size', 'variant'];
   }
-  if (!metaInfo.FigmaDesc) {
-    metaInfo.FigmaDesc = 'This is a component figma-ui-kit for gluestack-ui';
+  if (!metaInfo.componentDescription) {
+    metaInfo.componentDescription =
+      'This is a component figma-ui-kit for gluestack-ui';
   }
 
   // Extract Meta info

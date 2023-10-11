@@ -22,25 +22,25 @@ const CheckboxGroupBasic = ({ ...props }: any) => {
 
   return (
     <CheckboxGroup
-      accessibilityLabel="Checkbox Group"
+      accessibilityLabel='Checkbox Group'
       value={values}
       onChange={setValues}
-      nativeID="checkbox-group"
-      gap="$2"
+      nativeID='checkbox-group'
+      gap='$2'
     >
       <Checkbox
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
-        value="Label 1"
-        aria-label="Label 1"
-        accessibilityLabel="Checkbox"
+        value='Label 1'
+        aria-label='Label 1'
+        accessibilityLabel='Checkbox'
         onChange={(isSelected: boolean) =>
           // eslint-disable-next-line no-console
           console.log(isSelected, '###')
         }
-        nativeID="checkbox-1"
-        gap="$2"
+        nativeID='checkbox-1'
+        gap='$2'
       >
         <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
@@ -50,15 +50,15 @@ const CheckboxGroupBasic = ({ ...props }: any) => {
       <Checkbox
         isInvalid={props.isInvalid}
         size={props.size}
-        aria-label="Label 2"
-        value="Label 2"
-        accessibilityLabel="Checkbox"
+        aria-label='Label 2'
+        value='Label 2'
+        accessibilityLabel='Checkbox'
         onChange={(isSelected: boolean) =>
           // eslint-disable-next-line no-console
           console.log(isSelected, '###')
         }
-        nativeID="checkbox-2"
-        gap="$2"
+        nativeID='checkbox-2'
+        gap='$2'
       >
         <CheckboxIndicator>
           <CheckboxIcon as={CheckIcon} />
@@ -77,17 +77,17 @@ const FigmaCheckboxStory = ({ ...props }: any) => {
   };
 
   return (
-    <Checkbox {...props} nativeID="checkbox-1" gap="$2">
+    <Checkbox {...props} nativeID='checkbox-1' gap='$2'>
       <CheckboxIndicator>
         <CheckboxIcon
           as={CheckIcon}
           // @ts-ignore
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'name': 'CheckIcon',
-              'size': iconSize[props.size],
+              name: 'CheckIcon',
+              size: iconSize[props.size],
             }),
           }}
         />
@@ -98,15 +98,17 @@ const FigmaCheckboxStory = ({ ...props }: any) => {
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            'size': props.size,
+            size: props.size,
           }),
         }}
       >
-        Label 1
+        Label
       </CheckboxLabel>
     </Checkbox>
   );
 };
+
+CheckboxGroupBasic.description = 'This is a basic Checkbox component example';
 
 export default CheckboxGroupBasic;
 

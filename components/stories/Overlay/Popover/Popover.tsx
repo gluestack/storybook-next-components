@@ -63,12 +63,12 @@ const PopoverBasic = ({
             </Text>
           </PopoverBody>
           <PopoverFooter>
-            <Text size="xs" flex={1}>
+            <Text size='xs' flex={1}>
               Step 2 of 3
             </Text>
             {/* @ts-ignore */}
-            <ButtonGroup space="md">
-              <Button variant="outline" action="secondary">
+            <ButtonGroup space='md'>
+              <Button variant='outline' action='secondary'>
                 <ButtonText>Back</ButtonText>
               </Button>
               <Button>
@@ -88,17 +88,17 @@ const FigmaPopoverStory = ({
   ...props
 }: any) => {
   return (
-    <Center w="$full" h="$full">
+    <Box w='$full' h='$full'>
       <Popover
         {...props}
         _experimentalOverlay={true}
         offset={30}
         isOpen={true}
-        placement="top"
+        placement='top'
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
           return (
-            <Box w={1200} h={500} pt={300} pb={50} alignItems="center">
+            <Box w={1200} h={500} pt={300} pb={50} alignItems='center'>
               <Button {...triggerProps}>
                 <ButtonText>Popover</ButtonText>
               </Button>
@@ -114,10 +114,10 @@ const FigmaPopoverStory = ({
                 as={CloseIcon}
                 dataSet={{
                   'component-props': JSON.stringify({
-                    'instance': true,
+                    instance: true,
                     'instance-name': 'Icon',
-                    'name': 'CloseIcon',
-                    'size': 'md',
+                    name: 'CloseIcon',
+                    size: 'md',
                   }),
                 }}
               />
@@ -130,21 +130,21 @@ const FigmaPopoverStory = ({
             </Text>
           </PopoverBody>
           <PopoverFooter>
-            <Text size="xs" flex={1}>
+            <Text size='xs' flex={1}>
               Step 2 of 3
             </Text>
             {/* @ts-ignore */}
-            <ButtonGroup space="md">
+            <ButtonGroup space='md'>
               <Button
-                variant="outline"
-                action="secondary"
+                variant='outline'
+                action='secondary'
                 dataSet={{
                   'component-props': JSON.stringify({
-                    'instance': true,
+                    instance: true,
                     'instance-name': 'Button-outline',
-                    'size': 'md',
-                    'action': 'secondary',
-                    'state': 'default',
+                    size: 'md',
+                    action: 'secondary',
+                    state: 'default',
                   }),
                 }}
               >
@@ -153,11 +153,11 @@ const FigmaPopoverStory = ({
               <Button
                 dataSet={{
                   'component-props': JSON.stringify({
-                    'instance': true,
+                    instance: true,
                     'instance-name': 'Button-solid',
-                    'size': 'sm',
-                    'action': 'primary',
-                    'state': 'default',
+                    size: 'sm',
+                    action: 'primary',
+                    state: 'default',
                   }),
                 }}
               >
@@ -167,9 +167,11 @@ const FigmaPopoverStory = ({
           </PopoverFooter>
         </PopoverContent>
       </Popover>
-    </Center>
+    </Box>
   );
 };
+
+PopoverBasic.description = `Popover is a non-modal dialog that floats around a trigger element. It is used to display contextual information or UI. It is triggered by clicking, tapping, or hovering on an element.`;
 
 export default PopoverBasic;
 

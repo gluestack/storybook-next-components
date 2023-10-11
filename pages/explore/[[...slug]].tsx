@@ -113,9 +113,8 @@ const ComponentFrame = ({
                                       dataProps.uri = 'ImageLink';
                                     }
 
-                                    if (dataProps.name) {
-                                      dataProps.name =
-                                        dataProps.name.displayName;
+                                    if (dataProps.as) {
+                                      dataProps.as = dataProps.as.displayName;
                                     }
 
                                     dataProps.colorMode = colorMode;
@@ -173,9 +172,8 @@ const ComponentFrame = ({
                                       dataProps.uri = 'ImageLink';
                                     }
 
-                                    if (dataProps.name) {
-                                      dataProps.name =
-                                        dataProps.name.displayName;
+                                    if (dataProps.as) {
+                                      dataProps.as = dataProps.as.displayName;
                                     }
 
                                     dataProps.colorMode = colorMode;
@@ -231,36 +229,45 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     // @ts-ignore
     <View
       style={{
-        padding: 0,
         gap: 32,
         backgroundColor: '#000000',
       }}
     >
       {/* @ts-ignore */}
-      <View style={{ marginVertical: 48, gap: 48, padding: 32 }}>
+      <View style={{ padding: 48, gap: 22 }}>
         {/* @ts-ignore */}
-        <GluestackUILogo />
-        {/* @ts-ignore */}
-        <RNText
+        <View
           style={{
-            fontSize: 46,
-            fontWeight: 700,
-            lineHeight: 48,
-            color: '#ffffff',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          {component[0].toUpperCase()}
-        </RNText>
+          {/* @ts-ignore */}
+          <RNText
+            style={{
+              fontSize: 48,
+              fontWeight: 700,
+              lineHeight: 90,
+              color: '#F5F5F5',
+            }}
+          >
+            {component[0].toUpperCase()}
+          </RNText>
+          {/* @ts-ignore */}
+          <GluestackUILogo />
+        </View>
         {/* @ts-ignore */}
         <RNText
           style={{
             fontSize: 18,
             fontWeight: 400,
-            lineHeight: 18,
-            color: '#ffffff',
+            lineHeight: 32,
+            color: '#DBDBDB',
+            width: 800,
           }}
         >
-          {metaInfo.FigmaDesc}
+          {metaInfo.componentDescription}
         </RNText>
       </View>
       {/* @ts-ignore */}
