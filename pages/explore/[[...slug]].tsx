@@ -11,9 +11,9 @@ import {
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { getAllComponents } from '@/utils/generateCombination';
-import GluestackLogo from '@/components/logo/GluestackLogo';
+import { GluestackUILogo } from '@/components/logo/GluestackLogo';
 import { config } from '@gluestack-ui/config';
-import { View, Text as RNText } from 'react-native';
+import { View, Text as RNText, StyleSheet } from 'react-native';
 
 interface ExplorePageProps {
   slug: string;
@@ -233,33 +233,40 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
       style={{
         padding: 0,
         gap: 32,
-        backgroundColor: '#ADDBFF',
+        backgroundColor: '#000000',
       }}
     >
       {/* @ts-ignore */}
-      <View style={{ marginBottom: 64, gap: 32, padding: 32 }}>
+      <View style={{ marginVertical: 48, gap: 48, padding: 32 }}>
         {/* @ts-ignore */}
-        <View
+        <GluestackUILogo />
+        {/* @ts-ignore */}
+        <RNText
           style={{
-            backgroundColor: '#fff',
-            borderRadius: 6,
-            padding: 12,
-            width: 'fit-content',
+            fontSize: 46,
+            fontWeight: 700,
+            lineHeight: 48,
+            color: '#ffffff',
           }}
         >
-          <GluestackLogo />
-        </View>
-        {/* @ts-ignore */}
-        <RNText style={{ fontSize: 48, fontWeight: 700, lineHeight: 48 }}>
           {component[0].toUpperCase()}
         </RNText>
         {/* @ts-ignore */}
-        <RNText style={{ fontSize: 18, fontWeight: 400, lineHeight: 18 }}>
+        <RNText
+          style={{
+            fontSize: 18,
+            fontWeight: 400,
+            lineHeight: 18,
+            color: '#ffffff',
+          }}
+        >
           {metaInfo.FigmaDesc}
         </RNText>
       </View>
-      <div>
-        <div className='gs gs-light'>
+      {/* @ts-ignore */}
+      <View>
+        <View style={styles.light}>
+          {/* @ts-ignore */}
           <GluestackUIProvider config={config} colorMode='light'>
             <ComponentFrame
               allCombinations={allCombinations}
@@ -271,8 +278,9 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               colorMode='light'
             />
           </GluestackUIProvider>
-        </div>
-        <div className='gs gs-dark'>
+        </View>
+        <View style={styles.dark}>
+          {/* @ts-ignore */}
           <GluestackUIProvider
             config={config}
             colorMode='dark'
@@ -289,8 +297,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               colorMode='dark'
             />
           </GluestackUIProvider>
-        </div>
-      </div>
+        </View>
+      </View>
     </View>
   );
 };
@@ -323,3 +331,14 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
 };
 
 export default ExplorePage;
+
+const styles = StyleSheet.create({
+  dark: {
+    $$css: true,
+    gs: 'gs gs-dark',
+  },
+  light: {
+    $$css: true,
+    gs: 'gs gs-light',
+  },
+});
