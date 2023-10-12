@@ -259,17 +259,23 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
           <GluestackUILogo />
         </View>
         {/* @ts-ignore */}
-        <RNText
+        <View
           style={{
-            fontSize: 18,
-            fontWeight: 400,
-            lineHeight: 32,
-            color: '#DBDBDB',
             width: 800,
           }}
         >
-          {metaInfo.componentDescription}
-        </RNText>
+          {/* @ts-ignore */}
+          <RNText
+            style={{
+              fontSize: 18,
+              fontWeight: 400,
+              lineHeight: 32,
+              color: '#DBDBDB',
+            }}
+          >
+            {metaInfo.componentDescription}
+          </RNText>
+        </View>
       </View>
       {/* @ts-ignore */}
       <View>
@@ -287,25 +293,27 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
             />
           </GluestackUIProvider>
         </View>
-        <View style={styles.dark}>
-          {/* @ts-ignore */}
-          <GluestackUIProvider
-            config={config}
-            colorMode='dark'
-            // @ts-ignore
-            _experimentalNestedProvider
-          >
-            <ComponentFrame
-              allCombinations={allCombinations}
-              Story={Story}
-              component={component}
-              clusterOrderSortedCombinations={clusterOrderSortedCombinations}
-              state_props={state_props}
-              isStateComponent={isStateComponent}
+        {component[0] !== 'Shadow' && (
+          <View style={styles.dark}>
+            {/* @ts-ignore */}
+            <GluestackUIProvider
+              config={config}
               colorMode='dark'
-            />
-          </GluestackUIProvider>
-        </View>
+              // @ts-ignore
+              _experimentalNestedProvider
+            >
+              <ComponentFrame
+                allCombinations={allCombinations}
+                Story={Story}
+                component={component}
+                clusterOrderSortedCombinations={clusterOrderSortedCombinations}
+                state_props={state_props}
+                isStateComponent={isStateComponent}
+                colorMode='dark'
+              />
+            </GluestackUIProvider>
+          </View>
+        )}
       </View>
     </View>
   );
