@@ -30,13 +30,14 @@ const ComponentFrame = ({
 }: any) => {
   return (
     <VStack p='$4' bg={colorMode === 'light' ? '$white' : '$black'}>
-      <Heading p='$8'>{colorMode.toUpperCase()} MODE</Heading>
+      <Heading p='$8'>{`${colorMode} mode`.toUpperCase()} </Heading>
       <Center>
         {allCombinations.length === 0 && (
           <Story
             dataSet={{
               'component-props': JSON.stringify({
                 'component-name': component[0],
+                colorMode: colorMode,
               }),
             }}
             colorMode={colorMode}
