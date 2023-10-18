@@ -20,13 +20,13 @@ const RadioBasic = ({ ...props }: any) => {
   const [values, setValues] = React.useState('Label 1');
 
   return (
-    <RadioGroup value={values} onChange={setValues} gap="$2">
+    <RadioGroup value={values} onChange={setValues} gap='$2'>
       <Radio
         {...props}
-        value="Label 1"
-        aria-label="Radio"
+        value='Label 1'
+        aria-label='Radio'
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-        gap="$2"
+        gap='$2'
       >
         <RadioIndicator>
           <RadioIcon as={CircleIcon} />
@@ -36,7 +36,7 @@ const RadioBasic = ({ ...props }: any) => {
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': props.size,
+              size: props.size,
             }),
           }}
         >
@@ -45,10 +45,10 @@ const RadioBasic = ({ ...props }: any) => {
       </Radio>
       <Radio
         {...props}
-        value="Label 2"
-        aria-label="Radio"
+        value='Label 2'
+        aria-label='Radio'
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-        gap="$2"
+        gap='$2'
       >
         <RadioIndicator>
           <RadioIcon as={CircleIcon} />
@@ -58,7 +58,7 @@ const RadioBasic = ({ ...props }: any) => {
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': props.size,
+              size: props.size,
             }),
           }}
         >

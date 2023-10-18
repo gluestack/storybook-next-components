@@ -228,16 +228,13 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
   } = getAllComponents(StoryArgs);
 
   return (
-    // @ts-ignore
     <View
       style={{
         gap: 32,
         backgroundColor: '#000000',
       }}
     >
-      {/* @ts-ignore */}
       <View style={{ padding: 48, gap: 22 }}>
-        {/* @ts-ignore */}
         <View
           style={{
             flexDirection: 'row',
@@ -245,7 +242,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
             alignItems: 'center',
           }}
         >
-          {/* @ts-ignore */}
           <RNText
             style={{
               fontSize: 48,
@@ -256,16 +252,13 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
           >
             {component[0].toUpperCase()}
           </RNText>
-          {/* @ts-ignore */}
           <GluestackUILogo />
         </View>
-        {/* @ts-ignore */}
         <View
           style={{
             width: 800,
           }}
         >
-          {/* @ts-ignore */}
           <RNText
             style={{
               fontSize: 18,
@@ -278,10 +271,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
           </RNText>
         </View>
       </View>
-      {/* @ts-ignore */}
       <View>
         <View style={styles.light}>
-          {/* @ts-ignore */}
           <GluestackUIProvider config={config} colorMode='light'>
             <ComponentFrame
               allCombinations={allCombinations}
@@ -296,7 +287,6 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
         </View>
         {component[0] !== 'Shadow' && (
           <View style={styles.dark}>
-            {/* @ts-ignore */}
             <GluestackUIProvider
               config={config}
               colorMode='dark'

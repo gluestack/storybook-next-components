@@ -44,25 +44,24 @@ const InputBasic = ({ colorMode, ...props }: any) => {
           setValue(e.nativeEvent.text);
         }}
         value={value}
-        placeholder="Enter Text here"
+        placeholder='Password'
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            'size': props.size,
+            size: props.size,
           }),
         }}
       />
       <InputSlot pr={props.variant === 'underlined' ? '$0' : '$4'}>
         <InputIcon
-          as={SearchIcon}
+          as={EyeOffIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
-              'instance-name': 'Icon',
-              'as': 'SearchIcon',
-              'size': inputIconSize,
-              'colorMode': colorMode,
+              instance: true,
+              as: 'EyeOffIcon',
+              size: inputIconSize,
+              colorMode: colorMode,
             }),
           }}
         />

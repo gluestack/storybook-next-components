@@ -10,6 +10,8 @@ import {
   FormControlErrorText,
   Input,
   InputField,
+  InputSlot,
+  InputIcon,
   Radio,
   RadioGroup,
   RadioIcon,
@@ -57,6 +59,7 @@ import {
   CheckIcon,
   AlertCircleIcon,
   ChevronDownIcon,
+  EyeOffIcon,
 } from '@gluestack-ui/themed';
 
 const FormControlBasic = ({ colorMode, ...props }) => {
@@ -74,7 +77,7 @@ const FormControlBasic = ({ colorMode, ...props }) => {
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text-medium',
-              'size': 'md',
+              size: 'md',
             }),
           }}
         >
@@ -84,19 +87,33 @@ const FormControlBasic = ({ colorMode, ...props }) => {
       <Input
         dataSet={{
           'component-props': JSON.stringify({
-            'instance': true,
+            instance: true,
             'instance-name': 'Input-outline',
-            'size': 'md',
-            'state': inputState,
-            'colorMode': colorMode,
+            size: 'md',
+            state: inputState,
+            colorMode: colorMode,
           }),
         }}
       >
         <InputField
-          type="password"
-          defaultValue="12345"
-          placeholder="password"
+          type='password'
+          defaultValue='12345'
+          placeholder='password'
         />
+        <InputSlot pr={props.variant === 'underlined' ? '$0' : '$4'}>
+          <InputIcon
+            as={EyeOffIcon}
+            dataSet={{
+              'component-props': JSON.stringify({
+                instance: true,
+                'instance-name': 'Icon',
+                as: 'SearchIcon',
+                size: 'sm',
+                colorMode: colorMode,
+              }),
+            }}
+          />
+        </InputSlot>
       </Input>
 
       <FormControlHelper>
@@ -105,7 +122,7 @@ const FormControlBasic = ({ colorMode, ...props }) => {
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': 'xs',
+              size: 'xs',
             }),
           }}
         >
@@ -118,11 +135,11 @@ const FormControlBasic = ({ colorMode, ...props }) => {
           as={AlertCircleIcon}
           dataSet={{
             'component-props': JSON.stringify({
-              'instance': true,
+              instance: true,
               'instance-name': 'Icon',
-              'as': 'AlertCircleIcon',
-              'size': 'sm',
-              'colorMode': colorMode,
+              as: 'AlertCircleIcon',
+              size: 'sm',
+              colorMode: colorMode,
             }),
           }}
         />
@@ -131,7 +148,7 @@ const FormControlBasic = ({ colorMode, ...props }) => {
             'component-props': JSON.stringify({
               'is-text-style': true,
               'component-name': 'Text',
-              'size': 'md',
+              size: 'md',
             }),
           }}
         >

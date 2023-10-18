@@ -16,33 +16,35 @@ const DividerBasic = ({ ...props }) => {
     <HStack
       flexDirection={props.orientation === 'vertical' ? 'row' : 'column'}
       h={props.orientation === 'vertical' ? 30 : 'auto'}
-      alignItems="center"
-      justifyContent="center"
+      alignItems='center'
+      justifyContent='center'
     >
       <Heading
-        size="sm"
-        fontWeight="$semibold"
+        size='sm'
+        fontWeight='$semibold'
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Heading',
-            'size': 'sm',
+            size: 'sm',
           }),
         }}
+        p='$3'
       >
         Firefox
       </Heading>
-      <Divider {...props} m="$3" />
+      <Divider {...props} />
       <Heading
-        size="sm"
-        fontWeight="$semibold"
+        size='sm'
+        fontWeight='$semibold'
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Heading',
-            'size': 'sm',
+            size: 'sm',
           }),
         }}
+        p='$3'
       >
         Chrome
       </Heading>

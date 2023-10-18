@@ -34,23 +34,23 @@ const FabBasic = ({
 }: any) => {
   return (
     <Box
-      position="relative"
-      bg="$trueGray200"
-      h="$full"
-      w="$full"
+      position='relative'
+      bg='$trueGray200'
+      h='$full'
+      w='$full'
       sx={{ _web: { w: 300, h: 300 } }}
     >
-      <Fab placement={placement} gap="$1" {...props}>
+      <Fab placement={placement} gap='$1' {...props}>
         {showIcon && (
           <FabIcon
             as={MenuIcon}
             dataSet={{
               'component-props': JSON.stringify({
-                'instance': true,
+                instance: true,
                 'instance-name': 'Icon',
-                'as': 'CloseIcon',
-                'size': 'md',
-                'colorMode': colorMode,
+                as: 'CloseIcon',
+                size: 'md',
+                colorMode: colorMode,
               }),
             }}
           />
@@ -68,22 +68,20 @@ const FigmaFabStory = ({
   ...props
 }: any) => {
   return (
-    <Box sx={{ _web: { w: 250, h: 80 } }}>
-      <Fab placement={placement} {...props} gap="$1">
-        <FabIcon
-          as={MenuIcon}
-          dataSet={{
-            'component-props': JSON.stringify({
-              'instance': true,
-              'instance-name': 'Icon',
-              'name': 'MenuIcon',
-              'size': 'md',
-            }),
-          }}
-        />
-        {showLabel && <Fab.Label>Menu</Fab.Label>}
-      </Fab>
-    </Box>
+    <Fab position='relative' placement={placement} {...props} gap='$1'>
+      <FabIcon
+        as={MenuIcon}
+        dataSet={{
+          'component-props': JSON.stringify({
+            instance: true,
+            'instance-name': 'Icon',
+            name: 'MenuIcon',
+            size: 'md',
+          }),
+        }}
+      />
+      {showLabel && <Fab.Label>Menu</Fab.Label>}
+    </Fab>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Box, Center } from '@gluestack-ui/themed';
+import { Box, Center, Icon } from '@gluestack-ui/themed';
 import React from 'react';
 
 import {
@@ -6,7 +6,6 @@ import {
   ButtonText,
   ButtonIcon,
   ButtonGroup,
-  Icon,
   AddIcon,
   InfoIcon,
   ButtonSpinner,
@@ -22,20 +21,55 @@ import {
 
 import { EditIcon, ArrowLeftIcon } from 'lucide-react-native';
 
-const ButtonBasic = ({ ...props }: any) => {
+const ButtonBasic = ({
+  // leftIcon,
+  // rightIcon,
+  colorMode,
+  ...props
+}: any) => {
   return (
-    <Button {...props}>
+    <Button {...props} gap='$2'>
+      {/* {leftIcon && (
+        <ButtonIcon
+          as={AddIcon}
+          dataSet={{
+            'component-props': JSON.stringify({
+              instance: true,
+              'instance-name': 'Icon',
+              as: 'AddIcon',
+              size: 'md',
+              colorMode: colorMode,
+            }),
+          }}
+        />
+      )} */}
+
       <ButtonText
         dataSet={{
           'component-props': JSON.stringify({
             'is-text-style': true,
             'component-name': 'Text',
-            'size': props.size,
+            size: props.size,
           }),
         }}
       >
         Button
       </ButtonText>
+
+      {/* {rightIcon && (
+        <ButtonIcon
+          as={AddIcon}
+          dataSet={{
+            'component-props': JSON.stringify({
+              instance: true,
+              'instance-name': 'Icon',
+              as: 'AddIcon',
+              size: 'md',
+              colorMode: colorMode,
+            }),
+          }}
+        />
+      )} */}
     </Button>
   );
 };
