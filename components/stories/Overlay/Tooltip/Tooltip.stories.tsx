@@ -1,5 +1,5 @@
 import type { ComponentMeta } from '@storybook/react-native';
-import Tooltip from './Tooltip';
+import { TooltipStory as Tooltip } from './Tooltip';
 
 const TooltipMeta: ComponentMeta<typeof Tooltip> = {
   title: 'stories/OVERLAY/Tooltip',
@@ -7,25 +7,27 @@ const TooltipMeta: ComponentMeta<typeof Tooltip> = {
   argTypes: {
     placement: {
       control: 'select',
+      figmaIgnore: true,
       options: [
+        'bottom',
+        'bottom left',
+        'bottom right',
         'top',
-        // 'bottom left',
-        // 'bottom right',
-        // 'top',
-        // 'top left',
-        // 'top right',
-        // 'left',
-        // 'left top',
-        // 'left bottom',
-        // 'right',
-        // 'right top',
-        // 'right bottom',
+        'top left',
+        'top right',
+        'left',
+        'left top',
+        'left bottom',
+        'right',
+        'right top',
+        'right bottom',
       ],
     },
-    // showTooltip: {
-    //   control: 'boolean',
-    //   options: [true, false],
-    // },
+    showTooltip: {
+      control: 'boolean',
+      figmaIgnore: true,
+      options: [true, false],
+    },
   },
   args: {
     text: 'Hello world',

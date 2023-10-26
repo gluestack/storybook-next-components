@@ -1,8 +1,11 @@
 import React from 'react';
 import {
   Input,
+  InputInput,
+  InputIcon,
   Center,
   Button,
+  ButtonText,
   Box,
   VStack,
   Text,
@@ -17,18 +20,51 @@ import { useState } from 'react';
 const InputStory = ({ ...props }: any) => {
   const [value, setValue] = React.useState('');
 
+  let inputIconSize = '';
+  switch (props.size) {
+    case 'sm':
+      inputIconSize = 'xs';
+      break;
+    case 'md':
+      inputIconSize = 'sm';
+      break;
+    case 'lg':
+      inputIconSize = 'lg';
+      break;
+    case 'xl':
+      inputIconSize = 'xl';
+      break;
+  }
+
   return (
     <Input {...props}>
-      <Input.Input
+      <InputInput
         onChange={(e: any) => {
           setValue(e.nativeEvent.text);
         }}
         value={value}
         placeholder="Enter Text here"
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': props.size,
+          }),
+        }}
       />
-      <Input.Icon pr="$4">
-        <Icon as={SearchIcon} />
-      </Input.Icon>
+      <InputIcon pr="$4">
+        <Icon
+          as={SearchIcon}
+          dataSet={{
+            'component-props': JSON.stringify({
+              'instance': true,
+              'instance-name': 'Icon',
+              'name': 'SearchIcon',
+              'size': inputIconSize,
+            }),
+          }}
+        />
+      </InputIcon>
     </Input>
   );
 };
@@ -37,8 +73,11 @@ export default InputStory;
 
 export {
   Input,
+  InputInput,
+  InputIcon,
   Center,
   Button,
+  ButtonText,
   Box,
   VStack,
   Text,

@@ -2,6 +2,8 @@ import React from 'react';
 import {
   Center,
   Badge,
+  BadgeText,
+  BadgeIcon,
   Icon,
   Box,
   Text,
@@ -14,9 +16,14 @@ import {
   CheckIcon,
   Heading,
   Avatar,
+  AvatarFallbackText,
+  AvatarImage,
   Button,
+  ButtonText,
   Menu,
   MenuIcon,
+  MenuItem,
+  MenuItemLabel,
 } from '../../../ui-components';
 import {
   PaintBucket,
@@ -27,32 +34,40 @@ import {
 } from 'lucide-react-native';
 
 const BadgeStory = ({ text = 'New feature', ...props }: any) => {
-  let BadgeSize = '';
+  let badgeIconAndTextSize = '';
   switch (props.size) {
     case 'sm':
-      BadgeSize = 'xs';
+      badgeIconAndTextSize = '2xs';
       break;
     case 'md':
-      BadgeSize = 'sm';
+      badgeIconAndTextSize = 'xs';
       break;
     case 'lg':
-      BadgeSize = 'md';
+      badgeIconAndTextSize = 'sm';
       break;
   }
-  console.log(BadgeSize);
-
   return (
     <Badge {...props}>
-      <Badge.Text>{text}</Badge.Text>
-      <Badge.Icon
-        ml='$1'
+      <BadgeText
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': badgeIconAndTextSize,
+          }),
+        }}
+      >
+        {text}
+      </BadgeText>
+      <BadgeIcon
+        ml="$1"
         as={GlobeIcon}
         dataSet={{
           'component-props': JSON.stringify({
-            instance: true,
+            'instance': true,
             'instance-name': 'Icon',
-            name: 'GlobeIcon',
-            size: BadgeSize,
+            'name': 'GlobeIcon',
+            'size': badgeIconAndTextSize,
           }),
         }}
       />
@@ -65,6 +80,8 @@ export default BadgeStory;
 export {
   Center,
   Badge,
+  BadgeText,
+  BadgeIcon,
   Icon,
   Box,
   Text,
@@ -79,10 +96,15 @@ export {
   CheckIcon,
   Heading,
   Avatar,
+  AvatarFallbackText,
+  AvatarImage,
   Button,
+  ButtonText,
   GlobeIcon,
   BadgeCheckIcon,
-  MenuIcon,
   Menu,
+  MenuIcon,
+  MenuItem,
+  MenuItemLabel,
   BadgePlusIcon,
 };

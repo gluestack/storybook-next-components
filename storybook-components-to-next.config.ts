@@ -119,6 +119,11 @@ export default {
     story: ActionsheetStory,
   },
 
+  Tabs: {
+    meta: TabsMeta,
+    story: TabsStory,
+  },
+
   Alert: {
     meta: AlertMeta,
     story: AlertStory,
@@ -187,11 +192,6 @@ export default {
   Switch: {
     meta: SwitchMeta,
     story: SwitchStory,
-  },
-
-  Tabs: {
-    meta: TabsMeta,
-    story: TabsStory,
   },
 
   Textarea: {

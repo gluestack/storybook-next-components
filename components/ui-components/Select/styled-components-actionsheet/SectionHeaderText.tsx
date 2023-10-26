@@ -1,4 +1,4 @@
-import { Text } from 'react-native';
+import { Text } from '../../Text';
 import { styled } from '../../styled';
 
 export default styled(
@@ -6,7 +6,9 @@ export default styled(
   {
     color: '$textLight500',
     fontSize: '$sm',
+    fontFamily: '$body',
     fontWeight: '$bold',
+    lineHeight: '$xs',
     textTransform: 'uppercase',
     p: '$3',
     _dark: {

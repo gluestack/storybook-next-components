@@ -4,11 +4,12 @@ import DirectoryTree from 'directory-tree';
 import { getFilePaths } from '../../utils';
 import React from 'react';
 import StoryData from '../../storybook-components-to-next.config';
-import { Center, VStack, Button } from '@/components';
+import { Center, VStack, Heading } from '@/components';
 
 interface Option {
   control: string;
   options: string[];
+  figmaIgnore: boolean;
   description: string;
   table: {
     defaultValue: {
@@ -49,13 +50,20 @@ function generateCombinations(
 
   const optionKey = Object.keys(options)[index];
   const optionValues = options[optionKey].options;
-  if (optionValues && optionValues.length > 0) {
+
+  if (
+    optionValues &&
+    optionValues.length > 0 &&
+    !options[optionKey].figmaIgnore
+  ) {
     for (let i = 0; i < optionValues.length; i++) {
       const newCombination: Combination = { ...combination };
 
       newCombination[optionKey] = optionValues[i];
       generateCombinations(combinations, options, index + 1, newCombination);
     }
+  } else {
+    generateCombinations(combinations, options, index + 1, combination);
   }
 }
 
@@ -104,6 +112,19 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
 
   return (
     <Center p='$4'>
+      <Heading
+        size='2xl'
+        my={50}
+        w='60%'
+        bg='$yellow300'
+        py={16}
+        px={32}
+        rounded='$md'
+        letterSpacing='$xl'
+        color='$textLight800'
+      >
+        {component[0].toUpperCase()}
+      </Heading>
       {allCombinations.length === 0 && (
         <Story
           dataSet={{
@@ -138,6 +159,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug }) => {
             }
 
             if (dataProps.name) {
+              console.log(dataProps.name.displayName);
               dataProps.name = dataProps.name.displayName;
             }
 

@@ -6,10 +6,10 @@ export default styled(
   Motion.View,
   {
     alignItems: 'center',
-    borderTopLeftRadius: '$2xl',
-    borderTopRightRadius: '$2xl',
-    maxHeight: '80%',
-    px: '$2',
+    borderTopLeftRadius: '$3xl',
+    borderTopRightRadius: '$3xl',
+    height: '100%',
+    p: '$2',
     bg: '$backgroundLight0',
     _sectionHeaderBackground: {
       bg: '$backgroundLight0',
@@ -22,6 +22,9 @@ export default styled(
     },
     _web: {
       userSelect: 'none',
+    },
+    defaultProps: {
+      hardShadow: '5',
     },
   },
   {

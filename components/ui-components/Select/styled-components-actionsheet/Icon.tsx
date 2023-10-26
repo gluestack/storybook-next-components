@@ -1,21 +1,20 @@
 // @ts-nocheck
 import { styled } from '../../styled';
-import { View } from 'react-native';
+import { Icon } from '../../Icons';
 
 export default styled(
-  View,
+  Icon,
   {
-    w: 16,
-    h: 16,
-    mx: '$2',
-    _icon: {
-      color: '$textLight900',
-      _dark: {
-        color: '$textDark50',
-      },
+    w: '$4',
+    h: '$4',
+    mr: '$2',
+
+    color: '$backgroundLight500',
+    _dark: {
+      color: '$backgroundDark400',
     },
   },
   {
-    descendantStyle: ['_icon'],
+    ancestorStyle: ['_icon'],
   }
 );

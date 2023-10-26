@@ -1,36 +1,11 @@
 import { styled } from '../../styled';
-import { AsForwarder } from '@gluestack-style/react';
+
+import { Icon } from '../../Icons';
 
 export default styled(
-  AsForwarder,
+  Icon,
   {
-    variants: {
-      size: {
-        xs: {
-          h: 12,
-          w: 12,
-        },
-        sm: {
-          h: 16,
-          w: 16,
-        },
-        md: {
-          h: 18,
-          w: 18,
-        },
-        lg: {
-          h: 20,
-          w: 20,
-        },
-        xl: {
-          h: 24,
-          w: 24,
-        },
-      },
-    },
-    defaultProps: {
-      size: 'md',
-    },
+    alignSelf: 'center',
   },
   {
     ancestorStyle: ['_icon'],

@@ -9,11 +9,16 @@ const ModalMeta: ComponentMeta<typeof Modal> = {
     size: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'full'],
+      description: 'The width of modal.',
+      table: {
+        defaultValue: { summary: 'md' },
+      },
     },
-    // showModal: {
-    //   control: 'boolean',
-    //   option: [true, false],
-    // },
+    showModal: {
+      control: 'boolean',
+      figmaIgnore: true,
+      option: [true, false],
+    },
   },
   args: { size: 'md' },
 };

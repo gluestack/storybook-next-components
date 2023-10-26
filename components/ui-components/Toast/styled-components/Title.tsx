@@ -1,17 +1,17 @@
-import { Text } from 'react-native';
+import { Text } from '../../Text';
 import { styled } from '../../styled';
 
 export default styled(
   Text,
   {
+    fontWeight: '$medium',
+    props: {
+      size: 'md',
+    },
     color: '$textLight900',
     _dark: {
       color: '$textDark50',
     },
-    fontWeight: '$medium',
-    fontFamily: '$body',
-    fontSize: '$md',
-    lineHeight: '$md',
   },
   { ancestorStyle: ['_text'] }
 );

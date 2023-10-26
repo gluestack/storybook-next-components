@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   Alert,
+  AlertIcon,
+  AlertText,
   InfoIcon,
   CheckCircleIcon,
   CloseCircleIcon,
@@ -8,25 +10,34 @@ import {
   AlertCircleIcon,
   VStack,
   Icon,
-  Box,
 } from '../../../ui-components';
 
 function AlertStory({ ...props }: any) {
   return (
     <Alert {...props}>
-      <Box
+      <AlertIcon
+        as={InfoIcon}
+        mr="$3"
         dataSet={{
           'component-props': JSON.stringify({
-            instance: true,
+            'instance': true,
             'instance-name': 'Icon',
-            name: 'InfoIcon',
-            size: 'md',
+            'name': 'InfoIcon',
+            'size': 'md',
+          }),
+        }}
+      />
+      <AlertText
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': 'md',
           }),
         }}
       >
-        <Alert.Icon as={InfoIcon} mr='$3' />
-      </Box>
-      <Alert.Text>Selection successfully moved!</Alert.Text>
+        Selection successfully moved!
+      </AlertText>
     </Alert>
   );
 }
@@ -35,6 +46,8 @@ export default AlertStory;
 
 export {
   Alert,
+  AlertIcon,
+  AlertText,
   InfoIcon,
   CheckCircleIcon,
   CloseCircleIcon,

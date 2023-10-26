@@ -1,7 +1,20 @@
 import React from 'react';
-import { CloseIcon, Button, Heading, Text, Icon } from '../../../ui-components';
+import {
+  CloseIcon,
+  Button,
+  ButtonText,
+  Heading,
+  Text,
+  Icon,
+} from '../../../ui-components';
 import {
   Modal,
+  ModalBackdrop,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
   Center,
   VStack,
   HStack,
@@ -23,49 +36,49 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
       {...props}
       finalFocusRef={ref}
     >
-      <Modal.Backdrop />
-      <Modal.Content>
-        <Modal.Header>
-          <Heading maxWidth='80%'>Engage with Modals</Heading>
-          <Modal.CloseButton>
+      <ModalBackdrop />
+      <ModalContent>
+        <ModalHeader>
+          <Heading maxWidth="80%">Engage with Modals</Heading>
+          <ModalCloseButton>
             <Icon as={CloseIcon} />
-          </Modal.CloseButton>
-        </Modal.Header>
-        <Modal.Body>
-          <Text fontSize='$sm'>
+          </ModalCloseButton>
+        </ModalHeader>
+        <ModalBody>
+          <Text fontSize="$sm">
             Elevate user interactions with our versatile modals. Seamlessly
             integrate notifications, forms, and media displays. Make an impact
             effortlessly.
           </Text>
-        </Modal.Body>
-        <Modal.Footer>
+        </ModalBody>
+        <ModalFooter>
           <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
-            mr='$3'
+            variant="outline"
+            size="sm"
+            action="secondary"
+            mr="$3"
             onPress={() => {
               setShowModal(false);
             }}
           >
-            <Button.Text>Cancel</Button.Text>
+            <ButtonText>Cancel</ButtonText>
           </Button>
           <Button
-            size='sm'
-            action='positive'
+            size="sm"
+            action="positive"
             onPress={() => {
               setShowModal(false);
             }}
             sx={{
-              bg: '$success700',
+              'bg': '$success700',
               ':hover': {
                 bg: '$success800',
               },
               ':active': {
                 bg: '$success900',
               },
-              _dark: {
-                bg: '$success600',
+              '_dark': {
+                'bg': '$success600',
                 ':hover': {
                   bg: '$success700',
                 },
@@ -75,32 +88,36 @@ const ModalStory = ({ showModal: showModalProp = true, ...props }) => {
               },
             }}
           >
-            <Button.Text>Explore</Button.Text>
+            <ButtonText>Explore</ButtonText>
           </Button>
-        </Modal.Footer>
-      </Modal.Content>
+        </ModalFooter>
+      </ModalContent>
     </Modal>
   );
 };
 
-const ModalStoryFigma = ({
-  showModal: showModalProp = true,
-  ...props
-}: any) => {
-  const [showModal, setShowModal] = React.useState(false);
-  const ref = React.useRef(null);
+const FigmaModalStory = ({ _showModal, ...props }: any) => {
   return (
-    <Modal isOpen={true} {...props} my='$16' _experimentalOverlay={false}>
-      {/* <Modal.Backdrop /> */}
+    <Modal isOpen={true} {...props} my="$16" _experimentalOverlay={false}>
       <Modal.Content>
         <Modal.Header>
-          <Heading maxWidth='80%'>Engage with Modals</Heading>
+          <Heading maxWidth="80%">Engage with Modals</Heading>
           <Modal.CloseButton>
-            <Icon as={CloseIcon} />
+            <Icon
+              as={CloseIcon}
+              dataSet={{
+                'component-props': JSON.stringify({
+                  'instance': true,
+                  'instance-name': 'Icon',
+                  'name': 'CloseIcon',
+                  'size': 'md',
+                }),
+              }}
+            />
           </Modal.CloseButton>
         </Modal.Header>
         <Modal.Body>
-          <Text fontSize='$sm'>
+          <Text fontSize="$sm">
             Elevate user interactions with our versatile modals. Seamlessly
             integrate notifications, forms, and media displays. Make an impact
             effortlessly.
@@ -108,39 +125,33 @@ const ModalStoryFigma = ({
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant='outline'
-            size='sm'
-            action='secondary'
-            mr='$3'
-            onPress={() => {
-              setShowModal(false);
+            variant="outline"
+            size="sm"
+            action="secondary"
+            mr="$3"
+            dataSet={{
+              'component-props': JSON.stringify({
+                'instance': true,
+                'instance-name': 'Button-outline',
+                'size': 'sm',
+                'action': 'secondary',
+                'state': 'default',
+              }),
             }}
           >
             <Button.Text>Cancel</Button.Text>
           </Button>
           <Button
-            size='sm'
-            action='positive'
-            onPress={() => {
-              setShowModal(false);
-            }}
-            sx={{
-              bg: '$success700',
-              ':hover': {
-                bg: '$success800',
-              },
-              ':active': {
-                bg: '$success900',
-              },
-              _dark: {
-                bg: '$success600',
-                ':hover': {
-                  bg: '$success700',
-                },
-                ':active': {
-                  bg: '$success800',
-                },
-              },
+            size="sm"
+            action="positive"
+            dataSet={{
+              'component-props': JSON.stringify({
+                'instance': true,
+                'instance-name': 'Button-solid',
+                'size': 'sm',
+                'action': 'positive',
+                'state': 'default',
+              }),
             }}
           >
             <Button.Text>Explore</Button.Text>
@@ -151,13 +162,20 @@ const ModalStoryFigma = ({
   );
 };
 
-export default ModalStoryFigma;
+export default FigmaModalStory;
 
 export {
   ModalStory,
   Modal,
+  ModalBackdrop,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
   CloseIcon,
   Button,
+  ButtonText,
   Text,
   Center,
   VStack,

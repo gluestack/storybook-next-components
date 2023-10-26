@@ -1,5 +1,5 @@
 import type { ComponentMeta } from '@storybook/react-native';
-import Fab from './Fab';
+import { FabStory as Fab } from './Fab';
 
 const FabMeta: ComponentMeta<typeof Fab> = {
   title: 'stories/OTHERS/Fab',
@@ -26,6 +26,7 @@ const FabMeta: ComponentMeta<typeof Fab> = {
     },
     showIcon: {
       control: 'boolean',
+      figmaIgnore: true,
       options: [true, false],
     },
   },

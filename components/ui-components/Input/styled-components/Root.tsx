@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { styled } from '../../styled';
 import { View } from 'react-native';
 
@@ -62,41 +61,53 @@ export default styled(
         xl: {
           h: '$12',
           _input: {
-            fontSize: '$xl',
+            props: {
+              size: 'xl',
+            },
           },
           _icon: {
-            h: '$4.5',
-            w: '$4.5',
+            props: {
+              size: 'xl',
+            },
           },
         },
         lg: {
           h: '$11',
           _input: {
-            fontSize: '$lg',
+            props: {
+              size: 'lg',
+            },
           },
           _icon: {
-            h: '$4',
-            w: '$4',
+            props: {
+              size: 'lg',
+            },
           },
         },
         md: {
           h: '$10',
           _input: {
-            fontSize: '$md',
+            props: {
+              size: 'md',
+            },
           },
           _icon: {
-            h: '$3.5',
-            w: '$3.5',
+            props: {
+              size: 'sm',
+            },
           },
         },
         sm: {
           h: '$9',
           _input: {
-            fontSize: '$sm',
+            props: {
+              size: 'sm',
+            },
           },
           _icon: {
-            h: '$3',
-            w: '$3',
+            props: {
+              size: 'xs',
+            },
           },
         },
       },
@@ -128,10 +139,11 @@ export default styled(
               borderBottomColor: '$error700',
             },
             ':focus': {
+              'borderBottomColor': '$error700',
               ':hover': {
-                borderBottomColor: '$primary700',
+                borderBottomColor: '$error700',
                 _web: {
-                  boxShadow: 'inset 0 -1px 0 0 $primary700',
+                  boxShadow: 'inset 0 -1px 0 0 $error700',
                 },
               },
             },
@@ -160,10 +172,11 @@ export default styled(
                 borderBottomColor: '$error400',
               },
               ':focus': {
+                'borderBottomColor': '$error400',
                 ':hover': {
-                  borderBottomColor: '$primary400',
+                  borderBottomColor: '$error400',
                   _web: {
-                    boxShadow: 'inset 0 -1px 0 0 $primary400',
+                    boxShadow: 'inset 0 -1px 0 0 $error400',
                   },
                 },
               },
@@ -201,10 +214,11 @@ export default styled(
               borderColor: '$error700',
             },
             ':focus': {
+              'borderColor': '$error700',
               ':hover': {
-                borderColor: '$primary700',
+                borderColor: '$error700',
                 _web: {
-                  boxShadow: 'inset 0 0 0 1px $primary700',
+                  boxShadow: 'inset 0 0 0 1px $error700',
                 },
               },
             },
@@ -233,10 +247,11 @@ export default styled(
                 borderColor: '$error400',
               },
               ':focus': {
+                'borderColor': '$error400',
                 ':hover': {
-                  borderColor: '$primary400',
+                  borderColor: '$error400',
                   _web: {
-                    boxShadow: 'inset 0 0 0 1px $primary400',
+                    boxShadow: 'inset 0 0 0 1px $error400',
                   },
                 },
               },
@@ -276,10 +291,11 @@ export default styled(
               borderColor: '$error700',
             },
             ':focus': {
+              'borderColor': '$error700',
               ':hover': {
-                borderColor: '$primary700',
+                borderColor: '$error700',
                 _web: {
-                  boxShadow: 'inset 0 0 0 1px $primary700',
+                  boxShadow: 'inset 0 0 0 1px $error700',
                 },
               },
             },
@@ -309,10 +325,11 @@ export default styled(
                 borderColor: '$error400',
               },
               ':focus': {
+                'borderColor': '$error400',
                 ':hover': {
-                  borderColor: '$primary400',
+                  borderColor: '$error400',
                   _web: {
-                    boxShadow: 'inset 0 0 0 1px $primary400',
+                    boxShadow: 'inset 0 0 0 1px $error400',
                   },
                 },
               },

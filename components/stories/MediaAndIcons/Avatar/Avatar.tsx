@@ -4,12 +4,25 @@ import React from 'react';
 import {
   VStack,
   Avatar,
+  AvatarGroup,
+  AvatarBadge,
+  AvatarFallbackText,
+  AvatarImage,
   HStack,
   Icon,
   Heading,
   Text,
 } from '../../../ui-components';
 import { User } from 'lucide-react-native';
+
+const TextSizeMap = new Map([
+  ['xs', '2xs'],
+  ['sm', 'xs'],
+  ['md', 'md'],
+  ['lg', 'xl'],
+  ['xl', '3xl'],
+  ['2xl', '5xl'],
+]);
 
 type CustomAvatarStory = ComponentStory<typeof Avatar>;
 
@@ -22,17 +35,39 @@ const AvatarStory: CustomAvatarStory = ({
 }: any) => {
   return (
     <Avatar size={size} {...props}>
-      <Avatar.FallbackText>{fallbackText}</Avatar.FallbackText>
-      <Avatar.Image
+      <AvatarFallbackText
+        dataSet={{
+          'component-props': JSON.stringify({
+            'is-text-style': true,
+            'component-name': 'Text',
+            'size': TextSizeMap.get(props.size || 'md'),
+          }),
+        }}
+      >
+        {fallbackText}
+      </AvatarFallbackText>
+      <AvatarImage
         source={{
           uri: uri,
         }}
       />
-      {badge && <Avatar.Badge />}
+      {badge && <AvatarBadge />}
     </Avatar>
   );
 };
 
 export default AvatarStory;
 
-export { HStack, VStack, Avatar, Icon, Heading, User, Text };
+export {
+  HStack,
+  VStack,
+  Avatar,
+  AvatarGroup,
+  AvatarBadge,
+  AvatarFallbackText,
+  AvatarImage,
+  Icon,
+  Heading,
+  User,
+  Text,
+};

@@ -1,4 +1,4 @@
-import { createSelect } from './select/src';
+import { createSelect } from '@gluestack-ui/select';
 import { createActionsheet } from '@gluestack-ui/actionsheet';
 import { styled } from '../styled';
 
@@ -65,3 +65,18 @@ export const Select = createSelect(
     SectionHeaderText: Actionsheet.SectionHeaderText,
   }
 );
+export const SelectTrigger = Select.Trigger;
+export const SelectInput = Select.Input;
+export const SelectIcon = Select.Icon;
+export const SelectPortal = Select.Portal;
+export const SelectBackdrop = Select.Backdrop;
+export const SelectContent = Select.Content;
+export const SelectDragIndicator = Select.DragIndicator;
+export const SelectDragIndicatorWrapper = Select.DragIndicatorWrapper;
+export const SelectItem = Select.Item;
+export const SelectItemText = Select.ItemText;
+export const SelectScrollView = Select.ScrollView;
+export const SelectVirtualizedList = Select.VirtualizedList;
+export const SelectFlatList = Select.FlatList;
+export const SelectSectionList = Select.SectionList;
+export const SelectSectionHeaderText = Select.SectionHeaderText;

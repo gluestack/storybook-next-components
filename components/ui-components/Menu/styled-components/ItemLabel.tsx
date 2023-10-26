@@ -1,4 +1,4 @@
-import { Text } from 'react-native';
+import { Text } from '../../Text';
 import { styled } from '../../styled';
 
 export const Label = styled(
@@ -8,9 +8,7 @@ export const Label = styled(
     fontWeight: '$normal',
     fontFamily: '$body',
     fontStyle: 'normal',
-    fontSize: '$md',
     letterSpacing: '$md',
-    lineHeight: '$md',
 
     variants: {
       size: {
