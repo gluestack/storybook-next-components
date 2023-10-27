@@ -12,7 +12,7 @@ const simpleGit = require('simple-git');
 const BRANCH = 'startup-plus-main';
 const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro.git';
 const STORIES_SOURCE_PATH = 'src/stories/StartupPlus';
-const STORIES_TARGET_PATH = 'StartupPlus/';
+const STORIES_TARGET_PATH = 'storybooks/StartupPlus/';
 
 const storybookClonePath = path.join(__dirname, '..', 'gluestack');
 

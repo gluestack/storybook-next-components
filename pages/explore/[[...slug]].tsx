@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import StoryData from '../../storybook-components-to-next.config';
+// import StoryData from '@/startup-plus-storybook-config';
+import StoryData from '@/storybook-gluestack-ui.config';
 import {
   Center,
   VStack,
@@ -11,12 +12,12 @@ import {
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { getAllComponents } from '@/utils/generateCombination';
-import { GluestackUILogo } from '@/components/logo/GluestackLogo';
+import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
 
-// const GENERATION_TYPE = "Components";
-const GENERATION_TYPE = 'Screens';
+const GENERATION_TYPE = 'Components';
+// const GENERATION_TYPE = 'Screens';
 
 interface ExplorePageProps {
   slug: string;
@@ -290,7 +291,11 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
       </View>
       <View>
         <View style={styles.light}>
-          <GluestackUIProvider config={config} colorMode='light'>
+          <GluestackUIProvider
+            config={config} // @ts-ignore
+            _experimentalNestedProvider
+            colorMode='light'
+          >
             <ComponentFrame
               allCombinations={allCombinations}
               Story={Story}
