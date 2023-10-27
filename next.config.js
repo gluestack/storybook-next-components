@@ -4,7 +4,11 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['expo-linear-gradient', 'lucide-react-native'],
+  transpilePackages: [
+    'expo-linear-gradient',
+    'lucide-react-native',
+    'react-native-keyboard-aware-scroll-view',
+  ],
   async headers() {
     return [
       {
@@ -32,9 +36,7 @@ const nextConfig = {
 
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      // Transform all direct `react-native` imports to `react-native-web`
       'react-native$': 'react-native-web',
-      // '@gluestack-ui/themed': path.resolve(__dirname, 'components'),
     };
 
     return config;

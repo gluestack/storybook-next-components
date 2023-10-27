@@ -15,6 +15,9 @@ import { GluestackUILogo } from '@/components/logo/GluestackLogo';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
 
+// const GENERATION_TYPE = "Components";
+const GENERATION_TYPE = 'Screens';
+
 interface ExplorePageProps {
   slug: string;
 }
@@ -217,6 +220,20 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
   }
 
   const Story = StoryData[component]['story'];
+
+  if (GENERATION_TYPE === 'Screens') {
+    return (
+      <GluestackUIProvider
+        config={config}
+        colorMode='light'
+        // @ts-ignore
+        _experimentalNestedProvider={true}
+      >
+        <Story />
+      </GluestackUIProvider>
+    );
+  }
+
   const StoryArgs = StoryData[component]['meta'];
 
   let {

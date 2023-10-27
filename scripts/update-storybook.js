@@ -2,19 +2,30 @@ const fs = require('fs');
 const path = require('path');
 const simpleGit = require('simple-git');
 
-const storybookClonePath = path.join(__dirname, '..', 'gluestack-ui');
-const componentsFolderPath = path.join(__dirname, '..', 'components');
+// GLUESTACK-UI -----
+// const BRANCH = 'patch';
+// const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui.git';
+// const STORIES_SOURCE_PATH = 'example/storybook/src/components';
+// const STORIES_TARGET_PATH = 'components/stories';
+
+// GLUESTACK STARTER PLUS -----
+const BRANCH = 'startup-plus-main';
+const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro.git';
+const STORIES_SOURCE_PATH = 'src/stories/StartupPlus';
+const STORIES_TARGET_PATH = 'StartupPlus/';
+
+const storybookClonePath = path.join(__dirname, '..', 'gluestack');
 
 main();
 
 async function main() {
-  const targetBranch = 'patch'; // Set the target branch you want to switch to
+  const targetBranch = BRANCH; // Set the target branch you want to switch to
 
   deleteFolderRecursive(storybookClonePath);
 
   // Clone the repository
   simpleGit().clone(
-    'git@github.com:gluestack/gluestack-ui.git',
+    GITHUB_REPO_URL,
     storybookClonePath,
     async (error, result) => {
       if (error) {
@@ -28,25 +39,9 @@ async function main() {
 
           // Proceed with copying the folders
           copyFolder(
-            path.join(storybookClonePath, 'example/storybook/src/components'),
-            path.join(__dirname, '..', 'components/stories')
+            path.join(storybookClonePath, STORIES_SOURCE_PATH),
+            path.join(__dirname, '..', STORIES_TARGET_PATH)
           );
-          // copyFolder(
-          // path.join(
-          // storybookClonePath,
-          // 'packages/themed/src/components'
-          // 'example/storybook/src/ui-components'
-          // ),
-          // path.join(__dirname, '..', 'components/ui-components')
-          // );
-          // copyFile(
-          //   path.join(
-          //     storybookClonePath,
-          //     'example/storybook/src/gluestack-ui.config.ts'
-          //   ),
-          //   componentsFolderPath
-          // );
-          // createIndexFile();
         } catch (switchError) {
           console.error('Failed to switch to the target branch:', switchError);
         } finally {
@@ -103,15 +98,3 @@ function deleteFolderRecursive(folderPath) {
     fs.rmdirSync(folderPath);
   }
 }
-
-// function createIndexFile() {
-//   const indexPath = path.join(componentsFolderPath, 'index.ts');
-//   const content = `export * from './ui-components';`;
-//   fs.writeFileSync(indexPath, content);
-// }
-
-// function copyFile(source, destination) {
-//   const fileName = path.basename(source);
-//   const destinationPath = path.join(destination, fileName);
-//   fs.copyFileSync(source, destinationPath);
-// }
