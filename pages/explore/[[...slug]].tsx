@@ -1,14 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-// import StoryData from '@/startup-plus-storybook-config';
-import StoryData from '@/storybook-gluestack-ui.config';
+import StoryData from '@/storybook-startup-plus.config';
+// import StoryData from '@/storybook-gluestack-ui.config';
 import {
   Center,
   VStack,
   Heading,
-  Text,
   HStack,
-  Box,
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { getAllComponents } from '@/utils/generateCombination';
@@ -16,8 +14,8 @@ import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
 
-const GENERATION_TYPE = 'Components';
-// const GENERATION_TYPE = 'Screens';
+// const GENERATION_TYPE = 'Components';
+const GENERATION_TYPE = 'Screens';
 
 interface ExplorePageProps {
   slug: string;
@@ -40,6 +38,7 @@ const ComponentFrame = ({
           <Story
             dataSet={{
               'component-props': JSON.stringify({
+                isComponent: true,
                 'component-name': component[0],
                 colorMode: colorMode,
               }),
@@ -66,29 +65,18 @@ const ComponentFrame = ({
                           variantSortedCombination[variantName];
 
                         return (
-                          <VStack
-                            space='md'
-                            // alignItems='center'
-                          >
+                          <VStack space='md'>
                             {variantName === 'default' ? (
                               <></>
                             ) : (
                               <Heading size='sm'>{variantName}</Heading>
                             )}
-                            {/* <Text bold>{variantName}</Text> */}
                             {variantName === 'default' ? (
-                              <HStack
-                                // w='$full'
-                                // maxWidth='1200px'
-                                flexWrap='wrap'
-                                space='lg'
-                              >
+                              <HStack flexWrap='wrap' space='lg'>
                                 {Array.isArray(stateSortedCombination) &&
                                   stateSortedCombination.map((props: any) => {
                                     props = {
                                       ...props,
-                                      // orientation: clusterFirstOrder,
-                                      // clusterFirstOrder: variantName,
                                     };
                                     const dataProps: any = {
                                       ...props,
@@ -125,6 +113,8 @@ const ComponentFrame = ({
 
                                     dataProps.colorMode = colorMode;
 
+                                    dataProps.isComponent = true;
+
                                     props.dataSet = {
                                       'component-props':
                                         JSON.stringify(dataProps),
@@ -146,15 +136,13 @@ const ComponentFrame = ({
                                   stateSortedCombination.map((props: any) => {
                                     props = {
                                       ...props,
-                                      // clusterFirstOrder,
-                                      // variant: variantName,
                                     };
                                     const dataProps: any = {
                                       ...props,
                                     };
                                     dataProps['component-name'] = component[0];
 
-                                    state_props.forEach((state) => {
+                                    state_props.forEach((state: any) => {
                                       if (props[state]) {
                                         isStateComponent = true;
                                         dataProps['state'] = state;
@@ -183,6 +171,8 @@ const ComponentFrame = ({
                                     }
 
                                     dataProps.colorMode = colorMode;
+
+                                    dataProps.isComponent = true;
 
                                     props.dataSet = {
                                       'component-props':

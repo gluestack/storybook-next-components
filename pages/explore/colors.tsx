@@ -4,12 +4,11 @@ import {
   Box,
   VStack,
   Text,
-  Heading,
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText } from 'react-native';
-import { GluestackUILogo } from '@/components/logo/GluestackLogo';
+import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 
 function splitStringAtNumberStart(str: string) {
   const regex = /(\D+)(\d+)/;
@@ -45,7 +44,7 @@ function convertColors(colors: any) {
   return convertedColors;
 }
 
-const Colors = ({ ...props }: any) => {
+const Colors = () => {
   let colors = config.tokens.colors;
 
   const colorMap = convertColors(colors);

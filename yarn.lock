@@ -68,10 +68,10 @@
   resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.1.tgz#4bb99513e8ba8ecae6d959c526c7dfa9e9decfd4"
   integrity sha512-y8rJtjaU851JQpp7ERQOX9yIeufmqxBDLtV98sdnLXDtxai0PVSURWohWGRnYPEhhiEEQt7S6/1c0A25X0b/PA==
 
-"@gluestack-style/react@1.0.9-alpha.5":
-  version "1.0.9-alpha.5"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.9-alpha.5.tgz#cfe71c684783aa81682c910551095fc44e2ee011"
-  integrity sha512-bLsCZFgiuqFkLy0sGu47gpeMSOIPopf35EFqCojwYbJlR387FlDP45lDuunu/g/avTZDek+E6vhLpuyDeKzp4Q==
+"@gluestack-style/react@^1.0.12-alpha.1":
+  version "1.0.12-alpha.1"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.12-alpha.1.tgz#8d090d881551e4797ee5c83020a56611858aa745"
+  integrity sha512-v2lWNbm9vlsdWyZHZW2cxZQwsSIXR1VZza8PW6txz2bx55/m3xVxdKN6mfI0uB9DIv54jtrVo4Dwisz/mJ2zSw==
   dependencies:
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
