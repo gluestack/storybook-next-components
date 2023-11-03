@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import StoryData from '@/storybook-startup-plus.config';
-// import StoryData from '@/storybook-gluestack-ui.config';
+import StorybookConfig from '@/storybook.config';
 import {
   Center,
   VStack,
@@ -13,9 +12,6 @@ import { getAllComponents } from '@/utils/generateCombination';
 import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
-
-// const GENERATION_TYPE = 'Components';
-const GENERATION_TYPE = 'Screens';
 
 interface ExplorePageProps {
   slug: string;
@@ -30,6 +26,7 @@ const ComponentFrame = ({
   isStateComponent,
   colorMode,
 }: any) => {
+  allCombinations = [];
   return (
     <VStack p='$4' bg={colorMode === 'light' ? '$white' : '$black'}>
       <Heading p='$8'>{`${colorMode} mode`.toUpperCase()} </Heading>
@@ -210,9 +207,9 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     return <div>Append component name</div>;
   }
 
-  const Story = StoryData[component]['story'];
+  const Story = StorybookConfig.StoryData[component]['story'];
 
-  if (GENERATION_TYPE === 'Screens') {
+  if (StorybookConfig.GENERATION_TYPE === 'Screens') {
     return (
       <GluestackUIProvider
         config={config}
@@ -225,7 +222,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     );
   }
 
-  const StoryArgs = StoryData[component]['meta'];
+  const StoryArgs = StorybookConfig.StoryData[component]['meta'];
 
   let {
     allCombinations,
@@ -323,7 +320,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filePaths = ['', ...Object.keys(StoryData)];
+  const filePaths = ['', ...Object.keys(StorybookConfig.StoryData)];
   const paths: { params: { slug: string[] } }[] = [];
 
   filePaths?.forEach((filename) => {
