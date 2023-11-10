@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Avatar,
@@ -22,9 +22,9 @@ import {
   ModalFooter,
   ButtonText,
   ButtonIcon,
-} from '@gluestack-ui/themed';
+} from "@gluestack-ui/themed";
 
-import { ScrollView } from 'react-native';
+import { ScrollView } from "react-native";
 import {
   HelpCircle,
   LogOut,
@@ -35,7 +35,7 @@ import {
   Users,
   X,
   LucideIcon,
-} from 'lucide-react-native';
+} from "lucide-react-native";
 type Icons = {
   iconName: LucideIcon | typeof Icon;
   iconText: string;
@@ -43,35 +43,35 @@ type Icons = {
 const list: Icons[] = [
   {
     iconName: User,
-    iconText: 'Contacts',
+    iconText: "Contacts",
   },
   {
     iconName: Users,
-    iconText: 'Groups',
+    iconText: "Groups",
   },
   {
     iconName: BellIcon,
-    iconText: 'Notification',
+    iconText: "Notification",
   },
   {
     iconName: ShoppingBag,
-    iconText: 'Order',
+    iconText: "Order",
   },
   {
     iconName: SettingsIcon,
-    iconText: 'Settings',
+    iconText: "Settings",
   },
   {
     iconName: ScrollIcon,
-    iconText: 'Privacy Policies',
+    iconText: "Privacy Policies",
   },
   {
     iconName: HelpCircle,
-    iconText: 'Help & Support',
+    iconText: "Help & Support",
   },
   {
     iconName: ShareIcon,
-    iconText: 'Refer & Earn',
+    iconText: "Refer & Earn",
   },
 ];
 
@@ -85,145 +85,147 @@ export default function Sidebar() {
   };
   return (
     <Box
-      w='$80'
-      borderRightWidth='$1'
+      w="$80"
+      borderRightWidth="$1"
       sx={{
         _light: {
-          bg: '$backgroundLight0',
-          borderRightColor: '$borderLight200',
+          bg: "$backgroundLight0",
+          borderRightColor: "$borderLight200",
         },
         _dark: {
-          bg: '$backgroundDark900',
-          borderRightColor: '$borderDark800',
+          bg: "$backgroundDark900",
+          borderRightColor: "$borderDark800",
         },
       }}
-      h='$full'
+      h="$full"
     >
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
         <VStack
-          pb='$4.5'
-          mt='$10'
-          alignItems='center'
-          borderBottomWidth='$1'
+          pb="$4.5"
+          mt="$10"
+          alignItems="center"
+          borderBottomWidth="$1"
           sx={{
             _light: {
-              borderBottomColor: '$borderLight200',
+              borderBottomColor: "$borderLight200",
             },
             _dark: {
-              borderBottomColor: '$borderDark800',
+              borderBottomColor: "$borderDark800",
             },
           }}
         >
-          <Avatar size='2xl'>
-            <AvatarImage source={require('./assets/images/pannel.png')} />
-          </Avatar>
+          <Image
+            size="xl"
+            rounded="$full"
+            source={require("./assets/images/pannel.png")}
+          />
           <HStack
-            alignItems='center'
-            justifyContent='center'
-            space='sm'
-            pt='$3'
+            alignItems="center"
+            justifyContent="center"
+            space="sm"
+            pt="$3"
           >
             <Text
-              fontSize='$xl'
-              fontWeight='$bold'
-              color='$textLight800'
-              sx={{ _dark: { color: '$textDark50' } }}
+              fontSize="$xl"
+              fontWeight="$bold"
+              color="$textLight800"
+              sx={{ _dark: { color: "$textDark50" } }}
             >
               Jane Doe
             </Text>
 
             <Icon
               as={Pen}
-              size='sm'
-              color='$textLight800'
-              sx={{ _dark: { color: '$textDark50' } }}
+              size="sm"
+              color="$textLight800"
+              sx={{ _dark: { color: "$textDark50" } }}
             />
           </HStack>
           <Text
-            fontSize='$sm'
-            fontWeight='medium'
-            textAlign='center'
-            pt='$1'
+            fontSize="$sm"
+            fontWeight="medium"
+            textAlign="center"
+            pt="$1"
             sx={{
               _light: {
-                color: '$textLight500',
+                color: "$textLight500",
               },
               _dark: {
-                color: '$textDark400',
+                color: "$textDark400",
               },
             }}
           >
             janedoe2@mydomain.com
           </Text>
         </VStack>
-        <VStack px='$4' py='$4'>
+        <VStack px="$4" py="$4">
           {list.map((item, idx) => {
             return (
               <Button
                 key={idx}
-                variant='solid'
-                pl='$4'
-                py='$2.5'
-                pr='$5'
+                variant="solid"
+                pl="$4"
+                py="$2.5"
+                pr="$5"
                 bgColor={
-                  selectedButton === idx ? '$primary50' : '$backgroundLight0'
+                  selectedButton === idx ? "$primary50" : "$backgroundLight0"
                 }
                 onPress={() => handleButtonClick(idx)}
                 sx={{
-                  ':hover': {
-                    bg: '$backgroundLight100',
+                  ":hover": {
+                    bg: "$backgroundLight100",
                     _dark: {
-                      bg: '$backgroundDark800',
+                      bg: "$backgroundDark800",
                     },
                   },
 
                   _dark: {
                     bg:
                       selectedButton === idx
-                        ? '$backgroundDark800'
-                        : '$backgroundDark900',
+                        ? "$backgroundDark800"
+                        : "$backgroundDark900",
                   },
-                  '@md': { mx: '$5', py: '$3' },
+                  "@md": { mx: "$5", py: "$3" },
                 }}
               >
-                <HStack w='$full' alignItems='center'>
+                <HStack w="$full" alignItems="center">
                   <ButtonIcon
                     as={item.iconName}
-                    size='lg'
-                    mr='$4'
+                    size="lg"
+                    mr="$4"
                     sx={{
                       _light: {
                         color:
                           selectedButton === idx
-                            ? '$primary500'
-                            : '$textLight700',
+                            ? "$primary500"
+                            : "$textLight700",
                       },
                       _dark: {
                         color:
                           selectedButton === idx
-                            ? '$primary300'
-                            : '$textDark200',
+                            ? "$primary300"
+                            : "$textDark200",
                       },
                     }}
                   />
                   <ButtonText
-                    fontWeight='$normal'
+                    fontWeight="$normal"
                     sx={{
                       color:
                         selectedButton === idx
-                          ? '$primary500'
-                          : '$textLight700',
+                          ? "$primary500"
+                          : "$textLight700",
                       _dark: {
                         color:
                           selectedButton === idx
-                            ? '$primary300'
-                            : '$textDark200',
+                            ? "$primary300"
+                            : "$textDark200",
                       },
-                      ':hover': {
-                        color: '$red500',
+                      ":hover": {
+                        color: "$red500",
                       },
                     }}
                   >
@@ -236,61 +238,61 @@ export default function Sidebar() {
         </VStack>
       </ScrollView>
       <Divider
-        bg='$backgroundLight200'
-        sx={{ _dark: { bg: '$backgroundDark800' } }}
+        bg="$backgroundLight200"
+        sx={{ _dark: { bg: "$backgroundDark800" } }}
       />
-      <Box px='$4' py='$4'>
+      <Box px="$4" py="$4">
         <Button
-          variant='solid'
-          justifyContent='flex-start'
-          p='$3'
+          variant="solid"
+          justifyContent="flex-start"
+          p="$3"
           onPress={() => {
             setShowModal(true);
             handleButtonClick(-1);
           }}
-          bgColor={selectedButton === -1 ? '$primary50' : '$backgroundLight0'}
+          bgColor={selectedButton === -1 ? "$primary50" : "$backgroundLight0"}
           sx={{
-            ':hover': {
-              bg: '$backgroundLight100',
+            ":hover": {
+              bg: "$backgroundLight100",
               _dark: {
-                bg: '$backgroundDark800',
+                bg: "$backgroundDark800",
               },
             },
 
             _dark: {
               bg:
                 selectedButton === -1
-                  ? '$backgroundDark800'
-                  : '$backgroundDark900',
+                  ? "$backgroundDark800"
+                  : "$backgroundDark900",
             },
-            '@md': { mx: '$5', py: '$3' },
+            "@md": { mx: "$5", py: "$3" },
           }}
         >
           <ButtonIcon
             as={LogOut}
-            w='$5'
-            h='$4'
-            mr='$4'
+            w="$5"
+            h="$4"
+            mr="$4"
             sx={{
               _light: {
-                color: selectedButton === -1 ? '$primary500' : '$textLight700',
+                color: selectedButton === -1 ? "$primary500" : "$textLight700",
               },
               _dark: {
-                color: selectedButton === -1 ? '$primary300' : '$textDark200',
+                color: selectedButton === -1 ? "$primary300" : "$textDark200",
               },
             }}
           />
           <ButtonText
-            fontWeight='$normal'
+            fontWeight="$normal"
             sx={{
               _light: {
-                color: selectedButton === -1 ? '$primary500' : '$textLight700',
+                color: selectedButton === -1 ? "$primary500" : "$textLight700",
               },
               _dark: {
-                color: selectedButton === -1 ? '$primary400' : '$textDark200',
+                color: selectedButton === -1 ? "$primary400" : "$textDark200",
               },
-              ':hover': {
-                color: '$red500',
+              ":hover": {
+                color: "$red500",
               },
             }}
           >
@@ -307,35 +309,35 @@ export default function Sidebar() {
       >
         <ModalBackdrop />
         <ModalContent>
-          <ModalHeader justifyContent='flex-end'>
+          <ModalHeader justifyContent="flex-end">
             <ModalCloseButton>
-              <Icon size='lg' as={X} />
+              <Icon size="lg" as={X} />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
             <Image
-              justifyContent='center'
-              alignSelf='center'
-              aspectRatio='203/24'
-              size='md'
-              alt='gluestack-ui'
-              source={require('./assets/images/pannel.png')}
+              justifyContent="center"
+              alignSelf="center"
+              aspectRatio="203/24"
+              size="md"
+              alt="gluestack-ui"
+              source={require("./assets/images/pannel.png")}
               sx={{
-                '@md': { display: 'flex' },
+                "@md": { display: "flex" },
               }}
             />
-            <Text p='$4'>
+            <Text p="$4">
               Are you sure that you want to logout from account? All your
               unsaved data will be lost.
             </Text>
           </ModalBody>
-          <ModalFooter flexDirection='row' alignItems='center'>
+          <ModalFooter flexDirection="row" alignItems="center">
             <Button
               flex={1}
-              size='sm'
-              py='$2.5'
-              action='primary'
-              borderWidth='$0'
+              size="sm"
+              py="$2.5"
+              action="primary"
+              borderWidth="$0"
               onPress={() => {
                 setShowModal(false);
               }}
@@ -343,11 +345,11 @@ export default function Sidebar() {
               <ButtonText>YES</ButtonText>
             </Button>
             <Button
-              ml='$4'
-              py='$2.5'
-              variant='outline'
-              size='sm'
-              action='secondary'
+              ml="$4"
+              py="$2.5"
+              variant="outline"
+              size="sm"
+              action="secondary"
               onPress={() => {
                 setShowModal(false);
               }}

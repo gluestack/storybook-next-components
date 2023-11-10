@@ -1,6 +1,6 @@
-import React from 'react';
-import Sidebar from '../components/Sidebar';
-import { Platform } from 'react-native';
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import { Platform } from "react-native";
 import {
   Box,
   HStack,
@@ -13,7 +13,8 @@ import {
   ScrollView,
   StatusBar,
   useColorMode,
-} from '@gluestack-ui/themed';
+} from "@gluestack-ui/themed";
+import { Menu, Search } from "lucide-react-native";
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 type DashboardLayoutProps = {
@@ -64,19 +65,19 @@ export function Header(props: HeaderProps) {
   const colorMode = useColorMode();
   return (
     <Box
-      px='$8'
-      py='$3'
-      borderBottomWidth='$1'
+      px="$8"
+      py="$3"
+      borderBottomWidth="$1"
       sx={{
-        _dark: { bg: '$backgroundDark900', borderColor: '$borderDark800' },
-        _light: { bg: '$backgroundLight0', borderColor: '$borderLight100' },
+        _dark: { bg: "$backgroundDark900", borderColor: "$borderDark800" },
+        _light: { bg: "$backgroundLight0", borderColor: "$borderLight100" },
       }}
     >
-      <VStack alignSelf='center' width='$full'>
-        <HStack alignItems='center' justifyContent='space-between'>
-          <HStack space='md' alignItems='center'>
+      <VStack alignSelf="center" width="$full">
+        <HStack alignItems="center" justifyContent="space-between">
+          <HStack space="md" alignItems="center">
             <Pressable>
-              <Image
+              {/* <Image
                 source={
                   colorMode == 'light'
                     ? require('./assets/Menu_light.svg')
@@ -85,6 +86,14 @@ export function Header(props: HeaderProps) {
                 aspectRatio='203/24'
                 size='2xs'
                 alt='gluestack-ui'
+              /> */}
+              <Icon
+                sx={{
+                  _light: { color: "$backgroundLight800" },
+                  _dark: { color: "$backgroundDark50" },
+                }}
+                as={Menu}
+                size="md"
               />
             </Pressable>
 
@@ -101,8 +110,16 @@ export function Header(props: HeaderProps) {
             /> */}
           </HStack>
 
-          <HStack space='sm' alignItems='center'>
-            <Image
+          <HStack space="sm" alignItems="center">
+            <Icon
+              sx={{
+                _light: { color: "$backgroundLight500" },
+                _dark: { color: "$backgroundDark400" },
+              }}
+              as={Search}
+              size="md"
+            />
+            {/* <Image
               aspectRatio='203/24'
               size='2xs'
               source={require('./assets/Search_dark.svg')}
@@ -111,13 +128,13 @@ export function Header(props: HeaderProps) {
                 _light: { display: 'none' },
                 '@md': { display: 'flex' },
               }}
-            />
+            /> */}
             <Image
-              aspectRatio='203/24'
-              w='$8'
-              h='$8'
-              source={require('./assets/pannel.png')}
-              alt='gluestack-ui'
+              aspectRatio="203/24"
+              w="$8"
+              h="$8"
+              source={require("./assets/pannel.png")}
+              alt="gluestack-ui"
             />
           </HStack>
         </HStack>
@@ -128,21 +145,21 @@ export function Header(props: HeaderProps) {
 
 function MainContent(props: MainContentProps) {
   return (
-    <VStack maxWidth={props.maxWidth} flex={1} width='$full'>
+    <VStack maxWidth={props.maxWidth} flex={1} width="$full">
       {props.displayScreenTitle && (
-        <Box sx={{ '@md': { display: 'flex' } }} display='none'>
-          <HStack mb='$4' space='md'>
+        <Box sx={{ "@md": { display: "flex" } }} display="none">
+          <HStack mb="$4" space="md">
             {props.displayBackIcon ? (
               <Pressable>
                 <Icon
-                  pt='$0.5'
+                  pt="$0.5"
                   as={ArrowLeftIcon}
                   sx={{
                     _light: {
-                      color: '$textLight800',
+                      color: "$textLight800",
                     },
                     _dark: {
-                      color: '$textDark50',
+                      color: "$textDark50",
                     },
                   }}
                 />
@@ -150,11 +167,11 @@ function MainContent(props: MainContentProps) {
             ) : null}
             <Box>
               <Text
-                fontSize='$lg'
-                fontWeight='$medium'
+                fontSize="$lg"
+                fontWeight="$medium"
                 sx={{
-                  _dark: { color: '$textDark50' },
-                  _light: { color: '$textLight800' },
+                  _dark: { color: "$textDark50" },
+                  _light: { color: "$textLight800" },
                 }}
               >
                 {props.title}
@@ -162,11 +179,11 @@ function MainContent(props: MainContentProps) {
               {props.subTitle ? (
                 <Text
                   sx={{
-                    _dark: { color: '$textDark50' },
-                    _light: { color: '$textLight800' },
+                    _dark: { color: "$textDark50" },
+                    _light: { color: "$textLight800" },
                   }}
-                  fontSize='$sm'
-                  fontWeight='$normal'
+                  fontSize="$sm"
+                  fontWeight="$normal"
                 >
                   {props.subTitle}
                 </Text>
@@ -185,45 +202,45 @@ function MainContent(props: MainContentProps) {
 export function MobileHeader(props: MobileHeaderProps) {
   return (
     <Box
-      px='$1'
-      py='$4.5'
+      px="$1"
+      py="$4.5"
       sx={{
-        _dark: { bg: '$backgroundDark900', borderColor: '$backgroundDark800' },
-        _light: { bg: '$primary500', borderColor: '$backgroundLight200' },
+        _dark: { bg: "$backgroundDark900", borderColor: "$backgroundDark800" },
+        _light: { bg: "$primary500", borderColor: "$backgroundLight200" },
       }}
     >
-      <HStack space='sm'>
+      <HStack space="sm">
         <HStack
           flex={1}
-          space='sm'
-          justifyContent='space-between'
-          alignItems='center'
+          space="sm"
+          justifyContent="space-between"
+          alignItems="center"
         >
           <>
-            <HStack alignItems='center' space='xs'>
+            <HStack alignItems="center" space="xs">
               {props.backButton && (
                 <Icon
-                  color='$textLight50'
-                  sx={{ _dark: { color: '$textDark50' } }}
+                  color="$textLight50"
+                  sx={{ _dark: { color: "$textDark50" } }}
                   as={ArrowLeftIcon}
-                  m='$2'
-                  size='md'
+                  m="$2"
+                  size="md"
                 />
               )}
               <VStack>
                 <Text
-                  color='$textLight50'
-                  sx={{ _dark: { color: '$textDark50' } }}
-                  fontSize='$lg'
+                  color="$textLight50"
+                  sx={{ _dark: { color: "$textDark50" } }}
+                  fontSize="$lg"
                 >
                   {props.title}
                 </Text>
                 {props.subTitle ? (
                   <Text
-                    color='$textLight50'
-                    sx={{ _dark: { color: '$textDark50' } }}
-                    fontSize='$sm'
-                    fontWeight='$normal'
+                    color="$textLight50"
+                    sx={{ _dark: { color: "$textDark50" } }}
+                    fontSize="$sm"
+                    fontWeight="$normal"
                   >
                     {props.subTitle}
                   </Text>
@@ -261,31 +278,31 @@ export default function DashboardLayout({
       <Box
         sx={{
           _web: {
-            overflow: 'hidden',
+            overflow: "hidden",
           },
         }}
-        height='$full'
+        height="$full"
       >
         <>
           <StatusBar
             translucent
-            backgroundColor='$none'
-            barStyle='light-content'
+            backgroundColor="$none"
+            barStyle="light-content"
           />
           <Box
-            bg='$primary500'
+            bg="$primary500"
             sx={{
               _dark: {
-                bg: '$backgroundDark900',
+                bg: "$backgroundDark900",
               },
             }}
           />
           <VStack
             flex={1}
-            bg='$primary50'
+            bg="$primary50"
             sx={{
               _dark: {
-                bg: '$backgroundDark700',
+                bg: "$backgroundDark700",
               },
               // '@md': {
               //   bg: '$primary50',
@@ -294,8 +311,8 @@ export default function DashboardLayout({
           >
             <Box
               sx={{
-                '@md': {
-                  display: 'none',
+                "@md": {
+                  display: "none",
                 },
               }}
             >
@@ -307,10 +324,10 @@ export default function DashboardLayout({
               />
             </Box>
             <Box
-              display='none'
+              display="none"
               sx={{
-                '@md': {
-                  display: 'flex',
+                "@md": {
+                  display: "flex",
                 },
               }}
             >
@@ -327,33 +344,33 @@ export default function DashboardLayout({
             <VStack
               flex={1}
               sx={{
-                '@md': {
-                  flexDirection: 'row',
+                "@md": {
+                  flexDirection: "row",
                   // _dark: {
                   //   bg: '$backgroundDark700',
                   // },
                 },
                 _light: {},
                 _dark: {
-                  bg: '$backgroundDark700',
+                  bg: "$backgroundDark700",
                 },
               }}
             >
-              {isSidebarVisible && displaySidebar && Platform.OS === 'web' && (
-                <Box display='none' sx={{ '@md': { display: 'flex' } }}>
+              {isSidebarVisible && displaySidebar && Platform.OS === "web" && (
+                <Box display="none" sx={{ "@md": { display: "flex" } }}>
                   <Sidebar />
                 </Box>
               )}
 
-              <Box flex={1} sx={{ '@md': { display: 'flex' } }} display='none'>
-                {Platform.OS === 'web' ? (
+              <Box flex={1} sx={{ "@md": { display: "flex" } }} display="none">
+                {Platform.OS === "web" ? (
                   <ScrollView
                     flex={1}
                     contentContainerStyle={{
-                      alignItems: 'center',
+                      alignItems: "center",
                       flexGrow: 1,
                     }}
-                    p='$8'
+                    p="$8"
                     showsVerticalScrollIndicator={false}
                   >
                     <MainContent
@@ -364,13 +381,13 @@ export default function DashboardLayout({
                     />
                   </ScrollView>
                 ) : (
-                  <Box flex={1} alignItems='center'>
+                  <Box flex={1} alignItems="center">
                     <MainContent {...props} maxWidth={maxWidth} />
                   </Box>
                 )}
               </Box>
               {scrollable ? (
-                <Box flex={1} sx={{ '@md': { display: 'none' } }}>
+                <Box flex={1} sx={{ "@md": { display: "none" } }}>
                   <ScrollView
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{
@@ -392,7 +409,7 @@ export default function DashboardLayout({
                   </ScrollView>
                 </Box>
               ) : (
-                <Box flex={1} sx={{ '@md': { display: 'none' } }}>
+                <Box flex={1} sx={{ "@md": { display: "none" } }}>
                   <MainContent
                     {...props}
                     displayScreenTitle={displayScreenTitle}
