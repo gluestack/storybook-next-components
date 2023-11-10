@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import StorybookConfig from '@/storybook.config';
@@ -10,7 +11,6 @@ import {
 } from '@gluestack-ui/themed';
 import { getAllComponents } from '@/utils/generateCombination';
 import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
-import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
 
 interface ExplorePageProps {
@@ -211,9 +211,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
   if (StorybookConfig.GENERATION_TYPE === 'Screens') {
     return (
       <GluestackUIProvider
-        config={config}
+        config={StorybookConfig.config}
         colorMode='light'
-        // @ts-ignore
         _experimentalNestedProvider={true}
       >
         <Story />
@@ -278,7 +277,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
       <View>
         <View style={styles.light}>
           <GluestackUIProvider
-            config={config} // @ts-ignore
+            config={StorybookConfig.config}
             _experimentalNestedProvider
             colorMode='light'
           >
@@ -296,9 +295,8 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
         {component[0] !== 'Shadow' && (
           <View style={styles.dark}>
             <GluestackUIProvider
-              config={config}
+              config={StorybookConfig.config}
               colorMode='dark'
-              // @ts-ignore
               _experimentalNestedProvider
             >
               <ComponentFrame

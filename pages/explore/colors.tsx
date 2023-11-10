@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import {
   HStack,
@@ -6,7 +7,7 @@ import {
   Text,
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
-import { config } from '@gluestack-ui/config';
+import StorybookConfig from '@/storybook.config';
 import { View, Text as RNText } from 'react-native';
 import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 
@@ -45,6 +46,7 @@ function convertColors(colors: any) {
 }
 
 const Colors = () => {
+  let config = StorybookConfig.config;
   let colors = config.tokens.colors;
 
   const colorMap = convertColors(colors);
@@ -54,7 +56,6 @@ const Colors = () => {
       <VStack width='$full' justifyContent={'center'} space='xl'>
         <View style={{ backgroundColor: '#000' }}>
           <View style={{ padding: 48, gap: 22 }}>
-            {/* @ts-ignore */}
             <View
               style={{
                 flexDirection: 'row',
@@ -62,7 +63,6 @@ const Colors = () => {
                 alignItems: 'center',
               }}
             >
-              {/* @ts-ignore */}
               <RNText
                 style={{
                   fontSize: 48,
@@ -73,10 +73,8 @@ const Colors = () => {
               >
                 COLORS
               </RNText>
-              {/* @ts-ignore */}
               <GluestackUILogo />
             </View>
-            {/* @ts-ignore */}
             <RNText
               style={{
                 fontSize: 18,
@@ -94,7 +92,6 @@ const Colors = () => {
         <VStack
           p={48}
           space='lg'
-          // @ts-ignore
           dataSet={{
             'component-props': JSON.stringify({
               name: 'Colors',

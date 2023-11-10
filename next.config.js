@@ -8,7 +8,17 @@ const nextConfig = {
     'expo-linear-gradient',
     'lucide-react-native',
     'react-native-keyboard-aware-scroll-view',
+    'expo-image-picker',
+    'expo-modules-core',
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
   async headers() {
     return [
       {

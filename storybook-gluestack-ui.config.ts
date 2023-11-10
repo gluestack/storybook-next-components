@@ -103,6 +103,8 @@ import TextStory from './storybooks/GluestackUI/stories/Typography/Text/Text';
 import ShadowMeta from './storybooks/GluestackUI/stories/Foundation/Shadow/Shadow.stories';
 import ShadowStory from './storybooks/GluestackUI/stories/Foundation/Shadow/Shadow';
 
+export { config } from "@gluestack-ui/themed";
+
 export default {
   Shadow: {
     meta: ShadowMeta,

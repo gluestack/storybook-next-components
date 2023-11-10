@@ -1,11 +1,16 @@
-import StartupPlusStoryData from '@/storybook-startup-plus.config';
-import GluestackStoryData from '@/storybook-gluestack-ui.config';
+import StartupPlusStoryData, {config as StartupPlusconfig} from '@/storybook-startup-plus.config';
+import GluestackStoryData, {config as GluestackUIconfig} from '@/storybook-gluestack-ui.config';
 
-// const GENERATION_TYPE = 'Components';
-const GENERATION_TYPE = 'Screens';
+const GluestackUI = {
+  GENERATION_TYPE: "Components",
+  StoryData: GluestackStoryData,
+  config: GluestackUIconfig
+}
 
-export default {
-  GENERATION_TYPE: GENERATION_TYPE,
-  // StoryData: GluestackStoryData,
+const StartupPlus = {
+  GENERATION_TYPE: "Screens",
   StoryData: StartupPlusStoryData,
-};
+  config: StartupPlusconfig
+}
+
+export default StartupPlus;
