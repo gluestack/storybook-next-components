@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HStack,
   Icon,
@@ -15,6 +15,7 @@ import { ImageSourcePropType, ListRenderItemInfo } from 'react-native';
 import { Heart, Star } from 'lucide-react-native';
 
 type ProductProps = {
+  id: string;
   imageUri: ImageSourcePropType;
   itemName: string;
   itemDescription: string;
@@ -25,6 +26,7 @@ type ProductProps = {
 
 const itemList: ProductProps[] = [
   {
+    id: "0",
     imageUri: require('./assets/images/wishlist-1.png'),
     itemName: 'HERE&NOW',
     itemDescription: 'Mid-Rise Denim Shorts',
@@ -33,6 +35,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "1",
     imageUri: require('./assets/images/wishlist-2.png'),
     itemName: 'Marks & Spencer',
     itemDescription: 'Boys Pack of 3 T-shirts',
@@ -41,6 +44,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "2",
     imageUri: require('./assets/images/wishlist-3.png'),
     itemName: 'CENWELL',
     itemDescription: 'Kids Cotton Cloth Mask',
@@ -49,6 +53,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "3",
     imageUri: require('./assets/images/wishlist-4.png'),
     itemName: 'U.S. Polo Assn. Kids',
     itemDescription: 'Pure Cotton Sleepsuits',
@@ -57,6 +62,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "4",
     imageUri: require('./assets/images/wishlist-5.png'),
     itemName: 'Cherry Crumble',
     itemDescription: 'Flare Dress',
@@ -65,6 +71,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "5",
     imageUri: require('./assets/images/wishlist-6.png'),
     itemName: 'BonOrganik',
     itemDescription: 'Round-Neck T-shirt',
@@ -73,6 +80,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "6",
     imageUri: require('./assets/images/wishlist-7.png'),
     itemName: 'U.S. Polo Assn. Kids',
     itemDescription: 'Black Self Design Sweater',
@@ -81,6 +89,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "7",
     imageUri: require('./assets/images/wishlist-8.png'),
     itemName: 'Black Self Design Sweater',
     itemDescription: 'Flare low jeans',
@@ -89,6 +98,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "8",
     imageUri: require('./assets/images/wishlist-9.png'),
     itemName: 'Lil Tomatoes',
     itemDescription: 'Red Cotton Regular Top',
@@ -97,6 +107,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "9",
     imageUri: require('./assets/images/wishlist-10.png'),
     itemName: 'Cutiekins',
     itemDescription: 'Multicoloured Printed Top',
@@ -105,6 +116,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "10",
     imageUri: require('./assets/images/wishlist-11.png'),
     itemName: 'BonOrganik',
     itemDescription: 'Round-Neck T-shirt',
@@ -113,6 +125,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "11",
     imageUri: require('./assets/images/wishlist-12.png'),
     itemName: 'U.S. Polo Assn. Kids',
     itemDescription: 'Black Self Design Sweater',
@@ -121,6 +134,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "12",
     imageUri: require('./assets/images/wishlist-13.png'),
     itemName: 'Peaches',
     itemDescription: 'Flare low jeans',
@@ -129,6 +143,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "13",
     imageUri: require('./assets/images/wishlist-14.png'),
     itemName: 'Lil Tomatoes',
     itemDescription: 'Red Cotton Regular Top',
@@ -137,6 +152,7 @@ const itemList: ProductProps[] = [
     numberOfRatings: 120,
   },
   {
+    id: "14",
     imageUri: require('./assets/images/wishlist-15.png'),
     itemName: 'Cutiekins',
     itemDescription: 'Multicoloured Printed Top',
@@ -261,11 +277,18 @@ function Card(props: ProductProps) {
 }
 
 function MainContent() {
+  const [numColumns, setNumColumns] = useState(5);
   const noColumn = useBreakpointValue({
     base: 2,
     md: 3,
     lg: 5,
   });
+  
+  useEffect(() => {
+    if(noColumn !== numColumns) {
+      setNumColumns(noColumn);
+    }
+  }, [noColumn])
   return (
     <Box
       sx={{
@@ -288,14 +311,14 @@ function MainContent() {
       w="$full"
     >
       <FlatList
-        key={'#' + noColumn}
-        numColumns={noColumn}
+        key={'#' + numColumns}
+        numColumns={numColumns}
         data={itemList}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }: ListRenderItemInfo<ProductProps>) => (
           <Card {...item} />
         )}
-        keyExtractor={(_item, index) => `key-${noColumn}` + index}
+        keyExtractor={(item: ProductProps) => item.id}
         w="$full"
       />
     </Box>
@@ -305,6 +328,7 @@ function MainContent() {
 export default function MyWishlist() {
   return (
     <DashboardLayout
+      scrollable={false}
       title="Wishlist"
       subTitle="128 Items"
       displaySidebar={false}

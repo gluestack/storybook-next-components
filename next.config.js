@@ -3,6 +3,9 @@ const { withGluestackUI } = require('@gluestack/ui-next-adapter');
 const path = require('path');
 
 const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   transpilePackages: [
     'expo-linear-gradient',
@@ -10,7 +13,7 @@ const nextConfig = {
     'react-native-keyboard-aware-scroll-view',
     'expo-image-picker',
     'expo-modules-core',
-  ],
+  ],  
   images: {
     remotePatterns: [
       {

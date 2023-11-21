@@ -443,6 +443,7 @@ const ContactList = () => {
 
   return (
     <DashboardLayout
+      scrollable={false}
       displaySidebar
       title="Contact List"
       displayScreenTitle={false}

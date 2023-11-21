@@ -14,6 +14,12 @@ import RefundOrder from './storybooks/StartupPlus/Catalog/RefundOrder';
 import RequestCancellationMultipleProducts from './storybooks/StartupPlus/Catalog/RequestCancellationMultipleProducts';
 import ReturnOrder from './storybooks/StartupPlus/Catalog/ReturnOrder';
 import TrackOrders from './storybooks/StartupPlus/Catalog/TrackOrders';
+import CreatePassword from './storybooks/StartupPlus/Login/CreatePassword';
+import ForgotPassword from './storybooks/StartupPlus/Login/ForgotPassword';
+import OtpVerification from './storybooks/StartupPlus/Login/OTPVerification';
+import SignIn from './storybooks/StartupPlus/Login/SignIn';
+import SignUp from './storybooks/StartupPlus/Login/SignUp';
+import SplashScreen from './storybooks/StartupPlus/Login/SplashScreen';
 
 export { config } from './storybooks/StartupPlus/gluestack-ui.config';
 
@@ -45,9 +51,9 @@ export default {
   MyOrders: {
     story: MyOrders,
   },
-  // MyWishlist: {
-  //   story: MyWishlist,
-  // },
+  MyWishlist: {
+    story: MyWishlist,
+  },
   // PhotoLibrary: {
   //   story: PhotoLibrary,
   // },
@@ -66,4 +72,22 @@ export default {
   TrackOrders: {
     story: TrackOrders,
   },
+  CreatePassword: {
+    story: CreatePassword,
+  },
+  ForgotPassword: {
+    story: ForgotPassword,
+  },
+  OtpVerification: {
+    story: OtpVerification,
+  },
+  SignIn: {
+    story: SignIn
+  },
+  SignUp: {
+    story: SignUp,
+  },
+  SplashScreen: {
+    story: SplashScreen
+  }
 } as any;

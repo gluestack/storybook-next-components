@@ -204,6 +204,7 @@ function MainContent() {
 export default function PhotoLibrary() {
   return (
     <DashboardLayout
+      scrollable={false}
       displayScreenTitle={true}
       displaySidebar={false}
       title="Photo Library"

@@ -23,6 +23,7 @@ import {
 } from 'lucide-react-native';
 
 import DashboardLayout from '../Layouts/DashboardLayout';
+import { Image } from '@gluestack-ui/themed';
 
 const contactOptions = [
   {
@@ -112,9 +113,11 @@ const ProfileCard = ({ name, country }: { name: string; country: string }) => {
       alignItems="center"
       justifyContent="center"
     >
-      <Avatar size="xl">
-        <AvatarImage source={require('./assets/images/profile1.png')} />
-      </Avatar>
+      <Image
+        rounded="$full"
+        size="xl"
+        source={require('./assets/images/profile1.png')}
+      />
       <Text
         sx={{
           '@base': {

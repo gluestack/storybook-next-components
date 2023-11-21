@@ -241,6 +241,7 @@ const config = createConfig({
       ...defaultConfig.tokens.opacity,
     },
   },
+  
 } as const);
 
 export { config };

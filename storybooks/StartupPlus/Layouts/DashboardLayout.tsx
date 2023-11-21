@@ -14,7 +14,7 @@ import {
   StatusBar,
   useColorMode,
 } from '@gluestack-ui/themed';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 type DashboardLayoutProps = {
   scrollable?: boolean;
@@ -79,8 +79,8 @@ export function Header(props: HeaderProps) {
               <Image
                 source={
                   colorMode == 'light'
-                    ? require('./assets/Menu_light.svg')
-                    : require('./assets/Menu_dark.svg')
+                    ? require('../assets/Menu_light.svg')
+                    : require('../assets/Menu_dark.svg')
                 }
                 aspectRatio='203/24'
                 size='2xs'
@@ -88,24 +88,24 @@ export function Header(props: HeaderProps) {
               />
             </Pressable>
 
-            {/* <Image
+            <Image
               aspectRatio='203/24'
               w='$212'
               source={
                 colorMode == 'light'
-                  ? require('./assets/gluestackUiPro_light.svg')
-                  : require('./assets/gluestackUiPro_dark.svg')
+                  ? require('../assets/gluestackUiPro_light.svg')
+                  : require('../assets/gluestackUiPro_dark.svg')
               }
               alt='gluestack-ui'
-              // size='2xs'
-            /> */}
+              size='2xs'
+            />
           </HStack>
 
           <HStack space='sm' alignItems='center'>
             <Image
               aspectRatio='203/24'
               size='2xs'
-              source={require('./assets/Search_dark.svg')}
+              source={require('../assets/Search_dark.svg')}
               alt='gluestack-ui'
               sx={{
                 _light: { display: 'none' },
@@ -116,7 +116,7 @@ export function Header(props: HeaderProps) {
               aspectRatio='203/24'
               w='$8'
               h='$8'
-              source={require('./assets/pannel.png')}
+              source={require('../assets/pannel.png')}
               alt='gluestack-ui'
             />
           </HStack>

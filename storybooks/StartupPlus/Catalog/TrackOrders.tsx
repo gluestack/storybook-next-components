@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HStack,
   Text,
@@ -142,11 +142,26 @@ const StatusStepComponent = ({
   status: { type: boolean; time: string };
 }) => {
   // const isMobile = window.innerWidth < 768; // Adjust the breakpoint as needed
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Add an event listener to track window resize
+    // window.addEventListener('resize', handleResize);
+
+    // Initial check for mobile/desktop on component mount
+    handleResize();
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Define the array length based on the device type
-  // const arrLength = isMobile ? 10 : 7;
-  const arrLength = 7;
-
+  const arrLength = isMobile ? 10 : 7;
   const arr = new Array(arrLength).fill(0);
   return (
     <HStack justifyContent="flex-start" space="lg">

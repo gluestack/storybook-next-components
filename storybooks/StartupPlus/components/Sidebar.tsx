@@ -117,9 +117,11 @@ export default function Sidebar() {
             },
           }}
         >
-          <Avatar size='2xl'>
-            <AvatarImage source={require('./assets/images/pannel.png')} />
-          </Avatar>
+          <Image
+            size='xl'
+            rounded='$full'
+            source={require('./assets/images/pannel.png')}
+          />
           <HStack
             alignItems='center'
             justifyContent='center'
@@ -319,7 +321,7 @@ export default function Sidebar() {
               aspectRatio='203/24'
               size='md'
               alt='gluestack-ui'
-              source={require('./assets/images/pannel.png')}
+              source={require('../assets/pannel.png')}
               sx={{
                 '@md': { display: 'flex' },
               }}

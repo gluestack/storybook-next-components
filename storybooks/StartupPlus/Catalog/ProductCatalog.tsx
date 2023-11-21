@@ -312,6 +312,7 @@ function MainContent() {
 export default function ProductCatalogue() {
   return (
     <DashboardLayout
+      scrollable={false}
       title="Kids"
       subTitle="105 Items"
       displaySidebar={false}
