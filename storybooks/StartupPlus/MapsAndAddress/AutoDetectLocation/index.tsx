@@ -160,7 +160,7 @@ export default function AutoDetectLocation() {
             />
           </InputSlot>
         </Input>
-        {/* <Map /> */}
+        <Map />
         <Box p="$4">
           <HStack
             borderRadius="$sm"

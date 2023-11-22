@@ -295,7 +295,7 @@ export default function StoreLocatorOne() {
             },
           }}
         >
-          {/* <Map /> */}
+          <Map />
         </Box>
       </HStack>
     </DashboardLayout>
