@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Image,
   FlatList,
@@ -113,12 +113,18 @@ function Card(props: CardProps) {
 }
 
 function MainContent() {
+  const [numColumns, setNumColumns] = useState(5);
   const { height } = useWindowDimensions();
   const noColumn = useBreakpointValue({
     base: 3,
     md: 4,
     lg: 5,
   });
+  useEffect(() => {
+    if(noColumn !== numColumns) {
+      setNumColumns(noColumn);
+    }
+  }, [noColumn])
   return (
     <Box
       sx={{
@@ -166,10 +172,10 @@ function MainContent() {
         }
         bounces={false}
         horizontal={false}
-        numColumns={noColumn}
+        numColumns={numColumns}
         data={folder}
         renderItem={({ item }: { item: Folder }) => <Card item={item} />}
-        key={noColumn}
+        key={numColumns}
         keyExtractor={(index) => 'key' + index}
         sx={{
           '@md': {

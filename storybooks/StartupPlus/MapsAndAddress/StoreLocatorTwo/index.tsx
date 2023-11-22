@@ -490,7 +490,7 @@ export default function StoreLocatorTwo() {
         </VStack>
 
         <Box display="none" sx={{ '@md': { display: 'flex' } }} flex={1}>
-          <Map />
+          {/* <Map /> */}
           <Fab
             placement="bottom right"
             bg="$primary500"

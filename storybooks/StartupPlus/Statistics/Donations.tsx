@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Text,
@@ -489,10 +489,16 @@ function MainContent() {
 }
 
 export default function () {
+  const [numColumns, setNumColumns] = useState(5);
   const noColumnFundraisers = useBreakpointValue({
     base: 3,
     md: 4,
   });
+  useEffect(() => {
+    if(noColumnFundraisers !== numColumns) {
+      setNumColumns(noColumnFundraisers);
+    }
+  }, [noColumnFundraisers])
   return (
     <DashboardLayout scrollable={false} displaySidebar={false} title="Donation">
       <FlatList
@@ -535,13 +541,13 @@ export default function () {
           },
         }}
         bounces={false}
-        numColumns={noColumnFundraisers}
+        numColumns={numColumns}
         data={contentList}
         keyExtractor={(index) => 'key' + index}
         renderItem={({ item, index }: { item: Content; index: number }) => (
           <CardFundraisers item={item} key={index} />
         )}
-        key={noColumnFundraisers}
+        key={numColumns}
         showsVerticalScrollIndicator={false}
       />
     </DashboardLayout>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Box,
   HStack,
@@ -13,9 +13,9 @@ import {
   AvatarBadge,
   FlatList,
   useBreakpointValue,
-} from '@gluestack-ui/themed';
-import DashboardLayout from '../Layouts/DashboardLayout';
-import { Play } from 'lucide-react-native';
+} from "@gluestack-ui/themed";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import { Play } from "lucide-react-native";
 
 type VideoType = {
   imageUri: any;
@@ -36,140 +36,140 @@ type VideoTabItemType = {
 const videoList: VideoTabItemType = {
   Video: [
     {
-      imageUri: require('./assets/images/TutorProfile6.png'),
-      title: 'Science and Evolution',
+      imageUri: require("./assets/images/TutorProfile6.png"),
+      title: "Science and Evolution",
     },
     {
-      imageUri: require('./assets/images/TutorProfile5.png'),
-      title: 'Fitness',
+      imageUri: require("./assets/images/TutorProfile5.png"),
+      title: "Fitness",
     },
     {
-      imageUri: require('./assets/images/TutorProfile7.png'),
-      title: 'Web Design',
+      imageUri: require("./assets/images/TutorProfile7.png"),
+      title: "Web Design",
     },
     {
-      imageUri: require('./assets/images/TutorProfile4.png'),
-      title: 'Gaming',
+      imageUri: require("./assets/images/TutorProfile4.png"),
+      title: "Gaming",
     },
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Social',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Social",
     },
     {
-      imageUri: require('./assets/images/TutorProfile2.png'),
-      title: 'Politics',
+      imageUri: require("./assets/images/TutorProfile2.png"),
+      title: "Politics",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
     {
-      imageUri: require('./assets/images/TutorProfile8.png'),
-      title: 'Medicine',
+      imageUri: require("./assets/images/TutorProfile8.png"),
+      title: "Medicine",
     },
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Web Design',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Web Design",
     },
     {
-      imageUri: require('./assets/images/TutorProfile5.png'),
-      title: 'Fitness',
+      imageUri: require("./assets/images/TutorProfile5.png"),
+      title: "Fitness",
     },
     {
-      imageUri: require('./assets/images/TutorProfile6.png'),
-      title: 'Science and Evolution',
+      imageUri: require("./assets/images/TutorProfile6.png"),
+      title: "Science and Evolution",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
   ],
   Documents: [
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Social',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Social",
     },
     {
-      imageUri: require('./assets/images/TutorProfile2.png'),
-      title: 'Politics',
+      imageUri: require("./assets/images/TutorProfile2.png"),
+      title: "Politics",
     },
     {
-      imageUri: require('./assets/images/TutorProfile6.png'),
-      title: 'Science and Evolution',
+      imageUri: require("./assets/images/TutorProfile6.png"),
+      title: "Science and Evolution",
     },
     {
-      imageUri: require('./assets/images/TutorProfile5.png'),
-      title: 'Fitness',
+      imageUri: require("./assets/images/TutorProfile5.png"),
+      title: "Fitness",
     },
     {
-      imageUri: require('./assets/images/TutorProfile7.png'),
-      title: 'Web Design',
+      imageUri: require("./assets/images/TutorProfile7.png"),
+      title: "Web Design",
     },
     {
-      imageUri: require('./assets/images/TutorProfile4.png'),
-      title: 'Gaming',
+      imageUri: require("./assets/images/TutorProfile4.png"),
+      title: "Gaming",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
     {
-      imageUri: require('./assets/images/TutorProfile8.png'),
-      title: 'Medicine',
+      imageUri: require("./assets/images/TutorProfile8.png"),
+      title: "Medicine",
     },
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Web Design',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Web Design",
     },
     {
-      imageUri: require('./assets/images/TutorProfile5.png'),
-      title: 'Fitness',
+      imageUri: require("./assets/images/TutorProfile5.png"),
+      title: "Fitness",
     },
     {
-      imageUri: require('./assets/images/TutorProfile6.png'),
-      title: 'Science and Evolution',
+      imageUri: require("./assets/images/TutorProfile6.png"),
+      title: "Science and Evolution",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
   ],
   About: [
     {
-      imageUri: require('./assets/images/TutorProfile4.png'),
-      title: 'Gaming',
+      imageUri: require("./assets/images/TutorProfile4.png"),
+      title: "Gaming",
     },
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Social',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Social",
     },
     {
-      imageUri: require('./assets/images/TutorProfile2.png'),
-      title: 'Politics',
+      imageUri: require("./assets/images/TutorProfile2.png"),
+      title: "Politics",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
     {
-      imageUri: require('./assets/images/TutorProfile8.png'),
-      title: 'Medicine',
+      imageUri: require("./assets/images/TutorProfile8.png"),
+      title: "Medicine",
     },
     {
-      imageUri: require('./assets/images/TutorProfile3.png'),
-      title: 'Web Design',
+      imageUri: require("./assets/images/TutorProfile3.png"),
+      title: "Web Design",
     },
     {
-      imageUri: require('./assets/images/TutorProfile5.png'),
-      title: 'Fitness',
+      imageUri: require("./assets/images/TutorProfile5.png"),
+      title: "Fitness",
     },
     {
-      imageUri: require('./assets/images/TutorProfile6.png'),
-      title: 'Science and Evolution',
+      imageUri: require("./assets/images/TutorProfile6.png"),
+      title: "Science and Evolution",
     },
     {
-      imageUri: require('./assets/images/TutorProfile1.png'),
-      title: 'Technology',
+      imageUri: require("./assets/images/TutorProfile1.png"),
+      title: "Technology",
     },
   ],
 };
@@ -177,30 +177,30 @@ const videoList: VideoTabItemType = {
 const tabs = [
   {
     id: 1,
-    title: 'Videos',
+    title: "Videos",
   },
   {
     id: 2,
-    title: 'Documents',
+    title: "Documents",
   },
   {
     id: 3,
-    title: 'About',
+    title: "About",
   },
 ];
 
 const stats: Stat[] = [
   {
-    talkNumber: '46',
-    text: 'Talks',
+    talkNumber: "46",
+    text: "Talks",
   },
   {
-    talkNumber: '46K',
-    text: 'Followers',
+    talkNumber: "46K",
+    text: "Followers",
   },
   {
-    talkNumber: '20M',
-    text: 'Watch Min',
+    talkNumber: "20M",
+    text: "Watch Min",
   },
 ];
 
@@ -211,15 +211,15 @@ function Card(props: any) {
       mt="$4"
       bg="$backgroundLight100"
       sx={{
-        '_dark': { bg: '$backgroundDark700' },
-        '@base': {
-          w: '$9/20',
+        _dark: { bg: "$backgroundDark700" },
+        "@base": {
+          w: "$9/20",
         },
-        '@xl': {
-          w: '$6/25',
+        "@xl": {
+          w: "$6/25",
         },
-        '@lg': {
-          w: '$3/10',
+        "@lg": {
+          w: "$3/10",
         },
       }}
     >
@@ -230,10 +230,10 @@ function Card(props: any) {
         alt="alternate text"
         key={`${props.title}-${Math.random()}`}
         sx={{
-          '_web': {
-            borderTopRadius: '$sm',
+          _web: {
+            borderTopRadius: "$sm",
           },
-          '@lg': { w: '$48' },
+          "@lg": { w: "$48" },
         }}
       />
       <VStack
@@ -246,7 +246,7 @@ function Card(props: any) {
         <Center
           bgColor="$backgroundLight50"
           sx={{
-            _dark: { bg: '$backgroundDark700' },
+            _dark: { bg: "$backgroundDark700" },
           }}
           p="$2"
           opacity={0.8}
@@ -257,7 +257,7 @@ function Card(props: any) {
             color="$primary500"
             sx={{
               _dark: {
-                color: '$primary300',
+                color: "$primary300",
               },
             }}
             size="sm"
@@ -269,7 +269,7 @@ function Card(props: any) {
         fontSize="$xs"
         fontWeight="$medium"
         color="$textLight800"
-        sx={{ _dark: { color: '$textDark50' } }}
+        sx={{ _dark: { color: "$textDark50" } }}
         p="$3"
       >
         {props.title}
@@ -294,10 +294,10 @@ function TabItem({
           fontSize="$sm"
           fontWeight="$medium"
           letterSpacing="$xl"
-          color={tabName === currentTab ? '$primary500' : '$textLight500'}
+          color={tabName === currentTab ? "$primary500" : "$textLight500"}
           sx={{
             _dark: {
-              color: tabName === currentTab ? '$primary300' : '$textDark400',
+              color: tabName === currentTab ? "$primary300" : "$textDark400",
             },
           }}
           px="$4"
@@ -312,7 +312,7 @@ function TabItem({
             bg="$primary500"
             sx={{
               _dark: {
-                bg: '$primary300',
+                bg: "$primary300",
               },
             }}
             h="$1"
@@ -327,11 +327,11 @@ const UserProfile = () => {
   return (
     <>
       <Avatar size="lg">
-        <AvatarImage source={require('./assets/images/TutorProfile9.png')} />
+        <AvatarImage source={require("./assets/images/TutorProfile9.png")} />
         <AvatarBadge
           sx={{
             _dark: {
-              borderColor: '$black',
+              borderColor: "$black",
             },
           }}
         />
@@ -342,7 +342,7 @@ const UserProfile = () => {
         fontWeight="$bold"
         color="$textLight800"
         sx={{
-          _dark: { color: '$textDark50' },
+          _dark: { color: "$textDark50" },
         }}
       >
         Cristinan John
@@ -352,7 +352,7 @@ const UserProfile = () => {
         fontWeight="$medium"
         color="$textLight800"
         sx={{
-          _dark: { color: '$textDark400' },
+          _dark: { color: "$textDark400" },
         }}
       >
         Canada
@@ -363,9 +363,9 @@ const UserProfile = () => {
         textAlign="center"
         color="$textLight800"
         sx={{
-          'maxWidth': '$422',
-          '@md': { px: '$0' },
-          '_dark': { color: '$textDark50' },
+          maxWidth: "$422",
+          "@md": { px: "$0" },
+          _dark: { color: "$textDark50" },
         }}
       >
         A user profile is a collection of settings and info with a user. It
@@ -380,9 +380,9 @@ const StatsComponent = () => {
     <HStack
       w="$3/5"
       sx={{
-        '@md': {
-          w: '$1/2',
-          mt: '$10',
+        "@md": {
+          w: "$1/2",
+          mt: "$10",
         },
       }}
       my="$6"
@@ -396,7 +396,7 @@ const StatsComponent = () => {
               fontWeight="$medium"
               color="$textLight800"
               sx={{
-                _dark: { color: '$textDark50' },
+                _dark: { color: "$textDark50" },
               }}
             >
               {item.talkNumber}
@@ -406,7 +406,7 @@ const StatsComponent = () => {
               fontWeight="$medium"
               color="$textLight500"
               sx={{
-                _dark: { color: '$textDark300' },
+                _dark: { color: "$textDark300" },
               }}
             >
               {item.text}
@@ -419,7 +419,8 @@ const StatsComponent = () => {
 };
 
 export default function TutorProfile() {
-  const [tabName, setTabName] = React.useState('Videos');
+  const [numColumns, setNumColumns] = useState(5);
+  const [tabName, setTabName] = React.useState("Videos");
   const [videos, setVideos] = React.useState<VideoType[]>(videoList.Video);
   const noColumn = useBreakpointValue({
     base: 2,
@@ -427,22 +428,27 @@ export default function TutorProfile() {
     xl: 4,
   });
   const noColumnStyle = useBreakpointValue({
-    base: 'space-evenly',
-    md: 'space-between',
+    base: "space-evenly",
+    md: "space-between",
   });
   useEffect(() => {
     switch (tabName) {
-      case 'Video':
+      case "Video":
         setVideos(videoList.Video);
         return;
-      case 'Documents':
+      case "Documents":
         setVideos(videoList.Documents);
         return;
-      case 'About':
+      case "About":
         setVideos(videoList.About);
         return;
     }
   }, [tabName]);
+  useEffect(() => {
+    if (noColumn !== numColumns) {
+      setNumColumns(noColumn);
+    }
+  }, [noColumn]);
 
   return (
     <DashboardLayout scrollable={false} title="Tutor Profile">
@@ -452,8 +458,8 @@ export default function TutorProfile() {
           <Box
             pt="$4"
             sx={{
-              '@md': { pt: '$10' },
-              '_dark': { bg: '$backgroundDark800' },
+              "@md": { pt: "$10" },
+              _dark: { bg: "$backgroundDark800" },
             }}
             bg="$backgroundLight0"
             alignItems="center"
@@ -465,7 +471,7 @@ export default function TutorProfile() {
                 bg="$backgroundLight100"
                 sx={{
                   _dark: {
-                    bg: '$backgroundDark700',
+                    bg: "$backgroundDark700",
                   },
                 }}
                 w="$full"
@@ -474,7 +480,7 @@ export default function TutorProfile() {
               >
                 {tabs.map(({ id, title }) => (
                   <TabItem
-                    key={id + '-' + title}
+                    key={id + "-" + title}
                     tabName={title}
                     currentTab={tabName}
                     handleTabChange={(tab) => setTabName(tab)}
@@ -484,23 +490,23 @@ export default function TutorProfile() {
             </Box>
           </Box>
         }
-        key={'#' + noColumn}
-        numColumns={noColumn}
+        key={"#" + numColumns}
+        numColumns={numColumns}
         columnWrapperStyle={{ justifyContent: noColumnStyle }}
         data={videos}
         renderItem={({ item }: { item: VideoType }) => <Card {...item} />}
-        keyExtractor={(index) => 'key' + index + Math.random()}
+        keyExtractor={(index) => "key" + index + Math.random()}
         contentContainerStyle={{
-          width: '100%',
-          alignSelf: 'center',
+          width: "100%",
+          alignSelf: "center",
         }}
         sx={{
-          '_dark': { bg: '$backgroundDark800' },
-          '@base': { pb: '$7', px: '$0' },
-          '@lg': { px: '$35' },
-          '@md': {
-            rounded: '$sm',
-            px: '$6',
+          _dark: { bg: "$backgroundDark800" },
+          "@base": { pb: "$7", px: "$0" },
+          "@lg": { px: "$35" },
+          "@md": {
+            rounded: "$sm",
+            px: "$6",
           },
         }}
         bounces={false}

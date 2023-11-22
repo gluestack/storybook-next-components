@@ -18,6 +18,7 @@ import {
 import { NavigationContainer, useRoute } from '@react-navigation/native';
 import { Book, Home, User } from 'lucide-react-native';
 import MobileFooter from '../components/MobileFooter';
+
 type RootStackParamList = {
   Home: undefined;
   Syllabus: undefined;
@@ -168,7 +169,7 @@ function CourseType() {
   );
 }
 
-function TutorSyllabus({ navigation }: { navigation: SyllabusNavigationProp }) {
+function TutorSyllabusScreen({ navigation }: { navigation: SyllabusNavigationProp }) {
   return (
     <>
       <DashboardLayout displaySidebar={false} title="Tutor Syllabus">
@@ -194,7 +195,7 @@ function TutorSyllabus({ navigation }: { navigation: SyllabusNavigationProp }) {
   );
 }
 
-export default function TutorSyllabusScreen() {
+export default function TutorSyllabus() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -202,10 +203,10 @@ export default function TutorSyllabusScreen() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Home" component={TutorSyllabus} />
-        <Stack.Screen name="Syllabus" component={TutorSyllabus} />
-        <Stack.Screen name="Test" component={TutorSyllabus} />
-        <Stack.Screen name="Subscribe" component={TutorSyllabus} />
+        <Stack.Screen name="Home" component={TutorSyllabusScreen} />
+        <Stack.Screen name="Syllabus" component={TutorSyllabusScreen} />
+        <Stack.Screen name="Test" component={TutorSyllabusScreen} />
+        <Stack.Screen name="Subscribe" component={TutorSyllabusScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

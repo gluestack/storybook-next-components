@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Icon,
@@ -196,11 +196,16 @@ const CarouselLayout = () => {
 };
 
 function MainContent() {
+  const [numColumns, setNumColumns] = useState(5);
   const noColumnBankPartner = useBreakpointValue({
     base: 3,
     lg: 4,
   });
-
+  useEffect(() => {
+    if(noColumnBankPartner !== numColumns) {
+      setNumColumns(noColumnBankPartner);
+    }
+  }, [noColumnBankPartner])
   return (
     <Box flex={1}>
       <Box
@@ -353,8 +358,8 @@ function MainContent() {
             </Box>
           </>
         }
-        numColumns={noColumnBankPartner}
-        key={noColumnBankPartner}
+        numColumns={numColumns}
+        key={numColumns}
         data={banking_partners}
         keyExtractor={(index) => 'key' + index}
         sx={{
@@ -401,7 +406,7 @@ function MainContent() {
     </Box>
   );
 }
-export default function () {
+export default function InsuranceDashboard() {
   return (
     <DashboardLayout
       scrollable={false}

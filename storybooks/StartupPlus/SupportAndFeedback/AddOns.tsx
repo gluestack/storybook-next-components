@@ -446,7 +446,7 @@ function MainContent() {
   );
 }
 
-export default function () {
+export default function AddOns() {
   return (
     <DashboardLayout
       title="Add-ons"

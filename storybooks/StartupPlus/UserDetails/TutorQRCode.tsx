@@ -78,7 +78,7 @@ function QrCode() {
   );
 }
 
-export default function QrCodeScreen() {
+export default function TutorQRCode() {
   return (
     <DashboardLayout
       displaySidebar={false}
