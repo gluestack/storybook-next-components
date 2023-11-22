@@ -1,7 +1,22 @@
 import { createConfig } from '@gluestack-ui/themed';
 import { config as defaultConfig } from '@gluestack-ui/config';
+import {Image as RNImage} from "react-native-web-next-image"
+
 const config = createConfig({
   ...defaultConfig,
+  // components: {
+  //   ...defaultConfig.components,
+  //   Image: {
+  //     ...defaultConfig.components.Image,
+  //     theme: {
+  //     ...defaultConfig.components.Image.theme,
+  //       props: {
+  //     ...defaultConfig.components.Image.theme.props,
+  //         as: RNImage,
+  //       }
+  //     }
+  //   }
+  // },
   tokens: {
     ...defaultConfig.tokens,
     colors: {
