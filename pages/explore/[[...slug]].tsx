@@ -212,13 +212,32 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
 
   if (StorybookConfig.GENERATION_TYPE === 'Screens') {
     return (
-      <GluestackUIProvider
-        config={StorybookConfig.config}
-        colorMode='light'
-        _experimentalNestedProvider={true}
-      >
-        <Story />
-      </GluestackUIProvider>
+      <View>
+        <View style={styles.light}>
+          <GluestackUIProvider
+            config={StorybookConfig.config}
+            _experimentalNestedProvider
+            colorMode='light'
+          >
+            <VStack bg='#000' >
+              <Heading p='$8' color="#fff">LIGHT MODE</Heading>
+              <Story />
+            </VStack>
+          </GluestackUIProvider>
+        </View>
+        <View style={styles.dark}>
+          <GluestackUIProvider
+            config={StorybookConfig.config}
+            colorMode='dark'
+            _experimentalNestedProvider
+          >
+            <VStack bg='#000' >
+              <Heading p='$8' color="#fff">DARK MODE</Heading>
+              <Story />
+            </VStack>
+          </GluestackUIProvider>
+        </View>
+      </View>
     );
   }
 

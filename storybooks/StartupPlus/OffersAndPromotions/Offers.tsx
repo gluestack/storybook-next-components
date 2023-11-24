@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ImageSourcePropType, useWindowDimensions } from 'react-native';
 import {
@@ -37,6 +37,7 @@ const LinearGradient = styled(
   }
 );
 type Offer = {
+  id: string;
   imageRes: ImageSourcePropType;
   discount: string;
   type: string;
@@ -44,61 +45,73 @@ type Offer = {
 
 const offers: Offer[] = [
   {
+    id: "0",
     imageRes: require('./assets/images/cafe1.png'),
     discount: '30% OFF',
     type: 'Clothes Cafe',
   },
   {
+    id: "1",
     imageRes: require('./assets/images/cafe2.png'),
     discount: '50% OFF',
     type: 'Clothes hub',
   },
   {
+    id: "2",
     imageRes: require('./assets/images/cafe3.png'),
     discount: '40% OFF',
     type: 'Clothes fest',
   },
   {
+    id: "3",
     imageRes: require('./assets/images/cafe4.png'),
     discount: '30% OFF',
     type: 'Clothes Cafe',
   },
   {
+    id: "4",
     imageRes: require('./assets/images/cafe10.png'),
     discount: '50% OFF',
     type: 'Clothes hub',
   },
   {
+    id: "5",
     imageRes: require('./assets/images/cafe5.png'),
     discount: '40% OFF',
     type: 'Clothes fest',
   },
   {
+    id: "6",
     imageRes: require('./assets/images/cafe1.png'),
     discount: '30% OFF',
     type: 'Clothes Cafe',
   },
   {
+    id: "7",
     imageRes: require('./assets/images/cafe4.png'),
     discount: '50% OFF',
     type: 'Clothes hub',
   },
   {
+    id: "8",
     imageRes: require('./assets/images/cafe7.png'),
     discount: '40% OFF',
     type: 'Clothes fest',
   },
   {
+    id: "9",
     imageRes: require('./assets/images/cafe4.png'),
     discount: '30% OFF',
     type: 'Clothes Cafe',
   },
   {
+    id: "10",
     imageRes: require('./assets/images/cafe8.png'),
     discount: '50% OFF',
     type: 'Clothes hub',
   },
   {
+    id: "11",
     imageRes: require('./assets/images/cafe9.png'),
     discount: '40% OFF',
     type: 'Clothes fest',
@@ -173,11 +186,17 @@ function Card(props: { item: Offer }) {
 }
 
 export default function Offers() {
+  const [numColumns, setNumColumns] = useState(5);
   const noColumn = useBreakpointValue({
     base: 1,
     sm: 2,
     lg: 3,
   });
+  useEffect(() => {
+    if(noColumn !== numColumns) {
+      setNumColumns(noColumn);
+    }
+  }, [noColumn])
   const { height } = useWindowDimensions();
   return (
     <DashboardLayout
@@ -211,12 +230,12 @@ export default function Offers() {
         h="$full"
       >
         <FlatList
-          numColumns={noColumn}
+          numColumns={numColumns}
           data={offers}
           mb="$4"
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => <Card item={item} />}
-          key={'#' + noColumn}
+          key={'#' + numColumns}
           keyExtractor={(_, index) => 'key' + index}
           bounces={false}
         />
