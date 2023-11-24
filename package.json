@@ -38,6 +38,7 @@
     "react-native-maps": "^1.8.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "^0.19.7",
+    "react-native-web-next-image": "^0.1.1",
     "simple-git": "^3.19.1",
     "typescript": "5.1.6"
   },
