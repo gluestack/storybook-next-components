@@ -1,6 +1,7 @@
 import StartupPlusStoryData, {
   config as StartupPlusconfig,
 } from '@/storybook-startup-plus.config';
+
 import GluestackStoryData, {
   config as GluestackUIconfig,
 } from '@/storybook-gluestack-ui.config';
@@ -8,7 +9,7 @@ import GluestackStoryData, {
 const GluestackUI = {
   GENERATION_TYPE: 'Components',
   StoryData: GluestackStoryData,
-  config: GluestackUIconfig,
+  config: StartupPlusconfig,
   BRANCH: 'patch',
   GITHUB_REPO_URL: 'git@github.com:gluestack/gluestack-ui.git',
   STORIES_SOURCE_PATH: 'example/storybook/src/components',

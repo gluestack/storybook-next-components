@@ -1,7 +1,25 @@
 import { createConfig } from '@gluestack-ui/themed';
 import { config as defaultConfig } from '@gluestack-ui/config';
+
 const config = createConfig({
   ...defaultConfig,
+  components: {
+    ...defaultConfig.components,
+    Image: {
+      ...defaultConfig.components.Image,
+      theme: {
+        ...defaultConfig.components.Image.theme,
+        bg: "$backgroundLight300",
+      }
+    },
+    AvatarImage: {
+      ...defaultConfig.components.AvatarImage,
+      theme: {
+        ...defaultConfig.components.AvatarImage.theme,
+        bg: "$backgroundLight300",
+      }
+    },
+  },
   tokens: {
     ...defaultConfig.tokens,
     colors: {

@@ -14,7 +14,6 @@ import {
 import { getAllComponents } from '@/utils/generateCombination';
 import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
 import { View, Text as RNText, StyleSheet } from 'react-native';
-import Image from "next/image";
 
 interface ExplorePageProps {
   slug: string;
@@ -205,37 +204,6 @@ const ComponentFrame = ({
 };
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
-  const uri =
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
-
-  const StyledNextImage = styled(Image, {}, {}, {});
-  // return (
-  //   <GluestackUIProvider config={StorybookConfig.config}>
-  //     <VStack bg='$red500' p="$8" gap="$8">
-  //       <GluestackImage
-  //         w={200}
-  //         h={200}
-  //         source={{
-  //           uri: uri,
-  //         }}
-  //       />
-  //       <Image
-  //         src={uri} // The image file
-  //         alt="Description of the image" // Alt text for accessibility
-  //         width={200} // Width of the image in pixels
-  //         height={200} // Height of the image in pixels
-  //         priority={true}
-  //       />
-  //       {/* <StyledNextImage
-  //         src={uri} // The image file
-  //         alt="Description of the image" // Alt text for accessibility
-  //         width={200} // Width of the image in pixels
-  //         height={200} // Height of the image in pixels
-  //         priority={true}
-  //       /> */}
-  //     </VStack>
-  //   </GluestackUIProvider>
-  // );
   if (component === '') {
     return <div>Append component name</div>;
   }
@@ -244,13 +212,32 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
 
   if (StorybookConfig.GENERATION_TYPE === 'Screens') {
     return (
-      <GluestackUIProvider
-        config={StorybookConfig.config}
-        colorMode='light'
-        _experimentalNestedProvider={true}
-      >
-        <Story />
-      </GluestackUIProvider>
+      <View>
+        <View style={styles.light}>
+          <GluestackUIProvider
+            config={StorybookConfig.config}
+            _experimentalNestedProvider
+            colorMode='light'
+          >
+            <VStack bg='#000' >
+              <Heading p='$8' color="#fff">LIGHT MODE</Heading>
+              <Story />
+            </VStack>
+          </GluestackUIProvider>
+        </View>
+        <View style={styles.dark}>
+          <GluestackUIProvider
+            config={StorybookConfig.config}
+            colorMode='dark'
+            _experimentalNestedProvider
+          >
+            <VStack bg='#000' >
+              <Heading p='$8' color="#fff">DARK MODE</Heading>
+              <Story />
+            </VStack>
+          </GluestackUIProvider>
+        </View>
+      </View>
     );
   }
 
