@@ -3,6 +3,9 @@ const { withGluestackUI } = require('@gluestack/ui-next-adapter');
 const path = require('path');
 
 const nextConfig = {
+  globals: {
+    __DEV__: true
+},
   typescript: {
     ignoreBuildErrors: true,
   },

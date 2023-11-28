@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import {
   Avatar,
+  AvatarFallbackText,
   AvatarImage,
   Box,
   Button,
@@ -19,77 +20,77 @@ import {
   SearchIcon,
   Text,
   VStack,
-} from '@gluestack-ui/themed';
-import DashboardLayout from '../Layouts/DashboardLayout';
-import { ImageSourcePropType, SectionList } from 'react-native';
-import { Keyboard, MoreVertical } from 'lucide-react-native';
+} from "@gluestack-ui/themed";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import { ImageSourcePropType, SectionList } from "react-native";
+import { Keyboard, MoreVertical } from "lucide-react-native";
 const DATA = [
   {
-    category: 'Favourites',
+    category: "Favourites",
     group: null,
     data: [
       {
-        imageUri: require('./assets/images/kristin.png'),
-        name: 'Kristin Watson',
-        email: 'Kristinwatson@gmail.com',
-        contactNumber: '(480) 555-0103',
+        imageUri: require("./assets/images/kristin.png"),
+        name: "Kristin Watson",
+        email: "Kristinwatson@gmail.com",
+        contactNumber: "(480) 555-0103",
       },
       {
-        imageUri: require('./assets/images/william.png'),
-        name: 'William James',
-        email: 'Williamjames@gmail.com',
-        contactNumber: '(480) 555-0103',
-      },
-    ],
-  },
-  {
-    category: 'Contacts',
-    group: 'A',
-    data: [
-      {
-        imageUri: require('./assets/images/alan.png'),
-        name: 'Alan Watson',
-        email: 'Alanwatson@gmail.com',
-        contactNumber: '(480) 555-0103',
-      },
-      {
-        imageUri: require('./assets/images/anny.png'),
-        name: 'Anny Geller',
-        email: 'Annygeller@gmail.com',
-        contactNumber: '(480) 555-0103',
-      },
-      {
-        imageUri: require('./assets/images/aeromy.png'),
-        name: 'Aeromy Watson',
-        email: 'Alerowatson@gmail.com',
-        contactNumber: '(480) 555-0103',
+        imageUri: require("./assets/images/william.png"),
+        name: "William James",
+        email: "Williamjames@gmail.com",
+        contactNumber: "(480) 555-0103",
       },
     ],
   },
   {
-    category: 'Contacts',
-    group: 'B',
+    category: "Contacts",
+    group: "A",
     data: [
       {
-        group: 'B',
-        imageUri: require('./assets/images/brandy.png'),
-        name: 'Brandy Watson',
-        email: 'Brandywatson@gmail.com',
-        contactNumber: '(480) 555-0103',
+        imageUri: require("./assets/images/alan.png"),
+        name: "Alan Watson",
+        email: "Alanwatson@gmail.com",
+        contactNumber: "(480) 555-0103",
       },
       {
-        group: 'B',
-        imageUri: require('./assets/images/bell.png'),
-        name: 'Bell',
-        email: 'Bell@gmail.com',
-        contactNumber: '(480) 555-0103',
+        imageUri: require("./assets/images/anny.png"),
+        name: "Anny Geller",
+        email: "Annygeller@gmail.com",
+        contactNumber: "(480) 555-0103",
       },
       {
-        group: 'B',
-        imageUri: require('./assets/images/alexandria.png'),
-        name: 'Brandy Watson',
-        email: 'Brandywatson@gmail.com',
-        contactNumber: '(480) 555-0103',
+        imageUri: require("./assets/images/aeromy.png"),
+        name: "Aeromy Watson",
+        email: "Alerowatson@gmail.com",
+        contactNumber: "(480) 555-0103",
+      },
+    ],
+  },
+  {
+    category: "Contacts",
+    group: "B",
+    data: [
+      {
+        group: "B",
+        imageUri: require("./assets/images/brandy.png"),
+        name: "Brandy Watson",
+        email: "Brandywatson@gmail.com",
+        contactNumber: "(480) 555-0103",
+      },
+      {
+        group: "B",
+        imageUri: require("./assets/images/bell.png"),
+        name: "Bell",
+        email: "Bell@gmail.com",
+        contactNumber: "(480) 555-0103",
+      },
+      {
+        group: "B",
+        imageUri: require("./assets/images/alexandria.png"),
+        name: "Brandy Watson",
+        email: "Brandywatson@gmail.com",
+        contactNumber: "(480) 555-0103",
       },
     ],
   },
@@ -109,17 +110,30 @@ function ContactItemMobile({ contact }: ListItemProps) {
       mr="$6"
       p="$1"
       sx={{
-        ':active': {
-          _dark: { bg: '$backgroundDark600' },
-          _light: { bg: '$backgroundLight200' },
-          borderRadius: '$sm',
+        ":active": {
+          _dark: { bg: "$backgroundDark600" },
+          _light: { bg: "$backgroundLight200" },
+          borderRadius: "$sm",
         },
       }}
     >
       <HStack alignItems="center" space="md">
+        {/* <Avatar>
+          <AvatarImage
+            source={{
+              uri: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+            }}
+          />
+        </Avatar> */}
+       
         <Avatar>
           <AvatarImage source={contact.imageUri} />
         </Avatar>
+        <Image source={contact.imageUri} />
+        {/* <Avatar>
+          <AvatarImage source={require("./assets/images/kristin.png")} />
+        </Avatar> */}
+
         <Text fontSize="$md">{contact.name}</Text>
       </HStack>
     </Pressable>
@@ -130,13 +144,13 @@ function ContactItem({ contact }: ListItemProps) {
     <Box p="$2">
       <Pressable
         sx={{
-          ':hover': {
-            _dark: { bg: '$backgroundDark600' },
-            _light: { bg: '$backgroundLight100' },
+          ":hover": {
+            _dark: { bg: "$backgroundDark600" },
+            _light: { bg: "$backgroundLight100" },
           },
-          ':active': {
-            _dark: { bg: '$backgroundLight700' },
-            _light: { bg: '$backgroundLight200' },
+          ":active": {
+            _dark: { bg: "$backgroundLight700" },
+            _light: { bg: "$backgroundLight200" },
           },
         }}
         flex={1}
@@ -158,8 +172,8 @@ function ContactItem({ contact }: ListItemProps) {
               fontWeight="$medium"
               fontSize="$sm"
               sx={{
-                _light: { color: '$textLight500' },
-                _dark: { color: '$textDark400' },
+                _light: { color: "$textLight500" },
+                _dark: { color: "$textDark400" },
               }}
               w="$full"
             >
@@ -172,8 +186,8 @@ function ContactItem({ contact }: ListItemProps) {
               fontWeight="$medium"
               fontSize="$sm"
               sx={{
-                _light: { color: '$textLight500' },
-                _dark: { color: '$textDark400' },
+                _light: { color: "$textLight500" },
+                _dark: { color: "$textDark400" },
               }}
               w="$full"
             >
@@ -185,8 +199,8 @@ function ContactItem({ contact }: ListItemProps) {
             fontWeight="$medium"
             fontSize="$sm"
             sx={{
-              _light: { color: '$textLight500' },
-              _dark: { color: '$textDark400' },
+              _light: { color: "$textLight500" },
+              _dark: { color: "$textDark400" },
             }}
             w="$full"
           >
@@ -200,8 +214,9 @@ function ContactItem({ contact }: ListItemProps) {
   );
 }
 const ContactData = () => {
-  const [searchText, setSearchText] = React.useState('');
+  const [searchText, setSearchText] = React.useState("");
   const [contactData, setContactData] = React.useState(DATA);
+
   React.useEffect(() => {
     const result = filterSearch(searchText);
     setContactData(result);
@@ -231,22 +246,22 @@ const ContactData = () => {
     return filteredData;
   }
   const textstyle = {
-    fontWeight: '$semibold',
+    fontWeight: "$semibold",
     flex: 1,
   };
   return (
     <>
       <Box
         sx={{
-          '@md': { display: 'none' },
-          'px': '$4',
+          "@md": { display: "none" },
+          px: "$4",
         }}
       >
         <>
           <Input
             sx={{
-              _dark: { borderColor: '$backgroundDark500' },
-              _light: { borderColor: '$backgroundLight300' },
+              _dark: { borderColor: "$backgroundDark500" },
+              _light: { borderColor: "$backgroundLight300" },
             }}
           >
             <InputSlot ml="$3">
@@ -272,8 +287,8 @@ const ContactData = () => {
                     fontWeight="$bold"
                     my="$4"
                     sx={{
-                      _light: { color: '$primary500' },
-                      _dark: { color: '$primary300' },
+                      _light: { color: "$primary500" },
+                      _dark: { color: "$primary300" },
                     }}
                   >
                     {category}
@@ -284,8 +299,8 @@ const ContactData = () => {
                   <Text
                     fontSize="$md"
                     sx={{
-                      _light: { color: '$textLight800' },
-                      _dark: { color: '$textDark50' },
+                      _light: { color: "$textLight800" },
+                      _dark: { color: "$textDark50" },
                     }}
                     my="$5"
                   >
@@ -295,8 +310,8 @@ const ContactData = () => {
                     ml="$2"
                     mr="$8"
                     sx={{
-                      _light: { bg: '$backgroundLight200' },
-                      _dark: { bg: '$backgroundDark600' },
+                      _light: { bg: "$backgroundLight200" },
+                      _dark: { bg: "$backgroundDark600" },
                     }}
                     flex={1}
                   />
@@ -311,19 +326,19 @@ const ContactData = () => {
         </>
       </Box>
 
-      <Box sx={{ '@md': { display: 'flex' }, '@base': { display: 'none' } }}>
+      <Box sx={{ "@md": { display: "flex" }, "@base": { display: "none" } }}>
         <VStack space="md">
           <HStack
             flexWrap="wrap"
             flex={1}
             space="sm"
             justifyContent="space-between"
-            sx={{ '@lg': { px: '$0' } }}
+            sx={{ "@lg": { px: "$0" } }}
           >
             <Input
               sx={{
-                _dark: { borderColor: '$backgroundDark500' },
-                _light: { borderColor: '$backgroundLight300' },
+                _dark: { borderColor: "$backgroundDark500" },
+                _light: { borderColor: "$backgroundLight300" },
               }}
               maxWidth="$80"
               w="$full"
@@ -349,10 +364,10 @@ const ContactData = () => {
                 px="$10"
                 py="$3"
                 sx={{
-                  _light: { bg: '$none', borderColor: '$primary500' },
+                  _light: { bg: "$none", borderColor: "$primary500" },
                   _dark: {
-                    bg: '$backgroundDark700',
-                    borderColor: '$backgroundDark400',
+                    bg: "$backgroundDark700",
+                    borderColor: "$backgroundDark400",
                   },
                 }}
                 variant="outline"
@@ -368,9 +383,9 @@ const ContactData = () => {
 
           <VStack
             sx={{
-              '_light': { bg: '$backgroundLight0' },
-              '_dark': { bg: '$backgroundDark800' },
-              '@md': { borderRadius: '$sm' },
+              _light: { bg: "$backgroundLight0" },
+              _dark: { bg: "$backgroundDark800" },
+              "@md": { borderRadius: "$sm" },
             }}
           >
             <HStack
@@ -382,8 +397,8 @@ const ContactData = () => {
             >
               <Text
                 sx={{
-                  _light: { color: '$textLight500' },
-                  _dark: { color: '$textDark500' },
+                  _light: { color: "$textLight500" },
+                  _dark: { color: "$textDark500" },
                 }}
                 {...textstyle}
               >
@@ -391,8 +406,8 @@ const ContactData = () => {
               </Text>
               <Text
                 sx={{
-                  _light: { color: '$textLight500' },
-                  _dark: { color: '$textDark500' },
+                  _light: { color: "$textLight500" },
+                  _dark: { color: "$textDark500" },
                 }}
                 {...textstyle}
               >
@@ -400,8 +415,8 @@ const ContactData = () => {
               </Text>
               <Text
                 sx={{
-                  _light: { color: '$textLight500' },
-                  _dark: { color: '$textDark500' },
+                  _light: { color: "$textLight500" },
+                  _dark: { color: "$textDark500" },
                 }}
                 {...textstyle}
               >
@@ -410,21 +425,21 @@ const ContactData = () => {
               <Text w="$2.5" />
             </HStack>
             <SectionList
-              keyExtractor={(index) => index + ''}
+              keyExtractor={(index) => index + ""}
               sections={contactData}
               ItemSeparatorComponent={() => (
                 <Divider
                   sx={{
-                    _light: { bgColor: '$backgroundLight200' },
-                    _dark: { bg: '$backgroundDark700' },
+                    _light: { bgColor: "$backgroundLight200" },
+                    _dark: { bg: "$backgroundDark700" },
                   }}
                 />
               )}
               renderSectionHeader={() => (
                 <Divider
                   sx={{
-                    _light: { bgColor: '$backgroundLight200' },
-                    _dark: { bg: '$backgroundDark700' },
+                    _light: { bgColor: "$backgroundLight200" },
+                    _dark: { bg: "$backgroundDark700" },
                   }}
                 />
               )}
@@ -443,7 +458,6 @@ const ContactList = () => {
 
   return (
     <DashboardLayout
-      scrollable={false}
       displaySidebar
       title="Contact List"
       displayScreenTitle={false}
@@ -451,16 +465,16 @@ const ContactList = () => {
       <VStack
         flex={1}
         sx={{
-          '@base': { py: '$5' },
-          '@md': { rounded: '$sm', py: '$6', pb: '$0', px: '$6' },
-          '@lg': { px: '$0' },
-          '_light': { bg: '$primary50' },
-          '_dark': { bg: '$backgroundDark700' },
+          "@base": { py: "$5" },
+          "@md": { rounded: "$sm", py: "$6", pb: "$0", px: "$6" },
+          "@lg": { px: "$0" },
+          _light: { bg: "$primary50" },
+          _dark: { bg: "$backgroundDark700" },
         }}
       >
         <Box
           sx={{
-            '@md': { display: 'none' },
+            "@md": { display: "none" },
           }}
         >
           <>
@@ -473,7 +487,7 @@ const ContactList = () => {
             >
               <Image
                 size="2xs"
-                source={require('./assets/images/fav_dark.png')}
+                source={require("./assets/images/fav_dark.png")}
                 mb="$5"
                 alt="gluestack-ui"
               />
@@ -491,15 +505,15 @@ const ContactList = () => {
                 w="$16"
                 alignSelf="flex-end"
                 sx={{
-                  '@md': { display: 'none' },
+                  "@md": { display: "none" },
                 }}
                 borderRadius="$md"
               >
                 <Fab
                   sx={{
-                    '@md': { display: 'none' },
-                    '_light': { bg: '$primary500' },
-                    '_dark': { bg: '$primary300' },
+                    "@md": { display: "none" },
+                    _light: { bg: "$primary500" },
+                    _dark: { bg: "$primary300" },
                   }}
                   h="$12"
                   w="$12"

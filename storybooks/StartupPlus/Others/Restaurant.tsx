@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   Text,
   VStack,
@@ -12,10 +12,10 @@ import {
   Pressable,
   ButtonText,
   useBreakpointValue,
-} from '@gluestack-ui/themed';
-import type { ImageSourcePropType } from 'react-native';
-import DashboardLayout from '../Layouts/DashboardLayout';
-import { Star } from 'lucide-react-native';
+} from "@gluestack-ui/themed";
+import type { ImageSourcePropType } from "react-native";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import { Star } from "lucide-react-native";
 
 type DishList = {
   dishtype: string;
@@ -36,106 +36,106 @@ type TabDishList = {
 const dishlist: TabDishList = {
   Menu: [
     {
-      dishtype: 'veg',
-      dishName: 'Double Aloo Tikki Burger',
-      dishCategory: 'In starters',
-      dishAmount: '₹500',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes1.png'),
+      dishtype: "veg",
+      dishName: "Double Aloo Tikki Burger",
+      dishCategory: "In starters",
+      dishAmount: "₹500",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes1.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Cheese Croissant',
-      dishCategory: 'In starters',
-      dishAmount: '₹100',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes2.png'),
+      dishtype: "veg",
+      dishName: "Cheese Croissant",
+      dishCategory: "In starters",
+      dishAmount: "₹100",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes2.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Corn & Pepper Lasagne',
-      dishCategory: 'In starters',
-      dishAmount: '₹260',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes3.png'),
+      dishtype: "veg",
+      dishName: "Corn & Pepper Lasagne",
+      dishCategory: "In starters",
+      dishAmount: "₹260",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes3.png"),
     },
   ],
   About: [
     {
-      dishtype: 'veg',
-      dishName: 'Cheese Croissant',
-      dishCategory: 'In starters',
-      dishAmount: '₹100',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes2.png'),
+      dishtype: "veg",
+      dishName: "Cheese Croissant",
+      dishCategory: "In starters",
+      dishAmount: "₹100",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes2.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Corn & Pepper Lasagne',
-      dishCategory: 'In starters',
-      dishAmount: '₹260',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes3.png'),
+      dishtype: "veg",
+      dishName: "Corn & Pepper Lasagne",
+      dishCategory: "In starters",
+      dishAmount: "₹260",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes3.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Double Aloo Tikki Burger',
-      dishCategory: 'In starters',
-      dishAmount: '₹500',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes1.png'),
+      dishtype: "veg",
+      dishName: "Double Aloo Tikki Burger",
+      dishCategory: "In starters",
+      dishAmount: "₹500",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes1.png"),
     },
   ],
   Reviews: [
     {
-      dishtype: 'veg',
-      dishName: 'Double Aloo Tikki Burger',
-      dishCategory: 'In starters',
-      dishAmount: '₹500',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes1.png'),
+      dishtype: "veg",
+      dishName: "Double Aloo Tikki Burger",
+      dishCategory: "In starters",
+      dishAmount: "₹500",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes1.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Cheese Croissant',
-      dishCategory: 'In starters',
-      dishAmount: '₹100',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes2.png'),
+      dishtype: "veg",
+      dishName: "Cheese Croissant",
+      dishCategory: "In starters",
+      dishAmount: "₹100",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes2.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Corn & Pepper Lasagne',
-      dishCategory: 'In starters',
-      dishAmount: '₹260',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes3.png'),
+      dishtype: "veg",
+      dishName: "Corn & Pepper Lasagne",
+      dishCategory: "In starters",
+      dishAmount: "₹260",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes3.png"),
     },
   ],
   Photos: [
     {
-      dishtype: 'veg',
-      dishName: 'Cheese Croissant',
-      dishCategory: 'In starters',
-      dishAmount: '₹100',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes2.png'),
+      dishtype: "veg",
+      dishName: "Cheese Croissant",
+      dishCategory: "In starters",
+      dishAmount: "₹100",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes2.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Corn & Pepper Lasagne',
-      dishCategory: 'In starters',
-      dishAmount: '₹260',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes3.png'),
+      dishtype: "veg",
+      dishName: "Corn & Pepper Lasagne",
+      dishCategory: "In starters",
+      dishAmount: "₹260",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes3.png"),
     },
     {
-      dishtype: 'veg',
-      dishName: 'Double Aloo Tikki Burger',
-      dishCategory: 'In starters',
-      dishAmount: '₹500',
-      buttonText: 'ADD',
-      imageUri: require('./assets/images/dishes1.png'),
+      dishtype: "veg",
+      dishName: "Double Aloo Tikki Burger",
+      dishCategory: "In starters",
+      dishAmount: "₹500",
+      buttonText: "ADD",
+      imageUri: require("./assets/images/dishes1.png"),
     },
   ],
 };
@@ -143,19 +143,19 @@ const dishlist: TabDishList = {
 const tabs = [
   {
     id: 1,
-    title: 'Menu',
+    title: "Menu",
   },
   {
     id: 2,
-    title: 'About',
+    title: "About",
   },
   {
     id: 3,
-    title: 'Reviews',
+    title: "Reviews",
   },
   {
     id: 4,
-    title: 'Photos',
+    title: "Photos",
   },
 ];
 
@@ -164,8 +164,8 @@ function HotelName() {
     <HStack
       gap="$2"
       sx={{
-        '@md': {
-          mt: '$8',
+        "@md": {
+          mt: "$8",
         },
       }}
       mb="$6"
@@ -176,7 +176,7 @@ function HotelName() {
         size="md"
         resizeMode="cover"
         alt="Alternate Text "
-        source={require('./assets/images/taj.png')}
+        source={require("./assets/images/taj.png")}
       />
 
       <VStack gap="$2">
@@ -185,10 +185,10 @@ function HotelName() {
           fontSize="$md"
           sx={{
             _light: {
-              color: '$textLight800',
+              color: "$textLight800",
             },
             _dark: {
-              color: '$textDark50',
+              color: "$textDark50",
             },
           }}
         >
@@ -199,9 +199,9 @@ function HotelName() {
           <Text
             sx={{
               _light: {
-                color: '$textLight800',
+                color: "$textLight800",
               },
-              _dark: { color: '$textDark50' },
+              _dark: { color: "$textDark50" },
             }}
             fontSize="$sm"
             fontWeight="normal"
@@ -213,10 +213,10 @@ function HotelName() {
             fontWeight="normal"
             sx={{
               _light: {
-                color: '$textLight500',
+                color: "$textLight500",
               },
               _dark: {
-                color: '$textDark400',
+                color: "$textDark400",
               },
             }}
           >
@@ -226,17 +226,17 @@ function HotelName() {
         <Text
           fontSize="$sm"
           color="$primary500"
-          sx={{ _dark: { color: '$primary300' } }}
+          sx={{ _dark: { color: "$primary300" } }}
         >
-          15 min{' '}
+          15 min{" "}
           <Text
             fontSize="$sm"
             sx={{
               _light: {
-                color: '$textLight500',
+                color: "$textLight500",
               },
               _dark: {
-                color: '$textDark400',
+                color: "$textDark400",
               },
             }}
           >
@@ -267,8 +267,8 @@ function OptionSelector() {
       alignItems="center"
       space="xs"
       sx={{
-        '@md': {
-          justifyContent: 'flex-start',
+        "@md": {
+          justifyContent: "flex-start",
         },
       }}
       justifyContent="flex-end"
@@ -279,10 +279,10 @@ function OptionSelector() {
           fontWeight="medium"
           sx={{
             _light: {
-              color: '$textLight900',
+              color: "$textLight900",
             },
             _dark: {
-              color: '$textDark300',
+              color: "$textDark300",
             },
           }}
         >
@@ -297,10 +297,10 @@ function OptionSelector() {
           fontWeight="medium"
           sx={{
             _light: {
-              color: '$textLight900',
+              color: "$textLight900",
             },
             _dark: {
-              color: '$textDark300',
+              color: "$textDark300",
             },
           }}
         >
@@ -330,10 +330,10 @@ function TabItem({
           fontWeight="medium"
           sx={{
             _light: {
-              color: tabName === currentTab ? '$primary500' : '$textLight500',
+              color: tabName === currentTab ? "$primary500" : "$textLight500",
             },
             _dark: {
-              color: tabName === currentTab ? '$primary300' : '$textDark400',
+              color: tabName === currentTab ? "$primary300" : "$textDark400",
             },
           }}
           px="$4"
@@ -348,7 +348,7 @@ function TabItem({
             bg="$primary500"
             sx={{
               _dark: {
-                bg: '$primary300',
+                bg: "$primary300",
               },
             }}
             h="$1"
@@ -379,18 +379,21 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
         ) => {
           return (
             <Box key={index} mt="$2" pt="$6">
-              <HStack
+              <VStack
                 space="sm"
                 key={index}
-                reversed={reverseSequence}
+                // reversed={reverseSequence}
                 sx={{
-                  '@md': {
-                    justifyContent: 'flex-start',
+                  "@md": {
+                    justifyContent: "space-between",
+                    flexDirection:"row"
+
                   },
                 }}
-                justifyContent="space-between"
+                flexDirection="column"
+                alignItems='flex-start'
               >
-                <VStack space="xs">
+                <>
                   <Pressable>
                     <Image
                       rounded="$sm"
@@ -402,92 +405,93 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
                     />
                   </Pressable>
 
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    action="primary"
-                    isDisabled={false}
-                    isFocusVisible={false}
-                  >
-                    <ButtonText fontSize="$xs">{item.buttonText} </ButtonText>
-                  </Button>
-                </VStack>
-                <Box mt="$1" w="$1/2">
-                  <Image
-                    source={require('./assets/images/Veg.png')}
-                    size="2xs"
-                    alt="Alternate text"
-                  />
-                  <Pressable>
+                  <Box mt="$1" w="$1/2">
+                    <Image
+                      source={require("./assets/images/Veg.png")}
+                      size="2xs"
+                      alt="Alternate text"
+                    />
+                    <Pressable>
+                      <Text
+                        mt="$3"
+                        sx={{
+                          _light: {
+                            color: "$textLight800",
+                          },
+                          _dark: {
+                            color: "$textDark50",
+                          },
+                        }}
+                        fontSize="$md"
+                        fontWeight="medium"
+                      >
+                        {item.dishName}
+                      </Text>
+                    </Pressable>
+
                     <Text
-                      mt="$3"
                       sx={{
                         _light: {
-                          color: '$textLight800',
+                          color: "$textLight800",
                         },
                         _dark: {
-                          color: '$textDark50',
+                          color: "$textDark50",
                         },
                       }}
                       fontSize="$md"
                       fontWeight="medium"
                     >
-                      {item.dishName}
+                      {item.dishAmount}
                     </Text>
-                  </Pressable>
+                    <HStack alignItems="center" mt="$1">
+                      <Icon as={Star} size="md" color="$amber400" />
+                      <Text
+                        sx={{
+                          _light: {
+                            color: "$textLight800",
+                          },
+                          _dark: {
+                            color: "$textDark50",
+                          },
+                        }}
+                        fontSize="$sm"
+                        fontWeight="normal"
+                      >
+                        4.9
+                      </Text>
+                      <Text
+                        fontSize="$sm"
+                        fontWeight="normal"
+                        sx={{
+                          _light: {
+                            color: "textLight.500",
+                          },
+                          _dark: {
+                            color: "textDark.400",
+                          },
+                        }}
+                      >
+                        (120)
+                      </Text>
+                    </HStack>
+                  </Box>
+                </>
 
-                  <Text
-                    sx={{
-                      _light: {
-                        color: '$textLight800',
-                      },
-                      _dark: {
-                        color: '$textDark50',
-                      },
-                    }}
-                    fontSize="$md"
-                    fontWeight="medium"
-                  >
-                    {item.dishAmount}
-                  </Text>
-                  <HStack gap="$1" alignItems="center" mt="$1">
-                    <Icon as={Star} size="md" color="$amber400" />
-                    <Text
-                      sx={{
-                        _light: {
-                          color: '$textLight800',
-                        },
-                        _dark: {
-                          color: '$textDark50',
-                        },
-                      }}
-                      fontSize="$sm"
-                      fontWeight="normal"
-                    >
-                      4.9
-                    </Text>
-                    <Text
-                      fontSize="$sm"
-                      fontWeight="normal"
-                      sx={{
-                        _light: {
-                          color: 'textLight.500',
-                        },
-                        _dark: {
-                          color: 'textDark.400',
-                        },
-                      }}
-                    >
-                      (120)
-                    </Text>
-                  </HStack>
-                </Box>
-              </HStack>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  action="primary"
+                  isDisabled={false}
+                  isFocusVisible={false}
+                >
+                  <ButtonText fontSize="$xs">{item.buttonText} </ButtonText>
+                </Button>
+              </VStack>
               {index === currentTab.length - 1 ? null : (
                 <Divider
                   mt="$1"
                   bg="$backgroundLight200"
-                  sx={{ _dark: { bg: '$backgroundDark700' } }}
+                  sx={{ _dark: { bg: "$backgroundDark700" } }}
                 />
               )}
             </Box>
@@ -499,21 +503,21 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
 }
 
 function Details() {
-  const [tabName, setTabName] = React.useState('About');
+  const [tabName, setTabName] = React.useState("About");
   const [videos, setVideos] = React.useState<DishList[]>(dishlist.About);
 
   useEffect(() => {
     switch (tabName) {
-      case 'About':
+      case "About":
         setVideos(dishlist.About);
         return;
-      case 'Menu':
+      case "Menu":
         setVideos(dishlist.Menu);
         return;
-      case 'Photos':
+      case "Photos":
         setVideos(dishlist.Photos);
         return;
-      case 'Reviews':
+      case "Reviews":
         setVideos(dishlist.Reviews);
         return;
     }
@@ -539,16 +543,16 @@ function MainContent() {
   return (
     <Box
       sx={{
-        '@md': {
-          px: '$8',
-          py: '$8',
-          rounded: '$sm',
+        "@md": {
+          px: "$8",
+          py: "$8",
+          rounded: "$sm",
         },
-        '_light': {
-          bg: 'backgroundLight50',
+        _light: {
+          bg: "backgroundLight50",
         },
-        '_dark': {
-          bg: '$backgroundDark800',
+        _dark: {
+          bg: "$backgroundDark800",
         },
       }}
       px="$4"
@@ -560,8 +564,8 @@ function MainContent() {
         space="md"
         flex={1}
         sx={{
-          '@md': {
-            display: 'flex',
+          "@md": {
+            display: "flex",
           },
         }}
         display="none"
@@ -570,15 +574,15 @@ function MainContent() {
           size="md"
           height="$full"
           sx={{
-            '@md': {
-              w: '$63/100',
+            "@md": {
+              w: "$63/100",
             },
-            '@lg': {
-              w: '$650',
+            "@lg": {
+              w: "$650",
             },
           }}
           rounded="$sm"
-          source={require('./assets/images/restaurantbanner1.png')}
+          source={require("./assets/images/restaurantbanner1.png")}
           alt="gluestack ui"
         />
 
@@ -586,33 +590,33 @@ function MainContent() {
           <Image
             size="md"
             sx={{
-              '@md': {
-                h: '$40',
-                w: '$full',
+              "@md": {
+                h: "$40",
+                w: "$full",
               },
-              '@lg': {
-                h: '$40',
-                w: '$80',
+              "@lg": {
+                h: "$40",
+                w: "$80",
               },
             }}
             rounded="$sm"
-            source={require('./assets/images/restaurantbanner2.png')}
+            source={require("./assets/images/restaurantbanner2.png")}
           />
 
           <Image
             size="md"
             sx={{
-              '@md': {
-                h: '$40',
-                w: '$full',
+              "@md": {
+                h: "$40",
+                w: "$full",
               },
-              '@lg': {
-                h: '$40',
-                w: '$80',
+              "@lg": {
+                h: "$40",
+                w: "$80",
               },
             }}
             rounded="$sm"
-            source={require('./assets/images/restaurantbanner3.png')}
+            source={require("./assets/images/restaurantbanner3.png")}
             alt="gluestack-ui"
           />
         </VStack>
