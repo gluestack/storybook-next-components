@@ -275,7 +275,7 @@ function MainContent() {
   );
 }
 
-export default function () {
+export default function SearchHistory() {
   return (
     <DashboardLayout
       title="Explore"

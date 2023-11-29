@@ -14,7 +14,7 @@ import {
 } from '@gluestack-ui/themed';
 import { ImageSourcePropType, useWindowDimensions } from 'react-native';
 import DashboardLayout from '../Layouts/DashboardLayout';
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 import { ChevronDown, Upload } from 'lucide-react-native';
 
 type ImageList = {
@@ -41,17 +41,17 @@ function Card({
   ...props
 }: { item: ImageList } & { addImageToList: (image: string) => void }) {
   const pickImage = async () => {
-    const result: ImagePicker.ImagePickerResult =
-      await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
+    // const result: ImagePicker.ImagePickerResult =
+    //   await ImagePicker.launchImageLibraryAsync({
+    //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+    //     allowsEditing: true,
+    //     aspect: [4, 3],
+    //     quality: 1,
+    //   });
 
-    if (!result.canceled) {
-      addImageToList(result.assets[0].uri);
-    }
+    // if (!result.canceled) {
+    //   addImageToList(result.assets[0].uri);
+    // }
   };
 
   const isImageUriString = () => {

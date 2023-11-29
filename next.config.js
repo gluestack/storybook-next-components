@@ -13,6 +13,13 @@ const nextConfig = {
     'react-native-keyboard-aware-scroll-view',
     'expo-image-picker',
     'expo-modules-core',
+    'react-native-safe-area-context',
+    '@react-navigation',
+    'react-native-tab-view',
+    'expo-font',
+    'url-loader',
+    'expo-asset',
+    '@expo/vector-icons'
   ],  
   images: {
     remotePatterns: [

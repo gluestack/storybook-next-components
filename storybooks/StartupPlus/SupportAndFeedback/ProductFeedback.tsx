@@ -17,7 +17,7 @@ import {
 } from '@gluestack-ui/themed';
 import type { ImageSourcePropType } from 'react-native';
 import DashboardLayout from '../Layouts/DashboardLayout';
-import * as ImagePicker from 'expo-image-picker';
+import {ImagePickerResult,launchImageLibraryAsync,MediaTypeOptions } from 'expo-image-picker';
 
 import { UploadCloud } from 'lucide-react-native';
 
@@ -143,17 +143,17 @@ function AddPhoto() {
   const [image, setImage] = useState('');
 
   const pickImage = async () => {
-    const result: ImagePicker.ImagePickerResult =
-      await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
+    // const result: ImagePickerResult = 
+    //   await launchImageLibraryAsync({
+    //     mediaTypes: MediaTypeOptions.All,
+    //     allowsEditing: true,
+    //     aspect: [4, 3],
+    //     quality: 1,
+    //   });
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-    }
+    // if (!result.canceled) {
+    //   setImage(result.assets[0].uri);
+    // }
   };
 
   return (
@@ -392,10 +392,13 @@ function MainContent() {
     </VStack>
   );
 }
-export default function () {
+
+const ProductFeedback = () => {
   return (
     <DashboardLayout title="Product Feedback">
       <MainContent />
     </DashboardLayout>
   );
 }
+
+export default ProductFeedback;

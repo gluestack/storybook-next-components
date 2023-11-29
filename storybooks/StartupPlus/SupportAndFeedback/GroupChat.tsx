@@ -461,10 +461,12 @@ function MainContent() {
     </ScrollView>
   );
 }
-export default function GroupChatEdit() {
+const GroupChatEdit = () => {
   return (
     <DashboardLayout title="Group" showGroupInfoHeader displaySidebar={false}>
       <MainContent />
     </DashboardLayout>
   );
 }
+
+export default GroupChatEdit;

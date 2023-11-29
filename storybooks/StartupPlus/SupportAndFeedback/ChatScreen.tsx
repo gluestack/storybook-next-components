@@ -429,7 +429,8 @@ function MainContent() {
     </Box>
   );
 }
-export default function () {
+
+const ChatScreen = () => {
   return (
     <ChatLayout
       title='Freak Friends'
@@ -440,3 +441,5 @@ export default function () {
     </ChatLayout>
   );
 }
+
+export default ChatScreen;

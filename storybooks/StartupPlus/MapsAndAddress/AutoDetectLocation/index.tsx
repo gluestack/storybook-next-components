@@ -13,7 +13,7 @@ import {
   ButtonText,
   InputSlot,
 } from '@gluestack-ui/themed';
-import Map from './Map';
+// import Map from './Map';
 import { MapPin, X } from 'lucide-react-native';
 
 const AddressBadge = ({
@@ -160,7 +160,7 @@ export default function AutoDetectLocation() {
             />
           </InputSlot>
         </Input>
-        <Map />
+        {/* <Map /> */}
         <Box p="$4">
           <HStack
             borderRadius="$sm"

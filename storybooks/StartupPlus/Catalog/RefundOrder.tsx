@@ -18,7 +18,7 @@ import {
   InputField,
 } from '@gluestack-ui/themed';
 import { ImageSourcePropType, Keyboard } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import { ChevronRight, UploadCloud } from 'lucide-react-native';
 
@@ -167,17 +167,17 @@ function AddPhoto() {
   const [image, setImage] = useState<string>('');
 
   const pickImage = async () => {
-    const result: ImagePicker.ImagePickerResult =
-      await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
+    // const result: ImagePicker.ImagePickerResult =
+    //   await ImagePicker.launchImageLibraryAsync({
+    //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+    //     allowsEditing: true,
+    //     aspect: [4, 3],
+    //     quality: 1,
+    //   });
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-    }
+    // if (!result.canceled) {
+    //   setImage(result.assets[0].uri);
+    // }
   };
 
   return (
