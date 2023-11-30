@@ -12,13 +12,11 @@ import {
   ButtonText,
   useBreakpointValue,
 } from '@gluestack-ui/themed';
-import { ImageSourcePropType, ListRenderItemInfo, useWindowDimensions } from 'react-native';
+import { ImageSourcePropType, useWindowDimensions } from 'react-native';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import { Heart, Star } from 'lucide-react-native';
-import { FlatList } from '@gluestack-ui/themed';
 
 type ProductType = {
-  key: string;
   image: ImageSourcePropType;
   type: string;
   category: string;
@@ -309,43 +307,25 @@ function Item(props: ProductType) {
 }
 
 function ProductAddons(props: ProductAddons) {
-  const productCollection: ProductType[] = [
-    ...(props.showAll ? products : products.slice(0, 4)), 
-  ];
-  const [numColumns, setNumColumns] = useState(5);
-  const [itemList, setItemList] = useState<ProductType[]>([]);
+  let [productCollectionValue, setProductCollectionValue] = useState<ProductType[]>(props.showAll ? products : products.slice(0, 4));
+  const productCollection: ProductType[] = useBreakpointValue({
+    base: props.showAll ? products : products.slice(0, 2),
+    lg: props.showAll ? products : products.slice(0, 3),
+    xl: props.showAll ? products : products.slice(0, 4),
+  });
 
   useEffect(() => {
-    const updateItemList = () => {
-      const updatedList: ProductType[] = props.showAll ? products : products.slice(0, numColumns);
-      setItemList(updatedList.map((item, index) => ({ ...item, key: index.toString() })));
-    };
-
-    updateItemList();
-  }, [numColumns, props.showAll]);
-
-  const noColumn = useBreakpointValue({
-    base: 2,
-    md: 3,
-    lg: 4,
-  }); 
-
-  useEffect(() => {
-    if (noColumn !== numColumns) {
-      setNumColumns(noColumn);
+    if(productCollection !== productCollectionValue) {
+      setProductCollectionValue(productCollection);
     }
-  }, [noColumn]);
+  }, productCollection)
   return (
     <>
-      <FlatList
-        key={numColumns.toString()}
-        numColumns={numColumns}
-        data={itemList}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item }: ListRenderItemInfo<ProductType>) => <Item {...item} />}
-        keyExtractor={(item: ProductType) => item.key}
-        style={{ width: '100%' }} 
-      />
+      <HStack flexWrap="wrap" justifyContent="flex-start">
+        {productCollectionValue.map((item, key) => {
+          return <Item {...item} key={key} />;
+        })}
+      </HStack>
     </>
   );
 }
