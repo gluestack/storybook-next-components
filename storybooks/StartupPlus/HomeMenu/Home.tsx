@@ -317,7 +317,7 @@ const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
           <TrendingCourses courses={trendingCourses} />
         </VStack>
       </DashboardLayout>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons} />
     </>
   );
 };
@@ -329,6 +329,7 @@ const HomePage = () => {
         screenOptions={{
           headerShown: false,
         }}
+        initialRouteName="Home" // Set the default screen
       >
         <StackNavigator.Screen name="Home" component={Home} />
         <StackNavigator.Screen name="Syllabus" component={Home} />
@@ -338,4 +339,4 @@ const HomePage = () => {
     </NavigationContainer>
   );
 };
-export default HomePage;
+export default Home;

@@ -397,12 +397,12 @@ function VideoLibrary({
           }}
         ></Box>
       </DashboardLayout>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons} />
     </>
   );
 }
 
-export default function MyTabs() {
+function MyTabs() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -418,3 +418,5 @@ export default function MyTabs() {
     </NavigationContainer>
   );
 }
+
+export default VideoLibrary;

@@ -430,12 +430,12 @@ function TopPerformingStocks({
       <DashboardLayout title="Dashboard" rightPanelMobileHeader>
         <MainContent />
       </DashboardLayout>
-      <MobileFooter navigation={navigation} footerIcons={footerIcons} />
+      <MobileFooter footerIcons={footerIcons} />
     </>
   );
 }
 
-export default function () {
+function TopPerformingStocksMain() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -451,3 +451,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default TopPerformingStocks;

@@ -1473,11 +1473,11 @@ function PlaylistScreen({
       <Box display="none" sx={{ '@md': { display: 'flex' } }}>
         <DesktopMinimizedSong />
       </Box>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons}/>
     </VStack>
   );
 }
-export default function () {
+ function Playlist() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -1493,3 +1493,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default PlaylistScreen;

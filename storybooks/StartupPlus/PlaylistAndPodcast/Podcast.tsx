@@ -543,12 +543,12 @@ function PodcastScreen({
           <Carousal itemList={speakers} heading="Speakers" />
         </Box>
       </DashboardLayout>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons} />
     </>
   );
 }
 
-export default function () {
+function PodcastMain() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -564,3 +564,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default PodcastScreen;

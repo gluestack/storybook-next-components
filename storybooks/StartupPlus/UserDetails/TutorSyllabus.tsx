@@ -190,12 +190,12 @@ function TutorSyllabusScreen({ navigation }: { navigation: SyllabusNavigationPro
           <SyllabusList />
         </Box>
       </DashboardLayout>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons} />
     </>
   );
 }
 
-export default function TutorSyllabus() {
+function TutorSyllabus() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -211,3 +211,5 @@ export default function TutorSyllabus() {
     </NavigationContainer>
   );
 }
+
+export default TutorSyllabusScreen;

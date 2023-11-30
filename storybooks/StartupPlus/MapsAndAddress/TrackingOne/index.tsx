@@ -88,12 +88,12 @@ function TrackingOne({ navigation }: { navigation: any }) {
           <InformationBox />
         </Box>
       </DashboardLayout>
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons}  />
     </>
   );
 }
 
-export default function () {
+function TrackingOneMain() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -109,3 +109,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default TrackingOne;

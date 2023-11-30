@@ -242,17 +242,17 @@ export default function ChatLayout({
   return (
     <Box
       sx={{
-        _web: {
-          height: '100vh',
-          overflow: 'hidden',
-        },
+        // _web: {
+          // height: '100vh',
+          // overflow: 'hidden',
+        // },
       }}
-      height='$full'
+      // height='$full'
     >
       <StatusBar translucent backgroundColor='$none' barStyle='light-content' />
       <Box bg='$primary500' sx={{ _dark: { bg: '$backgroundDark900' } }} />
       <VStack
-        flex={1}
+        // flex={1}
         bg='$primary50'
         sx={{ _dark: { bg: '$backgroundDark800' } }}
       >

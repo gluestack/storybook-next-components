@@ -158,12 +158,12 @@ function TrackingThree({ navigation }: { navigation: any }) {
         </Box>
       </DashboardLayout>
 
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons}  />
     </>
   );
 }
 
-export default function () {
+function TrackingThreeMain() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -179,3 +179,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default TrackingThree;

@@ -159,12 +159,12 @@ function Tracking({ navigation }: { navigation: any }) {
         <InformationBox />
       </DashboardLayout>
 
-      <MobileFooter footerIcons={footerIcons} navigation={navigation} />
+      <MobileFooter footerIcons={footerIcons}  />
     </>
   );
 }
 
-export default function () {
+function TrackingMain() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator
@@ -180,3 +180,5 @@ export default function () {
     </NavigationContainer>
   );
 }
+
+export default Tracking;

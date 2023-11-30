@@ -12,7 +12,7 @@ export default function GuestLayout(props: GuestLayoutProps) {
       <Box
         sx={{
           _web: {
-            height: '100vh',
+            height: 790,
             overflow: 'hidden',
           },
         }}

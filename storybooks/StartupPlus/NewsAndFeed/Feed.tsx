@@ -818,12 +818,12 @@ function FeedScreen({ navigation }: { navigation: FeedNavigationProp }) {
           </Box>
         </HStack>
       </DashboardLayout>
-      <MobileFooter navigation={navigation} footerIcons={navigationItems} />
+      <MobileFooter footerIcons={navigationItems} />
     </>
   );
 }
 
-export default function Feed() {
+function Feed() {
   return (
     <>
       <NavigationContainer>
@@ -842,3 +842,5 @@ export default function Feed() {
     </>
   );
 }
+
+export default FeedScreen;

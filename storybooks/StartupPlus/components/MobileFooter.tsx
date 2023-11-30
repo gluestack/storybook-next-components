@@ -3,13 +3,14 @@ import { HStack, Icon, Text, Pressable } from '@gluestack-ui/themed';
 import { useRoute } from '@react-navigation/native';
 
 export default function MobileFooter({
-  navigation,
+  // navigation,
   footerIcons,
 }: {
-  navigation: any;
+  // navigation: any;
   footerIcons: any;
 }) {
-  const route = useRoute();
+  // const route = useRoute();
+  const route = {name: "Home"} 
   return (
     <HStack
       justifyContent="space-between"
@@ -48,7 +49,7 @@ export default function MobileFooter({
               flex={1}
               flexDirection="column"
               alignItems="center"
-              onPress={() => navigation.navigate(item.iconText)}
+              // onPress={() => navigation.navigate(item.iconText)}
             >
               <Icon
                 as={item.iconName}

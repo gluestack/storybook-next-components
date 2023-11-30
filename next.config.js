@@ -19,7 +19,8 @@ const nextConfig = {
     'expo-font',
     'url-loader',
     'expo-asset',
-    '@expo/vector-icons'
+    '@expo/vector-icons',
+    'react-native-maps'
   ],  
   images: {
     remotePatterns: [

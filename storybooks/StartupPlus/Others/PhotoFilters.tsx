@@ -15,7 +15,7 @@ import {
   useBreakpointValue,
 } from '@gluestack-ui/themed';
 import DashboardLayout from '../Layouts/DashboardLayout';
-import { MaterialIcons } from '@expo/vector-icons';
+// import { MaterialIcons } from '@expo/vector-icons';
 import { Platform, useWindowDimensions } from 'react-native';
 import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 import { FlipHorizontal } from 'lucide-react-native';
@@ -339,7 +339,7 @@ function MobileContent({
           <Icon
             h="$8"
             w="$8"
-            as={MaterialIcons}
+            as={FlipHorizontal}
             sx={{
               _light: {
                 color: '$textLight800',
@@ -354,7 +354,7 @@ function MobileContent({
           <Icon
             h="$8"
             w="$8"
-            as={MaterialIcons}
+            as={FlipHorizontal}
             sx={{
               _light: {
                 color: '$textLight800',

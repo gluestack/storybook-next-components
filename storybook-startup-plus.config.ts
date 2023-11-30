@@ -150,9 +150,9 @@ export default {
   Gallery: {
     story: Gallery,
   },
-  // HomePage:{
-  //   story:HomePage   // navigation
-  // },
+  HomePage:{
+    story:HomePage   // navigation
+  },
   NoInternet: {
     story: NoInternet,
   },
@@ -161,22 +161,22 @@ export default {
   },
   // Login ===========================
   CreatePassword: {
-    story: CreatePassword,
+    story: CreatePassword,   // height Issue
   },
   ForgotPassword: {
-    story: ForgotPassword,
+    story: ForgotPassword,   // height Issue
   },
   OtpVerification: {
-    story: OtpVerification,
+    story: OtpVerification,   // height Issue
   },
   SignIn: {
-    story: SignIn,
+    story: SignIn,   // height Issue
   },
   SignUp: {
-    story: SignUp,
+    story: SignUp,   // height Issue
   },
   SplashScreen: {
-    story: SplashScreen,
+    story: SplashScreen,   // height Issue
   },
   // MapsAndAddress ===========================
   DeliveryMethod: {
@@ -191,28 +191,28 @@ export default {
   WeatherDisplay: {
     story: WeatherDisplay,
   },
-  // AutoDetectLocation:{
-  //   story: AutoDetectLocation // map
-  // },
-  // StoreLocatorOne:{
-  //   story:StoreLocatorOne // map
-  // },
-  // StoreLocatorTwo: {
-  //   story: StoreLocatorTwo, // map
-  // },
-  // TrackingOne: {
-  //   story: TrackingOne, // map
-  // },
-  // TrackingTwo: {
-  //   story: TrackingTwo, // map
-  // },
-  // TrackingThree: {
-  //   story: TrackingThree, // map
-  // },
+  AutoDetectLocation:{
+    story: AutoDetectLocation // map
+  },
+  StoreLocatorOne:{
+    story:StoreLocatorOne // map
+  },
+  StoreLocatorTwo: {
+    story: StoreLocatorTwo, // map
+  },
+  TrackingOne: {
+    story: TrackingOne, // map
+  },
+  TrackingTwo: {
+    story: TrackingTwo, // map
+  },
+  TrackingThree: {
+    story: TrackingThree, // map
+  },
   // NewsAndFeed ===========================
-  // Feed: {
-  //   story: Feed,   // navigation
-  // },
+  Feed: {
+    story: Feed,   // navigation
+  },
   Newletter: {
     story: Newsletter,
   },
@@ -254,9 +254,9 @@ export default {
   Page404: {
     story: Page404,
   },
-  // PhotoFilters:{
-  //   story:PhotoFilters  // Icon syntax
-  // },
+  PhotoFilters:{
+    story:PhotoFilters  // Icon syntax
+  },
   Restaurants: {
     story: Restaurants,
   },
@@ -292,15 +292,15 @@ export default {
   EmptyPlaylist: {
     story: EmptyPlaylist,
   },
-  // Playlist: {
-  //   story: Playlist,   // navigation
-  // },
-  // Podcast: {
-  //   story: Podcast,    // navigation
-  // },
-  // VideoLibrary: {
-  //   story: VideoLibrary,    // navigation
-  // },
+  Playlist: {
+    story: Playlist,   // navigation
+  },
+  Podcast: {
+    story: Podcast,    // navigation
+  },
+  VideoLibrary: {
+    story: VideoLibrary,    // navigation
+  },
   // ProductDetails ===========================
   FullScreenProductPage: {
     story: FullScreenProductPage,
@@ -340,9 +340,9 @@ export default {
   PortFolioOverview: {
     story: PortFolioOverview,
   },
-  // TopPerformingStocks:{
-  //   story:TopPerformingStocks      // navigation
-  // },
+  TopPerformingStocks:{
+    story:TopPerformingStocks      // navigation
+  },
   // SupportAndFeedback ===========================
   AddOns: {
     story: AddOns,
@@ -354,7 +354,7 @@ export default {
     story: ChatList1,
   },
   ChatScreen:{
-    story:ChatScreen
+    story:ChatScreen // height Issue
   },
   GroupChat: {
     story: GroupChat,
@@ -384,7 +384,7 @@ export default {
   TutorQRCode: {
     story: TutorQRCode,
   },
-  // TutorSyllabus:{
-  //   story:TutorSyllabus  // navigation
-  // }
+  TutorSyllabus:{
+    story:TutorSyllabus  // navigation
+  }
 } as any;
