@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   HStack,
@@ -307,15 +307,22 @@ function Item(props: ProductType) {
 }
 
 function ProductAddons(props: ProductAddons) {
+  let [productCollectionValue, setProductCollectionValue] = useState<ProductType[]>(props.showAll ? products : products.slice(0, 4));
   const productCollection: ProductType[] = useBreakpointValue({
     base: props.showAll ? products : products.slice(0, 2),
     lg: props.showAll ? products : products.slice(0, 3),
     xl: props.showAll ? products : products.slice(0, 4),
   });
+
+  useEffect(() => {
+    if(productCollection !== productCollectionValue) {
+      setProductCollectionValue(productCollection);
+    }
+  }, productCollection)
   return (
     <>
       <HStack flexWrap="wrap" justifyContent="flex-start">
-        {productCollection.map((item, key) => {
+        {productCollectionValue.map((item, key) => {
           return <Item {...item} key={key} />;
         })}
       </HStack>

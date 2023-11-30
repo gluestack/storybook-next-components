@@ -345,10 +345,9 @@ export default {
   // TopPerformingStocks:{
   //   story:TopPerformingStocks
   // },
-  // SupportAndFeedback ===========================
-  // AddOns: {
-  //   story: AddOns,
-  // },
+  AddOns: {
+    story: AddOns,
+  },
   ChatList: {
     story: ChatList,
   },
