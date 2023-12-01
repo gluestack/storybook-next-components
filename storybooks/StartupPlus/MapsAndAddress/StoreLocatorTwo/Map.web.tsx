@@ -176,7 +176,7 @@ export default function WebMap() {
   //     });
   //   }
   // }, [mapLoaded]);
-  return <View w={684} h={644} bg="$green600"/>;
+  return <View w={754} h={644} bg="$green600"/>;
     return (
       <Box
         bg="$backgroundLight200"

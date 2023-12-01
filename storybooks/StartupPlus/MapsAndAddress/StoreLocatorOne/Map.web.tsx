@@ -35,7 +35,7 @@ export default function Map() {
   //     });
   //   }
   // }, [mapLoaded]);
- return <View w={754} h={594} bg="$green600" />;
+ return <View flex={1}  />;
     return (
       <Box
         bg="$backgroundLight200"
