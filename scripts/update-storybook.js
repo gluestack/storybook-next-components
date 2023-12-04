@@ -9,10 +9,15 @@ const simpleGit = require('simple-git');
 // const STORIES_TARGET_PATH = 'components/stories';
 
 // GLUESTACK STARTER PLUS -----
-const BRANCH = 'startup-plus-main';
-const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro.git';
-const STORIES_SOURCE_PATH = 'src/stories/StartupPlus';
-const STORIES_TARGET_PATH = 'storybooks/StartupPlus/';
+// const BRANCH = 'startup-plus-main';
+// const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro.git';
+// const STORIES_SOURCE_PATH = 'src/stories/StartupPlus';
+// const STORIES_TARGET_PATH = 'storybooks/StartupPlus/';
+
+const BRANCH = 'main';
+const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro-components.git';
+const STORIES_SOURCE_PATH = 'src/stories/';
+const STORIES_TARGET_PATH = 'storybooks/GluestackUiPro/';
 
 const storybookClonePath = path.join(__dirname, '..', 'gluestack');
 

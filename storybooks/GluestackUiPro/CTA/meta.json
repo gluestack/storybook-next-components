@@ -1,0 +1,34 @@
+{
+  "name": "CTA",
+  "description": "The CTA (Call to Action) module is a component designed to prompt and guide users towards a specific action, such as signing up for a service, making a purchase, or subscribing to a newsletter. It typically includes compelling copy, buttons, and visually appealing elements to encourage user engagement and conversions.",
+  "storyTitle": "stories-pro-cta",
+  "bannerImage": "/images/component-banner-images/features.svg",
+  "components": [
+    {
+      "name": "Cta Centred",
+      "description": "Cta centred description",
+      "componentName": "CtaCentred",
+      "isFree": true
+    },
+    {
+      "name": "Cta Centred On Accent",
+      "description": "Cta centred on accent description",
+      "componentName": "CtaCentredOnAccent"
+    },
+    {
+      "name": "Cta With Image",
+      "description": "Cta with image description",
+      "componentName": "CtaWithImage"
+    },
+    {
+      "name": "Cta Boxed",
+      "description": "Cta boxed description",
+      "componentName": "CtaBoxed"
+    },
+    {
+      "name": "Cta Boxed On Accent",
+      "description": "Cta boxed on accent description",
+      "componentName": "CtaBoxedOnAccent"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Newsletter",
+  "description": "The Newsletter module is a tool that enables users to subscribe to receive regular updates, news, and information from a particular source, such as a website or organization. It typically includes a signup form where users can provide their email addresses and often offers incentives or benefits to encourage subscriptions, such as exclusive content or special offers.",
+  "storyTitle": "stories-newsletter",
+  "bannerImage": "/images/component-banner-images/features.svg",
+  "components": [
+    {
+      "name": "Newsletter Form With Image",
+      "description": "Newsletter form with image description",
+      "componentName": "NewsletterFormWithImage",
+      "isFree": true
+    },
+    {
+      "name": "Newsletter Form Inline",
+      "description": "Newsletter from inline description",
+      "componentName": "NewsletterFormInline"
+    },
+    {
+      "name": "Newsletter Form Inline Boxed",
+      "description": "Newsletter form inline boxed description",
+      "componentName": "NewsletterFormInlineBoxed"
+    },
+    {
+      "name": "Newsletter Form Centered",
+      "description": "Newsletter form centered description",
+      "componentName": "NewsletterFormCentered"
+    },
+    {
+      "name": "Newsletter Form Centered Boxed",
+      "description": "Newsletter form centered boxed description",
+      "componentName": "NewsletterFormCenteredBoxed"
+    }
+  ]
+}

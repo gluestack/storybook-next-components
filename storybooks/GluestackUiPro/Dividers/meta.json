@@ -1,0 +1,34 @@
+{
+  "name": "Dividers",
+  "description": "The Divider module in UI Pro Components is a simple yet effective component used to visually separate sections of a user interface. It offers a range of customizable options such as color, thickness, and style, allowing designers to add subtle or prominent dividers that enhance the overall layout and organization of their UI design.",
+  "storyTitle": "stories-pro-dividers",
+  "bannerImage": "/images/component-banner-images/features.svg",
+  "components": [
+    {
+      "name": "Divider With Text",
+      "description": "Divider With Text description",
+      "componentName": "DividerWithText",
+      "isFree": true
+    },
+    {
+      "name": "Divider With Button",
+      "description": "Divider With Button description",
+      "componentName": "DividerWithButton"
+    },
+    {
+      "name": "Divider Icon Button",
+      "description": "Divider Icon Button description",
+      "componentName": "DividerIconButton"
+    },
+    {
+      "name": "Divider With Button Group",
+      "description": "Divider With Button Group description",
+      "componentName": "DividerWithButtonGroup"
+    },
+    {
+      "name": "Divider With Icon Group",
+      "description": "Divider With Icon Group description",
+      "componentName": "DividerWithIconGroup"
+    }
+  ]
+}

@@ -6,6 +6,10 @@ import GluestackStoryData, {
   config as GluestackUIconfig,
 } from '@/storybook-gluestack-ui.config';
 
+import GluestackUiProStoryData, {
+  config as GluestackUIProconfig,
+} from '@/storybook-gluestac-ui-pro.config';
+
 const GluestackUI = {
   GENERATION_TYPE: 'Components',
   StoryData: GluestackStoryData,
@@ -26,4 +30,14 @@ const StartupPlus = {
   STORIES_TARGET_PATH: 'storybooks/StartupPlus/',
 };
 
-export default StartupPlus;
+const GluestackUiPro = {
+  GENERATION_TYPE: 'Screens',
+  StoryData: GluestackUiProStoryData,
+  config: StartupPlusconfig,
+  BRANCH: 'startup-plus-main',
+  GITHUB_REPO_URL: 'git@github.com:gluestack/gluestack-ui-pro-components.git',
+  STORIES_SOURCE_PATH: 'src/stories/',
+  STORIES_TARGET_PATH: 'storybooks/GluestackUiPro/',
+};
+
+export default GluestackUiPro;

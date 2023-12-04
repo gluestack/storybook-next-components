@@ -1,0 +1,34 @@
+{
+  "name": "Features",
+  "description": "The Features module in UI Pro Components empowers users to showcase the key features and highlights of a product, service, or platform. With its flexible layout options and customizable elements, this module enables the creation of visually appealing feature sections that effectively communicate the unique selling points and benefits of the offering.",
+  "storyTitle": "stories-pro-features",
+  "bannerImage": "/images/component-banner-images/features.svg",
+  "components": [
+    {
+      "name": "Feature Hero Image",
+      "description": "Feature Hero Image description",
+      "componentName": "FeatureHeroImage",
+      "isFree": true
+    },
+    {
+      "name": "Feature Hero Image Accent",
+      "description": "Feature Hero Image Accent description",
+      "componentName": "FeatureHeroImageAccent"
+    },
+    {
+      "name": "Feature Side By Side Image",
+      "description": "Feature Side By Side Image description",
+      "componentName": "FeatureSideBySideImage"
+    },
+    {
+      "name": "Feature Three Columns",
+      "description": "Feature Three Columns description",
+      "componentName": "FeatureThreeColumns"
+    },
+    {
+      "name": "Feature Three Columns Centered",
+      "description": "Feature Three Columns Centered description",
+      "componentName": "FeatureThreeColumnsCentered"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Blog",
+  "description": "The Blog module in UI Pro Components is a versatile component designed to display and organize blog content. It provides a user-friendly interface for creating and managing blog posts, allowing users to easily share their thoughts, articles, and updates with their audience.",
+  "storyTitle": "stories-pro-blog",
+  "bannerImage": "/images/component-banner-images/features.svg",
+  "components": [
+    {
+      "name": "Blog With Single Column",
+      "description": "Blog with single column description",
+      "componentName": "BlogWithSingleColumn",
+      "isFree": true
+    },
+    {
+      "name": "Blog With Cards",
+      "description": "Blog with cards description",
+      "componentName": "BlogWithCards"
+    },
+    {
+      "name": "Blog With Three Columns",
+      "description": "Blog with three columns description",
+      "componentName": "BlogWithThreeColumns"
+    },
+    {
+      "name": "Blog With Hero Image",
+      "description": "Blog with hero image description",
+      "componentName": "BlogWithHeroImage"
+    }
+  ]
+}

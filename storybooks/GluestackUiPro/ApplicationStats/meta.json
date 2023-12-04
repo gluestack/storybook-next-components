@@ -1,0 +1,39 @@
+{
+  "name": "ApplicationStats",
+  "description": "The Application Stats UI module is a visually appealing component that presents key metrics and data related to an application, enabling users to monitor performance and make informed decisions for optimization.",
+  "storyTitle": "stories-pro-applicationstats",
+  "bannerImage": "/images/component-banner-images/banner.svg",
+  "components": [
+    {
+      "name": "Stats with label",
+      "description": "Stats with label description",
+      "componentName": "StatsWithLabel",
+      "isFree": true
+    },
+    {
+      "name": "Stats With CTA",
+      "description": "Stats with call to action description",
+      "componentName": "StatsWithCTA"
+    },
+    {
+      "name": "Stats With Rate Badge",
+      "description": "Stats with rate badge description",
+      "componentName": "StatsWithRateBadge"
+    },
+    {
+      "name": "Stats With Progress Bar",
+      "description": "Stats with progress bar description",
+      "componentName": "StatsWithProgressBar"
+    },
+    {
+      "name": "Stats With Icon",
+      "description": "Stats with icon description",
+      "componentName": "StatsWithIcon"
+    },
+    {
+      "name": "Stats With Divider",
+      "description": "Stats with divider description",
+      "componentName": "StatsWithDivider"
+    }
+  ]
+}
