@@ -151,7 +151,7 @@ export default {
     story: Gallery,
   },
   HomePage:{
-    story:HomePage   // navigation
+    story:HomePage   
   },
   NoInternet: {
     story: NoInternet,
@@ -159,24 +159,24 @@ export default {
   RateUs: {
     story: RateUs,
   },
-  // Login ===========================
+  // Authentication ===========================
   CreatePassword: {
-    story: CreatePassword,   // height Issue
+    story: CreatePassword,
   },
   ForgotPassword: {
-    story: ForgotPassword,   // height Issue
+    story: ForgotPassword,
   },
   OtpVerification: {
-    story: OtpVerification,   // height Issue
+    story: OtpVerification,
   },
   SignIn: {
-    story: SignIn,   // height Issue
+    story: SignIn,
   },
   SignUp: {
-    story: SignUp,   // height Issue
+    story: SignUp,
   },
   SplashScreen: {
-    story: SplashScreen,   // height Issue
+    story: SplashScreen,
   },
   // MapsAndAddress ===========================
   DeliveryMethod: {
@@ -192,26 +192,26 @@ export default {
     story: WeatherDisplay,
   },
   AutoDetectLocation:{
-    story: AutoDetectLocation // map
+    story: AutoDetectLocation 
   },
   StoreLocatorOne:{
-    story:StoreLocatorOne // map
+    story:StoreLocatorOne 
   },
   StoreLocatorTwo: {
-    story: StoreLocatorTwo, // map
+    story: StoreLocatorTwo, 
   },
   TrackingOne: {
-    story: TrackingOne, // map
+    story: TrackingOne, 
   },
   TrackingTwo: {
-    story: TrackingTwo, // map
+    story: TrackingTwo, 
   },
   TrackingThree: {
-    story: TrackingThree, // map
+    story: TrackingThree, 
   },
   // NewsAndFeed ===========================
   Feed: {
-    story: Feed,   // navigation
+    story: Feed,   
   },
   Newletter: {
     story: Newsletter,
@@ -255,10 +255,10 @@ export default {
     story: Page404,
   },
   PhotoFilters:{
-    story:PhotoFilters  // Icon syntax
+    story:PhotoFilters  // Regenerate
   },
   Restaurants: {
-    story: Restaurants,
+    story: Restaurants, // Regenerate
   },
   SeatSelection: {
     story: SeatSelection,
@@ -293,13 +293,13 @@ export default {
     story: EmptyPlaylist,
   },
   Playlist: {
-    story: Playlist,   // navigation
+    story: Playlist,   
   },
   Podcast: {
-    story: Podcast,    // navigation
+    story: Podcast,    
   },
   VideoLibrary: {
-    story: VideoLibrary,    // navigation
+    story: VideoLibrary,    
   },
   // ProductDetails ===========================
   FullScreenProductPage: {
@@ -341,7 +341,7 @@ export default {
     story: PortFolioOverview,
   },
   TopPerformingStocks:{
-    story:TopPerformingStocks      // navigation
+    story:TopPerformingStocks     
   },
   // SupportAndFeedback ===========================
   AddOns: {
@@ -354,7 +354,7 @@ export default {
     story: ChatList1,
   },
   ChatScreen:{
-    story:ChatScreen // height Issue
+    story:ChatScreen
   },
   GroupChat: {
     story: GroupChat,
@@ -385,6 +385,6 @@ export default {
     story: TutorQRCode,
   },
   TutorSyllabus:{
-    story:TutorSyllabus  // navigation
+    story:TutorSyllabus 
   }
 } as any;

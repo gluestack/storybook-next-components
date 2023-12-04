@@ -152,7 +152,7 @@ const StocksPerformance = () => {
     { key: 'Value', title: 'Active by value' },
   ]);
   return (
-    <Box w="$full" h="$full">
+    <Box w="$full" h={800}>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
