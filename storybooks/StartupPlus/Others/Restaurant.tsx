@@ -380,20 +380,19 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
           return (
             <Box key={index} mt="$2" pt="$6">
               <VStack
-                space="sm"
+                space="lg"
                 key={index}
                 // reversed={reverseSequence}
                 sx={{
                   "@md": {
-                    justifyContent: "space-between",
-                    flexDirection:"row"
-
+                    justifyContent: "left",
+                    flexDirection: "row",
                   },
                 }}
-                flexDirection="column"
-                alignItems='flex-start'
+                justifyContent="space-between"
+                flexDirection="row-reverse"
               >
-                <>
+                <VStack space="md">
                   <Pressable>
                     <Image
                       rounded="$sm"
@@ -404,32 +403,26 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
                       key={item.dishName}
                     />
                   </Pressable>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    action="primary"
+                    isDisabled={false}
+                    isFocusVisible={false}
+                  >
+                    <ButtonText fontSize="$xs">{item.buttonText} </ButtonText>
+                  </Button>
+                </VStack>
 
-                  <Box mt="$1" w="$1/2">
-                    <Image
-                      source={require("./assets/images/Veg.png")}
-                      size="2xs"
-                      alt="Alternate text"
-                    />
-                    <Pressable>
-                      <Text
-                        mt="$3"
-                        sx={{
-                          _light: {
-                            color: "$textLight800",
-                          },
-                          _dark: {
-                            color: "$textDark50",
-                          },
-                        }}
-                        fontSize="$md"
-                        fontWeight="medium"
-                      >
-                        {item.dishName}
-                      </Text>
-                    </Pressable>
-
+                <Box mt="$1" w="$1/2">
+                  <Image
+                    source={require("./assets/images/Veg.png")}
+                    size="2xs"
+                    alt="Alternate text"
+                  />
+                  <Pressable>
                     <Text
+                      mt="$3"
                       sx={{
                         _light: {
                           color: "$textLight800",
@@ -441,51 +434,56 @@ function Dishlist({ currentTab }: { currentTab: DishList[] }) {
                       fontSize="$md"
                       fontWeight="medium"
                     >
-                      {item.dishAmount}
+                      {item.dishName}
                     </Text>
-                    <HStack alignItems="center" mt="$1">
-                      <Icon as={Star} size="md" color="$amber400" />
-                      <Text
-                        sx={{
-                          _light: {
-                            color: "$textLight800",
-                          },
-                          _dark: {
-                            color: "$textDark50",
-                          },
-                        }}
-                        fontSize="$sm"
-                        fontWeight="normal"
-                      >
-                        4.9
-                      </Text>
-                      <Text
-                        fontSize="$sm"
-                        fontWeight="normal"
-                        sx={{
-                          _light: {
-                            color: "textLight.500",
-                          },
-                          _dark: {
-                            color: "textDark.400",
-                          },
-                        }}
-                      >
-                        (120)
-                      </Text>
-                    </HStack>
-                  </Box>
-                </>
+                  </Pressable>
 
-                <Button
-                  size="sm"
-                  variant="outline"
-                  action="primary"
-                  isDisabled={false}
-                  isFocusVisible={false}
-                >
-                  <ButtonText fontSize="$xs">{item.buttonText} </ButtonText>
-                </Button>
+                  <Text
+                    sx={{
+                      _light: {
+                        color: "$textLight800",
+                      },
+                      _dark: {
+                        color: "$textDark50",
+                      },
+                    }}
+                    fontSize="$md"
+                    fontWeight="medium"
+                  >
+                    {item.dishAmount}
+                  </Text>
+                  <HStack alignItems="center" mt="$1">
+                    <Icon as={Star} size="md" color="$amber400" />
+                    <Text
+                      sx={{
+                        _light: {
+                          color: "$textLight800",
+                        },
+                        _dark: {
+                          color: "$textDark50",
+                        },
+                      }}
+                      fontSize="$sm"
+                      fontWeight="normal"
+                    >
+                      4.9
+                    </Text>
+                    <Text
+                      fontSize="$sm"
+                      fontWeight="normal"
+                      sx={{
+                        _light: {
+                          color: "textLight.500",
+                        },
+                        _dark: {
+                          color: "textDark.400",
+                        },
+                      }}
+                    >
+                      (120)
+                    </Text>
+                  </HStack>
+                </Box>
               </VStack>
               {index === currentTab.length - 1 ? null : (
                 <Divider
@@ -639,4 +637,3 @@ export default function Restaurants() {
     </DashboardLayout>
   );
 }
-
