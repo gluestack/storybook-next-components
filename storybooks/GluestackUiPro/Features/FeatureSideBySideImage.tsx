@@ -126,7 +126,7 @@ const Feature = ({
   );
 };
 
-const FeatureSideBySideImage: FC = () => {
+const FeatureSideBySideImage: FC = (_props: any) => {
   return (
     <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
       <Box
@@ -201,16 +201,17 @@ const FeatureSideBySideImage: FC = () => {
         </VStack>
 
         <Box
-          flexDirection="column"
-          sx={{
-            '@md': {
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            },
-          }}
+        flexDirection="column"
+        sx={{
+          '@md': {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          },
+        }}
         >
           <Image
             height={350}
+            w="$full"
             sx={{
               '@md': {
                 flex: 1,

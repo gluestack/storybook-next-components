@@ -26,6 +26,7 @@ import {
   TextareaInput,
   ScrollView,
   ButtonText,
+  ToastTitle,
 } from '@gluestack-ui/themed';
 import { Edit2, Trash2, AlertTriangle } from 'lucide-react-native';
 import { Controller, useForm } from 'react-hook-form';
@@ -118,11 +119,11 @@ const AddCardModal = ({
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>
+            <ToastTitle>
               {editExperience?.title
                 ? 'Edited Successfully!'
                 : 'Added Successfully!'}
-            </Toast.Title>
+            </ToastTitle>
           </Toast>
         );
       },
@@ -201,7 +202,6 @@ const AddCardModal = ({
                     },
                   }}
                   render={({ field: { onChange, onBlur, value } }) => (
-                    // @ts-ignore
                     <Textarea w="$full">
                       <TextareaInput
                         value={value}
@@ -262,7 +262,7 @@ const DeleteCardModal = ({
       render: ({ toastid }) => {
         return (
           <Toast nativeID={toastid} variant="accent" action="success">
-            <Toast.Title>Deleted Successfully!</Toast.Title>
+            <ToastTitle>Deleted Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -322,23 +322,27 @@ const List = ({ item, setCardData, setShowModal, setEditExperience }: List) => {
     <HStack
       alignItems="flex-start"
       borderTopWidth="$1"
-      borderTopColor="$borderDark100"
       pt="$4"
       justifyContent="space-between"
       sx={{
+        _light: {
+          borderTopColor: '$borderLight300',
+        },
         _dark: {
-          borderTopColor: '$borderDark700',
+          borderTopColor: '$borderDark600',
         },
       }}
     >
       <VStack flex={1}>
-        <Heading m="$0" lineHeight={'$md'} fontSize="$sm" fontWeight="$normal">
+        <Heading m="$0" lineHeight="$md" fontSize="$sm" fontWeight="$normal">
           {item.title}
         </Heading>
         <Text
           mt="$0.5"
-          sx={{ _dark: { color: '$textDark400' } }}
-          color="$textLight600"
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
           size="sm"
           fontWeight="$light"
         >
@@ -361,11 +365,7 @@ const List = ({ item, setCardData, setShowModal, setEditExperience }: List) => {
             setEditExperience(item);
           }}
         >
-          <ButtonText
-            sx={{ _dark: { color: '$backgroundLight0' } }}
-            mt="$1"
-            color="$backgroundDark950"
-          >
+          <ButtonText mt="$1">
             <Edit2 width={20} height={20} />
           </ButtonText>
         </Button>
@@ -375,11 +375,7 @@ const List = ({ item, setCardData, setShowModal, setEditExperience }: List) => {
           borderColor="transparent"
           onPress={() => setDeleteModal(true)}
         >
-          <ButtonText
-            sx={{ _dark: { color: '$backgroundLight0' } }}
-            mt="$1"
-            color="$backgroundDark950"
-          >
+          <ButtonText mt="$1">
             <Trash2 width={20} height={20} />
           </ButtonText>
         </Button>
@@ -394,7 +390,7 @@ const List = ({ item, setCardData, setShowModal, setEditExperience }: List) => {
   );
 };
 
-const CardMain = () => {
+const CardWithAddButton = (_props: any) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [cardData, setCardData] = useState<Experience[]>(EXPERIENCE_DATA);
   const [editExperience, setEditExperience] = useState<Experience>({});
@@ -411,12 +407,12 @@ const CardMain = () => {
       m="$4"
       rounded="$lg"
       space="md"
-      bg="$backgroundLight0"
       sx={{
+        '_light': { bg: '$backgroundLight100' },
         '@base': { px: '$4', pt: '$4', mx: '$4', w: '$auto' },
         '@md': { mx: '$auto', w: 700 },
-        '_dark': { bg: '$backgroundDark950' },
-        'shadowColor': '$gray600',
+        '_dark': { bg: '$backgroundDark800' },
+        'shadowColor': '$backgroundLight800',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
         'elevation': '$20',
@@ -434,15 +430,24 @@ const CardMain = () => {
             '@sm': { w: '85%' },
           }}
         >
-          <Heading m="$0" size="md" fontWeight="$medium">
+          <Heading
+            m="$0"
+            size="md"
+            fontWeight="$medium"
+            sx={{
+              _light: { color: '$textLight900' },
+              _dark: { color: '$textDark0' },
+            }}
+          >
             Experiences
           </Heading>
           <Text
             mt="$1"
-            sx={{ _dark: { color: '$textDark400' } }}
-            color="$textLight600"
+            sx={{
+              _light: { color: '$textLight400' },
+              _dark: { color: '$textDark500' },
+            }}
             size="sm"
-            fontWeight="$light"
           >
             Write in a few short sentences where you have already worked.
           </Text>
@@ -475,9 +480,4 @@ const CardMain = () => {
     </VStack>
   );
 };
-
-const CardWithAddButton = () => {
-  return <CardMain />;
-};
-
 export default CardWithAddButton;

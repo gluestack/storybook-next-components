@@ -130,7 +130,7 @@ const Feature = ({
   );
 };
 
-const FeatureThreeColumnsCentered = () => {
+const FeatureThreeColumnsCentered = (_props: any) => {
   return (
     <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
       <Box

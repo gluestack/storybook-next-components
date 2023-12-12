@@ -47,7 +47,7 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginComp = () => {
+const LoginWithGoogleOrEmail = (_props: any) => {
   const {
     control,
     handleSubmit,
@@ -138,7 +138,10 @@ const LoginComp = () => {
           </Button.Text>
         </Button>
         <Divider my="$2" />
-        <FormControl isInvalid={!!errors?.email || !validated.emailValid}>
+        <FormControl
+          isInvalid={!!errors?.email || !validated.emailValid}
+          w="$full"
+        >
           <Controller
             defaultValue=""
             name="email"
@@ -188,10 +191,6 @@ const LoginComp = () => {
       </VStack>
     </HStack>
   );
-};
-
-const LoginWithGoogleOrEmail = () => {
-  return <LoginComp />;
 };
 
 export default LoginWithGoogleOrEmail;

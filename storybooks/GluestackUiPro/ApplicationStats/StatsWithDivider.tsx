@@ -6,6 +6,8 @@ import {
   VStack,
   Heading,
   HStack,
+  BadgeIcon,
+  BadgeText,
 } from '@gluestack-ui/themed';
 import { MinusIcon, PlusIcon } from 'lucide-react-native';
 
@@ -41,14 +43,14 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
           bgColor="transparent"
           p="$0"
         >
-          <Badge.Icon
+          <BadgeIcon
             as={stat.type === 'positive' ? PlusIcon : MinusIcon}
             size="xs"
             fontWeight="$medium"
           />
-          <Badge.Text fontSize="$xs" lineHeight="$sm" fontWeight="$medium">
+          <BadgeText fontSize="$xs" lineHeight="$sm" fontWeight="$medium">
             {stat.percent}
-          </Badge.Text>
+          </BadgeText>
         </Badge>
         <Text fontSize="$xs" lineHeight="$sm" fontStyle="normal" pl="$1">
           than last week
@@ -79,43 +81,31 @@ const stats: Stat[] = [
   },
 ];
 
-const StatsWithDivider: FC = () => {
+const StatsWithDivider: FC = (_props: any) => {
   return (
     <VStack
-      maxWidth={1050}
+      maxWidth="$full"
       mx="auto"
       w="$full"
       alignItems="center"
       p="$4"
-      sx={{
-        '@md': {
-          p: '$8',
-        },
-      }}
     >
       <VStack
-        bg="$backgroundLight0"
         rounded="$lg"
         w="$full"
         p="$4"
         sx={{
+          '_light': {
+            bg: '$backgroundLight100',
+          },
           '_dark': {
-            bg: '$backgroundDark950',
+            bg: '$backgroundDark800',
           },
           '@md': {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            p: '$6',
           },
-          'shadowColor': '$backgroundLight800',
-          'shadowOffset': {
-            width: 0,
-            height: 1,
-          },
-          'shadowOpacity': 0.22,
-          'shadowRadius': 2.22,
-          'elevation': 3,
         }}
       >
         {stats.map((stat, index) => (
@@ -128,6 +118,10 @@ const StatsWithDivider: FC = () => {
                   orientation="vertical"
                   mx="$6"
                   sx={{
+                    '_light': {
+                      bg: '$backgroundLight300',
+                    },
+                    '_dark': { bg: '$backgroundDark600' },
                     'display': 'none',
                     '@md': {
                       display: 'flex',
@@ -137,6 +131,10 @@ const StatsWithDivider: FC = () => {
                 <Divider
                   my="$4"
                   sx={{
+                    '_light': {
+                      bg: '$backgroundLight300',
+                    },
+                    '_dark': { bg: '$backgroundDark600' },
                     'display': 'flex',
                     '@md': {
                       display: 'none',

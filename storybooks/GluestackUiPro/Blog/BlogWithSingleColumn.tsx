@@ -19,6 +19,7 @@ import {
   FormControlErrorIcon,
   FormControlErrorText,
   ButtonText,
+  ToastTitle,
 } from '@gluestack-ui/themed';
 import { ScrollView, Keyboard } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
@@ -110,13 +111,17 @@ const BlogCard: FC<BlogCardProps> = ({
       mt={index > 0 ? '$16' : '$0'}
       sx={{
         _dark: {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
+        },
+        _light: {
+          bg: '$backgroundLight100',
         },
         borderRadius: '$lg',
       }}
+      p="$5"
     >
       <VStack>
-        <Box h={360} overflow="hidden">
+        <Box h="$64" overflow="hidden">
           <Image
             h="$full"
             w="$full"
@@ -130,14 +135,14 @@ const BlogCard: FC<BlogCardProps> = ({
           />
         </Box>
 
-        <Text pt="$4" pb="$2" size="sm" fontWeight="$normal">
+        <Text pt="$4" pb="$2" size="sm">
           {publishedDate}
         </Text>
-        <Heading size="md" letterSpacing="$sm" fontStyle="normal">
+        <Heading size="md" letterSpacing="$sm">
           {title}
         </Heading>
 
-        <Text pt="$2" fontSize="$sm" fontStyle="normal" lineHeight="$sm">
+        <Text pt="$2" fontSize="$sm" lineHeight="$sm">
           {description}
         </Text>
       </VStack>
@@ -165,7 +170,8 @@ const BlogCard: FC<BlogCardProps> = ({
   );
 };
 
-const BlogMain: FC = () => {
+
+const BlogWithSingleColumn: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -184,10 +190,10 @@ const BlogMain: FC = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success" px="$4">
-            <Toast.Title
+            <ToastTitle
               sx={{
                 _dark: {
-                  color: '$white',
+                  color: '$textDark0',
                 },
               }}
               textAlign="left"
@@ -195,7 +201,7 @@ const BlogMain: FC = () => {
               lineHeight="$sm"
             >
               Subscribed Successfully!
-            </Toast.Title>
+            </ToastTitle>
           </Toast>
         );
       },
@@ -213,12 +219,12 @@ const BlogMain: FC = () => {
         pt="$16"
         pb="$12"
         px="$8"
-        bg="$backgroundLight0"
+        bg="$backgroundLight50"
         sx={{
           '@lg': {
             px: '$16',
           },
-          '_dark': { bg: '$backgroundDark950' },
+          '_dark': { bg: '$backgroundDark900' },
         }}
       >
         <VStack
@@ -231,15 +237,14 @@ const BlogMain: FC = () => {
           }}
         >
           <Text
-            fontStyle="normal"
             fontWeight="$bold"
             fontSize="$sm"
             lineHeight="$xs"
             letterSpacing="$sm"
-            color="$primary600"
+            color="$primary500"
             sx={{
               '_dark': {
-                color: '$primary300',
+                color: '$primary400',
               },
               '@md': {
                 fontSize: '$md',
@@ -390,8 +395,4 @@ const BlogMain: FC = () => {
   );
 };
 
-const BlogWithCards: FC = () => {
-  return <BlogMain />;
-};
-
-export default BlogWithCards;
+export default BlogWithSingleColumn;

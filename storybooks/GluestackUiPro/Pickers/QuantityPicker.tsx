@@ -6,7 +6,7 @@ const LOWER_LIMIT = 0;
 const UPPER_LIMIT = 5;
 const DEFAULT_QUANTITY = 1;
 
-const QuantityPicker: React.FC = () => {
+const QuantityPicker: React.FC = (_props: any) => {
   const [quantity, setQuantity] = useState<number>(DEFAULT_QUANTITY);
 
   const quantityIncrement = () => {

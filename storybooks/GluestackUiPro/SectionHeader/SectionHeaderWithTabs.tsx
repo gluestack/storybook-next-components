@@ -70,7 +70,7 @@ const CustomTab: FC<CustomTabProps> = ({
   );
 };
 
-const SectionHeaderWithTabs: FC = () => {
+const SectionHeaderWithTabs: FC = (_props: any) => {
   const [selectedTab, setSelectedTab] = useState('Overview');
   const handleCreate = () => {};
   const handleInvite = () => {};

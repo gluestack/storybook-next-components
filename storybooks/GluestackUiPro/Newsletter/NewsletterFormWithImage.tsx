@@ -32,7 +32,7 @@ interface FormData {
   email: string;
 }
 
-const Newsletter: FC = () => {
+const NewsletterFromWithImage: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -247,10 +247,6 @@ const Newsletter: FC = () => {
       </VStack>
     </ScrollView>
   );
-};
-
-const NewsletterFromWithImage: FC = () => {
-  return <Newsletter />;
 };
 
 export default NewsletterFromWithImage;

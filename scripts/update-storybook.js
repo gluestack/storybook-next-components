@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const simpleGit = require('simple-git');
+const fs = require("fs");
+const path = require("path");
+const simpleGit = require("simple-git");
 
 // GLUESTACK-UI -----
 // const BRANCH = 'patch';
@@ -14,12 +14,13 @@ const simpleGit = require('simple-git');
 // const STORIES_SOURCE_PATH = 'src/stories/StartupPlus';
 // const STORIES_TARGET_PATH = 'storybooks/StartupPlus/';
 
-const BRANCH = 'main';
-const GITHUB_REPO_URL = 'git@github.com:gluestack/gluestack-ui-pro-components.git';
-const STORIES_SOURCE_PATH = 'src/stories/';
-const STORIES_TARGET_PATH = 'storybooks/GluestackUiPro/';
+const BRANCH = "feat/new";
+const GITHUB_REPO_URL =
+  "git@github.com:gluestack/gluestack-ui-pro-components.git";
+const STORIES_SOURCE_PATH = "src/stories/";
+const STORIES_TARGET_PATH = "storybooks/GluestackUiPro/";
 
-const storybookClonePath = path.join(__dirname, '..', 'gluestack');
+const storybookClonePath = path.join(__dirname, "..", "gluestack");
 
 main();
 
@@ -34,9 +35,9 @@ async function main() {
     storybookClonePath,
     async (error, result) => {
       if (error) {
-        console.error('Failed to clone repository:', error);
+        console.error("Failed to clone repository:", error);
       } else {
-        console.log('Repository cloned successfully:', result);
+        console.log("Repository cloned successfully:", result);
 
         // Switch to the target branch
         try {
@@ -45,10 +46,10 @@ async function main() {
           // Proceed with copying the folders
           copyFolder(
             path.join(storybookClonePath, STORIES_SOURCE_PATH),
-            path.join(__dirname, '..', STORIES_TARGET_PATH)
+            path.join(__dirname, "..", STORIES_TARGET_PATH)
           );
         } catch (switchError) {
-          console.error('Failed to switch to the target branch:', switchError);
+          console.error("Failed to switch to the target branch:", switchError);
         } finally {
           // Clean up by deleting the cloned repository
           deleteFolderRecursive(storybookClonePath);
@@ -66,7 +67,7 @@ async function switchBranch(repoPath, targetBranch) {
       if (error) {
         reject(error);
       } else {
-        console.log('Switched to branch:', targetBranch);
+        console.log("Switched to branch:", targetBranch);
         resolve(result);
       }
     });

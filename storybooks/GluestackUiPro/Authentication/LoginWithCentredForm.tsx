@@ -64,7 +64,7 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginForm = () => {
+const LoginWithCentredForm = () => {
   const toast = useToast();
   const [showPassword, setShowPassword] = React.useState(false);
   const [validated, setValidated] = useState({
@@ -356,10 +356,6 @@ const LoginForm = () => {
       </VStack>
     </HStack>
   );
-};
-
-const LoginWithCentredForm = () => {
-  return <LoginForm />;
 };
 
 export default LoginWithCentredForm;

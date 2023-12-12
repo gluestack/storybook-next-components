@@ -25,7 +25,7 @@ const STATS_DATA: Stat[] = [
   },
   {
     value: '60%',
-    label: 'Less development costs',
+    label: 'Less Development costs',
   },
   {
     value: '25k',
@@ -65,7 +65,7 @@ const StatsCard = ({ index, stat }: StatCard) => {
   );
 };
 
-const StatsMarketOnBrand = () => {
+const StatsMarketOnBrand = (_props: any) => {
   return (
     <ScrollView>
       <VStack

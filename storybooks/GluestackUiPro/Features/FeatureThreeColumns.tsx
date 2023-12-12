@@ -130,7 +130,7 @@ const Feature = ({
   );
 };
 
-const FeatureThreeColumns = () => {
+const FeatureThreeColumns = (_props: any) => {
   return (
     <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
       <Box

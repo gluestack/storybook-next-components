@@ -7,6 +7,7 @@ const RatingIcon = ({ iconSize, isFilled }: any) => {
     <Icon
       as={Star}
       color={isFilled ? '$primary500' : '$gray400'}
+      fill={isFilled ? '$primary500' : '$gray400'}
       size={iconSize}
     />
   );

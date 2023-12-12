@@ -68,7 +68,7 @@ const ProfileAvatars = [
   require('../../../assets/AuthModule/avatar4.jpeg'),
 ];
 
-const LoginLeft = () => {
+const LoginWithLeftBackground = (_props: any) => {
   const {
     control,
     handleSubmit,
@@ -266,6 +266,7 @@ const LoginLeft = () => {
           {formDetails.license}
         </Heading>
       </VStack>
+
       <VStack
         alignItems="center"
         justifyContent="center"
@@ -274,8 +275,8 @@ const LoginLeft = () => {
         p="$4"
         m="auto"
         sx={{
-          '@lg': {
-            w: '$full',
+          '@md': {
+            w: '$1/2',
           },
         }}
         space="lg"
@@ -305,7 +306,10 @@ const LoginLeft = () => {
             </Text>
           </Link>
         </HStack>
-        <FormControl isInvalid={!!errors?.email || !validated.emailValid}>
+        <FormControl
+          isInvalid={!!errors?.email || !validated.emailValid}
+          w="$full"
+        >
           <FormControlLabel>
             <FormControlLabelText>Email</FormControlLabelText>
           </FormControlLabel>
@@ -345,7 +349,10 @@ const LoginLeft = () => {
           </FormControlError>
         </FormControl>
         {/* Label Message */}
-        <FormControl isInvalid={!!errors.password || !validated.passwordValid}>
+        <FormControl
+          isInvalid={!!errors.password || !validated.passwordValid}
+          w="$full"
+        >
           <FormControlLabel>
             <FormControlLabelText>Password</FormControlLabelText>
           </FormControlLabel>
@@ -428,10 +435,6 @@ const LoginLeft = () => {
       </VStack>
     </HStack>
   );
-};
-
-const LoginWithLeftBackground = () => {
-  return <LoginLeft />;
 };
 
 export default LoginWithLeftBackground;

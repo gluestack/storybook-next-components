@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Box, Divider, Heading } from '@gluestack-ui/themed';
 
-const SectionHeaderWithTitle: FC = () => {
+const SectionHeaderWithTitle: FC = (_props: any) => {
   return (
     <Box
       p="$4"

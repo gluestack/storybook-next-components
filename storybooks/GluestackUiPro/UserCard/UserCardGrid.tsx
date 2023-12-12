@@ -55,16 +55,16 @@ interface USER {
 
 const UserCardItem: (userData: USER) => JSX.Element = ({ userData }) => (
   <Box
-    w={240}
+    w={250}
     pb="$10"
     mt="$2"
-    bg="$backgroundLight0"
+    bg="$backgroundLight50"
     sx={{
       '@md': {
         mt: '$0',
       },
       '_dark': {
-        bg: '$backgroundDark950',
+        bg: '$backgroundDark900',
       },
     }}
     borderRadius="$md"
@@ -167,7 +167,7 @@ const UserCardItem: (userData: USER) => JSX.Element = ({ userData }) => (
   </Box>
 );
 
-const UserCardGrid = () => {
+const UserCardGrid = (_props: any) => {
   return (
     <ScrollView
       contentContainerStyle={{

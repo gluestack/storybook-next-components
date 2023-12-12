@@ -65,7 +65,7 @@ const getReturnValues = (countDown: number): string[] => {
   return [days, hours, minutes, seconds];
 };
 
-const CountDownOnBlack: FC = () => {
+const CountDownOnBlack: FC = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
   const [targetDate, setTargetDate] = useState('2023-06-10');
 

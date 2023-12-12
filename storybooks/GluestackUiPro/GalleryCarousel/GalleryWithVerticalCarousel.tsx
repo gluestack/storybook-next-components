@@ -17,7 +17,7 @@ const ImageSrc = [
   'https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80',
 ];
 
-const GalleryWithVerticalCarousel: React.FC = () => {
+const GalleryWithVerticalCarousel: React.FC = (_props: any) => {
   const [activeImage, setActiveImage] = useState<number>(0);
   const [noOfImages, setNoOfImages] = useState<number>(5);
   const [activeFrame, setActiveFrame] = useState<number>(0);
@@ -92,6 +92,8 @@ const GalleryWithVerticalCarousel: React.FC = () => {
         source={{ uri: ImageSrc[activeImage] }}
         resizeMode="cover"
         flex={1}
+        h="$full"
+        w="$full"
       />
       <HStack
         space="md"
@@ -115,7 +117,7 @@ const GalleryWithVerticalCarousel: React.FC = () => {
         >
           <Icon
             as={ChevronLeft}
-            color={'$black'}
+            color="$black"
             sx={{ _dark: { color: '$white' } }}
           />
         </Pressable>
@@ -149,7 +151,7 @@ const GalleryWithVerticalCarousel: React.FC = () => {
                   onPress={() => setActiveImage(activeFrame + index)}
                 >
                   <Image
-                    height={'$full'}
+                    height="$full"
                     source={{ uri: src }}
                     resizeMode="cover"
                   />
@@ -169,7 +171,7 @@ const GalleryWithVerticalCarousel: React.FC = () => {
         >
           <Icon
             as={ChevronRight}
-            color={'$black'}
+            color="$black"
             sx={{ _dark: { color: '$white' } }}
           />
         </Pressable>

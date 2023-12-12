@@ -9,7 +9,7 @@ import {
   VStack,
 } from '@gluestack-ui/themed';
 
-const SectionHeaderWithButton: FC = () => {
+const SectionHeaderWithButton: FC = (_props: any) => {
   const handleCreate = () => {};
 
   return (

@@ -18,7 +18,7 @@ const PERSON = {
   message: `"I had the pleasure of using Glue-Stack UI for a number of our projects while working as a senior user interface designer at Logoipsum Inc. It has completely changed the game for our team."`,
 };
 
-const TestimonialWithLogo = () => {
+const TestimonialWithLogo = (_props: any) => {
   return (
     <VStack
       width="$full"

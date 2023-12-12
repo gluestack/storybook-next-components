@@ -13,7 +13,7 @@ import {
   InputSlot,
 } from '@gluestack-ui/themed';
 
-const SectionHeaderWithSearch: FC = () => {
+const SectionHeaderWithSearch: FC = (_props: any) => {
   const [searchText, setSearchText] = useState('');
 
   const handleKeyPress = () => {};

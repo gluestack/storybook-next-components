@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HStack, Box, Text, Button, ButtonText } from '@gluestack-ui/themed';
 
-const PageHeaderWithTwoButtons = () => {
+const PageHeaderWithTwoButtons = (_props: any) => {
   return (
     <Box
       bg="$backgroundlight0"

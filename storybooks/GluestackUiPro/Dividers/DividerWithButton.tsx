@@ -8,7 +8,7 @@ import {
   ButtonIcon,
 } from '@gluestack-ui/themed';
 
-const DividerWithButton = () => {
+const DividerWithButton = (_props: any) => {
   const handleCreate = () => {};
   return (
     <HStack

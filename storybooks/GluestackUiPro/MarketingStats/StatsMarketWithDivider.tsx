@@ -88,7 +88,7 @@ const StatsCard = ({ index, stat, statlength }: StatCard) => {
   );
 };
 
-const StatsMarketWithDivider = () => {
+const StatsMarketWithDivider = (_props: any) => {
   return (
     <ScrollView>
       <VStack

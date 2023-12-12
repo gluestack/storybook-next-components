@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from '@gluestack-ui/themed';
 
-const FeatureHeroImage: FC = () => {
+const FeatureHeroImage: FC = (_props: any) => {
   return (
     <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
       <Box

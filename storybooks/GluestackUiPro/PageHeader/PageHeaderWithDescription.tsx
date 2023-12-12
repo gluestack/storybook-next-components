@@ -15,11 +15,7 @@ const PageHeaderWithDescription = () => {
       borderRadius="$md"
       flex={1}
     >
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-      >
+      <Heading mb="$1.5" size="xl">
         Member overview
       </Heading>
       <PageHeaderDescription>

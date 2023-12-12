@@ -18,12 +18,7 @@ const PageHeaderWithInputAccentCentered = () => {
       <PageHeaderDescription>
         <Text color="$white">Pricing</Text>
       </PageHeaderDescription>
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-        color="$white"
-      >
+      <Heading mb="$1.5" size="xl" color="$white">
         Get lifetime access
       </Heading>
       <PageHeaderDescription>
@@ -31,12 +26,6 @@ const PageHeaderWithInputAccentCentered = () => {
           Get early access to 210+ components and free updates.
         </Text>
       </PageHeaderDescription>
-      {/* <Input bg="$primary400"  borderWidth={1} borderColor='$primary500'  mt="$3" >
-            <Input.Icon pl="$3" >
-              <Icon as={SearchIcon} color='$white' />
-            </Input.Icon  >
-            <Input.Input placeholder="Search" color='$white' placeholderTextColor='$white'  />
-          </Input> */}
     </Box>
   );
 };

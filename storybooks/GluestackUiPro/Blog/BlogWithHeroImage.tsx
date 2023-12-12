@@ -8,7 +8,6 @@ import {
   Heading,
   Button,
   Avatar,
-  Icon,
   ScrollView,
   AvatarFallbackText,
   AvatarImage,
@@ -105,9 +104,9 @@ const BlogCard: FC<BlogCardProps> = ({
           mr: index < length - 1 ? '$7' : '$0',
           p: '$5',
         },
-
+        '_light': { bg: '$backgroundLight100' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         'borderRadius': '$lg',
         'shadowColor': '$backgroundLight800',
@@ -122,7 +121,7 @@ const BlogCard: FC<BlogCardProps> = ({
     >
       <VStack>
         <Image
-          height={240}
+          height="$64"
           width="$full"
           source={{
             uri: bannerUri,
@@ -132,15 +131,15 @@ const BlogCard: FC<BlogCardProps> = ({
           }}
         />
 
-        <Text pt="$4" pb="$2" size="sm" fontWeight="$normal">
+        <Text pt="$4" pb="$2" size="sm">
           {publishedDate}
         </Text>
 
-        <Heading size="md" letterSpacing="$sm" fontStyle="normal">
+        <Heading size="md" letterSpacing="$sm">
           {title}
         </Heading>
 
-        <Text pt="$2" fontSize="$sm" fontStyle="normal" lineHeight="$sm">
+        <Text pt="$2" fontSize="$sm" lineHeight="$sm">
           {description}
         </Text>
       </VStack>
@@ -171,15 +170,16 @@ const BlogCard: FC<BlogCardProps> = ({
   );
 };
 
-const BlogMain: FC = () => {
+
+const BlogWithHeroImage: FC = (_props: any) => {
   const [searchValue, setSearchValue] = useState('');
 
   return (
     <ScrollView>
       <VStack
-        bg="$backgroundLight0"
+        bg="$backgroundLight50"
         sx={{
-          _dark: { bg: '$backgroundDark950' },
+          _dark: { bg: '$backgroundDark900' },
         }}
       >
         <Image
@@ -196,12 +196,13 @@ const BlogMain: FC = () => {
         />
 
         <VStack
-          bg="$primary600"
           p="$9"
           alignItems="flex-start"
           mb="$20"
           mt="-60%"
           sx={{
+            '_light': { bg: '$primary500' },
+            '_dark': { bg: '$primary400' },
             '@xs': {
               mt: '-40%',
             },
@@ -221,11 +222,9 @@ const BlogMain: FC = () => {
           }}
         >
           <Text
-            fontStyle="normal"
             fontWeight="$bold"
             fontSize="$sm"
             lineHeight="$xs"
-            letterSpacing="$sm"
             color="$textLight0"
             sx={{
               '@md': {
@@ -303,7 +302,10 @@ const BlogMain: FC = () => {
               <InputSlot>
                 <InputIcon
                   as={SearchIcon}
-                  color="$backgroundLight500"
+                  sx={{
+                    _light: { color: '$textLight500' },
+                    _dark: { color: '$textDark400' },
+                  }}
                   pl="$3"
                 />
               </InputSlot>
@@ -328,12 +330,7 @@ const BlogMain: FC = () => {
           }}
         >
           <HStack justifyContent="space-between" pb="$4">
-            <Heading
-              fontWeight="$bold"
-              fontStyle="normal"
-              letterSpacing="$sm"
-              size="lg"
-            >
+            <Heading fontWeight="$bold" letterSpacing="$sm" size="lg">
               Recent blog posts
             </Heading>
 
@@ -348,9 +345,7 @@ const BlogMain: FC = () => {
                 },
               }}
             >
-              <ButtonText fontSize="$md" fontStyle="normal">
-                See All
-              </ButtonText>
+              <ButtonText fontSize="$md">See All</ButtonText>
               <ButtonIcon as={ArrowRight} size="lg" pl="$1" />
             </Button>
           </HStack>
@@ -402,19 +397,13 @@ const BlogMain: FC = () => {
               },
             }}
           >
-            <ButtonText fontSize="$sm" fontStyle="normal">
-              See All
-            </ButtonText>
-            <Button.Icon as={ArrowRight} pl="$1" />
+            <ButtonText fontSize="$sm">See All</ButtonText>
+            <ButtonIcon as={ArrowRight} pl="$1" />
           </Button>
         </VStack>
       </VStack>
     </ScrollView>
   );
-};
-
-const BlogWithHeroImage: FC = () => {
-  return <BlogMain />;
 };
 
 export default BlogWithHeroImage;

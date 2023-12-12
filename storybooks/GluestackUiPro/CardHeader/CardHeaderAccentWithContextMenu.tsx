@@ -10,25 +10,24 @@ import {
 } from '@gluestack-ui/themed';
 import { MoreVertical } from 'lucide-react-native';
 
-const CardHeaderAccentWithContextMenu = () => {
+const CardHeaderAccentWithContextMenu = (_props: any) => {
   return (
     <HStack
       m="$3"
       alignItems="center"
       justifyContent="space-between"
-      bg="$backgroundLight0"
       p="$6"
       borderTopWidth="$4"
-      borderTopColor="$primary500"
       sx={{
+        '_light': { bg: '$backgroundLight100', borderTopColor: '$primary500' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
+          borderTopColor: '$primary500',
         },
         '@md': {
           m: '$8',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,
@@ -38,21 +37,27 @@ const CardHeaderAccentWithContextMenu = () => {
         'elevation': 3,
       }}
     >
-      <Heading fontWeight="normal">Member Overview</Heading>
+      <Heading
+        sx={{
+          _light: { color: '$textLight900' },
+          _dark: { color: '$textDark0' },
+        }}
+      >
+        Member Overview
+      </Heading>
 
       <Menu
         placement="bottom right"
         offset={10}
-        // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
           return (
             <Pressable {...triggerProps}>
               <Icon
                 as={MoreVertical}
-                color="$backgroundDark950"
                 sx={{
+                  _light: { color: '$textLight900' },
                   _dark: {
-                    color: '$white',
+                    color: '$textDark0',
                   },
                 }}
               />
@@ -61,13 +66,34 @@ const CardHeaderAccentWithContextMenu = () => {
         }}
       >
         <MenuItem key="Profile" textValue="Profile">
-          <MenuItemLabel>Profile</MenuItemLabel>
+          <MenuItemLabel
+            sx={{
+              _light: { color: '$textLight900' },
+              _dark: { color: '$textDark0' },
+            }}
+          >
+            Profile
+          </MenuItemLabel>
         </MenuItem>
         <MenuItem key="Settings" textValue="Settings">
-          <MenuItemLabel>Settings</MenuItemLabel>
+          <MenuItemLabel
+            sx={{
+              _light: { color: '$textLight900' },
+              _dark: { color: '$textDark0' },
+            }}
+          >
+            Settings
+          </MenuItemLabel>
         </MenuItem>
         <MenuItem key="Log out" textValue="Log out">
-          <MenuItemLabel>Log out</MenuItemLabel>
+          <MenuItemLabel
+            sx={{
+              _light: { color: '$textLight900' },
+              _dark: { color: '$textDark0' },
+            }}
+          >
+            Log out
+          </MenuItemLabel>
         </MenuItem>
       </Menu>
     </HStack>

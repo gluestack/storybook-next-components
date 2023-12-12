@@ -80,7 +80,7 @@ const Notification = ({ handleClose }: any) => {
   );
 };
 
-const NotificationMain = () => {
+export const NotificationsWithTwoLinks = (_props: any) => {
   const toast = useToast();
   const id = 'test-toast';
   const handleClose = () => {
@@ -106,8 +106,4 @@ const NotificationMain = () => {
       </Button>
     </Center>
   );
-};
-
-export const NotificationsWithTwoLinks = () => {
-  return <NotificationMain />;
 };

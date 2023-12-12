@@ -54,7 +54,7 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginWithEmailPasswordOrGoogle = () => {
+const LoginWithEmailPasswordOrGoogle = (_props:any) => {
   const [validated, setValidated] = useState({
     emailValid: true,
     passwordValid: true,
@@ -139,6 +139,7 @@ const LoginWithEmailPasswordOrGoogle = () => {
         <FormControl
           isInvalid={!!errors?.email || !validated.emailValid}
           mt="$3"
+          w="$full"
         >
           <FormControlLabel>
             <FormControlLabelText>Email</FormControlLabelText>
@@ -181,6 +182,7 @@ const LoginWithEmailPasswordOrGoogle = () => {
         </FormControl>
         <FormControl
           mt="$3"
+          w="$full"
           isInvalid={!!errors.password || !validated.passwordValid}
         >
           <FormControl.Label>

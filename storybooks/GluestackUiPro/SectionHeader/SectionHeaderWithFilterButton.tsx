@@ -84,7 +84,7 @@ const RadioButtonGroup: FC = () => {
   );
 };
 
-const SectionHeaderWithFilterButton: FC = () => {
+const SectionHeaderWithFilterButton: FC = (_props: any) => {
   return (
     <Box
       p="$4"

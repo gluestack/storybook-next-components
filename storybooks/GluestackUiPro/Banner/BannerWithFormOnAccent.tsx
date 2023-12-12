@@ -15,6 +15,8 @@ import {
   FormControlErrorIcon,
   FormControlErrorText,
   ButtonText,
+  ToastTitle,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 import { AlertTriangle, Mail } from 'lucide-react-native';
 import { useForm, Controller } from 'react-hook-form';
@@ -35,22 +37,35 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$primary500"
       sx={{
         ...sx,
-        ':hover': { bg: '$primary600' },
-        ':active': { bg: '$primary700' },
+        _light: {
+          'bg': '$primary500',
+          ':hover': { bg: '$primary600' },
+          ':active': { bg: '$primary700' },
+        },
+        _dark: {
+          'bg': '$primary400',
+          ':hover': { bg: '$primary500' },
+          ':active': { bg: '$primary600' },
+        },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon as={CloseIcon} color="$backgroundLight0" />
+      <ButtonIcon
+        as={CloseIcon}
+        sx={{
+          _light: { color: '$textLight0' },
+          _dark: { color: '$textDark0' },
+        }}
+      />
     </Button>
   );
 };
 
-const BannerWithFormOnAccentComp = () => {
+const BannerWithFormOnAccent = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const toast = useToast();
@@ -69,7 +84,7 @@ const BannerWithFormOnAccentComp = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>Subscribed Successfully!</Toast.Title>
+            <ToastTitle>Subscribed Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -80,23 +95,34 @@ const BannerWithFormOnAccentComp = () => {
     Keyboard.dismiss();
     handleSubmit(onSubmit)();
   };
-
   return (
     <Box
       p="$4"
-      bg="$primary500"
       display={isVisible ? 'flex' : 'none'}
       position="relative"
       sx={{
-        shadowColor: '$backgroundLight800',
-        //@ts-ignore
-        shadowOffset: {
-          width: 0,
-          height: 1,
+        _light: {
+          bg: '$primary500',
+          shadowColor: '$backgroundLight900',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          elevation: 3,
         },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-        elevation: 3,
+        _dark: {
+          bg: '$primary400',
+          shadowColor: '$backgroundLight950',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          elevation: 3,
+        },
       }}
     >
       <CloseButton
@@ -104,15 +130,14 @@ const BannerWithFormOnAccentComp = () => {
         position="absolute"
         ml="$2"
         mb="$4"
-        top={10}
-        right={10}
+        top="$2.5"
+        right="$2.5"
         zIndex={999}
         sx={{
           '@md': { display: 'none' },
         }}
       />
       <VStack
-        maxWidth={1280}
         width="$full"
         space="md"
         mx="auto"
@@ -135,14 +160,14 @@ const BannerWithFormOnAccentComp = () => {
           }}
         >
           <Icon
-            bg="$primary600"
-            color="$white"
             as={Mail}
             p="$3"
             rounded="$lg"
             display="none"
             size="xl"
             sx={{
+              '_light': { color: '$textLight0', bg: '$primary400' },
+              '_dark': { color: '$textDark0', bg: '$primary500' },
               '@md': { display: 'flex', size: 'lg', mr: '$3' },
             }}
           />
@@ -156,10 +181,21 @@ const BannerWithFormOnAccentComp = () => {
               },
             }}
           >
-            <Text mr="$1" color="$textLight0">
+            <Text
+              mr="$1"
+              sx={{
+                _light: { color: '$textLight0' },
+                _dark: { color: '$textDark0' },
+              }}
+            >
               Stay up-to-date with our newsletter.
             </Text>
-            <Text color="$textLight300">
+            <Text
+              sx={{
+                _light: { color: '$textLight300' },
+                _dark: { color: '$textDark200' },
+              }}
+            >
               Get early access to our product when we launch.
             </Text>
           </VStack>
@@ -242,10 +278,6 @@ const BannerWithFormOnAccentComp = () => {
       </VStack>
     </Box>
   );
-};
-
-const BannerWithFormOnAccent = () => {
-  return <BannerWithFormOnAccentComp />;
 };
 
 export default BannerWithFormOnAccent;

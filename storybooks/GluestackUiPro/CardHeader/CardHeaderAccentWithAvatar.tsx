@@ -9,9 +9,10 @@ import {
   AvatarImage,
   BadgeText,
   ButtonText,
+  Heading,
 } from '@gluestack-ui/themed';
 
-const CardHeaderAccentWithAvatar = () => {
+const CardHeaderAccentWithAvatar = (_props: any) => {
   const userData = [
     {
       name: 'Christoph Winston',
@@ -23,12 +24,8 @@ const CardHeaderAccentWithAvatar = () => {
     },
   ];
 
-  const handleContact = () => {
-    // console.log('Card Header Accent Avatar Contact Button Pressed');
-  };
-  const handleMore = () => {
-    // console.log('Card Header Accent Avatar More Button Pressed');
-  };
+  const handleContact = () => {};
+  const handleMore = () => {};
   return (
     <VStack>
       {userData.map((user) => {
@@ -37,21 +34,23 @@ const CardHeaderAccentWithAvatar = () => {
             m="$4"
             justifyContent="space-between"
             alignItems="flex-start"
-            bg="$backgroundLight0"
             p="$6"
             space="md"
             borderTopWidth="$4"
-            borderTopColor="$primary500"
             sx={{
+              '_light': {
+                borderTopColor: '$primary500',
+                bg: '$backgroundLight100',
+              },
               '_dark': {
-                bg: '$backgroundDark950',
+                bg: '$backgroundDark800',
+                borderTopColor: '$primary400',
               },
               '@sm': {
                 m: '$8',
                 flexDirection: 'row',
               },
               'shadowColor': '$backgroundLight800',
-              // @ts-ignore
               'shadowOffset': {
                 width: 0,
                 height: 1,
@@ -67,7 +66,6 @@ const CardHeaderAccentWithAvatar = () => {
                   source={{
                     uri: user.uri,
                   }}
-                  // @ts-ignore
                   fallbackSource={{
                     uri: user.fallbackSource,
                   }}
@@ -75,7 +73,14 @@ const CardHeaderAccentWithAvatar = () => {
               </Avatar>
               <VStack space="xs" p="$1" flex={1}>
                 <HStack space="sm">
-                  <Text size="xl">{user.name}</Text>
+                  <Heading
+                    sx={{
+                      _light: { color: '$textLight900' },
+                      _dark: { color: '$textDark0' },
+                    }}
+                  >
+                    {user.name}
+                  </Heading>
                   {user.isVerified && (
                     <Badge>
                       <BadgeText>Verified</BadgeText>
@@ -83,8 +88,10 @@ const CardHeaderAccentWithAvatar = () => {
                   )}
                 </HStack>
                 <Text
-                  color="$textLight400"
-                  sx={{ _dark: { color: '$textDark400' } }}
+                  sx={{
+                    _light: { color: '$textLight400' },
+                    _dark: { color: '$textDark500' },
+                  }}
                 >
                   {user.email}
                 </Text>

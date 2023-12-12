@@ -96,7 +96,7 @@ const Notification = ({ handleClose }: any) => {
   );
 };
 
-const NotificationMain = () => {
+export const NotificationsWithSplitButtonsAndIcon = (_props: any) => {
   const toast = useToast();
   const id = 'test-toast';
   const handleClose = () => {
@@ -122,8 +122,4 @@ const NotificationMain = () => {
       </Button>
     </Center>
   );
-};
-
-export const NotificationsWithSplitButtonsAndIcon = () => {
-  return <NotificationMain />;
 };

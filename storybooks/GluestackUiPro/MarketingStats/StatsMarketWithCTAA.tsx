@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
   ScrollView,
+  LinkText,
 } from '@gluestack-ui/themed';
 import { ArrowRight } from 'lucide-react-native';
 
@@ -115,16 +116,16 @@ const StatCard = ({ stat, index }: StatCard) => {
           href=""
           isExternal
         >
-          <Text fontWeight="$semibold" color="$white">
+          <LinkText fontWeight="$semibold" color="$white">
             {stat.link}
-          </Text>
+          </LinkText>
           <Icon as={ArrowRight} color="$white" />
         </Link>
       </VStack>
     </VStack>
   );
 };
-const StatsMarketWithCTAA = () => {
+const StatsMarketWithCTAA = (_props: any) => {
   return (
     <ScrollView>
       <VStack opacity={0.9} bgColor="$primary600">

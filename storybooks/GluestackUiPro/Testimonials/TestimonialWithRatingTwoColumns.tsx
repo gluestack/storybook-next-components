@@ -65,7 +65,7 @@ const RatingComponent = ({ rating }: { rating: number }) => {
           key={index}
           as={StarIcon}
           color={rating > index ? '$primary600' : '$gray400'}
-          fill="currentColor"
+          fill={rating > index ? '$primary600' : '$gray400'}
           size="lg"
         />
       ))}
@@ -110,17 +110,20 @@ const Person = ({ person }: PersonProps) => {
             </Text>
           </VStack>
           <Divider
-            width={'$0.5'}
+            width="$0.5"
             mx="$6"
             ml="$2"
-            minHeight={'$10'}
-            maxHeight={'$full'}
+            minHeight="$10"
+            maxHeight="$full"
             alignSelf="center"
             borderColor="$borderLight300"
             display="none"
             sx={{
               '@md': { display: 'flex' },
-              '_dark': { borderColor: '$borderDark700' },
+              '_dark': {
+                bg: '$backgroundDark400',
+                borderColor: '$borderDark700',
+              },
             }}
           />
           <Icon
@@ -129,7 +132,7 @@ const Person = ({ person }: PersonProps) => {
             width={40}
             height={40}
             color={person.color}
-            fill="currentColor"
+            fill={person.color}
           />
         </VStack>
       </VStack>
@@ -137,7 +140,7 @@ const Person = ({ person }: PersonProps) => {
   );
 };
 
-const TestimonialWithRatingTwoColumns = () => {
+const TestimonialWithRatingTwoColumns = (_props: any) => {
   return (
     <ScrollView flex={1}>
       <VStack

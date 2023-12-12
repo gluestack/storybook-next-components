@@ -1,6 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-
 import { SlackIcon } from 'lucide-react-native';
 import {
   Avatar,
@@ -68,8 +67,8 @@ const Person = ({ person }: PersonProps) => {
         <Icon
           as={person.icon}
           sx={{ _dark: { props: { as: person.darkIcon } } }}
-          width={40}
-          height={40}
+          width="$10"
+          height="$10"
           color={person.color}
           fill="currentColor"
         />
@@ -90,8 +89,8 @@ const Person = ({ person }: PersonProps) => {
           <Avatar>
             <AvatarImage
               source={{ uri: person.profilePic }}
-              width={'$16'}
-              height={'$16'}
+              width="$16"
+              height="$16"
             />
             <AvatarFallbackText>{person.name}</AvatarFallbackText>
           </Avatar>
@@ -107,7 +106,7 @@ const Person = ({ person }: PersonProps) => {
   );
 };
 
-const TestimonialWithTwoColumns = () => {
+const TestimonialWithTwoColumns = (_props: any) => {
   return (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
       <VStack

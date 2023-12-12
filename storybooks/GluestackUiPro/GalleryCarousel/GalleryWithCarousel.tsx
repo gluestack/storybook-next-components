@@ -17,7 +17,7 @@ const ImageSrc = [
   'https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80',
 ];
 
-const GalleryWithCarousel: React.FC = () => {
+const GalleryWithCarousel: React.FC = (_props: any) => {
   const [activeImage, setActiveImage] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -61,11 +61,12 @@ const GalleryWithCarousel: React.FC = () => {
       >
         <Image
           width="$full"
+          height="$full"
           source={{ uri: ImageSrc[activeImage] }}
           resizeMode="cover"
         />
 
-        <HStack position="absolute" bottom={50} space={'sm'}>
+        <HStack position="absolute" bottom={50} space="sm">
           {ImageSrc.map((src: string, index: number) => {
             return (
               <Box

@@ -8,9 +8,11 @@ import {
   useToast,
   Toast,
   ButtonText,
+  ToastTitle,
 } from '@gluestack-ui/themed';
 
-const MainCard = () => {
+
+const CardWithTwoButtons = (_props: any) => {
   const toast = useToast();
 
   const handleSkip = () => {};
@@ -20,7 +22,7 @@ const MainCard = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>Downloaded Successfully!</Toast.Title>
+            <ToastTitle>Downloaded Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -32,9 +34,9 @@ const MainCard = () => {
       p="$4"
       rounded="$xl"
       space="md"
-      bg="$white"
       sx={{
-        '_dark': { bg: '$backgroundDark950' },
+        '_light': { bg: '$backgroundLight100' },
+        '_dark': { bg: '$backgroundDark800' },
         'shadowColor': '$gray600',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
@@ -43,10 +45,22 @@ const MainCard = () => {
       }}
     >
       <Box>
-        <Heading m="$0" fontWeight="$normal">
+        <Heading
+          m="$0"
+          sx={{
+            _light: { color: '$textLight900' },
+            _dark: { color: '$textDark0' },
+          }}
+        >
           Updates Available
         </Heading>
-        <Text size="sm" fontWeight="$light">
+        <Text
+          size="sm"
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
+        >
           A new version is available. Please upgrade for the best experience.
         </Text>
       </Box>
@@ -74,10 +88,6 @@ const MainCard = () => {
       </VStack>
     </VStack>
   );
-};
-
-const CardWithTwoButtons = () => {
-  return <MainCard />;
 };
 
 export default CardWithTwoButtons;

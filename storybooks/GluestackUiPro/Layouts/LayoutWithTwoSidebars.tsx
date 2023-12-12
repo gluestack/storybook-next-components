@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Box, VStack, Text, ScrollView } from '@gluestack-ui/themed';
 
-const LayoutWithTwoSidebars: FC = () => {
+const LayoutWithTwoSidebars: FC = (_props: any) => {
   return (
     <ScrollView stickyHeaderIndices={[0]}>
       <Box bg="$primary500" px="$8" py="$4">

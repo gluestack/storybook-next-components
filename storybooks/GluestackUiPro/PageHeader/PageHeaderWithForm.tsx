@@ -32,11 +32,7 @@ const PageHeaderWithForm = () => {
       <PageHeaderDescription>
         <Text color="$primary500">Blog</Text>
       </PageHeaderDescription>
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-      >
+      <Heading mb="$1.5" size="xl">
         Latest Updates
       </Heading>
       <PageHeaderDescription>
@@ -45,7 +41,6 @@ const PageHeaderWithForm = () => {
         </Text>
       </PageHeaderDescription>
       <HStack mt="$10" space="md" alignItems="center" justifyContent="center">
-        {/* TODO - remove mr once space issue is resolved */}
         <Input>
           <InputSlot>
             <InputIcon as={SearchIcon} pl="$3" />

@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   Input,
-  Icon,
   FormControl,
   useToast,
   Toast,
@@ -15,6 +14,9 @@ import {
   FormControlErrorIcon,
   FormControlErrorText,
   InputField,
+  ToastTitle,
+  Heading,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 import {
   AlertTriangle,
@@ -52,13 +54,13 @@ const ButtonComponent = ({
         },
       }}
     >
-      <Icon as={IconName} color={color} px="$2" />
-      <ButtonText fontWeight="$semibold">{buttonText}</ButtonText>
+      <ButtonIcon as={IconName} color={color} px="$2" />
+      <ButtonText>{buttonText}</ButtonText>
     </Button>
   );
 };
 
-const MainCard = () => {
+const CardWithForm = (_props: any) => {
   const {
     control,
     handleSubmit,
@@ -75,7 +77,7 @@ const MainCard = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>Invite Sent Successfully!</Toast.Title>
+            <ToastTitle>Invite Sent Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -120,17 +122,17 @@ const MainCard = () => {
 
   return (
     <VStack
-      bg="$backgroundLight0"
       p="$4"
       m="$4"
       rounded="$lg"
       sx={{
-        'shadowColor': '$gray600',
+        'shadowColor': '$backgroundLight800',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
         'elevation': '$20',
+        '_light': { bg: '$backgroundLight100' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         '@md': {
           mx: '$auto',
@@ -139,10 +141,22 @@ const MainCard = () => {
         },
       }}
     >
-      <Text size="lg" fontWeight="$medium">
+      <Heading
+        sx={{
+          _light: { color: '$textLight900' },
+          _dark: { color: '$textDark0' },
+        }}
+      >
         Share GlueStack UI with friends
-      </Text>
-      <Text mt="$1" size="sm" fontWeight="$light">
+      </Heading>
+      <Text
+        mt="$1"
+        size="sm"
+        sx={{
+          _light: { color: '$textLight400' },
+          _dark: { color: '$textDark500' },
+        }}
+      >
         Email friends who have never tried GlueStack UI
       </Text>
 
@@ -169,7 +183,14 @@ const MainCard = () => {
       </VStack>
 
       <Box mt="$5">
-        <Text size="sm" mb="$1.5">
+        <Text
+          sx={{
+            _light: { color: '$textLight700' },
+            _dark: { color: '$textDark300' },
+          }}
+          size="sm"
+          mb="$1.5"
+        >
           Send an invite
         </Text>
         <VStack
@@ -235,16 +256,12 @@ const MainCard = () => {
             sx={{ '@md': { ml: '$3', mt: '$0' } }}
             onPress={handleSubmit(onSubmit)}
           >
-            <ButtonText fontWeight="$semibold">Send</ButtonText>
+            <ButtonText>Send</ButtonText>
           </Button>
         </VStack>
       </Box>
     </VStack>
   );
-};
-
-const CardWithForm = () => {
-  return <MainCard />;
 };
 
 export default CardWithForm;

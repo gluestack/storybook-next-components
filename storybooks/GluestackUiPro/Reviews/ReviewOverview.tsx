@@ -118,14 +118,10 @@ const RatingIcon = ({
 }) => {
   return (
     <Icon
-      sx={{
-        props: {
-          fill: 'currentColor',
-        },
-      }}
       as={Star}
       color={isFilled ? '$primary500' : '$gray400'}
       size={iconSize}
+      fill={isFilled ? '$primary500' : '$gray400'}
     />
   );
 };
@@ -248,9 +244,9 @@ const AddReviewDailog = ({
           <VStack space="md">
             <FormControl isInvalid={errors.username}>
               <VStack space="xs">
-                <FormControl.Label>
-                  <FormControl.Label.Text>Name</FormControl.Label.Text>
-                </FormControl.Label>
+                <FormControlLabel>
+                  <FormControlLabelText>Name</FormControlLabelText>
+                </FormControlLabel>
                 <Controller
                   control={control}
                   rules={{
@@ -356,7 +352,6 @@ const AddReviewDailog = ({
                     required: 'Comment is required!',
                   }}
                   render={({ field: { onChange, onBlur, value } }) => (
-                    // @ts-ignore
                     <Textarea>
                       <TextareaInput
                         value={value}
@@ -394,7 +389,7 @@ const AddReviewDailog = ({
   );
 };
 
-const ReviewOverview = () => {
+const ReviewOverview = (_props: any) => {
   const [reviews, setReviews] = useState<Review[]>(reviewsData);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [maxLimit, setMaxLimit] = useState<number>(6);

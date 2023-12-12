@@ -14,7 +14,7 @@ import {
 import PageHeaderDescription from './PageHeaderDescription';
 import { Briefcase, DollarSign, MapPin } from 'lucide-react-native';
 
-const PageHeaderWithProfile = () => {
+const PageHeaderWithProfile = (_props: any) => {
   return (
     <Box
       bg="$backgroundLight0"

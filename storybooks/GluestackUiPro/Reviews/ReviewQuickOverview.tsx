@@ -29,6 +29,7 @@ import {
   FormControlError,
   FormControlErrorIcon,
   ButtonText,
+  ToastTitle,
 } from '@gluestack-ui/themed';
 import { AlertTriangle, Star } from 'lucide-react-native';
 import { Keyboard } from 'react-native';
@@ -117,9 +118,9 @@ const RatingIcon = ({
 }) => {
   return (
     <Icon
-      fill="currentColor"
       as={Star}
       color={isFilled ? '$primary500' : '$gray400'}
+      fill={isFilled ? '$primary500' : '$gray400'}
       size={iconSize}
     />
   );
@@ -212,7 +213,7 @@ const AddReviewDailog = ({
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>Added Successfully!</Toast.Title>
+            <ToastTitle>Added Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -351,7 +352,6 @@ const AddReviewDailog = ({
                     required: 'Comment is required!',
                   }}
                   render={({ field: { onChange, onBlur, value } }) => (
-                    // @ts-ignore
                     <Textarea>
                       <TextareaInput
                         value={value}
@@ -389,7 +389,7 @@ const AddReviewDailog = ({
   );
 };
 
-const ReviewQuickOverview = () => {
+const ReviewQuickOverview = (_props: any) => {
   const [reviews, setReviews] = useState<Review[]>(reviewsData);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [maxLimit, setMaxLimit] = useState<number>(6);

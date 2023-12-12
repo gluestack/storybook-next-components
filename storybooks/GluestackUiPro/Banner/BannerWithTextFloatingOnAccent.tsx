@@ -7,6 +7,7 @@ import {
   Icon,
   CloseIcon,
   HStack,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 
 const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
@@ -16,27 +17,39 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$primary500"
       sx={{
         ...sx,
-        ':hover': { bg: '$primary600' },
-        ':active': { bg: '$primary700' },
+        _light: {
+          'bg': '$primary500',
+          ':hover': { bg: '$primary600' },
+          ':active': { bg: '$primary700' },
+        },
+        _dark: {
+          'bg': '$primary400',
+          ':hover': { bg: '$primary500' },
+          ':active': { bg: '$primary600' },
+        },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon as={CloseIcon} color="$backgroundLight0" />
+      <ButtonIcon
+        as={CloseIcon}
+        sx={{
+          _light: { color: '$textLight0' },
+          _dark: { color: '$textDark0' },
+        }}
+      />
     </Button>
   );
 };
 
-const BannerWithTextFloatingOnAccent = () => {
+const BannerWithTextFloatingOnAccent = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <Box
-      maxWidth={1280}
       width="$full"
       mx="auto"
       p="$4"
@@ -50,17 +63,29 @@ const BannerWithTextFloatingOnAccent = () => {
       <Box
         rounded="$xl"
         p="$4"
-        bg="$primary500"
         sx={{
-          shadowColor: '$backgroundLight800',
-          //@ts-ignore
-          shadowOffset: {
-            width: 0,
-            height: 1,
+          _light: {
+            bg: '$primary500',
+            shadowColor: '$backgroundLight900',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
           },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-          elevation: 3,
+          _dark: {
+            bg: '$primary400',
+            shadowColor: '$backgroundLight950',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
+          },
         }}
       >
         <CloseButton
@@ -68,8 +93,8 @@ const BannerWithTextFloatingOnAccent = () => {
           position="absolute"
           ml="$2"
           mb="$4"
-          top={10}
-          right={10}
+          top="$2.5"
+          right="$2.5"
           zIndex={999}
           sx={{
             '@md': { display: 'none' },
@@ -88,12 +113,23 @@ const BannerWithTextFloatingOnAccent = () => {
               },
             }}
           >
-            <Text mr="$1" color="$textLight0">
+            <Text
+              mr="$1"
+              sx={{
+                _light: { color: '$textLight0' },
+                _dark: { color: '$textDark0' },
+              }}
+            >
               This site uses third-party cookies to track your browsing
               activity.
             </Text>
 
-            <Text color="$textLight300">
+            <Text
+              sx={{
+                _light: { color: '$textLight300' },
+                _dark: { color: '$textDark200' },
+              }}
+            >
               Learn more about our use of cookies.{' '}
             </Text>
           </VStack>

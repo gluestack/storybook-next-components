@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ButtonIcon, Divider, HStack } from '@gluestack-ui/themed';
 import { EditIcon } from 'lucide-react-native';
 
-const DividerIconButton = () => {
+const DividerIconButton = (_props: any) => {
   const handleEdit = () => {};
   return (
     <HStack

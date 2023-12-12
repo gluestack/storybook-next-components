@@ -9,6 +9,7 @@ import {
   HStack,
   VStack,
   ButtonText,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 
 const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
@@ -18,40 +19,64 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$primary500"
       sx={{
         ...sx,
-        ':hover': { bg: '$primary600' },
-        ':active': { bg: '$primary700' },
+        _light: {
+          'bg': '$primary500',
+          ':hover': { bg: '$primary600' },
+          ':active': { bg: '$primary700' },
+        },
+        _dark: {
+          'bg': '$primary400',
+          ':hover': { bg: '$primary500' },
+          ':active': { bg: '$primary600' },
+        },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon as={CloseIcon} color="$backgroundLight0" />
+      <ButtonIcon
+        as={CloseIcon}
+        sx={{
+          _light: { color: '$textLight0' },
+          _dark: { color: '$textDark0' },
+        }}
+      />
     </Button>
   );
 };
 
-const BannerWithButtonOnAccent = () => {
+const BannerWithButtonOnAccent = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleReadMoreBtnPress = () => {};
   return (
-    <Box bg="$primary500">
+    <Box sx={{ _light: { bg: '$primary500' }, _dark: { bg: '$primary400' } }}>
       <Box
         p="$4"
         display={isVisible ? 'flex' : 'none'}
         sx={{
-          shadowColor: '$backgroundLight800',
-          //@ts-ignore
-          shadowOffset: {
-            width: 0,
-            height: 1,
+          _light: {
+            shadowColor: '$backgroundLight900',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
           },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-          elevation: 3,
+          _dark: {
+            shadowColor: '$backgroundLight950',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
+          },
         }}
       >
         <CloseButton
@@ -59,16 +84,14 @@ const BannerWithButtonOnAccent = () => {
           position="absolute"
           ml="$2"
           mb="$4"
-          top={10}
-          right={10}
+          top="$2.5"
+          right="$2.5"
           zIndex={999}
-          bg="$primary500"
           sx={{
             '@md': { display: 'none' },
           }}
         />
         <VStack
-          maxWidth={1280}
           space="md"
           mx="auto"
           w="$full"
@@ -95,9 +118,9 @@ const BannerWithButtonOnAccent = () => {
               rounded="$lg"
               display="none"
               size="xl"
-              bg="$primary600"
-              color="$white"
               sx={{
+                '_light': { color: '$textLight0', bg: '$primary400' },
+                '_dark': { color: '$textDark0', bg: '$primary500' },
                 '@md': { display: 'flex', size: 'lg', mr: '$3' },
               }}
             />
@@ -112,10 +135,21 @@ const BannerWithButtonOnAccent = () => {
                 },
               }}
             >
-              <Text mr="$1" color="$textLight0">
+              <Text
+                mr="$1"
+                sx={{
+                  _light: { color: '$textLight0' },
+                  _dark: { color: '$textDark0' },
+                }}
+              >
                 We are proud to introduce our new product to the world.
               </Text>
-              <Text color="$textLight300">
+              <Text
+                sx={{
+                  _light: { color: '$textLight300' },
+                  _dark: { color: '$textDark200' },
+                }}
+              >
                 Get the full details in our press release.
               </Text>
             </VStack>
@@ -128,14 +162,28 @@ const BannerWithButtonOnAccent = () => {
               w="$full"
               sx={{
                 '@md': { w: 'auto' },
-                ':hover': { bg: '$backgroundLight50' },
-                ':active': { bg: '$backgroundLight100' },
+                '_light': {
+                  'bg': '$backgroundLight0',
+                  ':hover': { bg: '$backgroundLight50' },
+                  ':active': { bg: '$backgroundLight100' },
+                },
+                '_dark': {
+                  'bg': '$backgroundDark0',
+                  ':hover': { bg: '$backgroundDark50' },
+                  ':active': { bg: '$backgroundDark100' },
+                },
               }}
             >
-              <ButtonText color="$primary500">Read More</ButtonText>
+              <ButtonText
+                sx={{
+                  _light: { color: '$primary500' },
+                  _dark: { color: '$primary400' },
+                }}
+              >
+                Read More
+              </ButtonText>
             </Button>
             <CloseButton
-              bg="$primary500"
               sx={{
                 '@md': { display: 'flex' },
               }}

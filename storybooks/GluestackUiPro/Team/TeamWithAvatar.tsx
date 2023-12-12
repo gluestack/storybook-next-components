@@ -73,8 +73,7 @@ const TeamList: React.FC<TeamListProps> = ({ user }) => {
       }}
     >
       <Avatar
-        w="$24"
-        h="$24"
+        size="md"
         sx={{
           '@lg': { w: '$32', h: '$32' },
         }}
@@ -85,10 +84,10 @@ const TeamList: React.FC<TeamListProps> = ({ user }) => {
         </AvatarFallbackText>
       </Avatar>
       <VStack alignItems="center">
-        <Text size="lg" textAlign="center" fontWeight="medium">
+        <Text size="lg" textAlign="center" fontWeight="$medium">
           {user.name}
         </Text>
-        <Text color="$primary500" textAlign="center" fontWeight="light">
+        <Text color="$primary500" textAlign="center" fontWeight="$light">
           {user.designation}
         </Text>
       </VStack>
@@ -96,22 +95,22 @@ const TeamList: React.FC<TeamListProps> = ({ user }) => {
   );
 };
 
-const TeamWithAvatar: React.FC = () => {
+const TeamWithAvatar: React.FC = (_props: any) => {
   return (
     <ScrollView>
       <VStack
         p="$8"
         justifyContent="center"
         alignItems="center"
-        bg="$backgroundLight0"
+        bg="$backgroundLight50"
         space="lg"
         sx={{
           '@md': { py: '$24', px: '$16' },
-          '_dark': { bg: '$backgroundDark950' },
+          '_dark': { bg: '$backgroundDark900' },
         }}
       >
         <VStack alignItems="center" space="md" p="$3">
-          <Text color="$primary500" fontWeight="semibold">
+          <Text color="$primary500" fontWeight="$semibold">
             We're hiring
           </Text>
           <Heading size="3xl" fontWeight="$normal">

@@ -46,7 +46,7 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginProvider = () => {
+const LoginWithEmailOrProvider = (_props: any) => {
   const {
     control,
     handleSubmit,
@@ -127,6 +127,7 @@ const LoginProvider = () => {
         <FormControl
           isInvalid={!!errors?.email || !validated.emailValid}
           mt="$4"
+          w="$full"
         >
           <Controller
             defaultValue=""
@@ -231,10 +232,6 @@ const LoginProvider = () => {
       </VStack>
     </HStack>
   );
-};
-
-const LoginWithEmailOrProvider = () => {
-  return <LoginProvider />;
 };
 
 export default LoginWithEmailOrProvider;

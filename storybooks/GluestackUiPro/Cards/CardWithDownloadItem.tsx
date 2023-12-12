@@ -46,10 +46,11 @@ const DownloadItem = ({ data }: any) => {
           flexDirection: 'row',
           p: '$3.5',
           borderWidth: '$1',
-          borderColor: '$borderDark100',
+
           rounded: '$lg',
+          _light: { borderColor: '$borderLight300' },
           _dark: {
-            borderColor: '$borderDark700',
+            borderColor: '$borderDark600',
           },
         },
       }}
@@ -69,10 +70,10 @@ const DownloadItem = ({ data }: any) => {
           size="lg"
           p="$2"
           rounded="$lg"
-          color="$textLight900"
+          color="$textLight500"
           sx={{
             _dark: {
-              color: '$backgroundLight0',
+              color: '$textDark400',
             },
           }}
         />
@@ -118,17 +119,17 @@ const DownloadItem = ({ data }: any) => {
   );
 };
 
-const MainCard = () => {
+const CardWithDownloadItem = (_props: any) => {
   return (
     <VStack
       m="$4"
       rounded="$lg"
       space="md"
-      bg="$backgroundLight0"
+      bg="$backgroundLight100"
       p="$6"
       sx={{
-        '_dark': { bg: '$backgroundDark950' },
-        'shadowColor': '$gray600',
+        '_dark': { bg: '$backgroundDark800' },
+        'shadowColor': '$backgroundLight800',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
         'elevation': '$20',
@@ -136,15 +137,22 @@ const MainCard = () => {
       }}
     >
       <Box>
-        <Heading fontSize="$lg" m="$0" fontWeight="$medium">
+        <Heading
+          m="$0"
+          sx={{
+            _light: { color: '$textLight900' },
+            _dark: { color: '$textDark0' },
+          }}
+        >
           Invoice
         </Heading>
         <Text
           mt="$0.5"
-          sx={{ _dark: { color: '$backgroundLight0' } }}
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
           fontSize="$sm"
-          fontWeight="$light"
-          color="$gray600"
         >
           Please pay the outstanding amount by the end of the following month.
         </Text>
@@ -154,10 +162,6 @@ const MainCard = () => {
       ))}
     </VStack>
   );
-};
-
-const CardWithDownloadItem = () => {
-  return <MainCard />;
 };
 
 export default CardWithDownloadItem;

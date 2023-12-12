@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from '@gluestack-ui/themed';
 
-const CtaWithImage: FC = () => {
+const CtaWithImage: FC = (_props: any) => {
   const handleBuy = () => {};
 
   return (
@@ -22,7 +22,6 @@ const CtaWithImage: FC = () => {
             bg: '$backgroundDark950',
           },
           shadowColor: '$backgroundLight800',
-          // @ts-ignore
           shadowOffset: {
             width: 0,
             height: 1,

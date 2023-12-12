@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Divider, HStack, Text } from '@gluestack-ui/themed';
 
-const DividerWithText = () => {
+const DividerWithText = (_props: any) => {
   return (
-    <Box alignItems="center" justifyContent="center" pt="$8">
+    <Box alignItems="center" justifyContent="center" pt="$8" px="$12">
       <HStack
         w="$full"
         alignItems="center"
@@ -11,7 +11,7 @@ const DividerWithText = () => {
         overflow="hidden"
       >
         <Divider
-          w={64}
+          flex={1}
           bg="$orange800"
           h={1}
           sx={{
@@ -29,7 +29,7 @@ const DividerWithText = () => {
           5 mins read
         </Text>
         <Divider
-          w={64}
+          flex={1}
           bg="$orange800"
           h={1}
           sx={{

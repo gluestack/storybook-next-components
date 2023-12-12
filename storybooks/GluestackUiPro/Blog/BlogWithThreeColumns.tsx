@@ -119,7 +119,7 @@ const BlogCard: FC<BlogCardProps> = ({
     >
       <VStack>
         <Image
-          height={240}
+          height="$64"
           width="$full"
           source={{
             uri: bannerUri,
@@ -129,14 +129,14 @@ const BlogCard: FC<BlogCardProps> = ({
           }}
         />
 
-        <Text pt="$4" pb="$2" size="sm" fontWeight="$normal">
+        <Text pt="$4" pb="$2" size="sm">
           {publishedDate}
         </Text>
-        <Heading size="md" letterSpacing="$sm" fontStyle="normal">
+        <Heading size="md" letterSpacing="$sm">
           {title}
         </Heading>
 
-        <Text pt="$2" fontSize="$sm" fontStyle="normal" lineHeight="$sm">
+        <Text pt="$2" fontSize="$sm" lineHeight="$sm">
           {description}
         </Text>
       </VStack>
@@ -163,7 +163,7 @@ const BlogCard: FC<BlogCardProps> = ({
   );
 };
 
-const BlogMain: FC = () => {
+const BlogWithThreeColumns: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -185,7 +185,7 @@ const BlogMain: FC = () => {
             <ToastTitle
               sx={{
                 _dark: {
-                  color: '$white',
+                  color: '$textDark100',
                 },
               }}
               textAlign="left"
@@ -210,9 +210,9 @@ const BlogMain: FC = () => {
       <Box
         py="$16"
         px="$8"
-        bg="$backgroundLight0"
+        bg="$backgroundLight50"
         sx={{
-          '_dark': { bg: '$backgroundDark950' },
+          '_dark': { bg: '$backgroundDark900' },
           '@lg': {
             px: '$16',
           },
@@ -229,15 +229,14 @@ const BlogMain: FC = () => {
           }}
         >
           <Text
-            fontStyle="normal"
             fontWeight="$bold"
             fontSize="$sm"
             lineHeight="$xs"
             letterSpacing="$sm"
-            color="$primary600"
+            color="$primary500"
             sx={{
               '_dark': {
-                color: '$primary300',
+                color: '$primary400',
               },
               '@md': {
                 fontSize: '$md',
@@ -345,12 +344,7 @@ const BlogMain: FC = () => {
         </VStack>
 
         <HStack justifyContent="space-between" pb="$4">
-          <Heading
-            fontWeight="$bold"
-            fontStyle="normal"
-            letterSpacing="$sm"
-            size="lg"
-          >
+          <Heading fontWeight="$bold" letterSpacing="$sm" size="lg">
             Recent blog posts
           </Heading>
 
@@ -365,9 +359,7 @@ const BlogMain: FC = () => {
               },
             }}
           >
-            <ButtonText fontSize="$md" fontStyle="normal">
-              See All
-            </ButtonText>
+            <ButtonText fontSize="$md">See All</ButtonText>
             <ButtonIcon as={ArrowRight} size="lg" pl="$1" />
           </Button>
         </HStack>
@@ -377,7 +369,10 @@ const BlogMain: FC = () => {
             '@md': {
               flexDirection: 'row',
             },
+            '_light': { bg: '$backgroundLight100' },
+            '_dark': { bg: '$backgroundDark800' },
           }}
+          p="$4"
         >
           {BLOGS_DATA.map((item, i, arr) => {
             const {
@@ -414,6 +409,8 @@ const BlogMain: FC = () => {
                       '@md': {
                         display: 'flex',
                       },
+                      '_light': { bg: '$backgroundLight300' },
+                      '_dark': { bg: '$backgroundDark600' },
                     }}
                   />
                 )}
@@ -427,6 +424,8 @@ const BlogMain: FC = () => {
                       '@md': {
                         display: 'none',
                       },
+                      '_light': { bg: '$backgroundLight300' },
+                      '_dark': { bg: '$backgroundDark600' },
                     }}
                   />
                 )}
@@ -448,9 +447,7 @@ const BlogMain: FC = () => {
             },
           }}
         >
-          <ButtonText fontSize="$sm" fontStyle="normal">
-            See All
-          </ButtonText>
+          <ButtonText fontSize="$sm">See All</ButtonText>
           <ButtonIcon as={ArrowRight} pl="$1" />
         </Button>
       </Box>
@@ -458,8 +455,4 @@ const BlogMain: FC = () => {
   );
 };
 
-const BlogWithCards: FC = () => {
-  return <BlogMain />;
-};
-
-export default BlogWithCards;
+export default BlogWithThreeColumns;

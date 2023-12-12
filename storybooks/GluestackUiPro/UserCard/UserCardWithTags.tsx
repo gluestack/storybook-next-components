@@ -8,8 +8,13 @@ import {
   GlobeIcon,
   HStack,
   Button,
+  Avatar,
+  AvatarImage,
+  AvatarBadge,
+  ButtonText,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
-import { Calendar, Pencil, ShieldCheck } from 'lucide-react-native';
+import { Calendar, Pencil, CheckCircle } from 'lucide-react-native';
 
 const InterestHolder = ({ title }: any) => {
   return (
@@ -59,14 +64,13 @@ const UserCardWithTags = ({
 }) => {
   return (
     <Box borderRadius="$2xl" py="$12">
-      <Box
+      <VStack
         p="$8"
         display="flex"
-        bg="$backgroundLight0"
-        flexDirection="column"
+        bg="$backgroundLight50"
         sx={{
           '_dark': {
-            bg: '$backgroundDark950',
+            bg: '$backgroundDark900',
           },
           '@md': {
             flexDirection: 'row',
@@ -76,38 +80,28 @@ const UserCardWithTags = ({
           },
         }}
       >
-        <VStack>
-          <Image
-            size="xl"
+        <Avatar size="xl">
+          <AvatarImage
             source={{
               uri: uri,
             }}
-            // @ts-ignore
-            borderRadius="$full"
-            fallbackSource={{
-              uri: fallbackSource,
-            }}
           />
-          <Box
-            borderRadius="$full"
-            bg="$white"
-            position="absolute"
-            p="$1"
-            top="$24"
-            left="$24"
+          <AvatarBadge
+            alignItems="center"
+            justifyContent="center"
+            bg="$backgroundLight50"
             sx={{
               _dark: {
-                bg: '$backgroundDark950',
+                bg: '$backgroundDark900',
+                borderColor: '$backgroundDark900',
               },
             }}
           >
-            <Icon as={ShieldCheck} color="$primary500" size="xl" />
-          </Box>
-        </VStack>
-        <Box
+            <Icon as={CheckCircle} color="$primary500" />
+          </AvatarBadge>
+        </Avatar>
+        <VStack
           flexGrow={1}
-          display="flex"
-          flexDirection="column"
           justifyContent="space-between"
           py="$3"
           px="$0"
@@ -127,8 +121,8 @@ const UserCardWithTags = ({
             </Text>
 
             <Button variant="outline" action="secondary" size="sm">
-              <Icon as={Pencil} color="$backgroundLight500" />
-              <Button.Text>Edit</Button.Text>
+              <ButtonIcon as={Pencil} color="$backgroundLight500" />
+              <ButtonText ml="$2">Edit</ButtonText>
             </Button>
           </Box>
           <VStack space="xs">
@@ -136,10 +130,12 @@ const UserCardWithTags = ({
             <UserDesc iconName={GlobeIcon} desc="Ontario" subdesc="Canada" />
             <UserDesc iconName={Calendar} desc="July" subdesc="2021" />
 
-            <Text fontWeight="$500">Interests</Text>
+            <Text mt="$4" fontWeight="$500">
+              Interests
+            </Text>
             <HStack
               space="sm"
-              py="$1"
+              pt="$2"
               sx={{
                 flexWrap: 'wrap',
               }}
@@ -150,8 +146,8 @@ const UserCardWithTags = ({
               <InterestHolder title="Woman" />
             </HStack>
           </VStack>
-        </Box>
-      </Box>
+        </VStack>
+      </VStack>
     </Box>
   );
 };

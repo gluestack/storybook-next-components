@@ -41,13 +41,7 @@ const Notification = ({ handleClose }: any) => {
       }}
     >
       <HStack flex={1} alignItems="center" p="$4" sx={{ '@sm': { w: 345 } }}>
-        <Avatar
-          // display="none"
-          sx={{ '@sm': { display: 'flex' } }}
-          mr="$3"
-          h="$10"
-          w="$10"
-        >
+        <Avatar sx={{ '@sm': { display: 'flex' } }} mr="$3" h="$10" w="$10">
           <AvatarImage
             source={{
               uri: USER.profile_link,
@@ -84,7 +78,7 @@ const Notification = ({ handleClose }: any) => {
   );
 };
 
-const NotificationMain = () => {
+export const NotificationsWithAvatar = (_props: any) => {
   const toast = useToast();
   const id = 'test-toast';
   const handleClose = () => {
@@ -110,8 +104,4 @@ const NotificationMain = () => {
       </Button>
     </Center>
   );
-};
-
-export const NotificationsWithAvatar = () => {
-  return <NotificationMain />;
 };

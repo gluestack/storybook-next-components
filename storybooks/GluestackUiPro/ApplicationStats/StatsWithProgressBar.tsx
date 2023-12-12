@@ -31,26 +31,26 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
     <VStack
       w="$full"
       mb="$4"
-      bg="$backgroundLight0"
       borderRadius="$lg"
       p="$4"
       sx={{
+        '_light': { bg: '$backgroundLight100' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         '@md': {
           flex: 1,
           mx: '$2',
           p: '$6',
         },
-        'shadowColor': '$backgroundLight800',
-        'shadowOffset': {
-          width: 0,
-          height: 1,
-        },
-        'shadowOpacity': 0.22,
-        'shadowRadius': 2.22,
-        'elevation': 3,
+        // 'shadowColor': '$backgroundLight800',
+        // 'shadowOffset': {
+        //   width: 0,
+        //   height: 1,
+        // },
+        // 'shadowOpacity': 0.22,
+        // 'shadowRadius': 2.22,
+        // 'elevation': 3,
       }}
     >
       <HStack justifyContent="space-between" alignItems="center">
@@ -87,8 +87,7 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
             h="$1"
             w="$1"
             rounded="$full"
-            bg="$primary600"
-            sx={{ _dark: { bg: '$primary400' } }}
+            sx={{ _light: { bg: '$primary500' }, _dark: { bg: '$primary400' } }}
           />
           <Text size="xs" ml="$1.5">
             Monthly Goal
@@ -139,10 +138,10 @@ const stats: Stat[] = [
   },
 ];
 
-const StatsWithProgressBar: FC = () => {
+const StatsWithProgressBar: FC = (_props: any) => {
   return (
     <VStack
-      maxWidth={1280}
+      maxWidth="$full"
       alignItems="center"
       mx="auto"
       w="$full"
@@ -151,7 +150,6 @@ const StatsWithProgressBar: FC = () => {
         '@md': {
           flexDirection: 'row',
           justifyContent: 'space-between',
-          p: '$8',
         },
       }}
     >

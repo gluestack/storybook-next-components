@@ -8,8 +8,9 @@ import {
   HStack,
   VStack,
   ButtonText,
+  ButtonIcon,
+  MessageCircleIcon,
 } from '@gluestack-ui/themed';
-import { MessageCircle } from 'lucide-react-native';
 
 const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
   const handleCloseBtnPress = () => {
@@ -18,31 +19,35 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$backgroundLight0"
       sx={{
         ...sx,
-        ':hover': { bg: '$backgroundLight100' },
-        ':active': { bg: '$backgroundLight200' },
-        '_dark': {
-          'bg': '$backgroundLight950',
-          ':hover': { bg: '$backgroundDark900' },
-          ':active': { bg: '$backgroundDark800' },
+        _light: {
+          'bg': '$backgroundLight100',
+          ':hover': { bg: '$backgroundLight200' },
+          ':active': { bg: '$backgroundLight300' },
+        },
+        _dark: {
+          'bg': '$backgroundLight800',
+          ':hover': { bg: '$backgroundDark700' },
+          ':active': { bg: '$backgroundDark600' },
         },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon
+      <ButtonIcon
         as={CloseIcon}
-        color="$textLight700"
-        sx={{ _dark: { color: '$textDark300' } }}
+        sx={{
+          _light: { color: '$textLight500' },
+          _dark: { color: '$textDark400' },
+        }}
       />
     </Button>
   );
 };
 
-const BannerWithButton = () => {
+const BannerWithButton = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleReadMoreBtnPress = () => {};
@@ -50,21 +55,30 @@ const BannerWithButton = () => {
   return (
     <Box
       p="$4"
-      bg="$backgroundLight0"
       display={isVisible ? 'flex' : 'none'}
       sx={{
+        _light: {
+          bg: '$backgroundLight100',
+          shadowColor: '$backgroundLight900',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          elevation: 3,
+        },
         _dark: {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
+          shadowColor: '$backgroundLight950',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,
+          elevation: 3,
         },
-        shadowColor: '$backgroundLight800',
-        //@ts-ignore
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-        elevation: 3,
       }}
     >
       <CloseButton
@@ -72,15 +86,14 @@ const BannerWithButton = () => {
         position="absolute"
         ml="$2"
         mb="$4"
-        top={10}
-        right={10}
+        top="$2.5"
+        right="$2.5"
         zIndex={999}
         sx={{
           '@md': { display: 'none' },
         }}
       />
       <VStack
-        maxWidth={1280}
         w="$full"
         space="md"
         mx="auto"
@@ -102,18 +115,17 @@ const BannerWithButton = () => {
           }}
         >
           <Icon
-            bg="$backgroundLight50"
-            color="$backgroundDark950"
-            as={MessageCircle}
+            as={MessageCircleIcon}
             p="$3"
             rounded="$lg"
             display="none"
             size="xl"
             sx={{
               '@md': { display: 'flex', size: 'lg', mr: '$3' },
+              '_light': { color: '$textLight500', bg: '$backgroundLight200' },
               '_dark': {
-                color: '$backgroundLight50',
-                bg: '$backgroundDark900',
+                color: '$textDark400',
+                bg: '$backgroundDark700',
               },
             }}
           />
@@ -130,7 +142,12 @@ const BannerWithButton = () => {
             <Text mr="$1">
               We are proud to introduce our new product to the world.
             </Text>
-            <Text color="$textLight500">
+            <Text
+              sx={{
+                _light: { color: '$textLight500' },
+                _dark: { color: '$textDark400' },
+              }}
+            >
               Get the full details in our press release.
             </Text>
           </VStack>

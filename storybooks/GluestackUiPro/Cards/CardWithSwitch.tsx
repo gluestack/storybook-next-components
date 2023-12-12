@@ -34,25 +34,29 @@ const SwitchList = ({ item, index, toggleSwitch }: Props) => {
     <HStack
       alignItems="flex-start"
       borderTopWidth="$1"
-      borderTopColor="$borderDark100"
       pt="$4"
       justifyContent="space-between"
       sx={{
+        _light: {
+          borderTopColor: '$borderLight300',
+        },
         _dark: {
-          borderTopColor: '$borderDark700',
+          borderTopColor: '$borderDark600',
         },
       }}
     >
       <VStack flex={1}>
-        <Heading m="$0" lineHeight={'$md'} fontSize="$sm" fontWeight="$medium">
+        <Heading m="$0" lineHeight="$md" fontSize="$sm" fontWeight="$medium">
           {item.title}
         </Heading>
         <Text
-          sx={{ _dark: { color: '$backgroundLight0' } }}
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
           fontSize="$sm"
           mt="$0.5"
           fontWeight="$light"
-          color="$gray600"
         >
           {item.text}
         </Text>
@@ -62,7 +66,7 @@ const SwitchList = ({ item, index, toggleSwitch }: Props) => {
   );
 };
 
-const CardWithSwitch = () => {
+const CardWithSwitch = (_props: any) => {
   const [data, setData] = useState(INITIAL_DATA);
 
   const toggleSwitch = (index: number) => {
@@ -79,10 +83,10 @@ const CardWithSwitch = () => {
       m="$4"
       rounded="$lg"
       space="md"
-      bg="$backgroundLight0"
       sx={{
-        '_dark': { bg: '$backgroundDark950' },
-        'shadowColor': '$gray600',
+        '_light': { bg: '$backgroundLight100' },
+        '_dark': { bg: '$backgroundDark800' },
+        'shadowColor': '$backgroundLight800',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
         'elevation': '$20',
@@ -90,15 +94,22 @@ const CardWithSwitch = () => {
       }}
     >
       <VStack>
-        <Heading lineHeight="$md" fontSize="$lg" fontWeight="$medium">
+        <Heading
+          lineHeight="$md"
+          sx={{
+            _light: { color: '$textLight900' },
+            _dark: { color: '$textDark0' },
+          }}
+        >
           Notifications
         </Heading>
         <Text
-          sx={{ _dark: { color: '$backgroundLight0' } }}
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
           fontSize="$sm"
           mt="$1"
-          fontWeight="$light"
-          color="$gray600"
         >
           Receive notifications about Gluestack UI updates.
         </Text>

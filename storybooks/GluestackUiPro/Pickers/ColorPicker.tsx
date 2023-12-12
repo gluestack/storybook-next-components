@@ -29,7 +29,7 @@ const colors: ColorType[] = [
   },
 ];
 
-const ColorPicker: React.FC = () => {
+const ColorPicker: React.FC = (_props: any) => {
   const [selectedColor, setSelectedColor] =
     useState<ColorType | undefined>(undefined);
 

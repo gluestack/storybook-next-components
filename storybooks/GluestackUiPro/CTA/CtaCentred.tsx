@@ -7,7 +7,7 @@ import {
   ButtonText,
 } from '@gluestack-ui/themed';
 
-const CtaCentred: FC = () => {
+const CtaCentred: FC = (_props: any) => {
   const handleLearnMore = () => {};
   const handleTrial = () => {};
 
@@ -26,7 +26,6 @@ const CtaCentred: FC = () => {
           p: '$12',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,

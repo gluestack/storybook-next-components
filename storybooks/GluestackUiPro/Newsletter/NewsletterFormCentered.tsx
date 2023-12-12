@@ -13,6 +13,7 @@ import {
   FormControlErrorIcon,
   FormControlErrorText,
   ButtonText,
+  ToastTitle,
 } from '@gluestack-ui/themed';
 import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
@@ -28,7 +29,7 @@ interface FormData {
   email: string;
 }
 
-const Newsletter: FC = () => {
+const NewsletterFormCentered: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -47,7 +48,7 @@ const Newsletter: FC = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success" px="$4">
-            <Toast.Title
+            <ToastTitle
               sx={{
                 _dark: {
                   color: '$white',
@@ -58,7 +59,7 @@ const Newsletter: FC = () => {
               lineHeight="$sm"
             >
               Subscribed Successfully!
-            </Toast.Title>
+            </ToastTitle>
           </Toast>
         );
       },
@@ -84,7 +85,6 @@ const Newsletter: FC = () => {
           bg: '$backgroundDark950',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,
@@ -195,10 +195,6 @@ const Newsletter: FC = () => {
       </FormControl>
     </VStack>
   );
-};
-
-const NewsletterFormCentered: FC = () => {
-  return <Newsletter />;
 };
 
 export default NewsletterFormCentered;

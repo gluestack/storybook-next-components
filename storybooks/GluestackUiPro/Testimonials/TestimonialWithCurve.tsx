@@ -58,26 +58,54 @@ const TESTIMONIAL_DATA = [
     darkBg: '$pink400',
     quotesColor: '$pink200',
   },
+  {
+    id: 2,
+    name: 'Sarah Johnson',
+    designation: 'Marketing Manager, Chat Monkey',
+    profilePic:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    message:
+      'Consectetur adipiscing elit, lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do. Ut enim',
+    heading: 'Chat Monkey',
+    icon: MessageSquareIcon,
+    bg: '$pink600',
+    darkBg: '$pink400',
+    quotesColor: '$pink200',
+  },
+  {
+    id: 2,
+    name: 'Sarah Johnson',
+    designation: 'Marketing Manager, Chat Monkey',
+    profilePic:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    message:
+      'Consectetur adipiscing elit, lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do. Ut enim',
+    heading: 'Chat Monkey',
+    icon: MessageSquareIcon,
+    bg: '$pink600',
+    darkBg: '$pink400',
+    quotesColor: '$pink200',
+  },
 ];
 
 const Card = ({ person }: PersonProps) => {
   return (
     <VStack
       sx={{
-        '@md': { flexBasis: '$1/2' },
+        '@md': { flexBasis: '$9/20', w: '$full' },
+        '@xl': { flexBasis: '$9/20' },
       }}
     >
       <VStack
         space="sm"
-        bg="$backgroundLight0"
+        bg="$backgroundLight50"
         rounded="$xl"
         my="$4"
         overflow="hidden"
         sx={{
           '@md': { m: '$6' },
-          '_dark': { bg: '$backgroundDark950' },
+          '_dark': { bg: '$backgroundDark900' },
           'shadowColor': '$backgroundLight800',
-          //@ts-ignore
           'shadowOffset': {
             width: 0,
             height: 1,
@@ -118,10 +146,8 @@ const Card = ({ person }: PersonProps) => {
           />
         </VStack>
         <VStack
-          //@ts-ignore
-          borderTopRightRadius={'100%'}
-          //@ts-ignore
-          borderTopLeftRadius={'100%'}
+          borderTopRightRadius="$full"
+          borderTopLeftRadius="$full"
           alignItems="center"
           bg={person.bg}
           sx={{ _dark: { bg: person.darkBg } }}
@@ -129,8 +155,8 @@ const Card = ({ person }: PersonProps) => {
           <Avatar transform={[{ translateY: -20 }]}>
             <AvatarImage
               source={{ uri: person.profilePic }}
-              width={'$16'}
-              height={'$16'}
+              width="$16"
+              height="$16"
               borderWidth={5}
               borderColor={person.bg}
               sx={{ _dark: { borderColor: person.darkBg } }}
@@ -156,7 +182,7 @@ const Card = ({ person }: PersonProps) => {
   );
 };
 
-const TestimonialWithCurve = () => {
+const TestimonialWithCurve = (_props: any) => {
   return (
     <ScrollView>
       <VStack
@@ -168,7 +194,7 @@ const TestimonialWithCurve = () => {
         p="$4"
         sx={{
           '@sm': { width: '80%' },
-          '@md': { flexDirection: 'row', flexWrap: 'wrap' },
+          '@md': { flexDirection: 'row', flexWrap: 'wrap', w: '$full' },
           '@lg': {
             p: '$6',
           },

@@ -29,7 +29,7 @@ const RatingComponent = ({ rating }: { rating: number }) => {
           key={index}
           as={StarIcon}
           color={rating > index ? '$primary600' : '$gray400'}
-          fill="currentColor"
+          fill={rating > index ? '$primary600' : '$gray400'}
           size="lg"
         />
       ))}
@@ -37,7 +37,7 @@ const RatingComponent = ({ rating }: { rating: number }) => {
   );
 };
 
-const TestimonialWithImage = () => {
+const TestimonialWithImage = (_props: any) => {
   return (
     <VStack
       w="$full"
@@ -91,9 +91,9 @@ const TestimonialWithImage = () => {
             <Text size="sm">{PERSON.designation}</Text>
           </VStack>
           <Divider
-            width={'$0.5'}
-            minHeight={'$8'}
-            maxHeight={'$full'}
+            width="$0.5"
+            minHeight="$8"
+            maxHeight="$full"
             alignSelf="center"
             borderColor="$borderLight300"
             sx={{ _dark: { borderColor: '$borderDark700' } }}

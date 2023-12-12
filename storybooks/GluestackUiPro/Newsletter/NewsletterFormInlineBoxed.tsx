@@ -30,7 +30,7 @@ interface FormData {
   email: string;
 }
 
-const Newsletter: FC = () => {
+const NewsletterFormInlineBoxed: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -116,7 +116,6 @@ const Newsletter: FC = () => {
             elevation: '$10',
           },
           'shadowColor': '$backgroundLight800',
-          // @ts-ignore
           'shadowOffset': {
             width: 0,
             height: 1,
@@ -258,10 +257,6 @@ const Newsletter: FC = () => {
       </VStack>
     </Box>
   );
-};
-
-const NewsletterFormInlineBoxed: FC = () => {
-  return <Newsletter />;
 };
 
 export default NewsletterFormInlineBoxed;

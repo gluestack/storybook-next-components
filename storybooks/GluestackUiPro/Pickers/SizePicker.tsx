@@ -4,7 +4,7 @@ import { Button, ButtonText, HStack, Text, VStack } from '@gluestack-ui/themed';
 
 const SIZES: number[] = [32, 34, 36, 40];
 
-const SizePicker: React.FC = () => {
+const SizePicker: React.FC = (_props: any) => {
   const [selectedSize, setSelectedSize] = useState<number>(32);
 
   const handleSizeSelection = (size: number) => {

@@ -10,7 +10,7 @@ import {
   HStack,
 } from '@gluestack-ui/themed';
 
-const SectionHeaderWithTwoButtons: FC = () => {
+const SectionHeaderWithTwoButtons: FC = (_props: any) => {
   const handleCreate = () => {};
   const handleInvite = () => {};
 

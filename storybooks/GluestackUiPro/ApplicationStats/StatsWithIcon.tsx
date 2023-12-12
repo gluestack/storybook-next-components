@@ -8,6 +8,7 @@ import {
   Button,
   HStack,
   ButtonText,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 
 import { Users, ThumbsUp, Share2, ArrowRight } from 'lucide-react-native';
@@ -35,11 +36,11 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
       w="$full"
       p="$4"
       my="$3"
-      bg="$backgroundLight0"
       borderRadius="$lg"
       sx={{
+        '_light': { bg: '$backgroundLight100' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         '@md': {
           flex: 1,
@@ -47,14 +48,6 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
           my: '$0',
           mx: '$2',
         },
-        'shadowColor': '$backgroundLight800',
-        'shadowOffset': {
-          width: 0,
-          height: 1,
-        },
-        'shadowOpacity': 0.22,
-        'shadowRadius': 2.22,
-        'elevation': 3,
       }}
     >
       <HStack justifyContent="space-between">
@@ -62,15 +55,19 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
           <Box
             p="$3.5"
             rounded="$full"
-            bg={stat.lightIconBg}
-            sx={{ _dark: { bg: stat.darkIconBg } }}
+            sx={{
+              _light: { bg: stat.lightIconBg },
+              _dark: { bg: stat.darkIconBg },
+            }}
             alignSelf="flex-start"
           >
             <Icon
               as={stat.icon}
-              color={stat.lightIconColor}
               size="lg"
               sx={{
+                _light: {
+                  color: stat.lightIconColor,
+                },
                 _dark: {
                   color: stat.darkIconColor,
                 },
@@ -101,7 +98,7 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
           >
             View Report
           </ButtonText>
-          <Button.Icon as={ArrowRight} w="$3" h="$3" ml="$1" />
+          <ButtonIcon as={ArrowRight} w="$3" h="$3" ml="$1" />
         </Button>
       </HStack>
     </VStack>
@@ -144,10 +141,10 @@ const stats: Stat[] = [
   },
 ];
 
-const StatsWithIcon: FC = () => {
+const StatsWithIcon: FC = (_props: any) => {
   return (
     <VStack
-      maxWidth={1280}
+      maxWidth="$full"
       mx="auto"
       w="$full"
       alignItems="center"
@@ -156,7 +153,6 @@ const StatsWithIcon: FC = () => {
         '@md': {
           flexDirection: 'row',
           justifyContent: 'space-between',
-          p: '$8',
         },
       }}
     >

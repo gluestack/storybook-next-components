@@ -12,7 +12,7 @@ import PageHeaderDescription from './PageHeaderDescription';
 import PageHeaderTrigger from './PageHeaderTrigger';
 import { SearchIcon } from 'lucide-react-native';
 
-const PageHeaderWithSearch = () => {
+const PageHeaderWithSearch = (_props: any) => {
   return (
     <Box
       bg="$backgroundlight0"

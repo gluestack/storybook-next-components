@@ -9,9 +9,10 @@ import {
   AvatarImage,
   BadgeText,
   ButtonText,
+  Heading,
 } from '@gluestack-ui/themed';
 
-const CardHeaderWithAvatar = () => {
+const CardHeaderWithAvatar = (_props: any) => {
   const userData = [
     {
       name: 'Christoph Winston',
@@ -23,12 +24,8 @@ const CardHeaderWithAvatar = () => {
     },
   ];
 
-  const handleContact = () => {
-    // console.log('Card Header Avatar Contact Button Pressed');
-  };
-  const handleMore = () => {
-    // console.log('Card Header Avatar More Button Pressed');
-  };
+  const handleContact = () => {};
+  const handleMore = () => {};
   return (
     <VStack>
       {userData.map((user) => {
@@ -37,20 +34,24 @@ const CardHeaderWithAvatar = () => {
             m="$4"
             justifyContent="space-between"
             alignItems="flex-start"
-            bg="$backgroundLight0"
             p="$6"
             rounded="$lg"
             space="md"
             sx={{
+              '_light': {
+                borderTopColor: '$primary500',
+                bg: '$backgroundLight100',
+              },
               '_dark': {
-                bg: '$backgroundDark950',
+                bg: '$backgroundDark800',
+                borderTopColor: '$primary400',
               },
               '@sm': {
                 m: '$8',
                 flexDirection: 'row',
               },
               'shadowColor': '$backgroundLight800',
-              // @ts-ignore
+
               'shadowOffset': {
                 width: 0,
                 height: 1,
@@ -66,7 +67,6 @@ const CardHeaderWithAvatar = () => {
                   source={{
                     uri: user.uri,
                   }}
-                  // @ts-ignore
                   fallbackSource={{
                     uri: user.fallbackSource,
                   }}
@@ -74,7 +74,14 @@ const CardHeaderWithAvatar = () => {
               </Avatar>
               <VStack space="xs" p="$1" flex={1}>
                 <HStack space="sm">
-                  <Text size="xl">{user.name}</Text>
+                  <Heading
+                    sx={{
+                      _light: { color: '$textLight900' },
+                      _dark: { color: '$textDark0' },
+                    }}
+                  >
+                    {user.name}
+                  </Heading>
                   {user.isVerified && (
                     <Badge>
                       <BadgeText>Verified</BadgeText>
@@ -82,8 +89,10 @@ const CardHeaderWithAvatar = () => {
                   )}
                 </HStack>
                 <Text
-                  color="$textLight400"
-                  sx={{ _dark: { color: '$textDark400' } }}
+                  sx={{
+                    _light: { color: '$textLight400' },
+                    _dark: { color: '$textDark500' },
+                  }}
                 >
                   {user.email}
                 </Text>

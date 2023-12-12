@@ -125,7 +125,7 @@ const TeamList: React.FC<TeamListProps> = ({ user }) => {
               sx={{
                 color: '$backgroundLight600',
               }}
-              fill="currentColor"
+              //fill="currentColor"
               size="lg"
             />
           </Link>
@@ -135,7 +135,7 @@ const TeamList: React.FC<TeamListProps> = ({ user }) => {
   );
 };
 
-const TeamWithInlineHeading = () => {
+const TeamWithInlineHeading = (_props: any) => {
   return (
     <ScrollView>
       <VStack

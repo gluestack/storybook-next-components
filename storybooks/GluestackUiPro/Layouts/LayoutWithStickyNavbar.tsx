@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Box, VStack, Text } from '@gluestack-ui/themed';
 import { ScrollView } from 'react-native';
 
-const LayoutWithStickyNavbar: FC = () => {
+const LayoutWithStickyNavbar: FC = (_props: any) => {
   return (
     <ScrollView stickyHeaderIndices={[0]}>
       <Box bg="$primary500" py="$4" px="$8">

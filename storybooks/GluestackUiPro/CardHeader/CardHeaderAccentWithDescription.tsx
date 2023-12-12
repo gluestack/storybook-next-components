@@ -1,24 +1,23 @@
 import React from 'react';
 import { Text, VStack, Heading } from '@gluestack-ui/themed';
 
-const CardHeaderAccentWithDescription = () => {
+const CardHeaderAccentWithDescription = (_props: any) => {
   return (
     <VStack
       m="$4"
-      bg="$backgroundLight0"
       p="$6"
       space="xs"
       borderTopWidth="$4"
-      borderTopColor="$primary500"
       sx={{
+        '_light': { bg: '$backgroundLight100', borderTopColor: '$primary500' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
+          borderTopColor: '$primary500',
         },
         '@md': {
           m: '$8',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,
@@ -28,8 +27,20 @@ const CardHeaderAccentWithDescription = () => {
         'elevation': 3,
       }}
     >
-      <Heading fontWeight="normal">Member Overview</Heading>
-      <Text size="sm" color="$textLight500">
+      <Heading
+        sx={{
+          _light: { color: '$textLight900' },
+          _dark: { color: '$textDark0' },
+        }}
+      >
+        Member Overview
+      </Heading>
+      <Text
+        sx={{
+          _light: { color: '$textLight400' },
+          _dark: { color: '$textDark500' },
+        }}
+      >
         All registered users in the overview
       </Text>
     </VStack>

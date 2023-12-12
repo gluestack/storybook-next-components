@@ -18,24 +18,16 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
       w="$full"
       mb="$4"
       p="$4"
-      bg="$backgroundLight0"
       borderRadius="$lg"
       sx={{
+        '_light': { bg: '$backgroundLight100' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         '@md': {
           flex: 1,
           mx: '$2',
         },
-        'shadowColor': '$backgroundLight800',
-        'shadowOffset': {
-          width: 0,
-          height: 1,
-        },
-        'shadowOpacity': 0.22,
-        'shadowRadius': 2.22,
-        'elevation': 3,
       }}
     >
       <Text size="sm">{stat.label}</Text>
@@ -68,10 +60,10 @@ const stats: Stat[] = [
   },
 ];
 
-const StatsWithLabel: FC = () => {
+const StatsWithLabel: FC = (_props: any) => {
   return (
     <Box
-      maxWidth={1280}
+      maxWidth="$full"
       mx="auto"
       w="$full"
       flexDirection="row"
@@ -82,7 +74,6 @@ const StatsWithLabel: FC = () => {
         '@md': {
           justifyContent: 'space-between',
           alignItems: 'center',
-          p: '$8',
         },
       }}
     >

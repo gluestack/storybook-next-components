@@ -7,7 +7,7 @@ import {
   ButtonText,
 } from '@gluestack-ui/themed';
 
-const CardHeaderAccentWithButton = () => {
+const CardHeaderAccentWithButton = (_props: any) => {
   const handleInvite = () => {
     // console.log('Card Header Invite Button Pressed');
   };
@@ -16,21 +16,20 @@ const CardHeaderAccentWithButton = () => {
       m="$4"
       alignItems="flex-start"
       justifyContent="space-between"
-      bg="$backgroundLight0"
       p="$6"
       space="md"
       borderTopWidth="$4"
-      borderTopColor="$primary500"
       sx={{
+        '_light': { bg: '$backgroundLight100', borderTopColor: '$primary500' },
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
+          borderTopColor: '$primary400',
         },
         '@sm': {
           m: '$8',
           flexDirection: 'row',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,
@@ -41,8 +40,20 @@ const CardHeaderAccentWithButton = () => {
       }}
     >
       <VStack space="xs">
-        <Heading fontWeight="normal">Member Overview</Heading>
-        <Text size="sm" color="$textLight500">
+        <Heading
+          sx={{
+            _light: { color: '$textLight900' },
+            _dark: { color: '$textDark0' },
+          }}
+        >
+          Member Overview
+        </Heading>
+        <Text
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
+        >
           All registered users in the overview
         </Text>
       </VStack>

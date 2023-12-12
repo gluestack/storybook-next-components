@@ -7,6 +7,7 @@ import LoginWithEmailPasswordOrGoogle from './LoginWithEmailPasswordOrGoogle';
 import LoginWithGradient from './LoginWithGradient';
 import LoginWithFlushedInputs from './LoginWithFlushedInputs';
 import LoginWithLeftBackground from './LoginWithLeftBackground';
+import SignUpForm from './SignUpForm';
 const Authentication: ComponentMeta<typeof LoginWithCentredForm> = {
   title: 'stories/Authentication',
   component: LoginWithCentredForm,
@@ -23,4 +24,5 @@ export {
   LoginWithGradient,
   LoginWithFlushedInputs,
   LoginWithLeftBackground,
+  SignUpForm,
 };

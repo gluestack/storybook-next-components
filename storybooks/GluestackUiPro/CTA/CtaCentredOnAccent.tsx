@@ -7,7 +7,7 @@ import {
   ButtonText,
 } from '@gluestack-ui/themed';
 
-const CtaCentredOnAccent: FC = () => {
+const CtaCentredOnAccent: FC = (_props: any) => {
   const handleLearnMore = () => {};
   const handleTrial = () => {};
 

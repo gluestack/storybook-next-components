@@ -29,12 +29,7 @@ const PageHeaderWithInputAccent = () => {
       <PageHeaderDescription>
         <Text color="$white">Support</Text>
       </PageHeaderDescription>
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-        color="$white"
-      >
+      <Heading mb="$1.5" size="xl" color="$white">
         Welcome to Help Center
       </Heading>
       <PageHeaderDescription>

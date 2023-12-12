@@ -7,6 +7,7 @@ import {
   Icon,
   CloseIcon,
   HStack,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 
 const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
@@ -16,36 +17,39 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$backgroundLight0"
       sx={{
         ...sx,
-        ':hover': { bg: '$backgroundLight100' },
-        ':active': { bg: '$backgroundLight200' },
-        '_dark': {
-          'bg': '$backgroundLight950',
-          ':hover': { bg: '$backgroundDark900' },
-          ':active': { bg: '$backgroundDark800' },
+        _light: {
+          'bg': '$backgroundLight100',
+          ':hover': { bg: '$backgroundLight200' },
+          ':active': { bg: '$backgroundLight300' },
+        },
+        _dark: {
+          'bg': '$backgroundLight800',
+          ':hover': { bg: '$backgroundDark700' },
+          ':active': { bg: '$backgroundDark600' },
         },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon
+      <ButtonIcon
         as={CloseIcon}
-        color="$textLight700"
-        sx={{ _dark: { color: '$textDark300' } }}
+        sx={{
+          _light: { color: '$textLight500' },
+          _dark: { color: '$textDark400' },
+        }}
       />
     </Button>
   );
 };
 
-const BannerWithTextFloating = () => {
+const BannerWithTextFloating = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <Box
-      maxWidth={1280}
       width="$full"
       mx="auto"
       p="$4"
@@ -57,22 +61,30 @@ const BannerWithTextFloating = () => {
       display={isVisible ? 'flex' : 'none'}
     >
       <Box
-        bg="$backgroundLight0"
         rounded="$xl"
         p="$4"
         sx={{
-          shadowColor: '$backgroundLight800',
-          //@ts-ignore
-          shadowOffset: {
-            width: 0,
-            height: 1,
+          _light: {
+            bg: '$backgroundLight100',
+            shadowColor: '$backgroundLight900',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
           },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-          elevation: 3,
-
           _dark: {
-            bg: '$backgroundDark950',
+            bg: '$backgroundDark800',
+            shadowColor: '$backgroundLight950',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
           },
         }}
       >
@@ -81,8 +93,8 @@ const BannerWithTextFloating = () => {
           position="absolute"
           ml="$2"
           mb="$4"
-          top={10}
-          right={10}
+          top="$2.5"
+          right="$2.5"
           zIndex={999}
           sx={{
             '@md': { display: 'none' },
@@ -105,7 +117,12 @@ const BannerWithTextFloating = () => {
               This site uses third-party cookies to track your browsing
               activity.
             </Text>
-            <Text color="$textLight500">
+            <Text
+              sx={{
+                _light: { color: '$textLight500' },
+                _dark: { color: '$textDark400' },
+              }}
+            >
               Learn more about our use of cookies.{' '}
             </Text>
           </VStack>

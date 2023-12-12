@@ -26,11 +26,7 @@ const PageHeaderWithInput = () => {
       <PageHeaderDescription>
         <Text>Support</Text>
       </PageHeaderDescription>
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-      >
+      <Heading mb="$1.5" size="xl">
         Welcome to Help Center
       </Heading>
       <PageHeaderDescription>

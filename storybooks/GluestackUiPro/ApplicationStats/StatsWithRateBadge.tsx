@@ -6,6 +6,8 @@ import {
   VStack,
   Heading,
   HStack,
+  BadgeIcon,
+  BadgeText,
 } from '@gluestack-ui/themed';
 import { PlusIcon, MinusIcon } from 'lucide-react-native';
 
@@ -28,24 +30,16 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
       w="$full"
       mb="$4"
       p="$4"
-      bg="$backgroundLight0"
+      bg="$backgroundLight100"
       borderRadius="$lg"
       sx={{
         '_dark': {
-          bg: '$backgroundDark950',
+          bg: '$backgroundDark800',
         },
         '@md': {
           flex: 1,
           mx: '$2',
         },
-        'shadowColor': '$backgroundLight800',
-        'shadowOffset': {
-          width: 0,
-          height: 1,
-        },
-        'shadowOpacity': 0.22,
-        'shadowRadius': 2.22,
-        'elevation': 3,
       }}
     >
       <Text size="sm">{stat.label}</Text>
@@ -61,14 +55,14 @@ const StatCard: FC<StatCardProps> = ({ stat }) => {
           bgColor="transparent"
           p="$0"
         >
-          <Badge.Icon
+          <BadgeIcon
             as={isPositive ? PlusIcon : MinusIcon}
             size="xs"
             fontWeight="$medium"
           />
-          <Badge.Text fontSize="$xs" lineHeight="$sm" fontWeight="$medium">
+          <BadgeText fontSize="$xs" lineHeight="$sm" fontWeight="$medium">
             {stat.percent}
-          </Badge.Text>
+          </BadgeText>
         </Badge>
         <Text
           fontSize="$xs"
@@ -105,10 +99,10 @@ const stats: Stat[] = [
   },
 ];
 
-const StatsWithRateBadge: FC = () => {
+const StatsWithRateBadge: FC = (_props: any) => {
   return (
     <Box
-      maxWidth={1280}
+      maxWidth='$full'
       mx="auto"
       w="$full"
       flexDirection="row"
@@ -119,7 +113,6 @@ const StatsWithRateBadge: FC = () => {
         '@md': {
           justifyContent: 'space-between',
           alignItems: 'center',
-          p: '$8',
         },
       }}
     >

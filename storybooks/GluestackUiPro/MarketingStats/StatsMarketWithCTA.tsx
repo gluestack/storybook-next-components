@@ -5,6 +5,7 @@ import {
   Icon,
   Image,
   Link,
+  LinkText,
   Text,
   VStack,
 } from '@gluestack-ui/themed';
@@ -129,7 +130,7 @@ const StatCard = ({ index, stat }: StatCard) => {
           href=""
           isExternal
         >
-          <Text
+          <LinkText
             fontWeight="$semibold"
             sx={{
               _dark: {
@@ -139,7 +140,7 @@ const StatCard = ({ index, stat }: StatCard) => {
             color="$primary400"
           >
             {stat.link}
-          </Text>
+          </LinkText>
 
           <Icon as={ArrowRight} color="$primary400" />
         </Link>
@@ -148,7 +149,7 @@ const StatCard = ({ index, stat }: StatCard) => {
   );
 };
 
-const StatsMarketWithCTA = () => {
+const StatsMarketWithCTA = (_props: any) => {
   return (
     <ScrollView>
       <VStack

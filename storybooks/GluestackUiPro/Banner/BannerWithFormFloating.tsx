@@ -15,6 +15,8 @@ import {
   FormControlErrorIcon,
   FormControlErrorText,
   ButtonText,
+  ToastTitle,
+  ButtonIcon,
 } from '@gluestack-ui/themed';
 import { AlertCircle, Mail } from 'lucide-react-native';
 import { useForm, Controller } from 'react-hook-form';
@@ -35,31 +37,35 @@ const CloseButton = ({ setIsVisible, sx, ...props }: any) => {
 
   return (
     <Button
-      bg="$backgroundLight0"
       sx={{
         ...sx,
-        ':hover': { bg: '$backgroundLight100' },
-        ':active': { bg: '$backgroundLight200' },
-        '_dark': {
-          'bg': '$backgroundLight950',
-          ':hover': { bg: '$backgroundDark900' },
-          ':active': { bg: '$backgroundDark800' },
+        _light: {
+          'bg': '$backgroundLight100',
+          ':hover': { bg: '$backgroundLight200' },
+          ':active': { bg: '$backgroundLight300' },
+        },
+        _dark: {
+          'bg': '$backgroundLight800',
+          ':hover': { bg: '$backgroundDark700' },
+          ':active': { bg: '$backgroundDark600' },
         },
       }}
       p="$3"
       onPress={handleCloseBtnPress}
       {...props}
     >
-      <Icon
+      <ButtonIcon
         as={CloseIcon}
-        color="$textLight700"
-        sx={{ _dark: { color: '$textDark300' } }}
+        sx={{
+          _light: { color: '$textLight500' },
+          _dark: { color: '$textDark400' },
+        }}
       />
     </Button>
   );
 };
 
-const BannerWithFormFloatingComp = () => {
+const BannerWithFormFloating = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const toast = useToast();
@@ -78,7 +84,7 @@ const BannerWithFormFloatingComp = () => {
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success">
-            <Toast.Title>Subscribed Successfully!</Toast.Title>
+            <ToastTitle>Subscribed Successfully!</ToastTitle>
           </Toast>
         );
       },
@@ -89,10 +95,8 @@ const BannerWithFormFloatingComp = () => {
     Keyboard.dismiss();
     handleSubmit(onSubmit)();
   };
-
   return (
     <Box
-      maxWidth={1280}
       width="$full"
       mx="auto"
       p="$4"
@@ -108,18 +112,28 @@ const BannerWithFormFloatingComp = () => {
         rounded="$xl"
         bg="$backgroundLight0"
         sx={{
+          _light: {
+            bg: '$backgroundLight100',
+            shadowColor: '$backgroundLight900',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
+          },
           _dark: {
-            bg: '$backgroundDark950',
+            bg: '$backgroundDark800',
+            shadowColor: '$backgroundLight950',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
           },
-          shadowColor: '$backgroundLight800',
-          //@ts-ignore
-          shadowOffset: {
-            width: 0,
-            height: 1,
-          },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-          elevation: 3,
         }}
       >
         <CloseButton
@@ -127,8 +141,8 @@ const BannerWithFormFloatingComp = () => {
           position="absolute"
           ml="$2"
           mb="$4"
-          top={10}
-          right={10}
+          top="$2.5"
+          right="$2.5"
           zIndex={999}
           sx={{
             '@md': { display: 'none' },
@@ -153,8 +167,6 @@ const BannerWithFormFloatingComp = () => {
             }}
           >
             <Icon
-              bg="$backgroundLight50"
-              color="$backgroundDark950"
               as={Mail}
               p="$3"
               rounded="$lg"
@@ -162,9 +174,10 @@ const BannerWithFormFloatingComp = () => {
               size="xl"
               sx={{
                 '@md': { display: 'flex', size: 'lg', mr: '$3' },
+                '_light': { color: '$textLight500', bg: '$backgroundLight200' },
                 '_dark': {
-                  color: '$backgroundLight50',
-                  bg: '$backgroundDark900',
+                  color: '$textDark400',
+                  bg: '$backgroundDark700',
                 },
               }}
             />
@@ -179,7 +192,12 @@ const BannerWithFormFloatingComp = () => {
               }}
             >
               <Text mr="$1">Stay up-to-date with our newsletter.</Text>
-              <Text color="$textLight500">
+              <Text
+                sx={{
+                  _light: { color: '$textLight500' },
+                  _dark: { color: '$textDark400' },
+                }}
+              >
                 Get early access to our product when we launch.
               </Text>
             </VStack>
@@ -258,10 +276,6 @@ const BannerWithFormFloatingComp = () => {
       </Box>
     </Box>
   );
-};
-
-const BannerWithFormFloating = () => {
-  return <BannerWithFormFloatingComp />;
 };
 
 export default BannerWithFormFloating;

@@ -10,7 +10,8 @@ import {
   ButtonText,
 } from '@gluestack-ui/themed';
 
-const MainCard = () => {
+
+const CardWithRightButton = (_props: any) => {
   const toast = useToast();
 
   const handleDownload = () => {
@@ -28,15 +29,15 @@ const MainCard = () => {
   return (
     <Box
       flexDirection="column"
-      bg="$backgroundLight0"
       justifyContent="space-between"
       alignItems="flex-start"
       p="$4"
       m="$4"
       rounded="$lg"
       sx={{
-        '_dark': { bg: '$backgroundDark950' },
-        'shadowColor': '$gray600',
+        '_light': { bg: '$backgroundLight100' },
+        '_dark': { bg: '$backgroundDark800' },
+        'shadowColor': '$backgroundDark800',
         'shadowOpacity': '$10',
         'shadowRadius': '$1',
         'elevation': '$20',
@@ -49,10 +50,23 @@ const MainCard = () => {
       }}
     >
       <Box>
-        <Heading m="$0" fontWeight="$normal">
+        <Heading
+          m="$0"
+          sx={{
+            _light: { color: '$textLight900' },
+            _dark: { color: '$textDark0' },
+          }}
+        >
           Updates Available
         </Heading>
-        <Text size="sm" fontWeight="$light" mt="$1">
+        <Text
+          size="sm"
+          sx={{
+            _light: { color: '$textLight400' },
+            _dark: { color: '$textDark500' },
+          }}
+          mt="$1"
+        >
           A new version is available. Please upgrade for the best experience.
         </Text>
       </Box>
@@ -62,9 +76,6 @@ const MainCard = () => {
       </Button>
     </Box>
   );
-};
-const CardWithRightButton = () => {
-  return <MainCard />;
 };
 
 export default CardWithRightButton;

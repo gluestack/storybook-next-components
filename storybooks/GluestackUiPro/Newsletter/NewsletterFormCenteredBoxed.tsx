@@ -29,7 +29,8 @@ interface FormData {
   email: string;
 }
 
-const Newsletter: FC = () => {
+
+const NewsletterFormCenteredBoxed: FC = (_props: any) => {
   const {
     control,
     reset,
@@ -102,7 +103,6 @@ const Newsletter: FC = () => {
           mx: 'auto',
         },
         'shadowColor': '$backgroundLight800',
-        // @ts-ignore
         'shadowOffset': {
           width: 0,
           height: 1,
@@ -213,10 +213,6 @@ const Newsletter: FC = () => {
       </FormControl>
     </VStack>
   );
-};
-
-const NewsletterFormCenteredBoxed: FC = () => {
-  return <Newsletter />;
 };
 
 export default NewsletterFormCenteredBoxed;

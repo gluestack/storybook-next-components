@@ -53,7 +53,7 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginWithFlushedInputs = () => {
+const LoginWithFlushedInputs = (_props:any) => {
   const toast = useToast();
   const [validated, setValidated] = useState({
     emailValid: true,

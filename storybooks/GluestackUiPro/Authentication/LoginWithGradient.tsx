@@ -48,7 +48,8 @@ const loginSchema = z.object({
 
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
-const LoginComp = () => {
+
+const LoginWithGradient = (_props:any) => {
   const {
     control,
     handleSubmit,
@@ -142,7 +143,10 @@ const LoginComp = () => {
             </ButtonText>
           </Button>
           <Divider my="$2" />
-          <FormControl isInvalid={!!errors?.email || !validated.emailValid}>
+          <FormControl
+            isInvalid={!!errors?.email || !validated.emailValid}
+            w="$full"
+          >
             <Controller
               defaultValue=""
               name="email"
@@ -200,10 +204,6 @@ const LoginComp = () => {
       </HStack>
     </LinearGradient>
   );
-};
-
-const LoginWithGradient = () => {
-  return <LoginComp />;
 };
 
 export default LoginWithGradient;

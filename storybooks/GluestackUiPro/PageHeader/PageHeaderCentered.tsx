@@ -18,11 +18,7 @@ const PageHeaderCentered = () => {
       <PageHeaderDescription>
         <Text>Pricing</Text>
       </PageHeaderDescription>
-      <Heading
-        // TODO to fix once margin issue is resolved
-        mb="$1.5"
-        size="xl"
-      >
+      <Heading mb="$1.5" size="xl">
         Get lifetime access
       </Heading>
       <PageHeaderDescription>

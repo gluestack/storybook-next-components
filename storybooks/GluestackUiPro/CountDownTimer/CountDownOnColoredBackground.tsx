@@ -64,7 +64,7 @@ const getReturnValues = (countDown: number): string[] => {
   return [days, hours, minutes, seconds];
 };
 
-const CountDownOnColoredBackground: FC = () => {
+const CountDownOnColoredBackground: FC = (_props: any) => {
   const [isVisible, setIsVisible] = useState(true);
   const [targetDate, setTargetDate] = useState('2023-06-10');
 
