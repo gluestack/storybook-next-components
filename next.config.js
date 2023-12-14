@@ -34,7 +34,11 @@ const nextConfig = {
       ...(config.resolve.alias || {}),
       // Transform all direct `react-native` imports to `react-native-web`
       'react-native$': 'react-native-web',
-      // '@gluestack-ui/themed': path.resolve(__dirname, 'components'),
+      '@custom-ui/themed': path.join(__dirname, 'packages/themed/src'),
+      '@custom-ui/config': path.join(
+        __dirname,
+        'packages/config/src/gluestack-ui.config.ts'
+      ),
     };
 
     return config;

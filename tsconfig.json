@@ -19,10 +19,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-      // "@gluestack-ui/themed": ["./components"]
+      "@/*": ["./*"],
+      "@custom-ui/themed": ["./packages/themed/src"],
+      "@custom-ui/config": ["./packages/config/src/gluestack-ui.config.ts"]
     }
   },
   "include": [
