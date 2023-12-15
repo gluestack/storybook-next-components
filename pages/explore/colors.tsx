@@ -9,7 +9,7 @@ import {
 } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText } from 'react-native';
-import { GluestackUILogo } from '@/components/logo/GluestackLogo';
+import { GluestackUILogo } from '@/brandAssets/GluestackLogo';
 
 function splitStringAtNumberStart(str: string) {
   const regex = /(\D+)(\d+)/;

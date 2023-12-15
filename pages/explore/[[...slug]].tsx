@@ -11,7 +11,7 @@ import {
   GluestackUIProvider,
 } from '@gluestack-ui/themed';
 import { getAllComponents } from '@/utils/generateCombination';
-import { GluestackUILogo } from '@/components/logo/GluestackLogo';
+import { GluestackUILogo } from '@/brandAssets/GluestackLogo';
 import { config } from '@gluestack-ui/config';
 import { View, Text as RNText, StyleSheet } from 'react-native';
 
