@@ -1,19 +1,11 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import React from 'react';
-import StoryData from '../../storybook-components-to-next.config';
-import {
-  Center,
-  VStack,
-  Heading,
-  Text,
-  HStack,
-  Box,
-  GluestackUIProvider,
-} from '@gluestack-ui/themed';
-import { getAllComponents } from '@/utils/generateCombination';
-import { GluestackUILogo } from '@/brandAssets/GluestackLogo';
-import { config } from '@gluestack-ui/config';
-import { View, Text as RNText, StyleSheet } from 'react-native';
+import React from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import StoryData from "../../storybook-components-to-next.config";
+import { Center, GluestackUIProvider } from "@gluestack-ui/themed";
+import { getAllComponents } from "@/utils/generateCombination";
+import { GluestackUILogo } from "@/brandAssets/GluestackLogo";
+import { config } from "@gluestack-ui/config";
+import { View, Text as RNText, StyleSheet } from "react-native";
 
 interface ExplorePageProps {
   slug: string;
@@ -29,14 +21,28 @@ const ComponentFrame = ({
   colorMode,
 }: any) => {
   return (
-    <VStack p='$4' bg={colorMode === 'light' ? '$white' : '$black'}>
-      <Heading p='$8'>{`${colorMode} mode`.toUpperCase()} </Heading>
+    <View
+      style={{
+        backgroundColor: colorMode === "light" ? "white" : "black",
+        padding: 16,
+        flexDirection: "column",
+      }}
+    >
+      <RNText
+        style={{
+          fontSize: 24,
+          padding: 32,
+          color: colorMode === "light" ? "black" : "white",
+        }}
+      >
+        {`${colorMode} mode`.toUpperCase()}{" "}
+      </RNText>
       <Center>
         {allCombinations.length === 0 && (
           <Story
             dataSet={{
-              'component-props': JSON.stringify({
-                'component-name': component[0],
+              "component-props": JSON.stringify({
+                "component-name": component[0],
                 colorMode: colorMode,
               }),
             }}
@@ -44,17 +50,31 @@ const ComponentFrame = ({
           />
         )}
         {allCombinations.length > 0 && (
-          <VStack p='$4' space='4xl'>
+          <View style={{ padding: 16, gap: 32 }}>
             {Object.keys(clusterOrderSortedCombinations).map(
               (clusterFirstOrder: any) => {
                 let variantSortedCombination =
                   clusterOrderSortedCombinations[clusterFirstOrder];
                 return (
-                  <HStack space='3xl' p='$4'>
-                    {clusterFirstOrder === 'default' ? (
+                  <View
+                    style={{
+                      gap: 16,
+                      padding: 16,
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    {clusterFirstOrder === "default" ? (
                       <></>
                     ) : (
-                      <Heading size='sm'>{clusterFirstOrder}</Heading>
+                      <RNText
+                        style={{
+                          padding: 32,
+                          color: colorMode === "light" ? "black" : "white",
+                        }}
+                      >
+                        {clusterFirstOrder}
+                      </RNText>
                     )}
                     {Object.keys(variantSortedCombination).map(
                       (variantName: any, index) => {
@@ -62,22 +82,27 @@ const ComponentFrame = ({
                           variantSortedCombination[variantName];
 
                         return (
-                          <VStack
-                            space='md'
-                            // alignItems='center'
-                          >
-                            {variantName === 'default' ? (
+                          <View style={{ gap: 16, flexDirection: "column" }}>
+                            {variantName === "default" ? (
                               <></>
                             ) : (
-                              <Heading size='sm'>{variantName}</Heading>
+                              <RNText
+                                style={{
+                                  color:
+                                    colorMode === "light" ? "black" : "white",
+                                }}
+                              >
+                                {variantName}
+                              </RNText>
                             )}
                             {/* <Text bold>{variantName}</Text> */}
-                            {variantName === 'default' ? (
-                              <HStack
-                                // w='$full'
-                                // maxWidth='1200px'
-                                flexWrap='wrap'
-                                space='lg'
+                            {variantName === "default" ? (
+                              <View
+                                style={{
+                                  flexWrap: "wrap",
+                                  gap: 16,
+                                  flexDirection: "row",
+                                }}
                               >
                                 {Array.isArray(stateSortedCombination) &&
                                   stateSortedCombination.map((props: any) => {
@@ -89,30 +114,30 @@ const ComponentFrame = ({
                                     const dataProps: any = {
                                       ...props,
                                     };
-                                    dataProps['component-name'] = component[0];
+                                    dataProps["component-name"] = component[0];
 
                                     state_props.forEach((state: string) => {
                                       if (props[state]) {
                                         isStateComponent = true;
-                                        dataProps['state'] = state;
+                                        dataProps["state"] = state;
                                         delete dataProps[state];
                                       }
                                     });
 
                                     if (
-                                      !dataProps['state'] &&
+                                      !dataProps["state"] &&
                                       isStateComponent
                                     ) {
-                                      dataProps['state'] = 'default';
+                                      dataProps["state"] = "default";
                                     }
 
                                     if (
                                       dataProps.uri &&
-                                      dataProps.uri === 'https://broken.link'
+                                      dataProps.uri === "https://broken.link"
                                     ) {
-                                      dataProps.uri = 'BrokenLink';
+                                      dataProps.uri = "BrokenLink";
                                     } else if (dataProps.uri) {
-                                      dataProps.uri = 'ImageLink';
+                                      dataProps.uri = "ImageLink";
                                     }
 
                                     if (dataProps.as) {
@@ -122,7 +147,7 @@ const ComponentFrame = ({
                                     dataProps.colorMode = colorMode;
 
                                     props.dataSet = {
-                                      'component-props':
+                                      "component-props":
                                         JSON.stringify(dataProps),
                                     };
 
@@ -135,9 +160,11 @@ const ComponentFrame = ({
                                       </Center>
                                     );
                                   })}
-                              </HStack>
+                              </View>
                             ) : (
-                              <VStack space='lg'>
+                              <View
+                                style={{ gap: 16, flexDirection: "column" }}
+                              >
                                 {Array.isArray(stateSortedCombination) &&
                                   stateSortedCombination.map((props: any) => {
                                     props = {
@@ -148,30 +175,30 @@ const ComponentFrame = ({
                                     const dataProps: any = {
                                       ...props,
                                     };
-                                    dataProps['component-name'] = component[0];
+                                    dataProps["component-name"] = component[0];
 
-                                    state_props.forEach((state) => {
+                                    state_props.forEach((state: any) => {
                                       if (props[state]) {
                                         isStateComponent = true;
-                                        dataProps['state'] = state;
+                                        dataProps["state"] = state;
                                         delete dataProps[state];
                                       }
                                     });
 
                                     if (
-                                      !dataProps['state'] &&
+                                      !dataProps["state"] &&
                                       isStateComponent
                                     ) {
-                                      dataProps['state'] = 'default';
+                                      dataProps["state"] = "default";
                                     }
 
                                     if (
                                       dataProps.uri &&
-                                      dataProps.uri === 'https://broken.link'
+                                      dataProps.uri === "https://broken.link"
                                     ) {
-                                      dataProps.uri = 'BrokenLink';
+                                      dataProps.uri = "BrokenLink";
                                     } else if (dataProps.uri) {
-                                      dataProps.uri = 'ImageLink';
+                                      dataProps.uri = "ImageLink";
                                     }
 
                                     if (dataProps.as) {
@@ -181,7 +208,7 @@ const ComponentFrame = ({
                                     dataProps.colorMode = colorMode;
 
                                     props.dataSet = {
-                                      'component-props':
+                                      "component-props":
                                         JSON.stringify(dataProps),
                                     };
 
@@ -194,30 +221,30 @@ const ComponentFrame = ({
                                       </Center>
                                     );
                                   })}
-                              </VStack>
+                              </View>
                             )}
-                          </VStack>
+                          </View>
                         );
                       }
                     )}
-                  </HStack>
+                  </View>
                 );
               }
             )}
-          </VStack>
+          </View>
         )}
       </Center>
-    </VStack>
+    </View>
   );
 };
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
-  if (component === '') {
+  if (component === "") {
     return <div>Append component name</div>;
   }
 
-  const Story = StoryData[component]['story'];
-  const StoryArgs = StoryData[component]['meta'];
+  const Story = StoryData[component]["story"];
+  const StoryArgs = StoryData[component]["meta"];
 
   let {
     allCombinations,
@@ -231,15 +258,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     <View
       style={{
         gap: 32,
-        backgroundColor: '#000000',
+        backgroundColor: "#000000",
       }}
     >
       <View style={{ padding: 48, gap: 22 }}>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <RNText
@@ -247,7 +274,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               fontSize: 48,
               fontWeight: 700,
               lineHeight: 90,
-              color: '#F5F5F5',
+              color: "#F5F5F5",
             }}
           >
             {component[0].toUpperCase()}
@@ -264,7 +291,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               fontSize: 18,
               fontWeight: 400,
               lineHeight: 32,
-              color: '#DBDBDB',
+              color: "#DBDBDB",
             }}
           >
             {metaInfo.componentDescription}
@@ -273,7 +300,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
       </View>
       <View>
         <View style={styles.light}>
-          <GluestackUIProvider config={config} colorMode='light'>
+          <GluestackUIProvider config={config} colorMode="light">
             <ComponentFrame
               allCombinations={allCombinations}
               Story={Story}
@@ -281,15 +308,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               clusterOrderSortedCombinations={clusterOrderSortedCombinations}
               state_props={state_props}
               isStateComponent={isStateComponent}
-              colorMode='light'
+              colorMode="light"
             />
           </GluestackUIProvider>
         </View>
-        {component[0] !== 'Shadow' && (
+        {component[0] !== "Shadow" && (
           <View style={styles.dark}>
             <GluestackUIProvider
               config={config}
-              colorMode='dark'
+              colorMode="dark"
               // @ts-ignore
               _experimentalNestedProvider
             >
@@ -300,7 +327,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
                 clusterOrderSortedCombinations={clusterOrderSortedCombinations}
                 state_props={state_props}
                 isStateComponent={isStateComponent}
-                colorMode='dark'
+                colorMode="dark"
               />
             </GluestackUIProvider>
           </View>
@@ -311,7 +338,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filePaths = ['', ...Object.keys(StoryData)];
+  const filePaths = ["", ...Object.keys(StoryData)];
   const paths: { params: { slug: string[] } }[] = [];
 
   filePaths?.forEach((filename) => {
@@ -332,7 +359,7 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   const { slug } = context.params as { slug: string };
   return {
     props: {
-      slug: slug || '',
+      slug: slug || "",
     },
   };
 };
@@ -342,10 +369,10 @@ export default ExplorePage;
 const styles = StyleSheet.create({
   dark: {
     $$css: true,
-    gs: 'gs gs-dark',
+    gs: "gs gs-dark",
   },
   light: {
     $$css: true,
-    gs: 'gs gs-light',
+    gs: "gs gs-light",
   },
 });
