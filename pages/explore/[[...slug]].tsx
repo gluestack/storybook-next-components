@@ -4,7 +4,7 @@ import StoryData from "../../storybook-components-to-next.config";
 import { Center, GluestackUIProvider } from "@gluestack-ui/themed";
 import { getAllComponents } from "@/utils/generateCombination";
 import { GluestackUILogo } from "@/brandAssets/GluestackLogo";
-import { config } from "@gluestack-ui/config";
+import { config } from "@custom-ui/config";
 import { View, Text as RNText, StyleSheet } from "react-native";
 
 interface ExplorePageProps {
@@ -60,7 +60,7 @@ const ComponentFrame = ({
                     style={{
                       gap: 16,
                       padding: 16,
-                      flexDirection: "row",
+                      // flexDirection: "row",
                       alignItems: "center",
                     }}
                   >
@@ -101,7 +101,7 @@ const ComponentFrame = ({
                                 style={{
                                   flexWrap: "wrap",
                                   gap: 16,
-                                  flexDirection: "row",
+                                  // flexDirection: "row",
                                 }}
                               >
                                 {Array.isArray(stateSortedCombination) &&
