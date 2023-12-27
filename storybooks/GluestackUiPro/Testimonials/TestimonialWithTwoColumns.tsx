@@ -10,7 +10,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import { GluestackLogo, GluestackLogoDark } from '../../../assets/icons/Social';
+import { GluestackLogo, GluestackLogoDark } from '../assets/icons/Social';
 
 type PersonProps = {
   person: {

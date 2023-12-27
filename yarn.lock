@@ -227,6 +227,11 @@
   resolved "https://registry.yarnpkg.com/@gluestack-ui/config/-/config-1.0.0.tgz#58cabadc737d2f65f1cca890cd5f9a1bb6e71fb4"
   integrity sha512-3R3ZMBWQHSqY8w0AnHDj3kGB+FQofVdU921QQLGhmASODOH/79v3v3pBxGkT17TPuXbBmbPQEqGbbKqZSFn0rw==
 
+"@gluestack-ui/config@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/config/-/config-1.0.8.tgz#24cc2f2940be3c069c452d9f92992975f9fce850"
+  integrity sha512-vhlZRB5w6IOTTJDEtpE4d9zblM5A1ycoAzMFw+FoOvZoJYmWyRC+j/zh/h6TKrZZp8FX7S0KEpEAtBGiZp98hw==
+
 "@gluestack-ui/divider@^0.1.5":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/divider/-/divider-0.1.5.tgz#3b68375e5620b2641b07465f599b2ec2259bae83"

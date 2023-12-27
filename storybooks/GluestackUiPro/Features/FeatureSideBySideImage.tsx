@@ -14,7 +14,7 @@ import { RadioIcon, WifiIcon } from 'lucide-react-native';
 import {
   AugmentedRealityIcon,
   RealTimeCollaborationIcon,
-} from '../../../assets/icons/Social';
+} from '../assets/icons/Social';
 
 interface FeatureData {
   id: number;

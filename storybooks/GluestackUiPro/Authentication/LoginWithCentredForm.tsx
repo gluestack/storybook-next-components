@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Keyboard } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FacebookIcon, GoogleIcon } from '../../../assets/icons/Social';
 import { z } from 'zod';
 import {
   Button,
@@ -40,6 +39,7 @@ import {
   GithubIcon,
   TwitterIcon,
 } from 'lucide-react-native';
+import { GoogleIcon } from '../assets/icons/Social';
 
 const USERS = [
   {
@@ -138,7 +138,7 @@ const LoginWithCentredForm = () => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading
           textAlign="center"

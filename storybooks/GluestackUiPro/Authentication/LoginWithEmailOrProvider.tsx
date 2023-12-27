@@ -24,7 +24,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
 import { AlertTriangle, GithubIcon, TwitterIcon } from 'lucide-react-native';
-import { FacebookIcon, GoogleIcon } from '../../../assets/icons/Social';
+import { FacebookIcon, GoogleIcon } from '../assets/icons/Social';
 const USERS = [
   {
     email: 'gabrial@gmail.com',
@@ -112,7 +112,7 @@ const LoginWithEmailOrProvider = (_props: any) => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading
           size="xl"

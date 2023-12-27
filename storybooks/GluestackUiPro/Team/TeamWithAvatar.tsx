@@ -25,37 +25,37 @@ const TEAM_DATA: User[] = [
     id: 0,
     name: 'John Doe',
     designation: 'Co-Founder / CEO',
-    profilePic: require('../../../assets/Team0F.jpeg'),
+    profilePic: require('../assets/Team0F.jpeg'),
   },
   {
     id: 1,
     name: 'Jane Smith',
     designation: 'Co-Founder / CFO',
-    profilePic: require('../../../assets/Team01M.jpeg'),
+    profilePic: require('../assets/Team01M.jpeg'),
   },
   {
     id: 2,
     name: 'David Johnson',
     designation: 'Marketing Manager',
-    profilePic: require('../../../assets/Team02M.jpeg'),
+    profilePic: require('../assets/Team02M.jpeg'),
   },
   {
     id: 3,
     name: 'Sarah Williams',
     designation: 'Manager, Business Relations',
-    profilePic: require('../../../assets/Team03M.jpeg'),
+    profilePic: require('../assets/Team03M.jpeg'),
   },
   {
     id: 4,
     name: 'Michael Brown',
     designation: 'Chief Operating Officer',
-    profilePic: require('../../../assets/Team04F.jpeg'),
+    profilePic: require('../assets/Team04F.jpeg'),
   },
   {
     id: 5,
     name: 'Emily Davis',
     designation: 'Head of Human Resources',
-    profilePic: require('../../../assets/Team05M.jpeg'),
+    profilePic: require('../assets/Team05M.jpeg'),
   },
 ];
 

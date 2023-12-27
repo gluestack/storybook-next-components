@@ -41,7 +41,7 @@ import {
   GoogleIcon,
   QuotesLeftIcon,
   QuotesRightIcon,
-} from '../../../assets/icons/Social';
+} from '../assets/icons/Social';
 import { LinkText } from '@gluestack-ui/themed';
 
 const signUpSchema = z.object({
@@ -65,7 +65,7 @@ const profileDetail = {
   profileQuote: 'What can I say - I fell in love with gluestack-ui pro.',
   profileName: 'Geetanjali Shree',
   profileEmail: 'geetanjalis@geekyants.com',
-  profileImg: require('../../../assets/AuthModule/avatar.jpeg'),
+  profileImg: require('../assets/AuthModule/avatar.jpeg'),
   profileRating: [1, 2, 3, 4, 5],
 };
 
@@ -152,7 +152,7 @@ const SignUpForm = () => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading fontWeight="$medium" size="2xl">
           Create an account

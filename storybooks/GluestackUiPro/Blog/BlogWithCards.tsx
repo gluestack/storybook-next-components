@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import {
   Button,
   HStack,
@@ -21,18 +21,18 @@ import {
   ButtonText,
   ButtonIcon,
   ToastTitle,
-} from '@gluestack-ui/themed';
-import { ScrollView, Keyboard } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { z } from 'zod';
-import { AlertCircle, ArrowRight } from 'lucide-react-native';
-import { zodResolver } from '@hookform/resolvers/zod';
+} from "@gluestack-ui/themed";
+import { ScrollView, Keyboard } from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
+import { AlertCircle, ArrowRight } from "lucide-react-native";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const blogSubscriptionSchema: any = z.object({
   email: z
     .string()
-    .nonempty('Email is required')
-    .email('Invalid email address'),
+    .nonempty("Email is required")
+    .email("Invalid email address"),
 });
 
 interface FormData {
@@ -57,43 +57,43 @@ interface BlogCardProps extends BlogData {
 
 const BLOGS_DATA: BlogData[] = [
   {
-    category: 'Research',
+    category: "Research",
     bannerUri:
-      'https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2831&q=80',
+      "https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2831&q=80",
     userProfileUri:
-      'https://images.unsplash.com/photo-1563807894768-f28bee0d37b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
-    title: 'The Power of Positive Thinking',
+      "https://images.unsplash.com/photo-1563807894768-f28bee0d37b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    title: "The Power of Positive Thinking",
     description:
-      'Discover how the power of positive thinking can transform your life, boost your confidence, and help you overcome challenges. Explore practical tips and techniques to cultivate a positive mindset for greater happiness and success.',
-    username: 'John Smith',
-    publishedDate: 'May 15, 2023',
-    designation: 'Motivational Speaker',
+      "Discover how the power of positive thinking can transform your life, boost your confidence, and help you overcome challenges. Explore practical tips and techniques to cultivate a positive mindset for greater happiness and success.",
+    username: "John Smith",
+    publishedDate: "May 15, 2023",
+    designation: "Motivational Speaker",
   },
   {
-    category: 'Community',
+    category: "Community",
     bannerUri:
-      'https://images.unsplash.com/photo-1587143185764-e7d1c3051308?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+      "https://images.unsplash.com/photo-1587143185764-e7d1c3051308?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     userProfileUri:
-      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
-    title: 'The Science of Happiness',
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    title: "The Science of Happiness",
     description:
-      'Delve into the science behind happiness and explore evidence-based practices. Discover the factors that contribute to long-lasting happiness and strategies to incorporate them into your daily routine.',
-    username: 'Jessica Adams',
-    publishedDate: 'July 28, 2023',
-    designation: 'Psychology Researcher',
+      "Delve into the science behind happiness and explore evidence-based practices. Discover the factors that contribute to long-lasting happiness and strategies to incorporate them into your daily routine.",
+    username: "Jessica Adams",
+    publishedDate: "July 28, 2023",
+    designation: "Psychology Researcher",
   },
   {
-    category: 'Design',
+    category: "Design",
     bannerUri:
-      'https://images.unsplash.com/photo-1568790309276-16462ea4161d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
+      "https://images.unsplash.com/photo-1568790309276-16462ea4161d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     userProfileUri:
-      'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80',
-    title: 'The Key to Productivity',
+      "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80",
+    title: "The Key to Productivity",
     description:
-      'Learn effective time management strategies to optimize your productivity and accomplish more in less time. Explore techniques for prioritization, goal setting, and overcoming common time-wasting habits.',
-    username: 'Sarah Johnson',
-    publishedDate: 'June 2, 2023',
-    designation: 'Productivity Expert',
+      "Learn effective time management strategies to optimize your productivity and accomplish more in less time. Explore techniques for prioritization, goal setting, and overcoming common time-wasting habits.",
+    username: "Sarah Johnson",
+    publishedDate: "June 2, 2023",
+    designation: "Productivity Expert",
   },
 ];
 
@@ -112,31 +112,31 @@ const BlogCard: FC<BlogCardProps> = ({
     <VStack
       justifyContent="space-between"
       p="$5"
-      mt={index > 0 ? '$7' : '$0'}
+      mt={index > 0 ? "$7" : "$0"}
       sx={{
-        '@md': {
-          p: '$3',
-          mr: index < length - 1 ? '$4' : '$0',
-          mt: '$0',
+        "@md": {
+          p: "$3",
+          mr: index < length - 1 ? "$4" : "$0",
+          mt: "$0",
           flex: 1,
         },
-        '@lg': {
-          mr: index < length - 1 ? '$7' : '$0',
-          p: '$5',
+        "@lg": {
+          mr: index < length - 1 ? "$7" : "$0",
+          p: "$5",
         },
-        '_light': { bg: '$backgroundLight100' },
-        '_dark': {
-          bg: '$backgroundDark800',
+        _light: { bg: "$backgroundLight100" },
+        _dark: {
+          bg: "$backgroundDark800",
         },
-        'borderRadius': '$lg',
-        'shadowColor': '$backgroundLight800',
-        'shadowOffset': {
+        borderRadius: "$lg",
+        shadowColor: "$backgroundLight800",
+        shadowOffset: {
           width: 0,
           height: 1,
         },
-        'shadowOpacity': 0.22,
-        'shadowRadius': 2.22,
-        'elevation': 3,
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
       }}
     >
       <VStack>
@@ -147,7 +147,7 @@ const BlogCard: FC<BlogCardProps> = ({
             uri: bannerUri,
           }}
           sx={{
-            borderRadius: '$sm',
+            borderRadius: "$sm",
           }}
         />
 
@@ -203,14 +203,14 @@ const BlogWithCards: FC = (_props: any) => {
     reset();
 
     toast.show({
-      placement: 'top right',
+      placement: "top right",
       render: ({ id }) => {
         return (
           <Toast nativeID={id} variant="accent" action="success" px="$4">
             <ToastTitle
               sx={{
                 _dark: {
-                  color: '$white',
+                  color: "$white",
                 },
               }}
               textAlign="left"
@@ -237,9 +237,9 @@ const BlogWithCards: FC = (_props: any) => {
         px="$8"
         bg="$backgroundLight50"
         sx={{
-          '_dark': { bg: '$backgroundDark900' },
-          '@lg': {
-            px: '$16',
+          _dark: { bg: "$backgroundDark900" },
+          "@lg": {
+            px: "$16",
           },
         }}
       >
@@ -247,8 +247,8 @@ const BlogWithCards: FC = (_props: any) => {
           alignItems="flex-start"
           mb="$20"
           sx={{
-            '@md': {
-              alignItems: 'center',
+            "@md": {
+              alignItems: "center",
             },
           }}
         >
@@ -259,12 +259,12 @@ const BlogWithCards: FC = (_props: any) => {
             letterSpacing="$sm"
             color="$primary600"
             sx={{
-              '_dark': {
-                color: '$primary300',
+              _dark: {
+                color: "$primary300",
               },
-              '@md': {
-                fontSize: '$md',
-                lineHeight: '$lg',
+              "@md": {
+                fontSize: "$md",
+                lineHeight: "$lg",
               },
             }}
           >
@@ -275,10 +275,10 @@ const BlogWithCards: FC = (_props: any) => {
             lineHeight="$3xl"
             pt="$1.5"
             sx={{
-              '@md': {
-                fontSize: '$4xl',
-                lineHeight: '$5xl',
-                pt: '$1',
+              "@md": {
+                fontSize: "$4xl",
+                lineHeight: "$5xl",
+                pt: "$1",
               },
             }}
           >
@@ -290,7 +290,7 @@ const BlogWithCards: FC = (_props: any) => {
             fontSize="$sm"
             lineHeight="$xs"
             sx={{
-              '@md': { fontSize: '$lg', lineHeight: '$xl', pt: '$1' },
+              "@md": { fontSize: "$lg", lineHeight: "$xl", pt: "$1" },
             }}
           >
             Stay informed with our latest blog posts for valuable insights.
@@ -299,7 +299,7 @@ const BlogWithCards: FC = (_props: any) => {
           <FormControl
             w="$full"
             sx={{
-              '@md': {
+              "@md": {
                 maxWidth: 480,
               },
             }}
@@ -308,15 +308,15 @@ const BlogWithCards: FC = (_props: any) => {
             <VStack
               mt="$8"
               sx={{
-                '@md': {
-                  flexDirection: 'row',
+                "@md": {
+                  flexDirection: "row",
                 },
               }}
               space="lg"
             >
               <VStack
                 sx={{
-                  '@md': {
+                  "@md": {
                     flexGrow: 1,
                   },
                 }}
@@ -343,8 +343,8 @@ const BlogWithCards: FC = (_props: any) => {
                   <FormControlErrorIcon as={AlertCircle} size="md" />
                   <FormControlErrorText
                     sx={{
-                      fontSize: '$sm',
-                      lineHeight: '$sm',
+                      fontSize: "$sm",
+                      lineHeight: "$sm",
                     }}
                   >
                     {errors.email && errors.email.message}
@@ -355,8 +355,8 @@ const BlogWithCards: FC = (_props: any) => {
                 onPress={handleSubmit(onSubmit)}
                 ml="$0"
                 sx={{
-                  '@md': {
-                    ml: '$3',
+                  "@md": {
+                    ml: "$3",
                   },
                 }}
               >
@@ -367,11 +367,7 @@ const BlogWithCards: FC = (_props: any) => {
         </VStack>
 
         <HStack justifyContent="space-between" pb="$4">
-          <Heading
-            fontWeight="$bold"
-            letterSpacing="$sm"
-            size="lg"
-          >
+          <Heading fontWeight="$bold" letterSpacing="$sm" size="lg">
             Recent blog posts
           </Heading>
 
@@ -381,22 +377,20 @@ const BlogWithCards: FC = (_props: any) => {
             p="$0"
             display="none"
             sx={{
-              '@md': {
-                display: 'flex',
+              "@md": {
+                display: "flex",
               },
             }}
           >
-            <ButtonText fontSize="$md">
-              See All
-            </ButtonText>
+            <ButtonText fontSize="$md">See All</ButtonText>
             <ButtonIcon as={ArrowRight} size="lg" pl="$1" />
           </Button>
         </HStack>
 
         <Box
           sx={{
-            '@md': {
-              flexDirection: 'row',
+            "@md": {
+              flexDirection: "row",
             },
           }}
         >
@@ -436,14 +430,12 @@ const BlogWithCards: FC = (_props: any) => {
           alignSelf="baseline"
           mt="$4"
           sx={{
-            '@md': {
-              display: 'none',
+            "@md": {
+              display: "none",
             },
           }}
         >
-          <ButtonText fontSize="$sm">
-            See All
-          </ButtonText>
+          <ButtonText fontSize="$sm">See All</ButtonText>
           <ButtonIcon as={ArrowRight} pl="$1" />
         </Button>
       </Box>

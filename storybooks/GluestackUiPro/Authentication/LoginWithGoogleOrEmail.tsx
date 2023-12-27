@@ -22,7 +22,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Keyboard } from 'react-native';
-import { FacebookIcon, GoogleIcon } from '../../../assets/icons/Social';
+import { FacebookIcon, GoogleIcon } from '../assets/icons/Social';
 import { FormControlErrorIcon } from '@gluestack-ui/themed';
 import { AlertTriangle } from 'lucide-react-native';
 
@@ -112,7 +112,7 @@ const LoginWithGoogleOrEmail = (_props: any) => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading
           textAlign="center"

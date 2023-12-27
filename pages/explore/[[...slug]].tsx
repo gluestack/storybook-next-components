@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { GetStaticPaths, GetStaticProps } from 'next';
-import React from 'react';
-import StorybookConfig from '@/storybook.config';
+import { GetStaticPaths, GetStaticProps } from "next";
+import React from "react";
+import StorybookConfig from "@/storybook.config";
 import {
   Center,
   VStack,
@@ -10,10 +10,10 @@ import {
   Image as GluestackImage,
   GluestackUIProvider,
   styled,
-} from '@gluestack-ui/themed';
-import { getAllComponents } from '@/utils/generateCombination';
-import { GluestackUILogo } from '@/storybooks/GluestackUI/logo/GluestackLogo';
-import { View, Text as RNText, StyleSheet } from 'react-native';
+} from "@gluestack-ui/themed";
+import { getAllComponents } from "@/utils/generateCombination";
+import { GluestackUILogo } from "@/storybooks/GluestackUI/logo/GluestackLogo";
+import { View, Text as RNText, StyleSheet } from "react-native";
 
 interface ExplorePageProps {
   slug: string;
@@ -29,15 +29,15 @@ const ComponentFrame = ({
   colorMode,
 }: any) => {
   return (
-    <VStack p='$4' bg={colorMode === 'light' ? '$white' : '$black'}>
-      <Heading p='$8'>{`${colorMode} mode`.toUpperCase()} </Heading>
+    <VStack p="$4" bg={colorMode === "light" ? "$white" : "$black"}>
+      <Heading p="$8">{`${colorMode} mode`.toUpperCase()} </Heading>
       <Center>
         {allCombinations.length === 0 && (
           <Story
             dataSet={{
-              'component-props': JSON.stringify({
+              "component-props": JSON.stringify({
                 isComponent: true,
-                'component-name': component[0],
+                "component-name": component[0],
                 colorMode: colorMode,
               }),
             }}
@@ -45,17 +45,17 @@ const ComponentFrame = ({
           />
         )}
         {allCombinations.length > 0 && (
-          <VStack p='$4' space='4xl'>
+          <VStack p="$4" space="4xl">
             {Object.keys(clusterOrderSortedCombinations).map(
               (clusterFirstOrder: any) => {
                 let variantSortedCombination =
                   clusterOrderSortedCombinations[clusterFirstOrder];
                 return (
-                  <HStack space='3xl' p='$4'>
-                    {clusterFirstOrder === 'default' ? (
+                  <HStack space="3xl" p="$4">
+                    {clusterFirstOrder === "default" ? (
                       <></>
                     ) : (
-                      <Heading size='sm'>{clusterFirstOrder}</Heading>
+                      <Heading size="sm">{clusterFirstOrder}</Heading>
                     )}
                     {Object.keys(variantSortedCombination).map(
                       (variantName: any, index) => {
@@ -63,14 +63,14 @@ const ComponentFrame = ({
                           variantSortedCombination[variantName];
 
                         return (
-                          <VStack space='md'>
-                            {variantName === 'default' ? (
+                          <VStack space="md">
+                            {variantName === "default" ? (
                               <></>
                             ) : (
-                              <Heading size='sm'>{variantName}</Heading>
+                              <Heading size="sm">{variantName}</Heading>
                             )}
-                            {variantName === 'default' ? (
-                              <HStack flexWrap='wrap' space='lg'>
+                            {variantName === "default" ? (
+                              <HStack flexWrap="wrap" space="lg">
                                 {Array.isArray(stateSortedCombination) &&
                                   stateSortedCombination.map((props: any) => {
                                     props = {
@@ -79,30 +79,30 @@ const ComponentFrame = ({
                                     const dataProps: any = {
                                       ...props,
                                     };
-                                    dataProps['component-name'] = component[0];
+                                    dataProps["component-name"] = component[0];
 
                                     state_props.forEach((state: string) => {
                                       if (props[state]) {
                                         isStateComponent = true;
-                                        dataProps['state'] = state;
+                                        dataProps["state"] = state;
                                         delete dataProps[state];
                                       }
                                     });
 
                                     if (
-                                      !dataProps['state'] &&
+                                      !dataProps["state"] &&
                                       isStateComponent
                                     ) {
-                                      dataProps['state'] = 'default';
+                                      dataProps["state"] = "default";
                                     }
 
                                     if (
                                       dataProps.uri &&
-                                      dataProps.uri === 'https://broken.link'
+                                      dataProps.uri === "https://broken.link"
                                     ) {
-                                      dataProps.uri = 'BrokenLink';
+                                      dataProps.uri = "BrokenLink";
                                     } else if (dataProps.uri) {
-                                      dataProps.uri = 'ImageLink';
+                                      dataProps.uri = "ImageLink";
                                     }
 
                                     if (dataProps.as) {
@@ -114,7 +114,7 @@ const ComponentFrame = ({
                                     dataProps.isComponent = true;
 
                                     props.dataSet = {
-                                      'component-props':
+                                      "component-props":
                                         JSON.stringify(dataProps),
                                     };
 
@@ -129,7 +129,7 @@ const ComponentFrame = ({
                                   })}
                               </HStack>
                             ) : (
-                              <VStack space='lg'>
+                              <VStack space="lg">
                                 {Array.isArray(stateSortedCombination) &&
                                   stateSortedCombination.map((props: any) => {
                                     props = {
@@ -138,30 +138,30 @@ const ComponentFrame = ({
                                     const dataProps: any = {
                                       ...props,
                                     };
-                                    dataProps['component-name'] = component[0];
+                                    dataProps["component-name"] = component[0];
 
                                     state_props.forEach((state: any) => {
                                       if (props[state]) {
                                         isStateComponent = true;
-                                        dataProps['state'] = state;
+                                        dataProps["state"] = state;
                                         delete dataProps[state];
                                       }
                                     });
 
                                     if (
-                                      !dataProps['state'] &&
+                                      !dataProps["state"] &&
                                       isStateComponent
                                     ) {
-                                      dataProps['state'] = 'default';
+                                      dataProps["state"] = "default";
                                     }
 
                                     if (
                                       dataProps.uri &&
-                                      dataProps.uri === 'https://broken.link'
+                                      dataProps.uri === "https://broken.link"
                                     ) {
-                                      dataProps.uri = 'BrokenLink';
+                                      dataProps.uri = "BrokenLink";
                                     } else if (dataProps.uri) {
-                                      dataProps.uri = 'ImageLink';
+                                      dataProps.uri = "ImageLink";
                                     }
 
                                     if (dataProps.as) {
@@ -173,7 +173,7 @@ const ComponentFrame = ({
                                     dataProps.isComponent = true;
 
                                     props.dataSet = {
-                                      'component-props':
+                                      "component-props":
                                         JSON.stringify(dataProps),
                                     };
 
@@ -204,23 +204,25 @@ const ComponentFrame = ({
 };
 
 const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
-  if (component === '') {
+  if (component === "") {
     return <div>Append component name</div>;
   }
 
-  const Story = StorybookConfig.StoryData[component]['story'];
+  const Story = StorybookConfig.StoryData[component]["story"];
 
-  if (StorybookConfig.GENERATION_TYPE === 'Screens') {
+  if (StorybookConfig.GENERATION_TYPE === "Screens") {
     return (
       <View>
         <View style={styles.light}>
           <GluestackUIProvider
             config={StorybookConfig.config}
             _experimentalNestedProvider
-            colorMode='light'
+            colorMode="light"
           >
-            <VStack bg='#000' >
-              <Heading p='$8' color="#fff">LIGHT MODE</Heading>
+            <VStack bg="#000">
+              <Heading p="$8" color="#fff">
+                LIGHT MODE
+              </Heading>
               <Story />
             </VStack>
           </GluestackUIProvider>
@@ -228,11 +230,13 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
         <View style={styles.dark}>
           <GluestackUIProvider
             config={StorybookConfig.config}
-            colorMode='dark'
+            colorMode="dark"
             _experimentalNestedProvider
           >
-            <VStack bg='#000' >
-              <Heading p='$8' color="#fff">DARK MODE</Heading>
+            <VStack bg="#000">
+              <Heading p="$8" color="#fff">
+                DARK MODE
+              </Heading>
               <Story />
             </VStack>
           </GluestackUIProvider>
@@ -241,7 +245,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     );
   }
 
-  const StoryArgs = StorybookConfig.StoryData[component]['meta'];
+  const StoryArgs = StorybookConfig.StoryData[component]["meta"];
 
   let {
     allCombinations,
@@ -255,15 +259,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
     <View
       style={{
         gap: 32,
-        backgroundColor: '#000000',
+        backgroundColor: "#000000",
       }}
     >
       <View style={{ padding: 48, gap: 22 }}>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <RNText
@@ -271,7 +275,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               fontSize: 48,
               fontWeight: 700,
               lineHeight: 90,
-              color: '#F5F5F5',
+              color: "#F5F5F5",
             }}
           >
             {component[0].toUpperCase()}
@@ -288,7 +292,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               fontSize: 18,
               fontWeight: 400,
               lineHeight: 32,
-              color: '#DBDBDB',
+              color: "#DBDBDB",
             }}
           >
             {metaInfo.componentDescription}
@@ -300,7 +304,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
           <GluestackUIProvider
             config={StorybookConfig.config}
             _experimentalNestedProvider
-            colorMode='light'
+            colorMode="light"
           >
             <ComponentFrame
               allCombinations={allCombinations}
@@ -309,15 +313,15 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
               clusterOrderSortedCombinations={clusterOrderSortedCombinations}
               state_props={state_props}
               isStateComponent={isStateComponent}
-              colorMode='light'
+              colorMode="light"
             />
           </GluestackUIProvider>
         </View>
-        {component[0] !== 'Shadow' && (
+        {component[0] !== "Shadow" && (
           <View style={styles.dark}>
             <GluestackUIProvider
               config={StorybookConfig.config}
-              colorMode='dark'
+              colorMode="dark"
               _experimentalNestedProvider
             >
               <ComponentFrame
@@ -327,7 +331,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
                 clusterOrderSortedCombinations={clusterOrderSortedCombinations}
                 state_props={state_props}
                 isStateComponent={isStateComponent}
-                colorMode='dark'
+                colorMode="dark"
               />
             </GluestackUIProvider>
           </View>
@@ -338,7 +342,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ slug: component }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filePaths = ['', ...Object.keys(StorybookConfig.StoryData)];
+  const filePaths = ["", ...Object.keys(StorybookConfig.StoryData)];
   const paths: { params: { slug: string[] } }[] = [];
 
   filePaths?.forEach((filename) => {
@@ -359,7 +363,7 @@ export const getStaticProps: GetStaticProps<ExplorePageProps> = async (
   const { slug } = context.params as { slug: string };
   return {
     props: {
-      slug: slug || '',
+      slug: slug || "",
     },
   };
 };
@@ -369,10 +373,10 @@ export default ExplorePage;
 const styles = StyleSheet.create({
   dark: {
     $$css: true,
-    gs: 'gs gs-dark',
+    gs: "gs gs-dark",
   },
   light: {
     $$css: true,
-    gs: 'gs gs-light',
+    gs: "gs gs-light",
   },
 });

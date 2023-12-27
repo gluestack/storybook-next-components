@@ -8,7 +8,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import { CompanyLogo } from '../../../assets/icons/Social';
+import { CompanyLogo } from '../assets/icons/Social';
 
 const PERSON = {
   name: 'David Smith',

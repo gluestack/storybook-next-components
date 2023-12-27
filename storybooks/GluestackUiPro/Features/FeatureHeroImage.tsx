@@ -97,7 +97,7 @@ const FeatureHeroImage: FC = (_props: any) => {
               h: 360,
             },
           }}
-          source={require('../../../assets/FeaturesModule/man-with-vr.png')}
+          source={require('../assets/FeaturesModule/man-with-vr.png')}
         />
       </Box>
     </ScrollView>

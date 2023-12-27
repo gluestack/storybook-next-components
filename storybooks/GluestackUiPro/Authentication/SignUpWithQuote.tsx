@@ -36,7 +36,7 @@ import { Keyboard } from 'react-native';
 import { z } from 'zod';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { GoogleIcon } from '../../../assets/icons/Social';
+import { GoogleIcon } from '../assets/icons/Social';
 
 const signUpSchema = z.object({
   name: z.string().min(3, 'Enter atleast 3 characters'),
@@ -87,7 +87,7 @@ const profileDetail = {
   profileQuote: 'What can I say - I fell in love with Gluestack UI Pro.',
   profileName: 'Geetanjali Shree',
   profileEmail: 'geetanjalis@geekyants.com',
-  profileImg: require('../../../assets/AuthModule/avatar.jpeg'),
+  profileImg: require('../assets/AuthModule/avatar.jpeg'),
   profileRating: [1, 2, 3, 4, 5],
 };
 
@@ -154,7 +154,7 @@ const SignUpWithQuote = (_props: any) => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading fontWeight="$medium" size="2xl">
           Create an account

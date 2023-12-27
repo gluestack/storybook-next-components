@@ -15,7 +15,7 @@ import {
   ScrollView,
 } from '@gluestack-ui/themed';
 import { TwitterIcon } from 'lucide-react-native';
-import { GithubCircleIcon, LinkedInIcon } from '../../../assets/icons/Social';
+import { GithubCircleIcon, LinkedInIcon } from '../assets/icons/Social';
 
 type User = {
   id: number;
@@ -34,7 +34,7 @@ const TEAM_DATA: User[] = [
     id: 0,
     name: 'John Doe',
     designation: 'Co-Founder / CEO',
-    profilePic: require('../../../assets/Team0F.jpeg'),
+    profilePic: require('../assets/Team0F.jpeg'),
     message:
       'I am passionate about leading our team towards success and fostering a culture of innovation.',
   },
@@ -42,7 +42,7 @@ const TEAM_DATA: User[] = [
     id: 1,
     name: 'Jane Smith',
     designation: 'Co-Founder / CEO',
-    profilePic: require('../../../assets/Team01M.jpeg'),
+    profilePic: require('../assets/Team01M.jpeg'),
     message:
       'I believe in empowering our team to reach their full potential for remarkable results.',
   },
@@ -50,7 +50,7 @@ const TEAM_DATA: User[] = [
     id: 2,
     name: 'David Johnson',
     designation: 'Marketing Manager',
-    profilePic: require('../../../assets/Team02M.jpeg'),
+    profilePic: require('../assets/Team02M.jpeg'),
     message:
       'I create compelling marketing strategies that resonate with our target audience.',
   },
@@ -58,7 +58,7 @@ const TEAM_DATA: User[] = [
     id: 3,
     name: 'Sarah Williams',
     designation: 'Manager, Business Relations',
-    profilePic: require('../../../assets/Team03M.jpeg'),
+    profilePic: require('../assets/Team03M.jpeg'),
     message:
       'Building strong relationships with our partners for driving mutual growth and success.',
   },
@@ -66,7 +66,7 @@ const TEAM_DATA: User[] = [
     id: 4,
     name: 'Michael Brown',
     designation: 'Chief Operating Officer',
-    profilePic: require('../../../assets/Team04F.jpeg'),
+    profilePic: require('../assets/Team04F.jpeg'),
     message:
       'I am dedicated to optimizing and ensuring seamless execution of our business strategies.',
   },
@@ -74,7 +74,7 @@ const TEAM_DATA: User[] = [
     id: 5,
     name: 'Emily Davis',
     designation: 'Head of Human Resources',
-    profilePic: require('../../../assets/Team05M.jpeg'),
+    profilePic: require('../assets/Team05M.jpeg'),
     message:
       'My mission is to foster a positive and inclusive work environment for our employees growth.',
   },

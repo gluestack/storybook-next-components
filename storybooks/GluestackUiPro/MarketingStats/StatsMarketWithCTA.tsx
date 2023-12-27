@@ -168,7 +168,7 @@ const StatsMarketWithCTA = (_props: any) => {
         }}
       >
         <Image
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
           h="$16"
           w="$16"
         />

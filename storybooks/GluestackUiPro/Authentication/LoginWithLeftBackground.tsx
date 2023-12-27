@@ -36,7 +36,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AlertTriangle } from 'lucide-react-native';
-import { GoogleIcon } from '../../../assets/icons/Social';
+import { GoogleIcon } from '../assets/icons/Social';
 
 const USERS = [
   {
@@ -62,10 +62,10 @@ const loginSchema = z.object({
 type LoginSchemaType = z.infer<typeof loginSchema>;
 
 const ProfileAvatars = [
-  require('../../../assets/AuthModule/avatar.jpeg'),
-  require('../../../assets/AuthModule/avatar2.jpeg'),
-  require('../../../assets/AuthModule/avatar3.jpeg'),
-  require('../../../assets/AuthModule/avatar4.jpeg'),
+  require('../assets/AuthModule/avatar.jpeg'),
+  require('../assets/AuthModule/avatar2.jpeg'),
+  require('../assets/AuthModule/avatar3.jpeg'),
+  require('../assets/AuthModule/avatar4.jpeg'),
 ];
 
 const LoginWithLeftBackground = (_props: any) => {
@@ -156,7 +156,7 @@ const LoginWithLeftBackground = (_props: any) => {
           <Image
             height="$16"
             width="$16"
-            source={require('../../../assets/GlustackSubstitute.png')}
+            source={require('../assets/GlustackSubstitute.png')}
           />
           <Heading fontWeight="$medium" size="xl" color="$white">
             {formDetails.heading}
@@ -284,7 +284,7 @@ const LoginWithLeftBackground = (_props: any) => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading
           textAlign="center"

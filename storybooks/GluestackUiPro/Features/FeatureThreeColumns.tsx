@@ -11,7 +11,7 @@ import {
   AugmentedRealityIcon,
   RealTimeCollaborationIcon,
   WifiIcon,
-} from '../../../assets/icons/Social';
+} from '../assets/icons/Social';
 
 interface FeatureData {
   id: number;

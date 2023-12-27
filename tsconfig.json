@@ -29,7 +29,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "scripts/generate-screens-config.js"  ],
   "exclude": [
     "node_modules"
   ]

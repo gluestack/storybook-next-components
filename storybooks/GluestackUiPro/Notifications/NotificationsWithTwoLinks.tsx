@@ -80,7 +80,7 @@ const Notification = ({ handleClose }: any) => {
   );
 };
 
-export const NotificationsWithTwoLinks = (_props: any) => {
+export const NotificationsWithTwoLinksAndIconNotificationsWithTwoLinks = (_props: any) => {
   const toast = useToast();
   const id = 'test-toast';
   const handleClose = () => {

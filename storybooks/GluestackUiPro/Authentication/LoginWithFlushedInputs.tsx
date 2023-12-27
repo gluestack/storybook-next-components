@@ -26,7 +26,7 @@ import { z } from 'zod';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Keyboard } from 'react-native';
-import { FacebookIcon, GoogleIcon } from '../../../assets/icons/Social';
+import { FacebookIcon, GoogleIcon } from '../assets/icons/Social';
 import { AlertTriangle } from 'lucide-react-native';
 import { InputField } from '@gluestack-ui/themed';
 
@@ -120,7 +120,7 @@ const LoginWithFlushedInputs = (_props:any) => {
         <Image
           height="$16"
           width="$16"
-          source={require('../../../assets/GlustackSubstitute.png')}
+          source={require('../assets/GlustackSubstitute.png')}
         />
         <Heading
           textAlign="center"

@@ -12,7 +12,7 @@ import {
   AvatarImage,
   AvatarFallbackText,
 } from '@gluestack-ui/themed';
-import { QuotesLeftIcon, QuotesRightIcon } from '../../../assets/icons/Social';
+import { QuotesLeftIcon, QuotesRightIcon } from '../assets/icons/Social';
 
 type PersonProps = {
   person: {
