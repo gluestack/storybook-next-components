@@ -19,14 +19,14 @@ interface Combination {
 }
 
 const STATE_PROPERTIES = [
-  'isHovered',
-  'isPressed',
-  'isFocused',
-  'isFocusVisible',
-  'isDisabled',
-  'isInvalid',
-  'isReadonly',
-  'isRequired',
+  "isHovered",
+  "isPressed",
+  "isFocused",
+  "isFocusVisible",
+  "isDisabled",
+  "isInvalid",
+  "isReadonly",
+  "isRequired",
 ];
 
 function generateCombinations(
@@ -97,11 +97,11 @@ export const getAllComponents = (StoryArgs: any) => {
     metaInfo = {};
   }
   if (!metaInfo.clusteringOrder) {
-    metaInfo.clusteringOrder = ['size', 'variant'];
+    metaInfo.clusteringOrder = ["size", "variant"];
   }
   if (!metaInfo.componentDescription) {
     metaInfo.componentDescription =
-      'This is a component figma-ui-kit for gluestack-ui';
+      "This is a component figma-ui-kit for gluestack-ui";
   }
 
   // Extract Meta info
@@ -136,16 +136,16 @@ export const getAllComponents = (StoryArgs: any) => {
   );
 
   if (Object.keys(clusterOrderSortedCombinations).length === 0) {
-    clusterOrderSortedCombinations['default'] = allCombinations;
+    clusterOrderSortedCombinations["default"] = allCombinations;
     let variantSortedCombinations = groupAllSortedCombinations(
-      clusterOrderSortedCombinations['default'],
+      clusterOrderSortedCombinations["default"],
       metaInfo.clusteringOrder[1]
     );
     if (Object.keys(variantSortedCombinations).length === 0) {
-      clusterOrderSortedCombinations['default'] = {};
-      clusterOrderSortedCombinations['default']['default'] = allCombinations;
+      clusterOrderSortedCombinations["default"] = {};
+      clusterOrderSortedCombinations["default"]["default"] = allCombinations;
     } else {
-      clusterOrderSortedCombinations['default'] = variantSortedCombinations;
+      clusterOrderSortedCombinations["default"] = variantSortedCombinations;
     }
   } else {
     Object.keys(clusterOrderSortedCombinations).forEach((sizeKey) => {
@@ -160,7 +160,7 @@ export const getAllComponents = (StoryArgs: any) => {
           ? [...clusterOrderSortedCombinations[sizeKey]]
           : { ...clusterOrderSortedCombinations[sizeKey] };
         clusterOrderSortedCombinations[sizeKey] = {};
-        clusterOrderSortedCombinations[sizeKey]['default'] = tempSizeCombs;
+        clusterOrderSortedCombinations[sizeKey]["default"] = tempSizeCombs;
       } else {
         clusterOrderSortedCombinations[sizeKey] = variantSortedCombinations;
       }

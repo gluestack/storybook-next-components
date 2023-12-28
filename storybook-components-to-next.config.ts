@@ -1,6 +1,5 @@
-import BadgeMeta from './stories/primitives/Badge/Badge.stories';
-import BadgeStory from './stories/primitives/Badge/Badge';
-
+import BadgeMeta from "./stories/primitives/Badge/Badge.stories";
+import BadgeStory from "./stories/primitives/Badge/Badge";
 
 export default {
   Badge: {

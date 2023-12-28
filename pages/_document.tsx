@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { Html, Head, Main, NextScript } from 'next/document';
+import * as React from "react";
+import { Html, Head, Main, NextScript } from "next/document";
 //@ts-ignore
-import { AppRegistry } from 'react-native-web';
-import { flush } from '@gluestack-style/react';
+import { AppRegistry } from "react-native-web";
+import { flush } from "@gluestack-style/react";
 
 function Document() {
   return (
-    <Html className='gs gs-light' lang='en'>
+    <Html className="gs gs-light" lang="en">
       <Head />
       <body>
         <Main />
@@ -17,8 +17,8 @@ function Document() {
 }
 
 Document.getInitialProps = async ({ renderPage }: any) => {
-  AppRegistry.registerComponent('Main', () => Main);
-  const { getStyleElement } = AppRegistry.getApplication('Main');
+  AppRegistry.registerComponent("Main", () => Main);
+  const { getStyleElement } = AppRegistry.getApplication("Main");
   const page = await renderPage();
   const styles = [getStyleElement(), ...flush()];
   return { ...page, styles: React.Children.toArray(styles) };

@@ -1,6 +1,6 @@
-import DirectoryTree from 'directory-tree';
-import path from 'path';
-let filePaths: string[] = [''];
+import DirectoryTree from "directory-tree";
+import path from "path";
+let filePaths: string[] = [""];
 
 export const getFilePaths = (
   tree: DirectoryTree.DirectoryTree

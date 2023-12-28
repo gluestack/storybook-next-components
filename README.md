@@ -29,9 +29,10 @@ To learn more about Next.js + Gluestack UI template, take a look at the followin
 - [Gluestack Style Documentaion](https://style.gluestack.io/docs/overview/introduction) - learn about the universal styling library that is used in Gluestack-ui
 
 You can check out:
+
 - [the gluestack-ui GitHub repository](https://github.com/gluestack/gluestack-ui)
 - [the gluestack-style GitHub repository](https://github.com/gluestack/gluestack-style)
-Your feedback and contributions are welcome!
+  Your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
