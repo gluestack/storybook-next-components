@@ -1,10 +1,10 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import StoryData from "../../storybook-components-to-next.config";
-import { Center, GluestackUIProvider } from "@gluestack-ui/themed";
+import { Center, GluestackUIProvider } from "@custom-ui/themed";
 import { getAllComponents } from "@/utils/generateCombination";
 import { GluestackUILogo } from "@/brandAssets/GluestackLogo";
-import { config } from "@gluestack-ui/config";
+import { config } from "@custom-ui/config";
 import { View, Text as RNText, StyleSheet } from "react-native";
 
 interface ExplorePageProps {
