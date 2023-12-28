@@ -1,11 +1,11 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const componentsFolderPath = path.join(__dirname, '..', 'components/stories');
+const componentsFolderPath = path.join(__dirname, "..", "stories");
 const outputFilePath = path.join(
   __dirname,
-  '..',
-  'storybook-components-to-next.config.ts'
+  "..",
+  "storybook-components-to-next.config.ts"
 );
 
 generateConfigFile(componentsFolderPath, outputFilePath);
@@ -35,16 +35,16 @@ function generateConfigFile(componentsFolderPath, outputFilePath) {
   const configText = generateConfigText(config);
   fs.writeFileSync(outputFilePath, configText);
 
-  console.log('Generated storybook-to-next.config.ts successfully!');
+  console.log("Generated storybook-to-next.config.ts successfully!");
 }
 
 function generateConfigText(config) {
-  let configText = '';
+  let configText = "";
 
   Object.keys(config).forEach((componentType) => {
     config[componentType].map((componentName) => {
-      const componentMetaPath = `./components/stories/${componentType}/${componentName}/${componentName}.stories`;
-      const componentStoryPath = `./components/stories/${componentType}/${componentName}/${componentName}`;
+      const componentMetaPath = `./stories/${componentType}/${componentName}/${componentName}.stories`;
+      const componentStoryPath = `./stories/${componentType}/${componentName}/${componentName}`;
 
       configText += `import ${componentName}Meta from '${componentMetaPath}';
 import ${componentName}Story from '${componentStoryPath}';
