@@ -60,7 +60,7 @@ const ComponentFrame = ({
                     style={{
                       gap: 16,
                       padding: 16,
-                      flexDirection: "row",
+                      // flexDirection: "row",
                       alignItems: "center",
                     }}
                   >
@@ -101,7 +101,7 @@ const ComponentFrame = ({
                                 style={{
                                   flexWrap: "wrap",
                                   gap: 16,
-                                  flexDirection: "row",
+                                  // flexDirection: "row",
                                 }}
                               >
                                 {Array.isArray(stateSortedCombination) &&
